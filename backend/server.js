@@ -2,9 +2,17 @@ const express = require('express');
 const cors = require('cors');
 const routes = require('./routes/routes');
 const usuarios = require('./models/usuarios');
+const avaliacoes_quartos = require('./models/avaliacoes_quartos');
+const avaliacoes = require('./models/avaliacoes');
+const fotos_quartos = require('./models/fotos_quartos');
+const quartos = require('./models/quartos');
 const cookieParser = require('cookie-parser')
 
 usuarios.sync();
+quartos.sync();
+fotos_quartos.sync();
+avaliacoes.sync();
+avaliacoes_quartos.sync();
 
 const app = express()
 
