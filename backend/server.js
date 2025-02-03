@@ -14,6 +14,7 @@ fotos_quartos.sync();
 avaliacoes.sync();
 avaliacoes_quartos.sync();
 
+
 const app = express()
 
 app.use(cookieParser());

@@ -3,7 +3,7 @@ const database = require('../config/sequelize')
 const { default_type } = require('mime')
 const usuarios = require('./usuarios')
 
-const avaliacoes = database.define('usuarios', {
+const avaliacoes = database.define('avaliacoes', {
     id_avaliacao: {
         type: Sequelize.STRING,
         AllowNUll: false,
@@ -29,11 +29,11 @@ const avaliacoes = database.define('usuarios', {
 });
 
 usuarios.hasMany(avaliacoes, {
-    foreignKey: 'id_quarto'
+    foreignKey: 'cpf'
 })
 
 avaliacoes.belongsTo(usuarios, {
-    foreignKey: 'id_quarto'
+    foreignKey: 'cpf'
 });
 
 

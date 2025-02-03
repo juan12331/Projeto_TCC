@@ -3,7 +3,7 @@ const database = require('../config/sequelize')
 const { default_type } = require('mime')
 const quartos = require('./quartos')
 
-const fotos_quartos = database.define('usuarios', {
+const fotos_quartos = database.define('fotos_quartos', {
     id_foto: {
         type: Sequelize.STRING,
         AllowNUll: false,
