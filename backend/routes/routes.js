@@ -16,6 +16,6 @@ routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf);
 
 routes.delete('/usuarios/:cpf', UsuariosControllers.deleteUsuario);
 
-routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario)
+routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario);
 
 module.exports = routes

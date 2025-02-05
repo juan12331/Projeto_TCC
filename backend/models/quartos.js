@@ -9,27 +9,7 @@ const quartos = database.define('quartos', {
         primaryKey: true,
         unique: true
     },
-    nome: {
-        type: Sequelize.STRING,
-        AllowNUll: false
-    },
-    email : {
-        type: Sequelize.STRING,
-        AllowNUll: false
-    },
-    senha: {
-        type: Sequelize.STRING,
-        AllowNUll: false
-    },
-    papel: {
-        type: Sequelize.ENUM('user', 'adm'),
-        defaultValue: 'user',
-        AllowNUll: false
-    },
-    telefone: {
-        type: Sequelize.STRING(20),
-        AllowNUll: false
-    }
+    
 });
 
 
