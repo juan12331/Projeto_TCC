@@ -6,6 +6,7 @@ const avaliacoes_quartos = require('./models/avaliacoes_quartos');
 const avaliacoes = require('./models/avaliacoes');
 const fotos_quartos = require('./models/fotos_quartos');
 const quartos = require('./models/quartos');
+const reservas = require('./models/reservas')
 const cookieParser = require('cookie-parser')
 
 usuarios.sync();
@@ -13,7 +14,7 @@ quartos.sync();
 fotos_quartos.sync();
 avaliacoes.sync();
 avaliacoes_quartos.sync();
-
+reservas.sync();
 
 const app = express()
 

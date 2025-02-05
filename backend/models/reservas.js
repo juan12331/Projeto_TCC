@@ -38,9 +38,14 @@ reservas.belongsTo(usuarios, {
     foreignKey: 'cpf'
 });
 
-reservas.HasOne(quartos, {
+reservas.hasOne(quartos, {
     foreignKey: 'id_quarto'
 });
+
+quartos.belongsTo(reservas, {
+    foreignKey: 'id_quarto'
+});
+
 
 
 
