@@ -13,11 +13,19 @@ const reservas = database.define('reservas', {
     },
     cpf: {
         type: Sequelize.STRING,
-        AllowNUll: false
+        AllowNUll: false,
+        references: {
+            model: usuarios,
+            key: 'cpf'
+        },
     },
-    id_quarto : {
+    id_quarto: {
         type: Sequelize.STRING,
-        AllowNUll: false
+        AllowNUll: false,
+        references: {
+            model: quartos,
+            key: 'id_quarto'
+        },
     },
     data_inicio: {
         type: Sequelize.DATE,
