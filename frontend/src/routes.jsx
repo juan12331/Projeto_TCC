@@ -2,13 +2,13 @@
 import { Route, Routes } from "react-router-dom";
 
 //rotas dos administradores
-import Users from "../src/pages/user/cadastro/cadastro.jsx";
+// import Users from "../src/pages/user/cadastro/cadastro.jsx";
 
 
 //Rotas dos usuarios
-import Users from "../src/pages/user/cadastro/cadastro.jsx";
-import Pagina_inicial from "../src/pages/user/login/pagina_inicial.jsx";
-import Login from "../src/pages/user/login/login.jsx";
+import Cadastro from "./pages/user/cadastro/cadastro.jsx";
+// import Paginainicial from "./pages/user/pagina_inicial/pagina_inicial.jsx";
+import Login from "./pages/user/login/login.jsx";
 
 
 
@@ -19,13 +19,13 @@ function MainRoutes() {
   return (
     <Routes>
       {/* Adm routes */}
-      <Route path="/Adm/Users" element={<Users />} />
+      {/* <Route path="/Adm/Users" element={<Users />} /> */}
 
 
       {/* User Routes */}
-      <Route path="/Cadastro" element={<Create />} />
-      <Route path="/" element={<Pagina_inicial />} />
-      <Route path="/Cadastro" element={<Login />} />
+      <Route path="/Cadastro" element={<Cadastro />} />
+      {/* <Route path="/" element={<Paginainicial />} /> */}
+      <Route path="/login" element={<Login />} />
 
     </Routes>
   );
