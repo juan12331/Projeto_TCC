@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
-// import Paginainicial from "./pages/user/pagina_inicial/pagina_inicial.jsx";
+import Pagina from "./pages/user/pagina_inicial/pagina_inicial.jsx";
 import Login from "./pages/user/login/login.jsx";
 
 
@@ -24,7 +24,7 @@ function MainRoutes() {
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Cadastro />} />
-      {/* <Route path="/" element={<Paginainicial />} /> */}
+      <Route path="/" element={<Pagina />} />
       <Route path="/login" element={<Login />} />
 
     </Routes>
