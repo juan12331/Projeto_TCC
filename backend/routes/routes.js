@@ -12,4 +12,10 @@ const ReservasControllers = require('../controllers/reservas')
 routes.post('/login', UsuariosControllers.login);
 routes.post('/usuarios', UsuariosControllers.createUsuario);
 
+routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf);
+
+routes.delete('/usuarios/:cpf', UsuariosControllers.deleteUsuario);
+
+routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario)
+
 module.exports = routes
