@@ -16,7 +16,7 @@ quartos.sync();
 fotos_quartos.sync();
 avaliacoes.sync();
 avaliacoes_quartos.sync();
-// reservas.sync();
+ reservas.sync();
 
 
 const app = express()
