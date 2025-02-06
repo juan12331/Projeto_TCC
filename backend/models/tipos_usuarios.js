@@ -7,9 +7,10 @@ const tipos_usuarios = database.define('tipos_usuarios', {
         type: Sequelize.STRING,
         AllowNUll: false,
         primaryKey: true,
-        unique: true
+        unique: true,
+        AutoIncrement: true
     },
-    permissão: {
+    permissao: {
         type: Sequelize.STRING,
         AllowNUll: false
     },

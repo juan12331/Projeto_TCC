@@ -26,10 +26,10 @@ const usuarios = database.define('usuarios', {
         type: Sequelize.STRING,
         defaultValue: '1',
         AllowNUll: false,
-        // references: {
-        //     model: tipos_usuarios,
-        //     key: 'id_tipo'
-        // },
+         references: {
+            model: tipos_usuarios,
+            key: 'id_tipo'
+         },
     },
     telefone: {
         type: Sequelize.STRING(20),
@@ -38,13 +38,13 @@ const usuarios = database.define('usuarios', {
 
 });
 
-// tipos_usuarios.hasOne(usuarios, {
-//     foreignKey: 'id_tipo'
-// })
+ tipos_usuarios.hasOne(usuarios, {
+    foreignKey: 'id_tipo'
+ })
 
-// usuarios.belongsTo(tipos_usuarios, {
-//     foreignKey: 'id_tipo'
-// });
+ usuarios.belongsTo(tipos_usuarios, {
+     foreignKey: 'id_tipo'
+ });
 
 
 module.exports = usuarios
