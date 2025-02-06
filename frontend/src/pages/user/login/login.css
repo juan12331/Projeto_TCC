@@ -5,40 +5,47 @@ html{
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0vh;
+    padding: 0vh;
 }
 
 body {
-    margin: 0px;
+    margin: 0vh;
     height: 100vh;
-    padding: 0px;
+    padding: 0vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .fundo { 
-  width: 450px;
-  height: 75vh;
+  width: 90vh;
+  height: 55vh;
   background-color: rgba(0, 0, 0, 0.63); 
-  padding: 40px;
-  border-radius: 20px;
+  padding: 8vh;
+  border-radius: 5vh;
   justify-content: center;
 }
 
+.back-arrow{
+  
+}
+
 .logo_login {
-  width: 330px; 
+  width: 40vh; 
   height: auto;     
+  margin-bottom: 4vh;
 }
 
 h1{ 
   margin: 0;
   padding: 0;
-  font-family: Kreon;
-  color: #CCAA6B
+  font-family: 'Kreon';
+  font-size: 7vh;
+  font-weight: 300;
+  color: #CCAA6B;
+  margin-bottom: 3vh;
 } 
-/* IMPORTAR FONTES - Kreon e Katibeh */
 
 form {
   display: flex;
@@ -51,4 +58,36 @@ form {
 .container {
   display: flex;
   justify-content: center;
+}
+
+button {
+  color: white;
+  background-color: #712122;
+  border-radius: 2vh;
+  font-family: 'Katibeh';
+  border: none;
+  width: 15vh;
+  height: 5vh;
+}
+
+.signup-link, a {
+  color: white;
+  font-family: 'Katibeh';
+  font-size: 2vh;
+  margin-top: 3vh;
+}
+
+input {
+  background-color: #d2ae6fc5;
+  border-radius: 2vh;
+  text-align: center; 
+  margin-bottom: 2vh;
+  border: none;
+  width: 40vh;
+  height: 5vh;
+}
+
+input::placeholder {
+  color: #fffbfb; 
+  font-family: 'Katibeh';
 }

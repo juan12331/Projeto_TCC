@@ -4,28 +4,23 @@ import "./login.css";
 const Login = () => {
     return (
 <>
+    <div className="back-arrow"></div>  
       <div className="fundo">
-      <p>
         <div className="container">
           <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
         </div>
-        </p>
         <form>
-          <h1>Login</h1>
-          <p>
+          <h1>LOGIN</h1>
           <div>
-            <input type="email" placeholder="E-mail" />
+            <input type="email" placeholder="EMAIL" />
           </div>
-          </p>
           <div>
-            <input type="password" placeholder="Senha" />
+            <input type="password" placeholder="SENHA" />
           </div>
+          <button>ENTRAR</button>
           <div className="signup-link">
-            <p>
-              Não tem login? <a href="#">Cadastra-se</a>
-            </p>
+              Não tem login? <a href="#">Cadastre-se</a>
           </div>
-          <button>Entrar</button>
         </form>
       </div>
 </>
