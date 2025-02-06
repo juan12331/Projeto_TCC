@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .contato-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+  }
+  
+  .contato-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contato-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .contato-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .fale-conosco-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #7F2727;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .fale-conosco-button:hover {
+    background-color: #6a1f1f;
+  }
+  
+  .avaliacoes-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avaliacoes-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .avaliacoes-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .avaliacoes-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-field {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .textarea-field {
+    height: 150px;
+    resize: none;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #7F2727;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #6a1f1f;
+  }
