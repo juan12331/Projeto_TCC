@@ -4,7 +4,6 @@ import "./login.css";
 const Login = () => {
     return (
 <>
-    <div className="back-arrow"></div>  
       <div className="fundo">
         <div className="container">
           <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
