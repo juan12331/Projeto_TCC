@@ -1,5 +1,5 @@
 html{
-    background-image: url('./src/assets/background_login.png'); 
+    background-image: url('/src/assets/background_login.png'); 
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,14 +11,44 @@ html{
 
 body {
     margin: 0px;
+    height: 100vh;
     padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-  .circulo {
-    background-image: url("/src/assets/circulo_login.png");
-  width: 100px; 
-  height: 100px;
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  }
+.fundo { 
+  width: 450px;
+  height: 75vh;
+  background-color: rgba(0, 0, 0, 0.521); 
+  padding: 40px;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.logo_login {
+  width: 350px; 
+  height: auto;     
+}
+
+h1{ 
+  margin: 0;
+  padding: 0;
+  font-family: Kreon;
+  color: #CCAA6B
+} 
+/* IMPORTAR FONTES - Kreon e Katibeh */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
