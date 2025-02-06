@@ -1,0 +1,76 @@
+.cadastro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('src/assets/fundocad.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+
+.cadastro-box {
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto com 70% de opacidade */
+  backdrop-filter: blur(50%); /* Efeito de desfoque de 30% */
+  border-radius: 20px;
+  padding: 3rem; /* Espaçamento interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%; /* Largura total */
+  max-width: 600px; /* Largura máxima da caixa */
+}
+
+.logo {
+  width: 300px;
+  margin: 0 auto 1rem;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #D2AD6F;
+  border-radius: 50%;
+}
+
+.input-field {
+  display: block;
+  width: 50%; /* Largura dos campos de entrada */
+  margin: 0.9rem auto; /* Centraliza os campos de entrada */
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255, 0.8); /* Fundo com a cor #D2AD6F e 70% de opacidade */
+  color: #5C4C30; /* Cor do texto digitado */
+}
+
+/* Estilo para o placeholder */
+.input-field::placeholder {
+  color: #5C4C30; /* Cor do placeholder branca */
+  opacity: 1; /* Garante que a cor seja totalmente branca */
+}
+
+.submit-button {
+  display: block;
+  width: 30%; /* Largura do botão */
+  margin: 1.1rem auto; /* Centraliza o botão */
+  padding: 0.75rem;
+  background-color: #7F2727;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #7F2727;
+}

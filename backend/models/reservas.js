@@ -23,8 +23,8 @@ const reservas = database.define('reservas', {
         type: Sequelize.STRING,
         AllowNUll: false,
         references: {
-            model: quartos,
-            key: 'id_quarto'
+           model: quartos,
+           key: 'id_quarto'
         },
     },
     data_inicio: {
@@ -46,13 +46,14 @@ reservas.belongsTo(usuarios, {
     foreignKey: 'cpf'
 });
 
-reservas.hasOne(quartos, {
-    foreignKey: 'id_quarto'
-});
+ quartos.hasOne(reservas, {
+ foreignKey: 'id_quarto'
 
-quartos.belongsTo(reservas, {
-    foreignKey: 'id_quarto'
-});
+ });
+
+  reservas.belongsTo(quartos, {
+     foreignKey: 'id_quarto'
+  });
 
 
 
