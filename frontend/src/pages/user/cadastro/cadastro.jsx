@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import "./Cadastro.css";
 
@@ -26,14 +25,6 @@ function Cadastro() {
 }
 
 export default Cadastro;
-=======
 import React from 'react'
 
-const cadastro = () => {
-  return (
-    <></>
-  )
-}
 
-export default cadastro
->>>>>>> 60f0637d0fa809813c974e9d5acbf7d85af4c515
