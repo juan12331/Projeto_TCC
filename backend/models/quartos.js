@@ -13,6 +13,14 @@ const quartos = database.define('quartos', {
         type: Sequelize.STRING,
         AllowNUll: false,
     },
+    preco: {
+        type: Sequelize.DECIMAL,
+        AllowNUll: false
+    },
+    descricao: {
+        type: Sequelize.STRING(500),
+        AllowNUll: false
+    }
     
 });
 

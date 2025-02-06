@@ -1,4 +1,4 @@
-const { Op, ConnectionAcquireTimeoutError } = require('sequelize');
+const { Op  } = require('sequelize');
 const TiposUsuarios = require('../models/tipos_usuarios');
 const tipos_usuarios = require('../models/tipos_usuarios');
 
