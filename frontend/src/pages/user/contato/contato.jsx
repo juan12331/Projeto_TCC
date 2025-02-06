@@ -1,5 +1,5 @@
 import React from "react";
-import "./Contato.css";
+import "./contato.css";
 
 function Contato() {
   return (
