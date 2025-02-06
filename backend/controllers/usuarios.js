@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 const Usuarios = require('../models/usuarios');
+const tipos_usuarios = require('../models/tipos_usuarios');
 
 exports.createUsuario = async (req, res) => {
     try {
@@ -31,10 +32,11 @@ exports.login = async (req, res) => {
 
 exports.getUsersByCpf = async (req, res) => {
     try {
-        const encontrarUsuario = await Usuarios.findByPk(req.params.cpf);
+        const encontrarUsuario = await Usuarios.findByPk(req.params.cpf, { include: tipos_usuarios });
         if (!encontrarUsuario) {
             return res.status(404).send('Usuario not found');
         }
+
         return res.send(encontrarUsuario);
     } catch (error) {
         return res.status(500).send('Internal Server Error');
