@@ -1,12 +1,11 @@
 import React from "react";
 import "./login.css";
 
-
 const Login = () => {
     return (
 <>
+    <div className="circulo" style={{ backgroundImage: `url(${circulo})` }}></div>
 
-<h1>ola</h1>
 </>
     );
   };
