@@ -7,6 +7,7 @@ const Avaliacoes_quartosControllers = require('../controllers/avaliacoes_quartos
 const Fotos_quartosControllers = require('../controllers/fotos_quartos');
 const ReservasControllers = require('../controllers/reservas');
 const TiposUsuariosControllers = require('../controllers/tipos_usuarios');
+const QuartosControllers = require('../controllers/quartos')
 
 // função dos usuarios
 
@@ -31,6 +32,12 @@ routes.delete('/tiposusuarios/:id_tipo', TiposUsuariosControllers.deleteTiposUsu
 
 routes.post('/fotosquartos', Fotos_quartosControllers.AdicionarFoto);
 
-routes.delete('/fotosquartos', Fotos_quartosControllers.ApagarFoto);
+routes.delete('/fotosquartos/:id_foto', Fotos_quartosControllers.ApagarFoto);
+
+// rotas quartos
+
+routes.post('/quartos', QuartosControllers.createQuarto);
+
+routes.delete('/quartos/:id_quarto', QuartosControllers.deleteQuarto);
 
 module.exports = routes

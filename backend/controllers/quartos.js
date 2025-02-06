@@ -3,15 +3,25 @@ const Quartos = require('../models/quartos');
 
 exports.createQuarto = async (req, res) => {
     try {
-        const verificacao = await Usuarios.findByPk(req.params.cpf);
+        const verificacao = await Quartos.findByPk(req.params.id_quarto);
         if (verificacao) {
-            return res.send('usuario ja foi cadastrado')
+            return res.send('quarto ja foi cadastrado')
         }
 
-        const usuarioCriado = await Usuarios.create(req.body)
-        console.log(usuarioCriado)
-        return res.send('usuario cadastrado com sucesso')
+        const quartoCriado = await Quartos.create(req.body)
+        console.log(quartoCriado)
+        return res.send('quarto cadastrado com sucesso')
     } catch (err) {
         return res.status(403).send('erro')
+    }
+}
+
+exports.deleteQuarto = async (req, res) => {
+    const encontrarQuarto = await Quartos.findOne({ where: { id_quarto: req.params.id_quarto } })
+    try {
+        await encontrarQuarto.destroy();
+        return res.send('Quarto deletado')
+    } catch (err) {
+        return res.send('erro ==>', err)
     }
 }
