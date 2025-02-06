@@ -27,4 +27,10 @@ routes.get('/tiposusuarios', TiposUsuariosControllers.getTiposUsuarios);
 
 routes.delete('/tiposusuarios/:id_tipo', TiposUsuariosControllers.deleteTiposUsuarios);
 
+// rotas Fotos_Quartos
+
+routes.post('/fotosquartos', Fotos_quartosControllers.AdicionarFoto);
+
+routes.delete('/fotosquartos', Fotos_quartosControllers.ApagarFoto);
+
 module.exports = routes
