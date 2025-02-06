@@ -13,3 +13,12 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
+  .circulo {
+    background-image: url("/src/assets/circulo_login.png");
+  width: 100px; 
+  height: 100px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  }
