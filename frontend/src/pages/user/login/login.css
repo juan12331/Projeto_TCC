@@ -21,14 +21,14 @@ body {
 .fundo { 
   width: 450px;
   height: 75vh;
-  background-color: rgba(0, 0, 0, 0.521); 
+  background-color: rgba(0, 0, 0, 0.63); 
   padding: 40px;
   border-radius: 20px;
   justify-content: center;
 }
 
 .logo_login {
-  width: 350px; 
+  width: 330px; 
   height: auto;     
 }
 
