@@ -2,27 +2,18 @@ const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime')
 
-const quartos = database.define('quartos', {
-    id_quarto: {
+const tipos_usuarios = database.define('tipos_usuarios', {
+    id_tipo: {
         type: Sequelize.STRING,
         AllowNUll: false,
         primaryKey: true,
-        unique: true
+        unique: true,
+        AutoIncrement: true
     },
-    nome: {
+    permissao: {
         type: Sequelize.STRING,
-        AllowNUll: false,
-    },
-    preco: {
-        type: Sequelize.DECIMAL,
         AllowNUll: false
     },
-    descricao: {
-        type: Sequelize.STRING(500),
-        AllowNUll: false
-    }
-    
 });
 
-
-module.exports = quartos
+module.exports = tipos_usuarios
