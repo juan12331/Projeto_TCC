@@ -10,7 +10,7 @@ const reservas = require('./models/reservas');
 const tipos_usuarios = require('./models/tipos_usuarios')
 const cookieParser = require('cookie-parser')
 
-
+tipos_usuarios.sync();
 usuarios.sync();
 quartos.sync();
 fotos_quartos.sync();
