@@ -25,7 +25,7 @@ function MainRoutes() {
       {/* User Routes */}
       <Route path="/Cadastro" element={<Cadastro />} />
       <Route path="/" element={<Pagina />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/Login" element={<Login />} />
 
     </Routes>
   );
