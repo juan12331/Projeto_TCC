@@ -1,10 +1,9 @@
 const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime')
-const usuarios = require('./usuarios')
 
 const tipos_usuarios = database.define('tipos_usuarios', {
-    id: {
+    id_tipo: {
         type: Sequelize.STRING,
         AllowNUll: false,
         primaryKey: true,
@@ -14,23 +13,6 @@ const tipos_usuarios = database.define('tipos_usuarios', {
         type: Sequelize.STRING,
         AllowNUll: false
     },
-    cpf: {
-        type: Sequelize.STRING,
-        AllowNUll: false,
-        references: {
-            model: usuarios,
-            key: 'cpf'
-        },
-    },
 });
 
-usuarios.hasMany(tipos_usuarios, {
-    foreignKey: 'cpf'
-})
-
-tipos_usuarios.belongsTo(usuarios, {
-    foreignKey: 'cpf'
-});
-
-
-module.exports = usuarios
+module.exports = tipos_usuarios

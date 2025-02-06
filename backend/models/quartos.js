@@ -9,6 +9,10 @@ const quartos = database.define('quartos', {
         primaryKey: true,
         unique: true
     },
+    nome: {
+        type: Sequelize.STRING,
+        AllowNUll: false,
+    },
     
 });
 
