@@ -7,7 +7,7 @@ const Login = () => {
     <div className="login-page">
       <div className="fundo">
         <button onClick={() => navigate("/")} className="back-button"> ← </button>
-        <h1 className="h1-back">| LOGIN</h1>
+        <h1 className="back-text">| LOGIN</h1>
           <div className="container">
             <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
           </div>
