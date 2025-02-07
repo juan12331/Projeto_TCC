@@ -1,39 +1,39 @@
-html{
+.login-page{
     background-image: url('/src/assets/background_login.png'); 
-    background-size: auto;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
-    margin: 0vh;
-    padding: 0vh;
-}
-
-body {
-    margin: 0vh;
     height: 100vh;
+    margin: 0vh;
     padding: 0vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.fundo { 
+*{
+  margin: 0vh;
+  padding: 0vh;
+  box-sizing: border-box;
+}
+
+.login-page .fundo { 
   width: 90vh;
-  height: 55vh;
+  height: 70vh;
   background-color: rgba(0, 0, 0, 0.63); 
   padding: 8vh;
   border-radius: 5vh;
   justify-content: center;
 }
 
-.logo_login {
+.login-page .logo_login {
   width: 40vh; 
   height: auto;     
   margin-bottom: 4vh;
 }
 
-h1{ 
+.login-page .login-texto{ 
   margin: 0;
   padding: 0;
   font-family: 'Kreon';
@@ -43,7 +43,7 @@ h1{
   margin-bottom: 3vh;
 } 
 
-form {
+.login-page .login-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,12 +51,12 @@ form {
   min-height: auto;
 }
 
-.container {
+.login-page .container {
   display: flex;
   justify-content: center;
 }
 
-button {
+.login-page .login-button {
   color: white;
   background-color: #712122;
   border-radius: 2vh;
@@ -66,14 +66,14 @@ button {
   height: 5vh;
 }
 
-.signup-link, a {
+.login-page .signup-link, a {
   color: white;
   font-family: 'Katibeh';
   font-size: 2vh;
   margin-top: 3vh;
 }
 
-input {
+.login-page .login-input{
   background-color: #d2ae6fc5;
   border-radius: 2vh;
   text-align: center; 
@@ -83,7 +83,7 @@ input {
   height: 5vh;
 }
 
-input::placeholder {
+.login-page .login-input::placeholder {
   color: #fffbfb; 
   font-family: 'Katibeh';
 }

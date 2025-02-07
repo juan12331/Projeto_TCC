@@ -2,27 +2,28 @@ import React from "react";
 import "./login.css";
 
 const Login = () => {
+
     return (
-<>
+    <div className="login-page">
       <div className="fundo">
         <div className="container">
           <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
         </div>
-        <form>
-          <h1>LOGIN</h1>
+        <form className="login-form">
+          <h1 className="login-texto">LOGIN</h1>
           <div>
-            <input type="email" placeholder="EMAIL" />
+            <input type="email" className="login-input" placeholder="EMAIL" />
           </div>
           <div>
-            <input type="password" placeholder="SENHA" />
+            <input type="password" className="login-input" placeholder="SENHA" />
           </div>
-          <button>ENTRAR</button>
+          <button type="submit" className="login-button">ENTRAR</button>
           <div className="signup-link">
               Não tem login? <a href="#">Cadastre-se</a>
           </div>
         </form>
       </div>
-</>
+    </div>
     );
   };
 
