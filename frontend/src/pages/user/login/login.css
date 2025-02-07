@@ -18,6 +18,21 @@
   box-sizing: border-box;
 }
 
+.back-button{
+  align-self: flex-start;
+  color: white;
+  background-color: #fffbfb00;
+  border: none;
+  padding: 0vh;
+  font-size: 3vh;
+  cursor: pointer;
+}
+
+.h1-back{
+  color: #7C2728;
+  font-size: 3vh;
+}
+
 .login-page .fundo { 
   width: 90vh;
   height: 70vh;
