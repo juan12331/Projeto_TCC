@@ -57,7 +57,7 @@
 }
 
 .login-page .login-button {
-  color: white;
+  color: #ffffffb7;
   background-color: #712122;
   border-radius: 2vh;
   font-family: 'Katibeh';
@@ -67,16 +67,17 @@
 }
 
 .login-page .signup-link, a {
-  color: white;
+  color: #ffffffb7;
   font-family: 'Katibeh';
   font-size: 2vh;
   margin-top: 3vh;
 }
 
 .login-page .login-input{
-  background-color: #d2ae6fc5;
+  background-color: #ffffffb7;
   border-radius: 2vh;
-  text-align: center; 
+  text-align: left; 
+  padding-left: 2vh;
   margin-bottom: 2vh;
   border: none;
   width: 40vh;
@@ -84,6 +85,6 @@
 }
 
 .login-page .login-input::placeholder {
-  color: #fffbfb; 
+  color: #5c4c30c0; 
   font-family: 'Katibeh';
 }
