@@ -18,29 +18,41 @@
   box-sizing: border-box;
 }
 
+.login-page .back-container{
+  display: flex;
+  align-items: center; 
+  gap: 1vh;
+  top: 6vh;
+}
+
 .login-page .back-button{
-  align-self: flex-start;
   color: #ffffffb7;
   background-color: #fffbfb00;
   border: none;
-  padding: 0vh;
-  font-size: 3vh;
+  font-size: 5vh;
   cursor: pointer;
+}
+
+.login-page .back-line{
+  color: #ffffffb7;
+  font-size: 5vh;
 }
 
 .login-page .back-text{
   color: #ffffffb7;
-  font-size: 2vh;
+  font-size: 3vh;
   font-family: "Katibeh";
 }
 
 .login-page .fundo { 
-  width: 90vh;
-  height: 70vh;
+  width: 90%;
+  height: auto;
+  max-width: 100vh;
   background-color: rgba(0, 0, 0, 0.63); 
-  padding: 8vh;
+  padding: 5vh;
   border-radius: 5vh;
   justify-content: center;
+  position: relative;
 }
 
 .login-page .logo_login {
@@ -80,8 +92,10 @@
   font-size: 2.3vh;
   text-align: center;
   border: none;
-  width: 15vh;
+  width: 80%;
+  max-width: 20vh;
   height: 5vh;
+  cursor: pointer;
 }
 
 .login-page .signup-link, a {
@@ -94,7 +108,6 @@
 .login-page .login-input{
   background-color: #ffffffb7;
   border-radius: 2vh;
-  text-align: left; 
   padding-left: 2vh;
   margin-bottom: 2vh;
   border: none;
