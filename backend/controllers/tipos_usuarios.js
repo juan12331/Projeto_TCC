@@ -14,7 +14,7 @@ exports.createTiposUsuarios = async (req, res) => {
         
         return res.send('tipo de usuario cadastrado com sucesso')
     } catch (err) {
-        return res.status(403).send('erro')
+        return res.status(403).send('erro: ' + err)
     }
 }
 
