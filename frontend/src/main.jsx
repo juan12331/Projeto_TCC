@@ -7,7 +7,5 @@ import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-    <Login />
-    <Acomodacoes />
   </React.StrictMode>,
 )

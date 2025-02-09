@@ -26,6 +26,7 @@ function MainRoutes() {
       <Route path="/Cadastro" element={<Cadastro />} />
       <Route path="/" element={<Pagina />} />
       <Route path="/Login" element={<Login />} />
+      <Route path="/Acomodacoes" element={<Acomodacoes />} />
 
     </Routes>
   );

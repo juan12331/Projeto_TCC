@@ -11,7 +11,7 @@ const Login = () => {
           <h1 className="back-line">|</h1>
           <h1 className="back-text">LOGIN</h1>
         </div>
-          <div className="container">
+          <div className="container-login">
             <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
           </div>
             <form className="login-form">
