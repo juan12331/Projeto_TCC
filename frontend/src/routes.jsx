@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
 import Pagina from "./pages/user/pagina_inicial/pagina_inicial.jsx";
 import Login from "./pages/user/login/login.jsx";
-
+import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
 
 
 // FIX: adicionar obrigatoriadoredade de token nas rotas
