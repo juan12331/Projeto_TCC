@@ -55,6 +55,11 @@
   position: relative;
 }
 
+.login-page .container-login {
+  display: flex;
+  justify-content: center;
+}
+
 .login-page .logo_login {
   width: 40vh; 
   height: auto;     
@@ -77,11 +82,6 @@
   justify-content: center;
   align-items: center;
   min-height: auto;
-}
-
-.login-page .container {
-  display: flex;
-  justify-content: center;
 }
 
 .login-page .login-button {

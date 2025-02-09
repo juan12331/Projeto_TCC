@@ -1,0 +1,14 @@
+.acomodacoes-page .container-acomodacoes{
+    align-items: center;
+}
+
+.acomodacoes-page .acomodacoes-titulo{
+  color: #CCAA6B;
+  font-size: 3vh;
+  font-family: "Katibeh";
+}
+
+.acomodacoes-page .separador-acomodacoes{
+  display: flex;
+  justify-content: center;
+}
