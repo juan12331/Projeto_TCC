@@ -44,7 +44,7 @@
   font-family: "Katibeh";
 }
 
-.login-page .fundo { 
+.login-page .fundo-login { 
   width: 90%;
   height: auto;
   max-width: 100vh;
@@ -110,6 +110,7 @@
   border-radius: 2vh;
   padding-left: 2vh;
   margin-bottom: 2vh;
+  padding-inline-end: 2vh;
   border: none;
   width: 40vh;
   height: 5vh;

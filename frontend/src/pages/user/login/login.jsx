@@ -5,7 +5,7 @@ const Login = () => {
 
     return (
     <div className="login-page">
-      <div className="fundo">
+      <div className="fundo-login">
         <div className="back-container">
           <button onClick={() => navigate("/")} className="back-button"> ← </button>
           <h1 className="back-line">|</h1>
