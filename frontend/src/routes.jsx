@@ -10,7 +10,7 @@ import Cadastro from "./pages/user/cadastro/cadastro.jsx";
 import Pagina from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Login from "./pages/user/login/login.jsx";
 import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
-
+import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
 
 
 // FIX: adicionar obrigatoriadoredade de token nas rotas
