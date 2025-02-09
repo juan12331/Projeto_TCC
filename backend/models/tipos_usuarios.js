@@ -4,11 +4,9 @@ const { default_type } = require('mime')
 
 const tipos_usuarios = database.define('tipos_usuarios', {
     id_tipo: {
-        type: Sequelize.STRING,
-        AllowNUll: false,
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        unique: true,
-        AutoIncrement: true
+        autoIncrement: true,
     },
     permissao: {
         type: Sequelize.STRING,
