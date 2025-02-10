@@ -40,8 +40,11 @@
 
 .login-page .back-text{
   color: #ffffffb7;
+  background-color: #fffbfb00;
   font-size: 3vh;
   font-family: "Katibeh";
+  border: none;
+  cursor: pointer;
 }
 
 .login-page .fundo-login { 

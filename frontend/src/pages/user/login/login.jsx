@@ -9,7 +9,7 @@ const Login = () => {
         <div className="back-container">
           <button onClick={() => navigate("/")} className="back-button"> ← </button>
           <h1 className="back-line">|</h1>
-          <h1 className="back-text">HOME</h1>
+          <button onClick={() => navigate("/")} className="back-text"> HOME </button>
         </div>
           <div className="container-login">
             <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
