@@ -30,7 +30,7 @@ exports.deleteQuarto = async (req, res) => {
 
 exports.getAllQuartos = async (req, res) => {
     try {
-        const encontrarQuartos = await Quartos.findAll({ include: fotos_quartos, reservas });
+        const encontrarQuartos = await Quartos.findAll({ include: [{model: fotos_quartos}, {model: reservas}] });
         return res.send(encontrarQuartos);
     } catch (error) {
         return res.status(500).send('Internal Server Error');
