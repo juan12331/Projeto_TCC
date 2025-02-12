@@ -15,6 +15,7 @@ routes.post('/login', UsuariosControllers.login);
 routes.post('/usuarios', UsuariosControllers.createUsuario);
 
 routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf);
+routes.get('/usuarios', UsuariosControllers.getAllUsers);
 
 routes.delete('/usuarios/:cpf', UsuariosControllers.deleteUsuario);
 
@@ -34,7 +35,7 @@ routes.post('/fotosquartos', Fotos_quartosControllers.AdicionarFoto);
 
 routes.delete('/fotosquartos/:id_foto', Fotos_quartosControllers.ApagarFoto);
 
-routes.get('/fotosquartos', Fotos_quartosControllers.getAllFotos)
+routes.get('/fotosquartos', Fotos_quartosControllers.getAllFotos);
 
 // rotas quartos
 
@@ -43,5 +44,14 @@ routes.post('/quartos', QuartosControllers.createQuarto);
 routes.delete('/quartos/:id_quarto', QuartosControllers.deleteQuarto);
 
 routes.get('/quartos', QuartosControllers.getAllQuartos);
+
+// rotas avaliacoes
+
+routes.post('/avaliacoes', AvaliacoesControllers.createAvaliacoes);
+
+routes.get('/avaliacoes', AvaliacoesControllers.getAllAvaliacoes);
+routes.get('/avaliacoesNota', AvaliacoesControllers.getMediaAvaliacoes)
+
+routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoes)
 
 module.exports = routes

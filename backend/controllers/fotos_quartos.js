@@ -8,7 +8,7 @@ exports.AdicionarFoto = async (req, res) => {
         console.log(fotos_quartos)
         return res.send('Foto adicionada com sucesso')
     } catch (err) {
-        return res.status(403).send('erro')
+        return res.status(403).send(err)
     }
 }
 
