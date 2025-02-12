@@ -11,16 +11,23 @@
   padding: 0vh;
 }
 
-.acomodacoes-page .container-acomodacoes{
-    flex-direction: column;
+.acomodacoes-page .header-acomodacoes{
+  display: grid;
+  justify-content: center;
+  gap: 2vh;
 }
 
 .acomodacoes-page .acomodacoes-titulo{
   color: #CCAA6B;
   font-size: 3vh;
   font-family: "Chonburi";
+  text-align: center;
 }
 
 .acomodacoes-page .separador-acomodacoes{
-  justify-content: center;
+
+}
+
+.acomodacoes-page .fundo-acomodacoes{
+  background-color: #e2bedd;
 }
