@@ -74,3 +74,15 @@ exports.updateUsuario = async (req, res) => {
 }
 
 
+exports.getAllUsers = async (req, res) => {
+    try {
+        const encontrarUsuario = await Usuarios.findByPk(req.params.cpf, { include: tipos_usuarios });
+        if (!encontrarUsuario) {
+            return res.status(404).send('Usuario not found');
+        }
+
+        return res.send(encontrarUsuario);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
+    }
+}

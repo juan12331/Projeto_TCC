@@ -20,7 +20,7 @@ const reservas = database.define('reservas', {
         },
     },
     id_quarto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         references: {
            model: quartos,

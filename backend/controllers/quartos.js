@@ -1,5 +1,7 @@
 const { Op } = require('sequelize');
 const Quartos = require('../models/quartos');
+const reservas = require('../models/reservas');
+const fotos_quartos = require('../models/fotos_quartos');
 
 exports.createQuarto = async (req, res) => {
     try {
@@ -23,5 +25,14 @@ exports.deleteQuarto = async (req, res) => {
         return res.send('Quarto deletado')
     } catch (err) {
         return res.send('erro ==>', err)
+    }
+}
+
+exports.getAllQuartos = async (req, res) => {
+    try {
+        const encontrarQuartos = await Quartos.findAll({ include: fotos_quartos, reservas });
+        return res.send(encontrarQuartos);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
     }
 }

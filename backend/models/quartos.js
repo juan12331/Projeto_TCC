@@ -4,17 +4,17 @@ const { default_type } = require('mime')
 
 const quartos = database.define('quartos', {
     id_quarto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         primaryKey: true,
-        unique: true
+        autoIncrement: true
     },
     nome: {
         type: Sequelize.STRING,
         AllowNUll: false,
     },
     preco: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.INTEGER,
         AllowNUll: false
     },
     descricao: {
@@ -22,7 +22,9 @@ const quartos = database.define('quartos', {
         AllowNUll: false
     }
     
+    
 });
+
 
 
 module.exports = quartos

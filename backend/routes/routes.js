@@ -34,10 +34,14 @@ routes.post('/fotosquartos', Fotos_quartosControllers.AdicionarFoto);
 
 routes.delete('/fotosquartos/:id_foto', Fotos_quartosControllers.ApagarFoto);
 
+routes.get('/fotosquartos', Fotos_quartosControllers.getAllFotos)
+
 // rotas quartos
 
 routes.post('/quartos', QuartosControllers.createQuarto);
 
 routes.delete('/quartos/:id_quarto', QuartosControllers.deleteQuarto);
+
+routes.get('/quartos', QuartosControllers.getAllQuartos);
 
 module.exports = routes

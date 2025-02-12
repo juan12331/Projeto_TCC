@@ -15,7 +15,7 @@ const fotos_quartos = database.define('fotos_quartos', {
         AllowNUll: false
     },
     id_quarto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         references: {
             model: quartos,
