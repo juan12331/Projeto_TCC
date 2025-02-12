@@ -33,6 +33,24 @@ exports.getAllAvaliacoes = async (req, res) => {
     }
 }
 
+exports.getAvaliacoesByCpf = async (req, res) => {
+    try {
+        const encontrarAvaliacao = await Avaliacoes.findOne({ include: Usuarios });
+        return res.send(encontrarAvaliacao);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
+    }
+}
+
+exports.UpdateAvaliacoes = async (req, res) => {
+    try {
+        const encontrarAvaliacoes = await Avaliacoes.findAll({ include: Usuarios });
+        return res.send(encontrarAvaliacoes);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
+    }
+}
+
 exports.getMediaAvaliacoes = async (req, res) => {
     try {
         const AvaliacoesNumeros = await Avaliacoes.findAll();
