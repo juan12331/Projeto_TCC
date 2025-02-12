@@ -21,8 +21,8 @@ const quartos = database.define('quartos', {
         type: Sequelize.STRING(500),
         AllowNUll: false
     }
-    
-    
+
+
 });
 
 

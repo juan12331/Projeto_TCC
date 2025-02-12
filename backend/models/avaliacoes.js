@@ -5,10 +5,10 @@ const usuarios = require('./usuarios')
 
 const avaliacoes = database.define('avaliacoes', {
     id_avaliacao: {
-          type: Sequelize.INTEGER,
-                AllowNUll: false,
-                primaryKey: true,
-                autoIncrement: true
+        type: Sequelize.INTEGER,
+        AllowNUll: false,
+        primaryKey: true,
+        autoIncrement: true
     },
     avaliacao_texto: {
         type: Sequelize.STRING(300),
