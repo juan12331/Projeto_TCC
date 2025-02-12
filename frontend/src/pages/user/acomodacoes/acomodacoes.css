@@ -24,10 +24,21 @@
   text-align: center;
 }
 
-.acomodacoes-page .separador-acomodacoes{
-
+.acomodacoes-page .reservation-acomodacoes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .acomodacoes-page .fundo-acomodacoes{
   background-color: #F7F2E9;
+  border-color: #CCAA6B;
+  width: 90%;
+  height: auto;
+  max-width: 100vh;
+  padding: 5vh;
+  border-radius: 5vh;
+  justify-content: center;
+  position: relative;
 }
