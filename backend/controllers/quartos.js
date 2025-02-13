@@ -34,6 +34,6 @@ exports.getAllQuartos = async (req, res) => {
         const encontrarQuartos = await Quartos.findAll({ include: [{model: fotos_quartos}, {model: reservas}, {model: avaliacoes_quartos}] });
         return res.send(encontrarQuartos);
     } catch (error) {
-        return res.status(500).send('Internal Server Error');
+        return res.status(500).send('Internal Server Erro');
     }
 }
