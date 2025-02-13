@@ -23,7 +23,7 @@ const usuarios = database.define('usuarios', {
         AllowNUll: false
     },
     id_tipo: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         defaultValue: '1',
         AllowNUll: false,
         references: {
