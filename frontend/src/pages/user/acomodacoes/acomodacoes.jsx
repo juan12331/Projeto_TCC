@@ -10,12 +10,12 @@ const Acomodacoes = () => {
   return (
     <div className="acomodacoes-page">
       <div className="header-acomodacoes">
-        <h1 className="acomodacoes-titulo">ACOMODAÇÕES DISPONÍVEIS</h1>
-        <img
-          className="separador-acomodacoes"
-          src="./src/assets/separador-acomodacoes.png"
-          alt=""
-        />
+        <h1 className="acomodacoes-titulo">ACOMODAÇÕES <br /> DISPONÍVEIS</h1>
+        <div className="separador-acomodacoes">
+        <div class="circle-acomodacoes"></div>
+        <div class="divider-acomodacoes"></div>
+        <div class="circle-acomodacoes"></div>
+        </div>
       </div>
 
       <div className="fundo-acomodacoes">
@@ -28,7 +28,7 @@ const Acomodacoes = () => {
             selectsStart
             startDate={checkIn}
             endDate={checkOut}
-            placeholderText="--/--/----"
+            placeholderText="__/__/__"
             dateFormat="dd/MM/yyyy"
           />
         </div>
@@ -42,8 +42,8 @@ const Acomodacoes = () => {
             startDate={checkIn}
             endDate={checkOut}
             minDate={checkIn}
-            placeholderText="--/--/----"
-            dateFormat="dd/MM/yyyy"
+            placeholderText="__/__/__"
+            dateFormat="dd/MM/yyyy" 
           />
           </div>
           <div className="reservation-acomodacoes">

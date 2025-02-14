@@ -16,10 +16,10 @@
 }
 
 .header-acomodacoes{
-  display: grid;
   justify-content: center;
-  gap: 2vh;
-  padding: 10vh;
+  align-items: center;
+  padding: 6vh;
+  width: 70vh;
 }
 
 .acomodacoes-titulo{
@@ -29,17 +29,37 @@
   text-align: center;
 }
 
+.separador-acomodacoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.divider-acomodacoes {
+  width: 100%;
+  height: 1px;
+  background-color: #CCAA6B; 
+}
+
+.circle-acomodacoes {
+  width: 8px;
+  height: 8px;
+  background-color: #CCAA6B;
+  border-radius: 50%;
+}
+
+
 .reservation-acomodacoes{
   display: grid;
-  gap: 1vh;
 }
 
 .fundo-acomodacoes{
   background-color: #F7F2E9;
-  width: 50%;
+  width: 40%;
   height: auto;
-  max-width: 120vh;
-  padding: 5vh;
+  padding: 2vh;
   display: flex;
   justify-content: center;
   border-bottom: #bdbdbd71 solid 4px;
@@ -49,19 +69,19 @@
 
 .checkin-acomodacoes{
   font-family: "Kreon";
-  font-size: 2vh;
+  font-size: 1.5vh;
   color: #712123;
 }
 
 .checkout-acomodacoes{
   font-family: "Kreon";
-  font-size: 2vh;
+  font-size: 1.5vh;
   color: #712123;
 }
 
 .hospedes-acomodacoes{
   font-family: "Kreon";
-  font-size: 2vh;
+  font-size: 1.5vh;
   color: #712123;
 }
 
@@ -72,26 +92,28 @@
   border-radius: 1vh;
   font-size: 2vh;
   border: none;
-  width: 10%;
-  height: 3vh;
+  width: 20%;
+  height: 4vh;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .data-acomodacoes{
   border-color: #7E2527;
   background-color: #f2f2f200;
-  width: 70%;
+  width: 80%;
   height: 3vh;
 }
 
 .clientes-acomodacoes{
   border-color: #7E2527;
   background-color: #f2f2f200;
-  width:70%;
+  width:80%;
   height: 3vh;
 }
 
 .data-acomodacoes::placeholder{
   text-align: center;
-  font-size: 2vh;
+  font-size: 1.8vh;
+  color: #BDBDBD;
 }
