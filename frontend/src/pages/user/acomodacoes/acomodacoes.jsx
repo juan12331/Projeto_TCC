@@ -12,9 +12,9 @@ const Acomodacoes = () => {
       <div className="header-acomodacoes">
         <h1 className="acomodacoes-titulo">ACOMODAÇÕES <br /> DISPONÍVEIS</h1>
         <div className="separador-acomodacoes">
-        <div class="circle-acomodacoes"></div>
-        <div class="divider-acomodacoes"></div>
-        <div class="circle-acomodacoes"></div>
+            <div className="circle-acomodacoes"></div>
+            <div className="divider-acomodacoes"></div>
+            <div className="circle-acomodacoes"></div>
         </div>
       </div>
 
@@ -51,10 +51,22 @@ const Acomodacoes = () => {
           <h4 className="hospedes-acomodacoes">HÓSPEDES</h4>
           <input type="number" className="clientes-acomodacoes" required />
           </div>
-          <button type="submit" className="buscar-acomodacoes">BUSCAR</button>
+          <button onclick={() => navigate("/")}className="buscar-acomodacoes">BUSCAR</button>
       </div>
 
-      <div className="layout-acomodacoes"></div>
+      <div className="layout-acomodacoes">
+        <div className="domoFundo-acomodacoes">
+        <img className="domoImg-acomodacoes" src="/src/assets/domoImg_acomodacoes.png" alt="" />
+            <div className="domoConteudo-acomodacoes">
+                <h1 className="domoTitle-acomodacoes">Domo - R$ 599</h1>
+                <h2 className="domoText-acomodacoes">
+                    Experimente o charme do Domo geodésico da Quinta do Ypuã, uma acomodação aconchegante e exclusiva para até três pessoas. 
+                    Com uma cama de casal confortável e um ambiente cuidadosamente planejado, é o refúgio ideal para quem busca tranquilidade e contato com a natureza.
+                </h2>
+                <button onClick={() => navigate("/")} className="domoButton-acomodacoes"> Reservar </button>
+            </div>
+        </div>
+      </div>
     </div>
   );
 };
