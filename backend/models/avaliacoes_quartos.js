@@ -6,10 +6,10 @@ const usuarios = require('./usuarios')
 
 const avaliacoes_quartos = database.define('avaliacoes_quartos', {
     id_reclamacao: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         primaryKey: true,
-        unique: true
+        autoIncrement: true
     },
     avaliacao_texto: {
         type: Sequelize.STRING(300),
@@ -20,7 +20,7 @@ const avaliacoes_quartos = database.define('avaliacoes_quartos', {
         AllowNUll: false
     },
     id_quarto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         references: {
             model: quartos,

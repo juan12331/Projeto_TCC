@@ -5,17 +5,17 @@ const quartos = require('./quartos')
 
 const fotos_quartos = database.define('fotos_quartos', {
     id_foto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         primaryKey: true,
-        unique: true
+        autoIncrement: true
     },
     imagem: {
         type: Sequelize.STRING(300),
         AllowNUll: false
     },
     id_quarto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         references: {
             model: quartos,
