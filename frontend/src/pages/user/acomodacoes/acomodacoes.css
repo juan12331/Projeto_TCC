@@ -18,13 +18,13 @@
 .header-acomodacoes{
   justify-content: center;
   align-items: center;
-  padding: 6vh;
+  margin-top: 6vh;
   width: 70vh;
 }
 
 .acomodacoes-titulo{
   color: #CCAA6B;
-  font-size: 3vh;
+  font-size: 5vh;
   font-family: "Chonburi";
   text-align: center;
 }
@@ -34,12 +34,12 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 20px 0;
+  margin-top: 3vh;
 }
 
 .divider-acomodacoes {
   width: 100%;
-  height: 1px;
+  height: 0.5px;
   background-color: #CCAA6B; 
 }
 
@@ -50,18 +50,20 @@
   border-radius: 50%;
 }
 
-
 .reservation-acomodacoes{
-  display: grid;
+  height: 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 }
 
 .fundo-acomodacoes{
   background-color: #F7F2E9;
-  width: 40%;
-  height: auto;
-  padding: 2vh;
+  width: 60%;
+  margin-top: 6vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-bottom: #bdbdbd71 solid 4px;
   border-left: #bdbdbd5d solid 2px;
   border-right: #bdbdbd5d solid 2px;
@@ -92,10 +94,11 @@
   border-radius: 1vh;
   font-size: 2vh;
   border: none;
-  width: 20%;
-  height: 4vh;
+  width: 15%;
+  height: 5vh;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 1.3vh;
+  align-self: center;
 }
 
 .data-acomodacoes{
@@ -116,5 +119,58 @@
   text-align: center;
   font-size: 1.8vh;
   color: #BDBDBD;
-  
+}
+
+.layout-acomodacoes {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.domoFundo-acomodacoes{
+  display: flex;
+  align-items: center; 
+  background-color: #d2ae6f99;
+  width: 100%;
+  height: 80%;
+}
+
+.domoConteudo-acomodacoes{
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  max-width: 60%; 
+  padding-left: 6vh;
+  gap: 4vh;
+}
+
+.domoImg-acomodacoes{
+  height: 96%;
+  padding-left: 6vh;
+}
+
+.domoTitle-acomodacoes{
+  color: #7C2728;
+  font-family: "Kreon";
+  font-weight: 500;
+  font-size: 8vh;
+}
+
+.domoText-acomodacoes{
+  color: #7A6640;
+  font-family: "Kreon";
+  font-weight: 400;
+  font-size: 3.5vh;
+}
+
+.domoButton-acomodacoes{
+  color: #F7F2E9;
+  background-color: #712122;
+  font-family: "Kreon";
+  border-radius: 2vh;
+  font-size: 3vh;
+  border: none;
+  width: 20%;
+  height: 5vh;
+  cursor: pointer;
 }
