@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
 import Pagina from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Login from "./pages/user/login/login.jsx";
+import Contato from "./pages/user/contato/contato.jsx";
 
 
 
@@ -24,8 +25,9 @@ function MainRoutes() {
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Cadastro />} />
-      <Route path="/" element={<Pagina />} /> 
+      <Route path="/Pagina" element={<Pagina />} /> 
       <Route path="/Login" element={<Login />} />
+      <Route path="/" element={<Contato />} />
 
     </Routes>
   );

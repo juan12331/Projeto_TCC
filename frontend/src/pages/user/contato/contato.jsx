@@ -1,41 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contato.css";
+import { FaStar } from "react-icons/fa";
+import logo from "/src/assets/img/Logo.png";
+import vamos from "/src/assets/img/vamos.png"; // Importe a imagem "vamos.png"
+import icons from "/src/assets/img/icons.png"; // Importe a imagem "icons.png"
+import ava from "/src/assets/img/ava.png";
 
-function Contato() {
+const StarRating = ({ totalStars = 5 }) => {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
   return (
-    <div className="contato-container">
-      <header className="header">
-        <nav className="nav">
-          <a href="#inicio">INÍCIO</a>
-          <a href="#contato">CONTATO</a>
-          <a href="#quinta">QUINTA CORVADA</a>
-          <a href="#acomodacoes">ACOMODAÇÕES</a>
-          <a href="#login">LOGIN</a>
-        </nav>
-      </header>
-
-      <section className="contato-section">
-        <h1>Vamos conversar?</h1>
-        <p>
-          Entre em contato com a gente para informações sobre reservas, disponibilidade de datas, preços e outras dúvidas. Estaremos à disposição para atendê-lo e tornar a sua experiência com a pousada inesquecível.
-        </p>
-        <button className="fale-conosco-button">Fale conosco</button>
-      </section>
-
-      <section className="avaliacoes-section">
-        <h2>Avaliações</h2>
-        <p>
-          Agradecemos por escolher a Quinta do Ypuá para sua estadia. Compartilhe sua experiência conosco logo abaixo!
-        </p>
-        <form className="avaliacoes-form">
-          <input type="text" placeholder="Nome" className="input-field" />
-          <input type="email" placeholder="Email" className="input-field" />
-          <textarea placeholder="Digite sua mensagem" className="input-field textarea-field"></textarea>
-          <button type="submit" className="submit-button">Enviar avaliação</button>
-        </form>
-      </section>
+    <div className="star-rating">
+      {[...Array(totalStars)].map((_, index) => {
+        const currentRating = index + 1;
+        return (
+          <label key={index}>
+            <input
+              type="radio"
+              name="rating"
+              value={currentRating}
+              onClick={() => setRating(currentRating)}
+            />
+            <FaStar
+              className="star"
+              size={30}
+              color={currentRating <= (hover || rating) ? "#FFD700" : "#ccc"}
+              onMouseEnter={() => setHover(currentRating)}
+              onMouseLeave={() => setHover(0)}
+            />
+          </label>
+        );
+      })}
     </div>
   );
-}
+};
+
+const Contato = () => {
+  return (
+    <div>
+      <form className="contato-form">
+        <input type="text" placeholder="Nome" className="input-field" />
+        <input type="email" placeholder="Email" className="input-field" />
+        <input type="text" placeholder="Digite sua mensagem" className="input-field" />
+        <button type="submit" className="submit-button">Cadastrar</button>
+      </form>
+      
+      <header>
+        <h3 className="inicio">Início</h3>
+        <h3 className="contato">Contato</h3>
+        <img src={logo} alt="Pousada" className="logo" />
+        <h3 className="acomodacao">Acomodações</h3>
+        <h3 className="login">Perfil</h3>
+      </header>
+      {/* Conteúdo principal */}
+      <div className="container">
+        <img
+          src="/src/assets/img/fundoctt.png"
+          alt="Fundoctt"
+          className="background-image"
+        />
+        <img src={vamos} alt="Vamos" className="vamos-image" />
+      </div>
+      <img src={ava} alt="Avaliações" className="ava-image" />
+      <div className="contact-box">
+        <p className="contact-text">
+          Entre em contato com a gente para informações sobre reservas,
+          disponibilidade de datas, preços e outras dúvidas. Estaremos à disposição
+          para atendê-lo e tornar a sua experiência com a pousada inesquecível.
+        </p>
+        <button className="contact-button">Fale conosco</button>
+      </div>
+      <div className="icons-container">
+        <img src={icons} alt="Icons" className="icons-image" />
+      </div>
+      <p className="contact-text2">
+        Agradecemos por escolher a Quinta do Ypuã para sua estadia. <br />
+        Compartilhe sua experiência conosco logo abaixo!
+      </p>
+      {/* Adicionando o sistema de estrelas abaixo do texto de avaliações */}
+      <StarRating />
+    </div>
+  );
+};
 
 export default Contato;

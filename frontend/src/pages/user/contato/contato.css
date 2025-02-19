@@ -1,111 +1,130 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-  }
+/* Estilos da Navbar */
+header {
+  background-color: #efe5d1e3;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+header .logo {
+  height: 80px; /* Ajuste o tamanho da logo conforme necessário */
+}
+
+
+.background-image {
+  position: absolute;
+  bottom: 0; /* Alinhar a imagem na parte inferior */
+  left: 0; /* Mover a imagem totalmente para a esquerda */
+  width: 55%; /* Cobrir metade da tela */
+  height: 89%; /* Ajustar a altura automaticamente */
+  object-fit: cover; /* Cobrir a área designada sem distorcer a imagem */
+  z-index: -1; /* Colocar atrás do conteúdo, se necessário */
+}
+
+/* Estilos da imagem "vamos.png" */
+.vamos-image {
+  position: absolute;
+  top: 170px; /* Ajuste a distância do topo conforme necessário */
+  left: 20%; /* Centralizar horizontalmente */
+  transform: translateX(-50%); /* Centralizar horizontalmente */
+  width: 800px; /* Ajuste o tamanho conforme necessário */
+  z-index: 1; /* Garantir que a imagem fique acima do fundo */
+}
+
+.contact-box {
+  background-color: #d2ae6fa9;
+  padding: 30px;
+  border-radius: 30px;
+  text-align: center;
+  width: 300px;
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+ 
+}
+
+.contact-text {
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contact-button {
+  background-color: #7F2727;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.contact-button:hover {
+  background-color: #7F2727;
   
-  .contato-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+}
+
+.icons-image{
+  position: absolute;
+  top: 800px;
+  left: 235px;
+}
+
+.ava-image{
+position: absolute;
+left: 1150px;
+top: 160px;
+}
+
+.contato-form{
+  position: absolute;
+  left: 1400px;
+  top: 600px;
+}
+
+.input-field{
+  background-color: #D2AD6F;
+  width: 90%;
+  border-radius: 30px;
+}
+
+.submit-button{
+  width: 90%;
+  border-radius: 30px;
+
+}
+
+.contact-text2{
+  position: absolute;
+  top: 300px;
+  left: 1300px;
+  color: #7F2727;
+  line-height: 1.5;
   
-  .header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-  }
-  
-  .nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
-  }
-  
-  .contato-section {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #fff;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contato-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .contato-section p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .fale-conosco-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #7F2727;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .fale-conosco-button:hover {
-    background-color: #6a1f1f;
-  }
-  
-  .avaliacoes-section {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #fff;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .avaliacoes-section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .avaliacoes-section p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .avaliacoes-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .input-field {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .textarea-field {
-    height: 150px;
-    resize: none;
-  }
-  
-  .submit-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #7F2727;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .submit-button:hover {
-    background-color: #6a1f1f;
-  }
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: absolute;
+  top: 450px; /* Ajuste para posicionar corretamente */
+  left: 1425px;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 0.2s;
+}

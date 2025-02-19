@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('src/assets/fundocad.png');
+  background-image: url('src/assets/img/fundocad.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,12 +18,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 100%; /* Largura total */
-  max-width: 600px; /* Largura máxima da caixa */
+  max-width: 500px; /* Largura máxima da caixa */
 }
 
-.logo {
-  width: 300px;
-  margin: 0 auto 1rem;
+.container {
+  width: 400px;
+  height: auto;
+  margin: 0 auto 2rem;
 }
 
 .dots {

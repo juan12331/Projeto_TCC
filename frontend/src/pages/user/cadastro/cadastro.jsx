@@ -5,11 +5,13 @@ function Cadastro() {
   return (
     <div className="cadastro-container">
       <div className="cadastro-box">
+        <div className="container">
         <img
-          src="src/assets/quinta2.png"
+          src="src/assets/img/logo2.png"
           alt="Logo"
-          className="logo"
+          className=""
         />
+        </div>
         <form className="cadastro-form">
           <input type="text" placeholder="Nome" className="input-field" />
           <input type="email" placeholder="Email" className="input-field" />
@@ -25,5 +27,3 @@ function Cadastro() {
 }
 
 export default Cadastro;
-
-
