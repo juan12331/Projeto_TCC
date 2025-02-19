@@ -6,9 +6,8 @@ const quartos = require('./quartos')
 const fotos_quartos = database.define('fotos_quartos', {
     id_foto: {
         type: Sequelize.INTEGER,
-        AllowNUll: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
     },
     imagem: {
         type: Sequelize.STRING(300),

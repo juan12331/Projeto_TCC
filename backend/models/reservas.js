@@ -7,9 +7,8 @@ const usuarios = require('./usuarios')
 const reservas = database.define('reservas', {
     id: {
         type: Sequelize.INTEGER,
-        AllowNUll: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
     },
     cpf: {
         type: Sequelize.STRING,
