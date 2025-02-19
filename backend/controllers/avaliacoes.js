@@ -26,16 +26,36 @@ exports.deleteAvaliacoes = async (req, res) => {
 
 exports.getAllAvaliacoes = async (req, res) => {
     try {
-        const encontrarAvaliacoes = await Avaliacoes.findAll({ include: Usuarios });
-        return res.send(encontrarAvaliacoes);
+        const { cpf, nota, avaliacao_texto } = req.query || {};
+
+        if (!cpf || !nota || !avaliacao_texto ) {
+            const avaliacoes = await Avaliacoes.findAll();
+            console.log(avaliacoes)
+            return res.send(avaliacoes)
+        }
+
+        const pesquisa = {
+            [Op.or]: [
+                cpf ? { cpf: { [Op.like]: `%${cpf}%` } } : undefined,
+                nota ? { nota: { [Op.like]: `%${nota}%` } } : undefined,
+                avaliacao_texto ? { avaliacao_texto: { [Op.like]: `%${avaliacao_texto}%` } } : undefined,
+            ].filter(Boolean)
+        }
+
+        const avaliacoes = await Avaliacoes.findAll({ where: pesquisa, limit: 20 })
+        return res.send(avaliacoes)
+
     } catch (error) {
         return res.status(500).send('Internal Server Error');
     }
 }
 
-exports.getAvaliacoesByCpf = async (req, res) => {
+exports.getAvaliacoesById = async (req, res) => {
     try {
-        const encontrarAvaliacao = await Avaliacoes.findOne({ include: Usuarios });
+        const encontrarAvaliacao = await Avaliacoes.findByPk( req.params.id, { include:[{ model: Usuarios}]});
+        if (!encontrarAvaliacao) {
+            return res.status(404).send("error 404 not found")
+        }
         return res.send(encontrarAvaliacao);
     } catch (error) {
         return res.status(500).send('Internal Server Error');
@@ -43,12 +63,20 @@ exports.getAvaliacoesByCpf = async (req, res) => {
 }
 
 exports.UpdateAvaliacoes = async (req, res) => {
-    try {
-        const encontrarAvaliacoes = await Avaliacoes.findAll({ include: Usuarios });
-        return res.send(encontrarAvaliacoes);
-    } catch (error) {
-        return res.status(500).send('Internal Server Error');
-    }
+   
+        const id = req.params.id_avaliacao
+        const idAvaliacao = await Avaliacoes.findOne({ where: {id_avaliacao: id}})
+        if (idAvaliacao) {
+            try {
+                const [Updates] = await Avaliacoes.update(req.body, { where: { id_avaliacao: id }})
+                return res.send({message: 'Avaliação atualizada com sucesso',})
+
+            } catch( err) {
+                res.status(500).send(err)
+            }
+        } 
+        
+
 }
 
 exports.getMediaAvaliacoes = async (req, res) => {
