@@ -122,12 +122,40 @@ const Acomodacoes = () => {
             </div>
         </div>
       </div>
+            <div className="separadorFinal-acomodacoes">
+                      <img className="imgFinal-acomodacoes" src="/src/assets/separador_final.png" alt="" />
+                    </div>
+
             <div className="final-acomodacoes">
-              <div>
-                <img className="separadorFinal-acomodacoes" src="/src/assets/separador_final.png" alt="" />
+
+              <div className="logoFinal-acomodacoes">
+                <img className="imgLogoFinal-acomodacoes" src="/src/assets/logo-acomodacoes.png" alt="" />
               </div>
-              <div>
-                <img className="logo-acomodacoes" src="/src/assets/logo-acomodacoes.png" alt="" />
+
+              <div className="grid1-acomodacoes">
+                <h1 className="localizacao-acomodacoes">Localização</h1>
+                <h2 className="infoLocalizacao-acomodacoes">Estrada Ipua, nº 6</h2>
+                <h3 className="infoLocalizacao-acomodacoes">Laguna - SC  |  88790-000</h3>
+                <h4 className="infoLocalizacao-acomodacoes">pousadaquintadoypua@gmail.com</h4>
+                <h5 className="infoLocalizacao-acomodacoes">(48) 99940-9732 </h5>
+              </div>
+              <div className="grid2-acomodacoes">
+                <h1 className="site-acomodacoes">Site</h1>
+                <h2 className="infoSite-acomodacoes">Início</h2>
+                <h3 className="infoSite-acomodacoes">Contato</h3>
+                <h4 className="infoSite-acomodacoes">Acomodações</h4>
+                <h5 className="infoSite-acomodacoes">Login</h5>
+              </div>
+              <div className="grid3-acomodacoes">
+                <h1 className="atendimento-acomodacoes">Atendimento</h1>
+                <h2 className="infoAtendimento-acomodacoes">Entre em contato com a gente para informações 
+                  sobre reservas, disponibilidade de datas, preços e outras dúvidas. 
+                  Estaremos a disposição para atendê-lo e tornar a sua experiência com a pousada inesquecível.</h2> 
+                <h3 className="infoAtendimento-acomodacoes">Cadastre-se para receber promoções</h3> 
+                <div>
+                <input type="email" className="acomodacoes-input" placeholder="Insira seu e-mail" /> 
+              </div>
+              <button type="submit" className="cadastro-acomodacoes">Cadastrar</button>
               </div>
             </div>
     </div>
