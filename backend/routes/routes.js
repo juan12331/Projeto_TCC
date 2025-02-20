@@ -57,4 +57,8 @@ routes.put('/avaliacoes/:id', AvaliacoesControllers.UpdateAvaliacoes)
 
 routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoes)
 
+// rotas avaliacoes_quartos
+
+routes.get('/avaliacoesQuartos', Avaliacoes_quartosControllers.get)
+
 module.exports = routes
