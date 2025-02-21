@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ptBR } from "date-fns/locale"; 
+import { addDays } from "date-fns";
+import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./acomodacoes.css";
 
 const Acomodacoes = () => {
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
+
+  const handleCheckInChange = (date) => {
+    setCheckIn(date);
+    setCheckOut(null);  
+  };
+
+  const handleCheckOutChange = (date) => {
+    setCheckOut(date);  
+  };
 
   return (
     <div className="acomodacoes-page">
@@ -24,12 +36,15 @@ const Acomodacoes = () => {
           <DatePicker
             className="data-acomodacoes"
             selected={checkIn}
-            onChange={(date) => setCheckIn(date)}
+            // onChange={(date) => setCheckIn(date)}
+            onChange={handleCheckInChange}
+            locale={ptBR}
             selectsStart
-            startDate={checkIn}
-            endDate={checkOut}
+            // startDate={checkIn}
+            // endDate={checkOut}
             placeholderText="__/__/__"
             dateFormat="dd/MM/yyyy"
+            minDate={new Date()}
           />
         </div>
         <div className="reservation-acomodacoes">
@@ -37,11 +52,14 @@ const Acomodacoes = () => {
           <DatePicker
             className="data-acomodacoes"
             selected={checkOut}
-            onChange={(date) => setCheckOut(date)}
+            // onChange={(date) => setCheckOut(date)}
+            onChange={handleCheckOutChange}
+            locale={ptBR}
             selectsEnd
-            startDate={checkIn}
-            endDate={checkOut}
-            minDate={checkIn}
+            // startDate={checkIn}
+            // endDate={checkOut}
+            // minDate={checkIn}
+            minDate={checkIn || new Date()}
             placeholderText="__/__/__"
             dateFormat="dd/MM/yyyy" 
           />
@@ -123,8 +141,8 @@ const Acomodacoes = () => {
         </div>
       </div>
             <div className="separadorFinal-acomodacoes">
-                      <img className="imgFinal-acomodacoes" src="/src/assets/separador_final.png" alt="" />
-                    </div>
+              <img className="imgFinal-acomodacoes" src="/src/assets/separador_final.png" alt="" />
+            </div>
 
             <div className="final-acomodacoes">
 
@@ -136,9 +154,18 @@ const Acomodacoes = () => {
                 <h1 className="localizacao-acomodacoes">Localização</h1>
                 <h2 className="infoLocalizacao-acomodacoes">Estrada Ipua, nº 6</h2>
                 <h3 className="infoLocalizacao-acomodacoes">Laguna - SC  |  88790-000</h3>
+
+              <div className="gridEmail-acomodacoes">
+                <Envelope className="emailIcon-acomodacoes"/>
                 <h4 className="infoLocalizacao-acomodacoes">pousadaquintadoypua@gmail.com</h4>
-                <h5 className="infoLocalizacao-acomodacoes">(48) 99940-9732 </h5>
               </div>
+
+              <div className="gridPhone-acomodacoes">
+                <Telephone className="phoneIcon-acomodacoes"/>
+                <h5 className="infoLocalizacao-acomodacoes">(48) 99940-9732 </h5>
+                </div>
+              </div>
+
               <div className="grid2-acomodacoes">
                 <h1 className="site-acomodacoes">Site</h1>
                 <h2 className="infoSite-acomodacoes">Início</h2>
@@ -146,20 +173,137 @@ const Acomodacoes = () => {
                 <h4 className="infoSite-acomodacoes">Acomodações</h4>
                 <h5 className="infoSite-acomodacoes">Login</h5>
               </div>
+
               <div className="grid3-acomodacoes">
                 <h1 className="atendimento-acomodacoes">Atendimento</h1>
-                <h2 className="infoAtendimento-acomodacoes">Entre em contato com a gente para informações 
-                  sobre reservas, disponibilidade de datas, preços e outras dúvidas. 
-                  Estaremos a disposição para atendê-lo e tornar a sua experiência com a pousada inesquecível.</h2> 
-                <h3 className="infoAtendimento-acomodacoes">Cadastre-se para receber promoções</h3> 
-                <div>
+                <h2 className="infoAtendimento-acomodacoes">Entre em contato com a gente para informações sobre reservas, disponibilidade de datas, preços e outras dúvidas. 
+                Estaremos a disposição para atendê-lo e tornar a sua experiência com a pousada inesquecível.</h2> 
+                <h3 className="infoAtendimento2-acomodacoes">Cadastre-se para receber promoções</h3> 
+                
+                <div className="email-acomodacoes">
                 <input type="email" className="acomodacoes-input" placeholder="Insira seu e-mail" /> 
-              </div>
-              <button type="submit" className="cadastro-acomodacoes">Cadastrar</button>
+                </div>
+                
+                <div className="submit-acomodacoes">
+                <button type="submit" className="cadastro-acomodacoes">Cadastrar</button>
+                </div>
               </div>
             </div>
+
+          <div className="grid4-acomodacoes">
+
+            <div className="Widgets_acomodacoes">
+
+                <div className="gridWhatsapp-acomodacoes">
+                  <Whatsapp className="whatsIcon-acomodacoes"/>
+                </div>
+
+                <div className="gridFacebook-acomodacoes">
+                  <Facebook className="faceIcon-acomodacoes"/>
+                </div>
+
+                <div className="gridInstagram-acomodacoes">
+                  <Instagram className="instaIcon-acomodacoes"/>
+                </div>
+
+            </div>
+            
+          <div className="direito-acomodacoes">
+            <h1 className="Textdireito-acomodacoes">© Pousada Quinta do Ypuã / Todos os direitos reservados</h1>
+            </div>
+          </div>
+
     </div>
   );
 };
 
 export default Acomodacoes;
+
+// PARA TESTE:
+
+// import React, { useState } from "react";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+// import { ptBR } from "date-fns/locale";
+// import { addDays } from "date-fns"; // Para ajudar a calcular o intervalo
+
+// const Acomodacoes = () => {
+//   const [checkIn, setCheckIn] = useState(null);
+//   const [checkOut, setCheckOut] = useState(null);
+//   const [highlightedDates, setHighlightedDates] = useState([]);
+
+//   const handleCheckInChange = (date) => {
+//     setCheckIn(date);
+//     if (date && checkOut) {
+//       // Marcar todas as datas entre checkIn e checkOut
+//       const allDates = getDatesInRange(date, checkOut);
+//       setHighlightedDates(allDates);
+//     }
+//   };
+
+//   const handleCheckOutChange = (date) => {
+//     setCheckOut(date);
+//     if (date && checkIn) {
+//       // Marcar todas as datas entre checkIn e checkOut
+//       const allDates = getDatesInRange(checkIn, date);
+//       setHighlightedDates(allDates);
+//     }
+//   };
+
+//   // Função para gerar todas as datas entre checkIn e checkOut
+//   const getDatesInRange = (startDate, endDate) => {
+//     const dates = [];
+//     let currentDate = startDate;
+//     while (currentDate <= endDate) {
+//       dates.push(currentDate);
+//       currentDate = addDays(currentDate, 1);
+//     }
+//     return dates;
+//   };
+
+//   return (
+//     <div className="fundo-acomodacoes">
+//       <div className="reservation-acomodacoes">
+//         <h2 className="checkin-acomodacoes">CHECK-IN</h2>
+//         <DatePicker
+//           className="data-acomodacoes"
+//           selected={checkIn}
+//           onChange={handleCheckInChange}
+//           locale={ptBR}
+//           selectsStart
+//           startDate={checkIn}
+//           endDate={checkOut}
+//           placeholderText="__/__/__"
+//           dateFormat="dd/MM/yyyy"
+//           minDate={new Date()}
+//         />
+//       </div>
+
+//       <div className="reservation-acomodacoes">
+//         <h3 className="checkout-acomodacoes">CHECK-OUT</h3>
+//         <DatePicker
+//           className="data-acomodacoes"
+//           selected={checkOut}
+//           onChange={handleCheckOutChange}
+//           locale={ptBR}
+//           selectsEnd
+//           startDate={checkIn}
+//           endDate={checkOut}
+//           minDate={checkIn || new Date()}
+//           placeholderText="__/__/__"
+//           dateFormat="dd/MM/yyyy"
+//           highlightDates={highlightedDates} // Destaca as datas entre o checkIn e o checkOut
+//         />
+//       </div>
+
+//       <div className="reservation-acomodacoes">
+//         <h4 className="hospedes-acomodacoes">HÓSPEDES</h4>
+//         <input type="number" className="clientes-acomodacoes" required />
+//       </div>
+
+//       <button onClick={() => navigate("/")} className="buscar-acomodacoes">BUSCAR</button>
+//     </div>
+//   );
+// };
+
+// export default Acomodacoes;

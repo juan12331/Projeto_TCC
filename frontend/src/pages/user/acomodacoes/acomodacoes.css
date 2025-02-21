@@ -101,17 +101,68 @@
 }
 
 .data-acomodacoes{
-  border-color: #7E2527;
   background-color: #f2f2f200;
+  border-bottom: #7E2527 solid 2px;
+  border-left: #7E2527 solid 2px;
+  border-right: #7E2527 solid 2px;
+  border-top:#7E2527 solid 2px ;
+  border-radius: 5px;
   width: 120%;
   height: 40px;
+  text-align: center;
+}
+
+.react-datepicker__header { /*cabeçalho calendário*/
+  background-color: #F2F2F2; 
+  border-bottom: 2px solid #7E2527;
+}
+
+.react-datepicker { /*calendário*/
+  background-color: #F2F2F2;
+  border: #F2F2F2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.react-datepicker__input-container input:focus { /*borda ao clicar*/
+  border: 2px solid #7E2527 !important; 
+  outline: none !important; 
+}
+
+.react-datepicker__day:hover { /*ao passar mouse*/
+  background-color: #d2ae6f99 !important; 
+  color: white !important;
+}
+
+.react-datepicker__day--in-selecting-range { /*ao passar mouse geral*/
+  background-color: #D2AD6F !important; 
+}
+
+.react-datepicker__day--in-range {
+  background-color: #D2AD6F !important; 
+  color: black !important;
+}
+.react-datepicker__day--today { /*dia atual*/
+  background-color: #d2ae6f00 !important; 
+  color: black !important;
+  font-weight: normal;
+}
+
+.react-datepicker__day--selected { /*dia selecionado*/
+  background-color: #d2ae6f99 !important; 
+  color: white !important; 
 }
 
 .clientes-acomodacoes{
-  border-color: #7E2527;
+  border-bottom: #7E2527 solid 2px;
+  border-left: #7E2527 solid 2px;
+  border-right: #7E2527 solid 2px;
+  border-top:#7E2527 solid 2px ;
+  border-radius: 5px;
   background-color: #f2f2f200;
   width: 120%;
   height: 40px;
+  text-align: center;
 }
 
 .data-acomodacoes::placeholder{
@@ -198,8 +249,6 @@
 .final-acomodacoes{
   height: 40vw;
   display: flex;
-  align-items: flex-start;
-  flex-direction: row;
   gap: 10vw;
   margin-top: 5%;
   padding-left: 5%;
@@ -226,6 +275,7 @@
   font-family: "Katibeh";
   font-weight: 200;
   font-size: 50px;
+  padding-left: 19%;
 }
 
 .infoLocalizacao-acomodacoes{
@@ -233,6 +283,32 @@
   font-family: "Katibeh";
   font-weight: 200;
   font-size: 30px;
+}
+
+.gridEmail-acomodacoes{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gridPhone-acomodacoes{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emailIcon-acomodacoes {
+  color: #D2AD6F;
+  height: 25px;
+  width: auto;
+  margin-top: 14px;
+}
+
+.phoneIcon-acomodacoes{
+  color: #D2AD6F;
+  height: 25px;
+  width: auto;
+  margin-top: 14px;
 }
 
 .infoSite-acomodacoes{
@@ -248,10 +324,25 @@
   font-weight: 200;
   font-size: 30px;
   margin-top: 8%;
+  padding-right: 20%;
+}
+
+.infoAtendimento2-acomodacoes{
+  color: #D2AD6F;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 30px;
+  margin-top: 35%;
+  display: flex;
+  justify-content: center;
+  padding-right: 20%;
 }
 
 .acomodacoes-input{
-  border-color: #998050;
+  border-bottom: #998050 solid 2px;
+  border-left: #998050 solid 2px;
+  border-right: #998050 solid 2px;
+  border-top:#998050 solid 2px ;
   background-color: #F2F2F2;
   border-radius: 8px;
   width: 50%;
@@ -269,6 +360,12 @@
   font-size: 30px;
 }
 
+.email-acomodacoes{
+  display: flex;
+  justify-content: center;
+  padding-right: 20%;
+}
+
 .cadastro-acomodacoes{
   border-color: #7a664000;
   background-color: #997f5085;
@@ -278,11 +375,61 @@
   font-weight: 200;
   color: #712123;
   font-size: 30px;
-  text-align: center;
   border: none;
   width: 50%;
-  max-width: 100%;
-  max-height: 100px;
   height: 50px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-acomodacoes{
+  display: flex;
+  justify-content: center;
+  padding-right: 20%;
+}
+
+.grid4-acomodacoes{
+  display: flex;
+}
+
+.whatsIcon-acomodacoes{
+  color: #CCAA6B;
+  height: 25px;
+  width: auto;
+}
+
+.faceIcon-acomodacoes{
+  color: #CCAA6B;
+  height: 25px;
+  width: auto;
+}
+
+.instaIcon-acomodacoes{
+  color: #CCAA6B;
+  height: 25px;
+  width: auto;
+}
+
+.Textdireito-acomodacoes{
+  color: #BDBDBD;
+  font-family: "Katibeh";
+  font-weight: 200;
+}
+
+.grid4-acomodacoes{
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+}
+
+.Widgets_acomodacoes{
+  display: flex;
+  gap: 1%;
+  align-items: baseline;
+  padding-left: 20%;
+}
+
+.direito-acomodacoes{
+  padding-left: 8%;
 }
