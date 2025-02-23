@@ -5,9 +5,8 @@ const { default_type } = require('mime')
 const quartos = database.define('quartos', {
     id_quarto: {
         type: Sequelize.INTEGER,
-        AllowNUll: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
     },
     nome: {
         type: Sequelize.STRING,
