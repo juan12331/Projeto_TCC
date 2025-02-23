@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale"; 
-import { addDays } from "date-fns";
 import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./acomodacoes.css";
 
 const Acomodacoes = () => {
-  const [checkIn, setCheckIn] = useState(null);
-  const [checkOut, setCheckOut] = useState(null);
+  const [checkIn, setCheckIn] = useState(null); 
+  const [checkOut, setCheckOut] = useState(null); 
 
   const handleCheckInChange = (date) => {
-    setCheckIn(date);
-    setCheckOut(null);  
+    setCheckIn(date); 
+    setCheckOut(null); 
   };
 
   const handleCheckOutChange = (date) => {
-    setCheckOut(date);  
+    setCheckOut(date); 
   };
 
   return (
@@ -36,12 +35,9 @@ const Acomodacoes = () => {
           <DatePicker
             className="data-acomodacoes"
             selected={checkIn}
-            // onChange={(date) => setCheckIn(date)}
             onChange={handleCheckInChange}
             locale={ptBR}
             selectsStart
-            // startDate={checkIn}
-            // endDate={checkOut}
             placeholderText="__/__/__"
             dateFormat="dd/MM/yyyy"
             minDate={new Date()}
@@ -52,13 +48,9 @@ const Acomodacoes = () => {
           <DatePicker
             className="data-acomodacoes"
             selected={checkOut}
-            // onChange={(date) => setCheckOut(date)}
             onChange={handleCheckOutChange}
             locale={ptBR}
             selectsEnd
-            // startDate={checkIn}
-            // endDate={checkOut}
-            // minDate={checkIn}
             minDate={checkIn || new Date()}
             placeholderText="__/__/__"
             dateFormat="dd/MM/yyyy" 
@@ -218,92 +210,3 @@ const Acomodacoes = () => {
 };
 
 export default Acomodacoes;
-
-// PARA TESTE:
-
-// import React, { useState } from "react";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-// import { ptBR } from "date-fns/locale";
-// import { addDays } from "date-fns"; // Para ajudar a calcular o intervalo
-
-// const Acomodacoes = () => {
-//   const [checkIn, setCheckIn] = useState(null);
-//   const [checkOut, setCheckOut] = useState(null);
-//   const [highlightedDates, setHighlightedDates] = useState([]);
-
-//   const handleCheckInChange = (date) => {
-//     setCheckIn(date);
-//     if (date && checkOut) {
-//       // Marcar todas as datas entre checkIn e checkOut
-//       const allDates = getDatesInRange(date, checkOut);
-//       setHighlightedDates(allDates);
-//     }
-//   };
-
-//   const handleCheckOutChange = (date) => {
-//     setCheckOut(date);
-//     if (date && checkIn) {
-//       // Marcar todas as datas entre checkIn e checkOut
-//       const allDates = getDatesInRange(checkIn, date);
-//       setHighlightedDates(allDates);
-//     }
-//   };
-
-//   // Função para gerar todas as datas entre checkIn e checkOut
-//   const getDatesInRange = (startDate, endDate) => {
-//     const dates = [];
-//     let currentDate = startDate;
-//     while (currentDate <= endDate) {
-//       dates.push(currentDate);
-//       currentDate = addDays(currentDate, 1);
-//     }
-//     return dates;
-//   };
-
-//   return (
-//     <div className="fundo-acomodacoes">
-//       <div className="reservation-acomodacoes">
-//         <h2 className="checkin-acomodacoes">CHECK-IN</h2>
-//         <DatePicker
-//           className="data-acomodacoes"
-//           selected={checkIn}
-//           onChange={handleCheckInChange}
-//           locale={ptBR}
-//           selectsStart
-//           startDate={checkIn}
-//           endDate={checkOut}
-//           placeholderText="__/__/__"
-//           dateFormat="dd/MM/yyyy"
-//           minDate={new Date()}
-//         />
-//       </div>
-
-//       <div className="reservation-acomodacoes">
-//         <h3 className="checkout-acomodacoes">CHECK-OUT</h3>
-//         <DatePicker
-//           className="data-acomodacoes"
-//           selected={checkOut}
-//           onChange={handleCheckOutChange}
-//           locale={ptBR}
-//           selectsEnd
-//           startDate={checkIn}
-//           endDate={checkOut}
-//           minDate={checkIn || new Date()}
-//           placeholderText="__/__/__"
-//           dateFormat="dd/MM/yyyy"
-//           highlightDates={highlightedDates} // Destaca as datas entre o checkIn e o checkOut
-//         />
-//       </div>
-
-//       <div className="reservation-acomodacoes">
-//         <h4 className="hospedes-acomodacoes">HÓSPEDES</h4>
-//         <input type="number" className="clientes-acomodacoes" required />
-//       </div>
-
-//       <button onClick={() => navigate("/")} className="buscar-acomodacoes">BUSCAR</button>
-//     </div>
-//   );
-// };
-
-// export default Acomodacoes;

@@ -1,3 +1,11 @@
+*{
+  margin: 0vh;
+  padding: 0vh;
+  box-sizing: border-box;
+}
+
+@media (min-width: 320px) and (max-width: 1920px) {
+
 .acomodacoes-page{
   background-color: #F2F2F2;
   width: 100%;
@@ -7,24 +15,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-*{
-  margin: 0vh;
-  padding: 0vh;
-  box-sizing: border-box;
-}
+  }
 
 .header-acomodacoes{
   justify-content: center;
   align-items: center;
   margin-top: 6vh;
-  width: 30%;
-}
+  width: 90%;
+  max-width: 600px;
+  }
 
 .acomodacoes-titulo{
   color: #CCAA6B;
-  font-size: 5vh;
+  font-size: 3vw;
   font-family: "Chonburi";
   text-align: center;
 }
@@ -38,7 +41,7 @@
 }
 
 .divider-acomodacoes {
-  width: 100%;
+  width: 80%;
   height: 0.5px;
   background-color: #CCAA6B; 
 }
@@ -52,35 +55,23 @@
 
 .fundo-acomodacoes{
   background-color: #F7F2E9;
-  width: 50%;
+  width: 60%;
+  max-width: 1920px;
+  min-width: 320px;
   height: 150px;
   margin-top: 6vh;
-  gap: 50px;
+  gap: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: #bdbdbd71 solid 4px;
   border-left: #bdbdbd5d solid 2px;
   border-right: #bdbdbd5d solid 2px;
-}
+  }
 
-.checkin-acomodacoes{
+.checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{
   font-family: "Kreon";
-  font-size: 1.5vh;
-  color: #712123;
-  text-align: start ;
-}
-
-.checkout-acomodacoes{
-  font-family: "Kreon";
-  font-size: 1.5vh;
-  color: #712123;
-  text-align: start ;
-}
-
-.hospedes-acomodacoes{
-  font-family: "Kreon";
-  font-size: 1.5vh;
+  font-size: 1vw;
   color: #712123;
   text-align: start ;
 }
@@ -89,25 +80,25 @@
   color: #F7F2E9;
   background-color: #712122;
   font-family: "Kreon";
-  border-radius: 1vh;
-  font-size: 2vh;
+  border-radius: 2vh;
+  font-size: 1vw;
   border: none;
-  width: 15%;
-  max-width: 1024px;
+  width: 20%;
+  max-width: 200px;
   height: 40px;
   cursor: pointer;
-  margin-top: 1.5%;
+  margin-top: 2vh;
   align-self: center;
 }
 
-.data-acomodacoes{
+.data-acomodacoes, .clientes-acomodacoes{
   background-color: #f2f2f200;
   border-bottom: #7E2527 solid 2px;
   border-left: #7E2527 solid 2px;
   border-right: #7E2527 solid 2px;
   border-top:#7E2527 solid 2px ;
   border-radius: 5px;
-  width: 120%;
+  width: 100%;
   height: 40px;
   text-align: center;
 }
@@ -142,6 +133,7 @@
   background-color: #D2AD6F !important; 
   color: black !important;
 }
+
 .react-datepicker__day--today { /*dia atual*/
   background-color: #d2ae6f00 !important; 
   color: black !important;
@@ -153,16 +145,24 @@
   color: white !important; 
 }
 
-.clientes-acomodacoes{
-  border-bottom: #7E2527 solid 2px;
-  border-left: #7E2527 solid 2px;
-  border-right: #7E2527 solid 2px;
-  border-top:#7E2527 solid 2px ;
-  border-radius: 5px;
-  background-color: #f2f2f200;
-  width: 120%;
-  height: 40px;
-  text-align: center;
+.react-datepicker__day--disabled { /*data indisponível*/
+  color: #cccccc !important; 
+  cursor: not-allowed; 
+  background-color: #f8f8f8 !important; 
+}
+
+.react-datepicker__day--disabled:hover { /*ao passar mouse sobre data indisponível*/
+  background-color: #e0e0e0 !important;
+}
+
+.react-datepicker__day--keyboard-selected { /* primeira data disponível no check-out */
+  background-color: #4caf4f00 !important; 
+  color: rgb(0, 0, 0) !important; 
+}
+
+.clientes-acomodacoes:focus { /*borda ao clicar*/
+  border: 2px solid #7E2527 !important; 
+  outline: none !important; 
 }
 
 .data-acomodacoes::placeholder{
@@ -178,6 +178,7 @@
   align-items: center;
   gap: 5vh;
   margin-top: 5vh;
+  width: 100%;
 }
 
 .cardsFundo-acomodacoes{
@@ -418,6 +419,7 @@
 }
 
 .grid4-acomodacoes{
+  display: flex;
   flex-direction: column;
   height: inherit;
   width: inherit;
@@ -432,4 +434,6 @@
 
 .direito-acomodacoes{
   padding-left: 8%;
+}
+
 }
