@@ -37,3 +37,29 @@ exports.getAllQuartos = async (req, res) => {
         return res.status(500).send('Internal Server Erro');
     }
 }
+
+exports.getQuartosById = async (req, res) => {
+    try{
+        const encontrarQuarto = Quartos.findByPk( req.params.id, { include: [{model: fotos_quartos}, {model: reservas}, {model: avaliacoes_quartos}] } )
+        return res.send(encontrarQuarto);
+    } catch (error) {
+        return res.status(500).send('Internal Server Erro', error)
+    }
+}
+
+exports.updateQuartos = async (req, res) => {
+    const id_quarto = req.params.id_quarto
+    const Id_confirmation = await Usuarios.findOne({ where: { id_quarto: id_quarto } })
+
+        if (Id_confirmation) {
+            try {
+                const [Updates] = await Quartos.update(req.body, { where: { id_quarto: req.params.id_quarto } }) // verifica se tem alguma alteração
+                return res.send({ message: 'Usuario foi atualizado ;P', })
+    
+            } catch (error) {
+                return res.send('deu erro aqui meu mano ==> ', error)
+    
+            }
+        }
+        return res.status(404).send('usuario not found!!!')
+    }
