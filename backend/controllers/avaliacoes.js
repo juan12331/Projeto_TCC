@@ -42,7 +42,7 @@ exports.getAllAvaliacoes = async (req, res) => {
             ].filter(Boolean)
         }
 
-        const avaliacoes = await Avaliacoes.findAll({ where: pesquisa, limit: 20 })
+        const avaliacoes = await Avaliacoes.findAll({ where: pesquisa, limit: 50 })
         return res.send(avaliacoes)
 
     } catch (error) {
@@ -52,7 +52,7 @@ exports.getAllAvaliacoes = async (req, res) => {
 
 exports.getAvaliacoesById = async (req, res) => {
     try {
-        const encontrarAvaliacao = await Avaliacoes.findByPk( req.params.id, { include:[{ model: Usuarios}]});
+        const encontrarAvaliacao = await Avaliacoes.findByPk( req.params.id_avaliacao, { include:[{ model: Usuarios},]});
         if (!encontrarAvaliacao) {
             return res.status(404).send("error 404 not found")
         }
@@ -63,7 +63,6 @@ exports.getAvaliacoesById = async (req, res) => {
 }
 
 exports.UpdateAvaliacoes = async (req, res) => {
-   
         const id = req.params.id_avaliacao
         const idAvaliacao = await Avaliacoes.findOne({ where: {id_avaliacao: id}})
         if (idAvaliacao) {
@@ -75,8 +74,6 @@ exports.UpdateAvaliacoes = async (req, res) => {
                 res.status(500).send(err)
             }
         } 
-        
-
 }
 
 exports.getMediaAvaliacoes = async (req, res) => {
