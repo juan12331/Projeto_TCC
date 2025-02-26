@@ -46,6 +46,8 @@ routes.delete('/quartos/:id_quarto', QuartosControllers.deleteQuarto);
 routes.get('/quartos', QuartosControllers.getAllQuartos);
 routes.get('/quartos/:id_quarto', QuartosControllers.getQuartosById);
 
+routes.put('/quartos/:id_quarto', QuartosControllers.updateQuartos)
+
 // rotas avaliacoes
 
 routes.post('/avaliacoes', AvaliacoesControllers.createAvaliacoes);
