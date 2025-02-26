@@ -62,6 +62,13 @@ routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoe
 
 // rotas avaliacoes_quartos
 
-// routes.get('/avaliacoesQuartos', Avaliacoes_quartosControllers.get)
+routes.post('/avaliacoesQuartos', Avaliacoes_quartosControllers.createAvaliacoes)
+
+routes.get('/avaliacoesQuartos', Avaliacoes_quartosControllers.getAllAvaliacoes)
+routes.get('/AvaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.getAvaliacoesById)
+
+routes.delete('AvaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.deleteAvaliacoes)
+
+routes.put('/AvaliacoesQuartos', Avaliacoes_quartosControllers.updateAvalicoes)
 
 module.exports = routes
