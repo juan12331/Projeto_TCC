@@ -507,7 +507,7 @@
   text-align: start ;
 }
 
-.cardsFundo-acomodacoes{/*Responsivo*/
+.cardsFundo-acomodacoes{/*Responsivo*/ /*FAZER DAQUI PARA BAIXO*/
   background-color: #d2ae6f99;
   flex-direction: column;
   height: auto;
