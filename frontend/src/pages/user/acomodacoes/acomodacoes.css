@@ -4,40 +4,34 @@
   box-sizing: border-box;
 }
 
-@media (min-width: 320px) and (max-width: 1920px) {
-
-.acomodacoes-page{
+.acomodacoes-page { 
   background-color: #F2F2F2;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0vh;
-  padding: 0vh;
+  width: 100%;  
+  max-width: 100%;
+  height: 100%; 
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  }
-
-.header-acomodacoes{
-  justify-content: center;
-  align-items: center;
-  margin-top: 6vh;
-  width: 90%;
-  max-width: 600px;
-  }
-
-.acomodacoes-titulo{
-  color: #CCAA6B;
-  font-size: 3vw;
-  font-family: "Chonburi";
-  text-align: center;
+  overflow-x: hidden; 
 }
 
-.separador-acomodacoes {
+.header-acomodacoes{ 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin-top: 4vh;
   width: 100%;
-  margin-top: 3vh;
+  }
+
+.separador-acomodacoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 80%;
+    margin-top: 3vh;
 }
 
 .divider-acomodacoes {
@@ -51,56 +45,6 @@
   height: 8px;
   background-color: #CCAA6B;
   border-radius: 50%;
-}
-
-.fundo-acomodacoes{
-  background-color: #F7F2E9;
-  width: 60%;
-  max-width: 1920px;
-  min-width: 320px;
-  height: 150px;
-  margin-top: 6vh;
-  gap: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: #bdbdbd71 solid 4px;
-  border-left: #bdbdbd5d solid 2px;
-  border-right: #bdbdbd5d solid 2px;
-  }
-
-.checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{
-  font-family: "Kreon";
-  font-size: 1vw;
-  color: #712123;
-  text-align: start ;
-}
-
-.buscar-acomodacoes{
-  color: #F7F2E9;
-  background-color: #712122;
-  font-family: "Kreon";
-  border-radius: 2vh;
-  font-size: 1vw;
-  border: none;
-  width: 20%;
-  max-width: 200px;
-  height: 40px;
-  cursor: pointer;
-  margin-top: 2vh;
-  align-self: center;
-}
-
-.data-acomodacoes, .clientes-acomodacoes{
-  background-color: #f2f2f200;
-  border-bottom: #7E2527 solid 2px;
-  border-left: #7E2527 solid 2px;
-  border-right: #7E2527 solid 2px;
-  border-top:#7E2527 solid 2px ;
-  border-radius: 5px;
-  width: 100%;
-  height: 40px;
-  text-align: center;
 }
 
 .react-datepicker__header { /*cabeçalho calendário*/
@@ -165,178 +109,245 @@
   outline: none !important; 
 }
 
-.data-acomodacoes::placeholder{
-  text-align: center;
-  font-size: 1.2rem;
-  color: #BDBDBD;
-}
-
 .layout-acomodacoes {
   display: flex;
   flex-direction: column;
   justify-content: center; 
   align-items: center;
-  gap: 5vh;
-  margin-top: 5vh;
+  gap: 3vh;
+  margin-top: 3vh;
   width: 100%;
+}
+
+.grid4-acomodacoes{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+}
+
+.direito-acomodacoes{
+  padding-left: 8%;
+}
+
+/* DE 320 A 480 */
+@media (min-width: 320px) and (max-width: 480px){
+
+.acomodacoes-page {
+    width: 100%; 
+    padding: 10px;
+}
+
+.acomodacoes-titulo{
+  color: #CCAA6B;
+  font-size: 1.6rem;
+  font-family: "Chonburi";
+  text-align: center;
+}
+
+.fundo-acomodacoes{ 
+  background-color: #F7F2E9;
+  width: 90%;
+  max-width: 480px;
+  min-width: auto;
+  height: auto;
+  margin-top: 6vh;
+  padding: 20px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #bdbdbd71 solid 4px;
+  border-left: #bdbdbd5d solid 2px;
+  border-right: #bdbdbd5d solid 2px;
+  }
+
+.buscar-acomodacoes{ 
+  color: #F7F2E9;
+  background-color: #712122;
+  font-family: "Kreon";
+  border-radius: 2vh;
+  padding: 1%;
+  font-size: 0.5rem;
+  border: none;
+  width: 45%;
+  cursor: pointer;
+  margin-top: 1.2vh;
+  align-self: center;
+}
+
+.data-acomodacoes, .clientes-acomodacoes{ 
+  background-color: #f2f2f200;
+  border-bottom: #7E2527 solid 2px;
+  border-left: #7E2527 solid 2px;
+  border-right: #7E2527 solid 2px;
+  border-top:#7E2527 solid 2px ;
+  border-radius: 4px;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+}
+
+.data-acomodacoes::placeholder{ 
+  text-align: center;
+  font-size: 0.5rem;
+  color: #BDBDBD;
+}
+
+.checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{ 
+  font-family: "Kreon";
+  font-size: 1.5vw;
+  color: #712123;
+  text-align: start ;
 }
 
 .cardsFundo-acomodacoes{
-  display: flex;
-  align-items: center; 
   background-color: #d2ae6f99;
-  width: 100%;
-  height: 20vw;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: auto;
+  padding: 10px;
+  align-items: center;
+  display: flex;
 }
 
 .cardsConteudo-acomodacoes{
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
-  max-width: 60%; 
-  padding-left: 6vh;
-  gap: 4vh;
+  text-align: center;
+  padding: 0;
 }
 
 .cardsImg-acomodacoes{
-  height: 90%;
-  padding-left: 6vh;
+  height: auto;
+  max-width: 80%;
+  padding: 0;
 }
 
 .cardsTitle-acomodacoes{
   color: #7C2728;
   font-family: "Kreon";
   font-weight: 500;
-  font-size: 6vh;
+  font-size: 1.3rem;
+  margin-top: 1vh;
 }
 
 .cardsText-acomodacoes{
   color: #7A6640;
   font-family: "Kreon";
   font-weight: 400;
-  font-size: 3vh;
+  font-size: 0.8rem;
+  margin-top: 1vh;
 }
 
 .cardsButton-acomodacoes{
-  color: #F7F2E9;
+  color: #F7F2E9; 
   background-color: #712122;
   font-family: "Kreon";
   border-radius: 2vh;
-  font-size: 3vh;
   border: none;
-  width: 15%;
-  height: 5vh;
-  cursor: pointer;
+  cursor: pointer; 
+  font-size: 0.8rem;
+  width: 30%;
+  margin-top: 1vh;
+  padding: 4px;
 }
 
-.imgFinal-acomodacoes{
-  width: 100%;
+.imgFinal-acomodacoes{ 
+  margin-top: 1vh;
+  width: 500px;
+  height: 60px;
 }
 
 .logoFinal-acomodacoes{
-  height: 15%;
-  width: 8%;
+  width: 20%;
+  height: 20%;
 }
 
 .imgLogoFinal-acomodacoes{
-  max-width: 150px;
-  max-height: 150px;
-  width: 150px;
-  height: 150px;
-  
+  width: 80px;
+  height: 80px;
+  margin-top: 10%;
 }
 
-.final-acomodacoes{
-  height: 40vw;
+.final-acomodacoes { 
   display: flex;
-  gap: 10vw;
-  margin-top: 5%;
-  padding-left: 5%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
 }
 
-.localizacao-acomodacoes{
+.grid1-acomodacoes, .grid2-acomodacoes, .grid3-acomodacoes{
+  margin-top: 6%;
+}
+
+.localizacao-acomodacoes, .site-acomodacoes, .atendimento-acomodacoes{
   color: #7E2527;
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 50px;
-  margin-bottom: 15%;
-}
-
-.site-acomodacoes{
-  color: #7E2527;
-  font-family: "Katibeh";
-  font-weight: 200;
-  font-size: 50px;
-  margin-bottom: 40%;
-}
-
-.atendimento-acomodacoes{
-  color: #7E2527;
-  font-family: "Katibeh";
-  font-weight: 200;
-  font-size: 50px;
-  padding-left: 19%;
+  font-size: 2.5rem;
+  margin-bottom: 5%;
+  text-align: center;
 }
 
 .infoLocalizacao-acomodacoes{
   color: #D2AD6F;
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 30px;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .gridEmail-acomodacoes{
   display: flex;
-  align-items: center;
+  align-items: center; 
+  text-align: center;
+  justify-content: center;
   gap: 10px;
 }
 
 .gridPhone-acomodacoes{
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
 .emailIcon-acomodacoes {
   color: #D2AD6F;
-  height: 25px;
+  height: 18px;
   width: auto;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .phoneIcon-acomodacoes{
   color: #D2AD6F;
-  height: 25px;
+  height: 18px;
   width: auto;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .infoSite-acomodacoes{
   color: #D2AD6F;
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 30px;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .infoAtendimento-acomodacoes{
   color: #D2AD6F;
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 30px;
-  margin-top: 8%;
-  padding-right: 20%;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .infoAtendimento2-acomodacoes{
   color: #D2AD6F;
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 30px;
-  margin-top: 35%;
-  display: flex;
-  justify-content: center;
-  padding-right: 20%;
+  font-size: 1.7rem;
+  text-align: center;
+  margin-top: 12%;
 }
 
 .acomodacoes-input{
@@ -346,11 +357,10 @@
   border-top:#998050 solid 2px ;
   background-color: #F2F2F2;
   border-radius: 8px;
-  width: 50%;
-  max-width: 100%;
-  max-height: 100px;
-  height: 50px;
-  margin-top: 5%;
+  width: 40%;
+  height: 35px;
+  margin-top: 4%;
+  text-align: center;
 }
 
 .acomodacoes-input::placeholder{
@@ -358,13 +368,13 @@
   color: #712123;
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 30px;
+  font-size: 1.5rem;
 }
 
 .email-acomodacoes{
   display: flex;
   justify-content: center;
-  padding-right: 20%;
+  align-items: center;
 }
 
 .cadastro-acomodacoes{
@@ -375,40 +385,35 @@
   font-family: "Katibeh";
   font-weight: 200;
   color: #712123;
-  font-size: 30px;
+  font-size: 1.5rem;
   border: none;
-  width: 50%;
-  height: 50px;
+  width: 40%;
+  height: 35px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
 }
 
 .submit-acomodacoes{
   display: flex;
   justify-content: center;
-  padding-right: 20%;
-}
-
-.grid4-acomodacoes{
-  display: flex;
 }
 
 .whatsIcon-acomodacoes{
   color: #CCAA6B;
-  height: 25px;
+  height: 20px;
   width: auto;
 }
 
 .faceIcon-acomodacoes{
   color: #CCAA6B;
-  height: 25px;
+  height: 20px;
   width: auto;
 }
 
 .instaIcon-acomodacoes{
   color: #CCAA6B;
-  height: 25px;
+  height: 20px;
   width: auto;
 }
 
@@ -416,24 +421,756 @@
   color: #BDBDBD;
   font-family: "Katibeh";
   font-weight: 200;
-}
-
-.grid4-acomodacoes{
-  display: flex;
-  flex-direction: column;
-  height: inherit;
-  width: inherit;
+  font-size: 1.2rem;
 }
 
 .Widgets_acomodacoes{
   display: flex;
   gap: 1%;
-  align-items: baseline;
-  padding-left: 20%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+}
 }
 
-.direito-acomodacoes{
-  padding-left: 8%;
+/* DE 481 A 1024 */
+@media (min-width: 481px) and (max-width: 1024px) {
+
+.acomodacoes-page {
+  width: 100%; 
+  padding: 10px;
 }
+
+.acomodacoes-titulo{
+  color: #CCAA6B;
+  font-size: 1.8rem;
+  font-family: "Chonburi";
+  text-align: center;
+}
+
+.fundo-acomodacoes{ 
+  background-color: #F7F2E9;
+  width: 90%;
+  min-width: auto;
+  max-width: 530px;
+  height: auto;
+  margin-top: 6vh;
+  padding: 15px;
+  gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #bdbdbd71 solid 4px;
+  border-left: #bdbdbd5d solid 2px;
+  border-right: #bdbdbd5d solid 2px;
+  }
+
+.buscar-acomodacoes{ 
+  color: #F7F2E9;
+  background-color: #712122;
+  font-family: "Kreon";
+  border-radius: 2vh;
+  padding: 1%;
+  font-size: 0.5rem;
+  border: none;
+  width: 40%;
+  max-width: 90px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.data-acomodacoes, .clientes-acomodacoes{ 
+  background-color: #f2f2f200;
+  border-bottom: #7E2527 solid 2px;
+  border-left: #7E2527 solid 2px;
+  border-right: #7E2527 solid 2px;
+  border-top:#7E2527 solid 2px ;
+  border-radius: 4px;
+  width: 100px;
+  max-width: 90px;
+  height: 20px;
+  text-align: center;
+}
+
+.data-acomodacoes::placeholder{ 
+  text-align: center;
+  font-size: 0.7rem;
+  color: #BDBDBD;
+}
+
+.checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{ 
+  font-family: "Kreon";
+  font-size: 9px;
+  color: #712123;
+  text-align: start ;
+}
+
+.cardsFundo-acomodacoes{/*Responsivo*/
+  background-color: #d2ae6f99;
+  flex-direction: column;
+  height: auto;
+  max-height: 200px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.cardsConteudo-acomodacoes{/*Responsivo*/
+  text-align: center;
+  padding: 0;
+}
+
+.cardsImg-acomodacoes{/*Responsivo*/
+  height: auto;
+  max-height: 150px;
+  max-width: 80%;
+  padding: 0;
+}
+
+.cardsTitle-acomodacoes{/*Responsivo*/
+  color: #7C2728;
+  font-family: "Kreon";
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: 1vh;
+}
+
+.cardsText-acomodacoes{/*Responsivo*/
+  color: #7A6640;
+  font-family: "Kreon";
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 1vh;
+}
+
+.cardsButton-acomodacoes{/*Responsivo*/
+  color: #F7F2E9; 
+  background-color: #712122;
+  font-family: "Kreon";
+  border-radius: 2vh;
+  border: none;
+  cursor: pointer; 
+  font-size: 0.8rem;
+  width: 30%;
+  margin-top: 1vh;
+  padding: 4px;
+}
+
+.imgFinal-acomodacoes{/*Responsivo*/ 
+  margin-top: 1vh;
+  width: 500px;
+  height: 60px;
+}
+
+.logoFinal-acomodacoes{/*Responsivo*/
+  width: 20%;
+  height: 20%;
+}
+
+.imgLogoFinal-acomodacoes{/*Responsivo*/
+  width: 80px;
+  height: 80px;
+  margin-top: 10%;
+}
+
+.final-acomodacoes { /*Responsivo*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+}
+
+.grid1-acomodacoes, .grid2-acomodacoes, .grid3-acomodacoes{/*Responsivo*/
+  margin-top: 6%;
+}
+
+.localizacao-acomodacoes, .site-acomodacoes, .atendimento-acomodacoes{/*Responsivo*/
+  color: #7E2527;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 2.5rem;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.infoLocalizacao-acomodacoes{/*Responsivo*/
+  color: #D2AD6F;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.gridEmail-acomodacoes{/*Responsivo*/
+  display: flex;
+  align-items: center; 
+  text-align: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gridPhone-acomodacoes{/*Responsivo*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.emailIcon-acomodacoes {/*Responsivo*/
+  color: #D2AD6F;
+  height: 18px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.phoneIcon-acomodacoes{/*Responsivo*/
+  color: #D2AD6F;
+  height: 18px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.infoSite-acomodacoes{/*Responsivo*/
+  color: #D2AD6F;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.infoAtendimento-acomodacoes{/*Responsivo*/
+  color: #D2AD6F;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.infoAtendimento2-acomodacoes{/*Responsivo*/
+  color: #D2AD6F;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.7rem;
+  text-align: center;
+  margin-top: 12%;
+}
+
+.acomodacoes-input{/*Responsivo*/
+  border-bottom: #998050 solid 2px;
+  border-left: #998050 solid 2px;
+  border-right: #998050 solid 2px;
+  border-top:#998050 solid 2px ;
+  background-color: #F2F2F2;
+  border-radius: 8px;
+  width: 40%;
+  height: 35px;
+  margin-top: 4%;
+  text-align: center;
+}
+
+.acomodacoes-input::placeholder{/*Responsivo*/
+  text-align: center;
+  color: #712123;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+.email-acomodacoes{/*Responsivo*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastro-acomodacoes{/*Responsivo*/
+  border-color: #7a664000;
+  background-color: #997f5085;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-family: "Katibeh";
+  font-weight: 200;
+  color: #712123;
+  font-size: 1.5rem;
+  border: none;
+  width: 40%;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; 
+}
+
+.submit-acomodacoes{/*Responsivo*/
+  display: flex;
+  justify-content: center;
+}
+
+.whatsIcon-acomodacoes{/*Responsivo*/
+  color: #CCAA6B;
+  height: 20px;
+  width: auto;
+}
+
+.faceIcon-acomodacoes{/*Responsivo*/
+  color: #CCAA6B;
+  height: 20px;
+  width: auto;
+}
+
+.instaIcon-acomodacoes{/*Responsivo*/
+  color: #CCAA6B;
+  height: 20px;
+  width: auto;
+}
+
+.Textdireito-acomodacoes{/*Responsivo*/
+  color: #BDBDBD;
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
+.Widgets_acomodacoes{/*Responsivo*/
+  display: flex;
+  gap: 1%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+}
+}
+
+
+@media (min-width: 1024px) {
+  .acomodacoes-page{
+    background-color: #F2F2F2;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0vh;
+    padding: 0vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+  
+  .header-acomodacoes{
+    justify-content: center;
+    align-items: center;
+    margin-top: 6vh;
+    width: 90%;
+    max-width: 600px;
+    }
+  
+  .acomodacoes-titulo{
+    color: #CCAA6B;
+    font-size: 3vw;
+    font-family: "Chonburi";
+    text-align: center;
+  }
+  
+  .separador-acomodacoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 3vh;
+  }
+  
+  .divider-acomodacoes {
+    width: 80%;
+    height: 0.5px;
+    background-color: #CCAA6B; 
+  }
+  
+  .circle-acomodacoes {
+    width: 8px;
+    height: 8px;
+    background-color: #CCAA6B;
+    border-radius: 50%;
+  }
+  
+  .fundo-acomodacoes{
+    background-color: #F7F2E9;
+    width: 60%;
+    max-width: 1920px;
+    min-width: 320px;
+    height: 150px;
+    margin-top: 6vh;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #bdbdbd71 solid 4px;
+    border-left: #bdbdbd5d solid 2px;
+    border-right: #bdbdbd5d solid 2px;
+    }
+  
+  .checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{
+    font-family: "Kreon";
+    font-size: 1vw;
+    color: #712123;
+    text-align: start ;
+  }
+  
+  .buscar-acomodacoes{
+    color: #F7F2E9;
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    font-size: 1vw;
+    border: none;
+    width: 20%;
+    max-width: 200px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 2vh;
+    align-self: center;
+  }
+  
+  .data-acomodacoes, .clientes-acomodacoes{
+    background-color: #f2f2f200;
+    border-bottom: #7E2527 solid 2px;
+    border-left: #7E2527 solid 2px;
+    border-right: #7E2527 solid 2px;
+    border-top:#7E2527 solid 2px ;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+  }
+  
+  .react-datepicker__header { /*cabeçalho calendário*/
+    background-color: #F2F2F2; 
+    border-bottom: 2px solid #7E2527;
+  }
+  
+  .react-datepicker { /*calendário*/
+    background-color: #F2F2F2;
+    border: #F2F2F2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .react-datepicker__input-container input:focus { /*borda ao clicar*/
+    border: 2px solid #7E2527 !important; 
+    outline: none !important; 
+  }
+  
+  .react-datepicker__day:hover { /*ao passar mouse*/
+    background-color: #d2ae6f99 !important; 
+    color: white !important;
+  }
+  
+  .react-datepicker__day--in-selecting-range { /*ao passar mouse geral*/
+    background-color: #D2AD6F !important; 
+  }
+  
+  .react-datepicker__day--in-range {
+    background-color: #D2AD6F !important; 
+    color: black !important;
+  }
+  
+  .react-datepicker__day--today { /*dia atual*/
+    background-color: #d2ae6f00 !important; 
+    color: black !important;
+    font-weight: normal;
+  }
+  
+  .react-datepicker__day--selected { /*dia selecionado*/
+    background-color: #d2ae6f99 !important; 
+    color: white !important; 
+  }
+  
+  .react-datepicker__day--disabled { /*data indisponível*/
+    color: #cccccc !important; 
+    cursor: not-allowed; 
+    background-color: #f8f8f8 !important; 
+  }
+  
+  .react-datepicker__day--disabled:hover { /*ao passar mouse sobre data indisponível*/
+    background-color: #e0e0e0 !important;
+  }
+  
+  .react-datepicker__day--keyboard-selected { /* primeira data disponível no check-out */
+    background-color: #4caf4f00 !important; 
+    color: rgb(0, 0, 0) !important; 
+  }
+  
+  .clientes-acomodacoes:focus { /*borda ao clicar*/
+    border: 2px solid #7E2527 !important; 
+    outline: none !important; 
+  }
+  
+  .data-acomodacoes::placeholder{
+    text-align: center;
+    font-size: 1.2rem;
+    color: #BDBDBD;
+  }
+  
+  .layout-acomodacoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 5vh;
+    margin-top: 5vh;
+    width: 100%;
+  }
+  
+  .cardsFundo-acomodacoes{
+    display: flex;
+    align-items: center; 
+    background-color: #d2ae6f99;
+    width: 100%;
+    height: 20vw;
+    flex-wrap: wrap;
+  }
+  
+  .cardsConteudo-acomodacoes{
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    max-width: 60%; 
+    padding-left: 6vh;
+    gap: 4vh;
+  }
+  
+  .cardsImg-acomodacoes{
+    height: 90%;
+    padding-left: 6vh;
+  }
+  
+  .cardsTitle-acomodacoes{
+    color: #7C2728;
+    font-family: "Kreon";
+    font-weight: 500;
+    font-size: 6vh;
+  }
+  
+  .cardsText-acomodacoes{
+    color: #7A6640;
+    font-family: "Kreon";
+    font-weight: 400;
+    font-size: 3vh;
+  }
+  
+  .cardsButton-acomodacoes{
+    color: #F7F2E9;
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    font-size: 3vh;
+    border: none;
+    width: 15%;
+    height: 5vh;
+    cursor: pointer;
+  }
+  
+  .imgFinal-acomodacoes{
+    width: 100%;
+  }
+  
+  .logoFinal-acomodacoes{
+    height: 15%;
+    width: 8%;
+  }
+  
+  .imgLogoFinal-acomodacoes{
+    max-width: 150px;
+    max-height: 150px;
+    width: 150px;
+    height: 150px;
+    
+  }
+  
+  .final-acomodacoes{
+    height: 40vw;
+    display: flex;
+    gap: 10vw;
+    margin-top: 5%;
+    padding-left: 5%;
+  }
+  
+  .localizacao-acomodacoes{
+    color: #7E2527;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 50px;
+    margin-bottom: 15%;
+  }
+  
+  .site-acomodacoes{
+    color: #7E2527;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 50px;
+    margin-bottom: 40%;
+  }
+  
+  .atendimento-acomodacoes{
+    color: #7E2527;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 50px;
+    padding-left: 19%;
+  }
+  
+  .infoLocalizacao-acomodacoes{
+    color: #D2AD6F;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 30px;
+  }
+  
+  .gridEmail-acomodacoes{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .gridPhone-acomodacoes{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .emailIcon-acomodacoes {
+    color: #D2AD6F;
+    height: 25px;
+    width: auto;
+    margin-top: 14px;
+  }
+  
+  .phoneIcon-acomodacoes{
+    color: #D2AD6F;
+    height: 25px;
+    width: auto;
+    margin-top: 14px;
+  }
+  
+  .infoSite-acomodacoes{
+    color: #D2AD6F;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 30px;
+  }
+  
+  .infoAtendimento-acomodacoes{
+    color: #D2AD6F;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 30px;
+    margin-top: 8%;
+    padding-right: 20%;
+  }
+  
+  .infoAtendimento2-acomodacoes{
+    color: #D2AD6F;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 30px;
+    margin-top: 35%;
+    display: flex;
+    justify-content: center;
+    padding-right: 20%;
+  }
+  
+  .acomodacoes-input{
+    border-bottom: #998050 solid 2px;
+    border-left: #998050 solid 2px;
+    border-right: #998050 solid 2px;
+    border-top:#998050 solid 2px ;
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 100%;
+    max-height: 100px;
+    height: 50px;
+    margin-top: 5%;
+  }
+  
+  .acomodacoes-input::placeholder{
+    text-align: center;
+    color: #712123;
+    font-family: "Katibeh";
+    font-weight: 200;
+    font-size: 30px;
+  }
+  
+  .email-acomodacoes{
+    display: flex;
+    justify-content: center;
+    padding-right: 20%;
+  }
+  
+  .cadastro-acomodacoes{
+    border-color: #7a664000;
+    background-color: #997f5085;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-family: "Katibeh";
+    font-weight: 200;
+    color: #712123;
+    font-size: 30px;
+    border: none;
+    width: 50%;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .submit-acomodacoes{
+    display: flex;
+    justify-content: center;
+    padding-right: 20%;
+  }
+  
+  .grid4-acomodacoes{
+    display: flex;
+  }
+  
+  .whatsIcon-acomodacoes{
+    color: #CCAA6B;
+    height: 25px;
+    width: auto;
+  }
+  
+  .faceIcon-acomodacoes{
+    color: #CCAA6B;
+    height: 25px;
+    width: auto;
+  }
+  
+  .instaIcon-acomodacoes{
+    color: #CCAA6B;
+    height: 25px;
+    width: auto;
+  }
+  
+  .Textdireito-acomodacoes{
+    color: #BDBDBD;
+    font-family: "Katibeh";
+    font-weight: 200;
+  }
+  
+  .grid4-acomodacoes{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: inherit;
+  }
+  
+  .Widgets_acomodacoes{
+    display: flex;
+    gap: 1%;
+    align-items: baseline;
+    padding-left: 20%;
+  }
+  
+  .direito-acomodacoes{
+    padding-left: 8%;
+  }
 
 }
