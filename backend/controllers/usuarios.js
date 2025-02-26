@@ -56,9 +56,7 @@ exports.deleteUsuario = async (req, res) => {
 
 exports.updateUsuario = async (req, res) => {
     const Cpf = req.params.cpf
-    console.log(Cpf)
     const CpfUsuario = await Usuarios.findOne({ where: { cpf: Cpf } })
-    console.log(CpfUsuario)
 
     if (CpfUsuario) {
         try {
