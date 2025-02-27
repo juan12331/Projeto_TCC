@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const routes = express.Router();
 
 const UsuariosControllers = require('../controllers/usuarios');
@@ -7,7 +7,7 @@ const Avaliacoes_quartosControllers = require('../controllers/avaliacoes_quartos
 const Fotos_quartosControllers = require('../controllers/fotos_quartos');
 const ReservasControllers = require('../controllers/reservas');
 const TiposUsuariosControllers = require('../controllers/tipos_usuarios');
-const QuartosControllers = require('../controllers/quartos')
+const QuartosControllers = require('../controllers/quartos');
 
 // função dos usuarios
 
@@ -46,30 +46,32 @@ routes.delete('/quartos/:id_quarto', QuartosControllers.deleteQuarto);
 routes.get('/quartos', QuartosControllers.getAllQuartos);
 routes.get('/quartos/:id_quarto', QuartosControllers.getQuartosById);
 
-routes.put('/quartos/:id_quarto', QuartosControllers.updateQuartos)
+routes.put('/quartos/:id_quarto', QuartosControllers.updateQuartos);
 
 // rotas avaliacoes
 
 routes.post('/avaliacoes', AvaliacoesControllers.createAvaliacoes);
 
 routes.get('/avaliacoes', AvaliacoesControllers.getAllAvaliacoes);
-routes.get('/avaliacoesNota', AvaliacoesControllers.getMediaAvaliacoes)
-routes.get('/avaliacoes/:id', AvaliacoesControllers.getAvaliacoesById)
+routes.get('/avaliacoesNota', AvaliacoesControllers.getMediaAvaliacoes);
+routes.get('/avaliacoes/:id', AvaliacoesControllers.getAvaliacoesById);
 
-routes.put('/avaliacoes/:id', AvaliacoesControllers.UpdateAvaliacoes)
+routes.put('/avaliacoes/:id', AvaliacoesControllers.UpdateAvaliacoes);
 
-routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoes)
+routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoes);
 
 // rotas avaliacoes_quartos
 
-routes.post('/avaliacoesQuartos', Avaliacoes_quartosControllers.createAvaliacoes)
+routes.post('/avaliacoesQuartos', Avaliacoes_quartosControllers.createAvaliacoes);
 
-routes.get('/avaliacoesQuartos', Avaliacoes_quartosControllers.getAllAvaliacoes)
-routes.get('/AvaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.getAvaliacoesById)
+routes.get('/avaliacoesQuartos', Avaliacoes_quartosControllers.getAllAvaliacoes);
+routes.get('/avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.getAvaliacoesById);
+routes.get('/avaliacoesQuartos/:Cpf', Avaliacoes_quartosControllers.getAvaliacoesByCpf);
+routes.get('/avaliacoesQuartos/:id_quarto', Avaliacoes_quartosControllers.getAvaliacoesByQuarto);
 
-routes.delete('AvaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.deleteAvaliacoes)
+routes.delete('avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.deleteAvaliacoes);
 
-routes.put('/AvaliacoesQuartos', Avaliacoes_quartosControllers.updateAvalicoes)
+routes.put('/avaliacoesQuartos', Avaliacoes_quartosControllers.updateAvalicoes);
 
 // rotas reservas
 
