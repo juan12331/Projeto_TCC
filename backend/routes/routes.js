@@ -71,4 +71,17 @@ routes.delete('AvaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.
 
 routes.put('/AvaliacoesQuartos', Avaliacoes_quartosControllers.updateAvalicoes)
 
+// rotas reservas
+
+routes.get('/reservas', ReservasControllers.getReservas);
+routes.get('/reservas/:id_quarto', ReservasControllers.getReservasByQuarto);
+routes.get('/reservas', ReservasControllers.getQuartosDisponiveis);
+routes.get('/reservas/:Cpf', ReservasControllers.getReservasByCpf);
+
+routes.create('/reservas', ReservasControllers.createReserva);
+
+routes.put('/reservas/:id', ReservasControllers.updateReserva);
+
+routes.delete('/reservas/:id', ReservasControllers.deleteReserva);
+
 module.exports = routes
