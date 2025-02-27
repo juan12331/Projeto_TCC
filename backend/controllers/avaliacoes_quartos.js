@@ -52,6 +52,30 @@ exports.getAvaliacoesById = async (req, res) => {
     }
 }
 
+exports.getAvaliacoesByCpf = async (req, res) => {
+    try{
+        const encontrarAvaliacao = await AvaliacoesQuartos.findAll({ where: {cpf: req.params.cpf} ,include: [ {model: Quartos}, {model: Usuarios}] });
+        if (!encontrarAvaliacao) {
+            return res.status(404).send("error 404 not found")
+        }
+        return res.send(encontrarAvaliacao);
+    } catch (error) {
+        return res.status(500).send('Internal server Error')
+    }
+}
+
+exports.getAvaliacoesByQuarto = async (req, res) => {
+    try{
+        const encontrarAvaliacao = await AvaliacoesQuartos.findAll({ where: {id_quarto: req.params.id_quarto} ,include: [ {model: Quartos}, {model: Usuarios}] });
+        if (!encontrarAvaliacao) {
+            return res.status(404).send("error 404 not found")
+        }
+        return res.send(encontrarAvaliacao);
+    } catch (error) {
+        return res.status(500).send('Internal server Error')
+    }
+}
+
 exports.updateAvalicoes = async (req, res) => {
     try{
         const id = req.params.id_reclamacao
