@@ -70,7 +70,7 @@ const Acomodacoes = () => {
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Domo - R$ 599</h1>
                 <h2 className="cardsText-acomodacoes">
-                    Experimente o charme do Domo geodésico da Quinta do Ypuã, uma acomodação aconchegante e exclusiva para até três pessoas. 
+                    Experimente o charme do Domo geodésico da Quinta do Ypuã, uma acomodação aconchegante e exclusiva para até três pessoas.  
                     Com uma cama de casal confortável e um ambiente cuidadosamente planejado, é o refúgio ideal para quem busca tranquilidade e contato com a natureza.
                 </h2>
                 <button onClick={() => navigate("/")} className="cardsButton-acomodacoes"> Reservar </button>
@@ -149,7 +149,7 @@ const Acomodacoes = () => {
 
               <div className="gridEmail-acomodacoes">
                 <Envelope className="emailIcon-acomodacoes"/>
-                <h4 className="infoLocalizacao-acomodacoes">pousadaquintadoypua@gmail.com</h4>
+                <h4 className="infoLocalizacao-acomodacoes">pousadaquintadoypua</h4>
               </div>
 
               <div className="gridPhone-acomodacoes">
