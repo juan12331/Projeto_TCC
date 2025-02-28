@@ -794,6 +794,7 @@
       max-width: 1920px;
       height: 150px;
       margin-top: 6vh;
+      gap: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
