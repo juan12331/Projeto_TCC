@@ -12,7 +12,17 @@ exports.getReservas = async (req, res) => {
     }
 }
 
-exports.getReservasByQuarto = async (req, res) => {}
+exports.getReservasByQuarto = async (req, res) => {
+    try{
+        const encontrarReserva = await Reservas.findAll({ where: {id_quarto: req.params.id_quarto} ,include: [ {model: Quartos}, {model: Usuarios}] });
+        if (!encontrarReserva) {
+            return res.status(404).send("error 404 not found")
+        }
+        return res.send(encontrarReserva);
+    } catch(error) {
+        return res.status(500).send('Internal server Error', error)
+    }
+}
 
 exports.getQuartosDisponiveis = async (req, res) => {
     // Pegando as datas de início e final da query string da requisição
@@ -84,7 +94,17 @@ exports.getQuartosDisponiveis = async (req, res) => {
 };
 
 
-exports.getReservasByCpf = async (req, res) => {}
+exports.getReservasByCpf = async (req, res) => {
+    try{
+        const encontrarReserva = await Reservas.findAll({ where: {cpf: req.params.cpf} ,include: [ {model: Quartos}, {model: Usuarios}] });
+        if (!encontrarReserva) {
+            return res.status(404).send("error 404 not found")
+        }
+        return res.send(encontrarReserva);
+    } catch(error) {
+        return res.status(500).send('Internal server Error', error)
+    }
+}
 
 exports.updateReserva = async (req, res) => {}
 
