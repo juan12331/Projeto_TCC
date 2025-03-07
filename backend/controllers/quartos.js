@@ -49,7 +49,7 @@ exports.getQuartosById = async (req, res) => {
 
 exports.updateQuartos = async (req, res) => {
     const id_quarto = req.params.id_quarto
-    const Id_confirmation = await Usuarios.findOne({ where: { id_quarto: id_quarto } })
+    const Id_confirmation = await Quartos.findOne({ where: { id_quarto: id_quarto } })
 
         if (Id_confirmation) {
             try {

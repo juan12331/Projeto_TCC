@@ -106,7 +106,23 @@ exports.getReservasByCpf = async (req, res) => {
     }
 }
 
-exports.updateReserva = async (req, res) => {}
+exports.updateReserva = async (req, res) => {
+    const id = req.params.id
+    const Id_confirmation = await Reservas.findOne({ where: { id: id } })
+
+        if (Id_confirmation) {
+            try {
+                const [Updates] = await Reservas.update(req.body, { where: { id: req.params.id } }) // verifica se tem alguma alteração
+                return res.send({ message: 'Usuario foi atualizado ;P', })
+    
+            } catch (error) {
+                return res.send('deu erro aqui meu mano ==> ', error)
+    
+            }
+        }
+        return res.status(404).send('usuario not found!!!')
+    }
+
 
 exports.createReserva = async (req, res) => {
     try {
