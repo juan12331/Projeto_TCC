@@ -136,10 +136,6 @@
   outline: none;
 }
 
-.direito-acomodacoes{
-  padding-left: 8%;
-}
-
 /* DE 320 A 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
@@ -437,7 +433,7 @@
   font-family: "Katibeh";
   font-weight: 200;
   font-size: 1.2rem;
-  padding-left: 5%;
+  padding-left: 8%;
 }
 
 .Widgets_acomodacoes{
@@ -760,7 +756,7 @@
   font-weight: 200;
   font-size: 1.5rem;
   text-align: center;
-  padding-right: 10%;
+  padding-right: 2%;
   margin-top: 1%;
 }
 
@@ -791,7 +787,7 @@
       background-color: #F7F2E9;
       width: 90%;
       min-width: auto;
-      max-width: 1920px;
+      max-width: 1000px;
       height: 150px;
       margin-top: 6vh;
       gap: 15px;
@@ -816,7 +812,9 @@
     height: 40px;
     cursor: pointer;
     margin-top: 12px;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .data-acomodacoes, .clientes-acomodacoes{ 
@@ -1016,7 +1014,7 @@
     
   }
   
-  .infoAtendimento2-acomodacoes{ /*MEXER DAQUI PARA BAIXO*/
+  .infoAtendimento2-acomodacoes{
     color: #D2AD6F;
     font-family: "Katibeh";
     font-weight: 200;
@@ -1045,7 +1043,7 @@
     color: #712123;
     font-family: "Katibeh";
     font-weight: 200;
-    font-size: 30px;
+    font-size: 1.4rem;
   }
   
   .email-acomodacoes{
@@ -1062,13 +1060,15 @@
     font-family: "Katibeh";
     font-weight: 200;
     color: #712123;
-    font-size: 30px;
+    font-size: 1.5rem;
     border: none;
     width: 50%;
     height: 50px;
     cursor: pointer;
     display: flex;
     justify-content: center;
+    align-items: center;
+    line-height: normal;
   }
   
   .submit-acomodacoes{
@@ -1094,7 +1094,11 @@
     height: 25px;
     width: auto;
   }
-  
+
+  .direito-acomodacoes{
+    padding-right: 40%;
+  }
+
   .Textdireito-acomodacoes{
     color: #BDBDBD;
     font-family: "Katibeh";
@@ -1102,15 +1106,19 @@
   }
 
   .grid4-acomodacoes {
-    width: 70%;
-    margin-top: 320px;
+    width: 100%;
+    height: 5%;
+    margin-top: 370px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
   
   .Widgets_acomodacoes{
     display: flex;
-    gap: 1%;
+    gap: 6%;
     align-items: baseline;
-    padding-left: 20%;
+    padding-right: 40%;
   }
 
 }
