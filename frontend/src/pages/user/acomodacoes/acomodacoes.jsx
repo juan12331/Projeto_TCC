@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale"; 
 import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./acomodacoes.css";
+import { min } from "date-fns";
 
 const Acomodacoes = () => {
   const [checkIn, setCheckIn] = useState(null); 
@@ -58,12 +59,12 @@ const Acomodacoes = () => {
           </div>
           <div className="reservation-acomodacoes">
           <h4 className="adultos-acomodacoes">ADULTOS</h4>
-          <input type="number" className="clientes-acomodacoes" required />
+          <input type="number" className="clientes-acomodacoes" min= "0" required />
           </div>
 
           <div className="reservation-acomodacoes">
           <h4 className="criancas-acomodacoes">CRIANÇAS</h4>
-          <input type="number" className="clientes-acomodacoes" required />
+          <input type="number" className="clientes-acomodacoes" min= "0" required />
           </div>
           <button onClick={() => navigate("/")}className="buscar-acomodacoes">BUSCAR</button>
       </div>
