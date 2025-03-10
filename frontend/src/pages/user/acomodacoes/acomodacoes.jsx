@@ -57,8 +57,12 @@ const Acomodacoes = () => {
           />
           </div>
           <div className="reservation-acomodacoes">
-          {/* Fazer dos Hóspedes */}
-          <h4 className="hospedes-acomodacoes">HÓSPEDES</h4>
+          <h4 className="adultos-acomodacoes">ADULTOS</h4>
+          <input type="number" className="clientes-acomodacoes" required />
+          </div>
+
+          <div className="reservation-acomodacoes">
+          <h4 className="criancas-acomodacoes">CRIANÇAS</h4>
           <input type="number" className="clientes-acomodacoes" required />
           </div>
           <button onClick={() => navigate("/")}className="buscar-acomodacoes">BUSCAR</button>

@@ -200,7 +200,7 @@
   color: #BDBDBD;
 }
 
-.checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{ 
+.checkin-acomodacoes, .checkout-acomodacoes, .adultos-acomodacoes, .criancas-acomodacoes{ 
   font-family: "Kreon";
   font-size: 1.5vw;
   color: #712123;
@@ -462,9 +462,9 @@
 
 .fundo-acomodacoes{ 
   background-color: #F7F2E9;
-  width: 90%;
+  width: 100%;
   min-width: auto;
-  max-width: 530px;
+  max-width: 600px;
   height: 100px;
   margin-top: 6vh;
   padding: 15px;
@@ -486,7 +486,8 @@
   font-size: 0.6rem;
   border: none;
   width: 40%;
-  max-width: 100px;
+  min-width: 60px;
+  max-width: 90px;
   height: 25px;
   cursor: pointer;
   margin-top: 12px;
@@ -501,7 +502,7 @@
   border-top:#7E2527 solid 2px ;
   border-radius: 4px;
   width: 100px;
-  max-width: 100px;
+  max-width: 85px;
   height: 25px;
   text-align: center;
 }
@@ -512,7 +513,7 @@
   color: #BDBDBD;
 }
 
-.checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{ 
+.checkin-acomodacoes, .checkout-acomodacoes, .adultos-acomodacoes, .criancas-acomodacoes{ 
   font-family: "Kreon";
   font-size: 10px;
   color: #712123;
@@ -836,7 +837,7 @@
     color: #BDBDBD;
   }
   
-  .checkin-acomodacoes, .checkout-acomodacoes, .hospedes-acomodacoes{ 
+  .checkin-acomodacoes, .checkout-acomodacoes, .adultos-acomodacoes, .criancas-acomodacoes{ 
     font-family: "Kreon";
     font-size: 13px;
     color: #712123;
