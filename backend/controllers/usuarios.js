@@ -24,7 +24,7 @@ exports.createUsuario = async (req, res) => {
 exports.login = async (req, res) => {
     try {
         const { cpf, senha } = req.body;
-        const usuario = await Usuarios.findOne({ where: { email, senha } })
+        const usuario = await Usuarios.findOne({ where: { cpf } })
         const verificarSenha = bcrypt.compare(senha, usuario.senha)
         if (usuario.cpf == cpf && verificarSenha) {
             return res.send({ user: usuario })
