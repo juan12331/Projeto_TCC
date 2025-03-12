@@ -7,12 +7,12 @@ const Login = () => {
     <div className="login-page">
       <div className="fundo-login">
         <div className="back-container">
-          <button onClick={() => navigate("/")} className="back-button"> ← </button>
+          <button onClick={() => navigate("/pagina_inicial")} className="back-button"> ← </button>
           <h1 className="back-line">|</h1>
-          <button onClick={() => navigate("/")} className="back-text"> HOME </button>
+          <button onClick={() => navigate("/pagina_inicial")} className="back-text"> HOME </button>
         </div>
           <div className="container-login">
-            <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
+            <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
           </div>
             <form className="login-form">
               <h1 className="login-texto">LOGIN</h1>
@@ -24,7 +24,7 @@ const Login = () => {
               </div>
               <button type="submit" className="login-button">ENTRAR</button>
               <div className="signup-link">
-                  Não tem login? <a href="#">Cadastre-se</a>
+                  Não tem login? <a href="cadastro">Cadastre-se</a>
               </div>
             </form>
       </div>
