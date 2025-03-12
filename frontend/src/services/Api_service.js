@@ -67,11 +67,6 @@ export async function getReservasById(id) {
     return response.data;
 }
 
-export async function getQuartosDisponiveis(params) {
-    const response = await http.get('/reservas/quartos', {params});
-    return response.data;
-}
-
 export async function getReservasByCpf(cpf) {
     const response = await http.get(`/reservas/${cpf}`);
     return response.data;

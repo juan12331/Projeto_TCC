@@ -1,10 +1,15 @@
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 const Avaliacoes = require('../models/avaliacoes');
 const Usuarios = require('../models/usuarios');
 
 
 exports.createAvaliacoes = async (req, res) => {
     try {
+        const {cpf} = req.body
+        const verificar = await Avaliacoes.findOne({where: {cpf: cpf}})
+        if (verificar) {
+            return res.status(200).send('você ja tem uma avaliação, se quiser atualize-a')
+        }
         const avaliacoes = await Avaliacoes.create(req.body)
         console.log(avaliacoes)
         return res.send('avaliação adicionada com sucesso')

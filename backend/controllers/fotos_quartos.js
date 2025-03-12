@@ -16,7 +16,7 @@ exports.ApagarFoto = async (req, res) => {
     const encontrarFoto = await Fotos_quartos.findOne({ where: { id_foto: req.params.id_foto } })
     try {
         await encontrarFoto.destroy();
-        return res.send('usuario deletado')
+        return res.send('foto apaga')
     } catch (err) {
         return res.send('aqui deu erro mn se liga', err)
     }
