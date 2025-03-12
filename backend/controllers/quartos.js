@@ -40,7 +40,10 @@ exports.getAllQuartos = async (req, res) => {
 
 exports.getQuartosById = async (req, res) => {
     try{
-        const encontrarQuarto = Quartos.findByPk( req.params.id, { include: [{model: fotos_quartos}, {model: reservas}, {model: avaliacoes_quartos}] } )
+        const encontrarQuarto = await Quartos.findByPk( req.params.id_quarto, { include: [{model: fotos_quartos}, {model: reservas}, {model: avaliacoes_quartos}]});
+        if (!encontrarQuarto) {
+            return res.status(404).send("error 404 not found")
+        }
         return res.send(encontrarQuarto);
     } catch (error) {
         return res.status(500).send('Internal Server Erro', error)
