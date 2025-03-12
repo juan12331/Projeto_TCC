@@ -8,7 +8,7 @@ const LoginAdm = () => {
       <div className="fundo-loginAdm">
         <div className="back-containerAdm">
           <button onClick={() => navigate("/usuarios")} className="back-buttonAdm"> ← </button>
-          <h1 className="back-line">|</h1>
+          <h1 className="back-lineAdm">|</h1>
           <button onClick={() => navigate("/usuarios")} className="back-textAdm"> HOME </button>
         </div>
           <div className="container-loginAdm">
