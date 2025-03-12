@@ -10,21 +10,21 @@ const NavbarAdm = () => {
 
     <div className="navbarAdm-container">
         <header className="navbarAdm">
-        <Link to="/usuarios" className={`nav-item ${location.pathname === "/" ? "active" : ""}`}>
+        <Link to="/usuariosAdm" className={`nav-item ${location.pathname === "/usuariosAdm" ? "active" : ""}`}>
             USUÁRIOS
         </Link>
 
-        <Link to="/quartos" className={`nav-item ${location.pathname === "/contato" ? "active" : ""}`}>
+        <Link to="/quartosAdm" className={`nav-item ${location.pathname === "/quartosAdm" ? "active" : ""}`}>
             QUARTOS
         </Link>
 
         <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="" />
 
-        <Link to="/avaliacoes" className={`nav-item ${ location.pathname === "/acomodacoes" ? "active" : ""}`}>
+        <Link to="/avaliacoesAdm" className={`nav-item ${ location.pathname === "/avaliacoesAdm" ? "active" : ""}`}>
             AVALIAÇÕES
         </Link>
 
-        <Link to="/sair" className={`nav-item ${location.pathname === "/login" ? "active" : ""}`}>
+        <Link to="/sairAdm" className={`nav-item ${location.pathname === "/sairAdm" ? "active" : ""}`}>
             SAIR
         </Link>
         </header>
