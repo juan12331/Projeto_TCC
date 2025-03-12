@@ -70,7 +70,7 @@ const Acomodacoes = () => {
 
       <div className="layout-acomodacoes">
         <div className="cardsFundo-acomodacoes">
-        <img className="cardsImg-acomodacoes" src="/src/assets/domoImg_acomodacoes.png" alt="" />
+        <img className="cardsImg-acomodacoes" src="/src/assets/imgAcomodacoes/domoImg_acomodacoes.png" alt="" />
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Domo - R$ 599</h1>
                 <h2 className="cardsText-acomodacoes">
@@ -81,7 +81,7 @@ const Acomodacoes = () => {
             </div>
         </div>
         <div className="cardsFundo-acomodacoes">
-        <img className="cardsImg-acomodacoes" src="/src/assets/cabanaImg_acomodacoes.png" alt="" />
+        <img className="cardsImg-acomodacoes" src="/src/assets/imgAcomodacoes/cabanaImg_acomodacoes.png" alt="" />
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Cabana - R$ 490</h1>
                 <h2 className="cardsText-acomodacoes">
@@ -92,7 +92,7 @@ const Acomodacoes = () => {
             </div>
         </div>
         <div className="cardsFundo-acomodacoes">
-        <img className="cardsImg-acomodacoes" src="/src/assets/chaleImg_acomodacoes.png" alt="" />
+        <img className="cardsImg-acomodacoes" src="/src/assets/imgAcomodacoes/chaleImg_acomodacoes.png" alt="" />
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Chalé Família - R$ 590</h1>
                 <h2 className="cardsText-acomodacoes">
@@ -103,7 +103,7 @@ const Acomodacoes = () => {
             </div>
         </div>
         <div className="cardsFundo-acomodacoes">
-        <img className="cardsImg-acomodacoes" src="/src/assets/charruaImg_acomodacoes.png" alt="" />
+        <img className="cardsImg-acomodacoes" src="/src/assets/imgAcomodacoes/charruaImg_acomodacoes.png" alt="" />
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Charrua (Bus) - R$ 490</h1>
                 <h2 className="cardsText-acomodacoes">
@@ -114,7 +114,7 @@ const Acomodacoes = () => {
             </div>
         </div>
         <div className="cardsFundo-acomodacoes">
-        <img className="cardsImg-acomodacoes" src="/src/assets/suiteImg_acomodacoes.png" alt="" />
+        <img className="cardsImg-acomodacoes" src="/src/assets/imgAcomodacoes/suiteImg_acomodacoes.png" alt="" />
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Suíte com cozinha - R$ 390</h1>
                 <h2 className="cardsText-acomodacoes">
@@ -125,7 +125,7 @@ const Acomodacoes = () => {
             </div>
         </div>
         <div className="cardsFundo-acomodacoes">
-        <img className="cardsImg-acomodacoes" src="/src/assets/estacionamentoImg_acomodacoes.png" alt="" />
+        <img className="cardsImg-acomodacoes" src="/src/assets/imgAcomodacoes/estacionamentoImg_acomodacoes.png" alt="" />
             <div className="cardsConteudo-acomodacoes">
                 <h1 className="cardsTitle-acomodacoes">Estacionamento para overlanders - R$ 100</h1>
                 <h2 className="cardsText-acomodacoes">
@@ -137,13 +137,13 @@ const Acomodacoes = () => {
         </div>
       </div>
             <div className="separadorFinal-acomodacoes">
-              <img className="imgFinal-acomodacoes" src="/src/assets/separador_final.png" alt="" />
+              <img className="imgFinal-acomodacoes" src="/src/assets/imgAcomodacoes/separador_final.png" alt="" />
             </div>
 
             <div className="final-acomodacoes">
 
               <div className="logoFinal-acomodacoes">
-                <img className="imgLogoFinal-acomodacoes" src="/src/assets/logo-acomodacoes.png" alt="" />
+                <img className="imgLogoFinal-acomodacoes" src="/src/assets/imgAcomodacoes/logo-acomodacoes.png" alt="" />
               </div>
 
               <div className="grid1-acomodacoes">

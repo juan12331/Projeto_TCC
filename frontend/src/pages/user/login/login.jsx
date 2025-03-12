@@ -12,7 +12,7 @@ const Login = () => {
           <button onClick={() => navigate("/pagina_inicial")} className="back-text"> HOME </button>
         </div>
           <div className="container-login">
-            <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
+            <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
           </div>
             <form className="login-form">
               <h1 className="login-texto">LOGIN</h1>
