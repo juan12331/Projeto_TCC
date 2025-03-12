@@ -1,4 +1,4 @@
-.navbar-container {
+.navbarAdm-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
 /* DE 320 A 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
-    .navbar{
+    .navbarAdm{
         background-color: #EFE5D1;
         width: auto;
         height: 80px;
@@ -46,7 +46,7 @@
 /* DE 481 A 1024 */
 @media (min-width: 481px) and (max-width: 1024px){
 
-.navbar{
+.navbarAdm{
     background-color: #EFE5D1;
     width: auto;
     height: 80px;
@@ -84,7 +84,7 @@
 /* DE 1025 EM DIANTE */
 @media (min-width: 1025px){
 
-.navbar{
+.navbarAdm{
     background-color: #EFE5D1;
     width: auto;
     height: 100px;

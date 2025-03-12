@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale"; 
 import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./acomodacoes.css";
-import NavBar from "../../../assets/components/navbar";
+import NavbarUser from "../../../assets/components/navbarUser";
 
 const Acomodacoes = () => {
   const [checkIn, setCheckIn] = useState(null); 
@@ -21,7 +21,7 @@ const Acomodacoes = () => {
 
   return (
     <div className="acomodacoes-page">
-      <NavBar/>
+      <NavbarUser/>
       <div className="inicio-acomodacoes">
         <h1 className="acomodacoes-titulo">ACOMODAÇÕES <br /> DISPONÍVEIS</h1>
         <div className="separador-acomodacoes">
