@@ -54,9 +54,9 @@ routes.post('/avaliacoes', AvaliacoesControllers.createAvaliacoes);
 
 routes.get('/avaliacoes', AvaliacoesControllers.getAllAvaliacoes);
 routes.get('/avaliacoesNota', AvaliacoesControllers.getMediaAvaliacoes);
-routes.get('/avaliacoes/:id', AvaliacoesControllers.getAvaliacoesById);
+routes.get('/avaliacoes/:id_avaliacao', AvaliacoesControllers.getAvaliacoesById);
 
-routes.put('/avaliacoes/:id', AvaliacoesControllers.UpdateAvaliacoes);
+routes.put('/avaliacoes/:id_avaliacao', AvaliacoesControllers.UpdateAvaliacoes);
 
 routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoes);
 
@@ -71,16 +71,16 @@ routes.get('/avaliacoesQuartos/:id_quarto', Avaliacoes_quartosControllers.getAva
 
 routes.delete('avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.deleteAvaliacoes);
 
-routes.put('/avaliacoesQuartos', Avaliacoes_quartosControllers.updateAvalicoes);
+routes.put('/avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.updateAvalicoes);
 
 // rotas reservas
 
 routes.get('/reservas', ReservasControllers.getReservas);
 routes.get('/reservas/:id_quarto', ReservasControllers.getReservasByQuarto);
-routes.get('/reservas', ReservasControllers.getQuartosDisponiveis);
+routes.get('/reservas/quartos', ReservasControllers.getQuartosDisponiveis);
 routes.get('/reservas/:Cpf', ReservasControllers.getReservasByCpf);
 
-routes.create('/reservas', ReservasControllers.createReserva);
+routes.post('/reservas', ReservasControllers.createReserva);
 
 routes.put('/reservas/:id', ReservasControllers.updateReserva);
 
