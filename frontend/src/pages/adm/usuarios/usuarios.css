@@ -100,29 +100,123 @@
 
 .fundo-usuarios{ 
   background-color: #F7F2E9;
-  width: 90%;
+  width: 45%;
   min-width: auto;
   max-width: 1000px;
-  height: 150px;
+  height: 100px;
   margin-top: 6vh;
-  gap: 15px;
+  gap: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 50px;
+  padding-right: 8px;
   border-bottom: #bdbdbd71 solid 4px;
   border-left: #bdbdbd5d solid 2px;
   border-right: #bdbdbd5d solid 2px;
 }
 
-.pesquisa-usuarios{
+.fundoPesquisa-usuarios{
   background-color: #ccaa6bd2;
-  width: 50%;
+  width: 70%;
   min-width: auto;
   max-width: 1000px;
-  height: 90px;
-  gap: 15px;
+  height: 60px;
+  border-radius: 25px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-self: center;
+}
+
+.pesquisa-usuarios{
+  border-radius: 25px;
+  display: flex;
+  justify-content: baseline;
   align-items: center;
+  padding-left: 30px;
+}
+
+.search-usuarios{
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+.search-usuarios::placeholder{
+  color: #5C4C30;
+  font-family: "Kreon";
+  font-size: 1rem;
+}
+
+.buttonSearch-usuarios{
+  border: transparent;
+  text-align: center;
+  background-color: #7E2527;
+  width: 40%;
+  max-width: 150px;
+  height: 50px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-family: "Kreon";
+  font-size: 1.2rem;
+}
+
+.layout-usuarios{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 110px;
+}
+
+.cards-usuarios{
+  display: flex;
+  align-items: flex-start; 
+  margin-left: 0;
+  margin-top: 80px;
+}
+
+.dataReserva-usuarios{
+  color: #7f2727f1;
+  font-family: "Katibeh";
+  font-weight: 300;
+}
+
+.grid1-usuarios, .grid2-usuarios{
+  display: flex;
+  gap: 40px;
+}
+
+.fundoCards-usuarios{
+  margin-top: 20px;
+  background-color: #ccaa6b94;
+  width: 200px;
+  height: 240px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.cardsImg-usuarios{
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.nomeCards-usuarios, .cpfCards-usuarios{
+  background-color: #a38856ef;
+  border-radius: 8px;
+  width: 80%;
+  height: 35px;
+  color: #7F2727;
+  font-family: "Kay Pho Du";
+  font-size: 1rem;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 18px;
 }
 }
