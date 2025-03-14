@@ -1,0 +1,128 @@
+*{
+  margin: 0vh;
+  padding: 0vh;
+  box-sizing: border-box;
+}
+
+.usuarios-page { 
+  background-color: #F2F2F2;
+  width: 100%;  
+  max-width: 100%;
+  height: 100%; 
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden; 
+}
+
+.inicio-usuarios { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15vh;
+  width: 100%;
+
+  }
+
+.separador-usuarios {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    width: 100%;
+    max-width: 80%;
+    margin-top: 3vh;
+}
+
+.divider-usuarios {
+  width: 80%;
+  height: 0.5px;
+  background-color: #7F2727; 
+}
+
+.circle-usuarios {
+  width: 8px;
+  height: 8px;
+  background-color: #7F2727;
+  border-radius: 50%;
+}
+
+/* DE 320 A 480 */
+@media (min-width: 320px) and (max-width: 480px){
+
+.usuarios-page {
+  width: 100%; 
+  padding: 10px;
+}
+
+.usuarios-titulo{
+  color: #7f2727f5;
+  font-size: 2.3rem;
+  font-family: "Katibeh";
+  font-weight: 300;
+  text-align: center;
+}
+} 
+
+/* DE 481 A 1024 */
+@media (min-width: 481px) and (max-width: 1024px){
+
+.usuarios-page {
+    width: 100%; 
+    padding: 10px;
+}
+
+.usuarios-titulo{
+  color: #7f2727f5;
+  font-size: 2.7rem;
+  font-family: "Katibeh";
+  font-weight: 300;
+  text-align: center;
+}
+}
+
+/* DE 1025 em diante */
+@media (min-width: 1025px) {
+
+.usuarios-page {
+  width: 100%; 
+  padding: 10px;
+}
+
+.usuarios-titulo{
+  color: #7f2727f5;
+  font-size: 3rem;
+  font-family: "Katibeh";
+  font-weight: 300;
+  text-align: center;
+}
+
+.fundo-usuarios{ 
+  background-color: #F7F2E9;
+  width: 90%;
+  min-width: auto;
+  max-width: 1000px;
+  height: 150px;
+  margin-top: 6vh;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #bdbdbd71 solid 4px;
+  border-left: #bdbdbd5d solid 2px;
+  border-right: #bdbdbd5d solid 2px;
+}
+
+.pesquisa-usuarios{
+  background-color: #ccaa6bd2;
+  width: 50%;
+  min-width: auto;
+  max-width: 1000px;
+  height: 90px;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}

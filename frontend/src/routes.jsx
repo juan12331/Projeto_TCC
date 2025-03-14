@@ -2,7 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 
 //rotas dos administradores
-import UsuariosAdm from "./pages/adm/usuarios_Adm/usuariosAdm.jsx";
+import Usuarios from "./pages/adm/usuarios/usuarios.jsx";
 
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
@@ -18,7 +18,7 @@ function MainRoutes() {
   return (
     <Routes>
       {/* Adm routes */}
-      <Route path="/UsuariosAdm" element={<UsuariosAdm />} />
+      <Route path="/Usuarios" element={<Usuarios />} />
 
 
       {/* User Routes */}
