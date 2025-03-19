@@ -90,7 +90,8 @@
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-right: 2%;
+    padding-left: 14%;
     gap: 12%;
  }
 

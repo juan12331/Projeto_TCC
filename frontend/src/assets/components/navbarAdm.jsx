@@ -10,7 +10,7 @@ const NavbarAdm = () => {
 
     <div className="navbarAdm-container">
         <header className="navbarAdm">
-        <Link to="/usuariosAdm" className={`nav-item ${location.pathname === "/usuariosAdm" ? "active" : ""}`}>
+        <Link to="/usuarios" className={`nav-item ${location.pathname === "/usuarios" ? "active" : ""}`}>
             USUÁRIOS
         </Link>
 
@@ -24,7 +24,7 @@ const NavbarAdm = () => {
             AVALIAÇÕES
         </Link>
 
-        <Link to="/sairAdm" className={`nav-item ${location.pathname === "/sairAdm" ? "active" : ""}`}>
+        <Link to="/login" className={`nav-item ${location.pathname === "/login" ? "active" : ""}`}>
             SAIR
         </Link>
         </header>
