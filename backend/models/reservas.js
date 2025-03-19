@@ -6,10 +6,9 @@ const usuarios = require('./usuarios')
 
 const reservas = database.define('reservas', {
     id: {
-        type: Sequelize.STRING,
-        AllowNUll: false,
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
-        unique: true
     },
     cpf: {
         type: Sequelize.STRING,
@@ -20,7 +19,7 @@ const reservas = database.define('reservas', {
         },
     },
     id_quarto: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         AllowNUll: false,
         references: {
             model: quartos,
@@ -35,7 +34,7 @@ const reservas = database.define('reservas', {
         type: Sequelize.DATE,
         AllowNUll: false
     },
-    
+
 });
 
 usuarios.hasMany(reservas, {
@@ -46,11 +45,12 @@ reservas.belongsTo(usuarios, {
     foreignKey: 'cpf'
 });
 
-reservas.hasOne(quartos, {
+quartos.hasOne(reservas, {
     foreignKey: 'id_quarto'
+
 });
 
-quartos.belongsTo(reservas, {
+reservas.belongsTo(quartos, {
     foreignKey: 'id_quarto'
 });
 

@@ -1,0 +1,111 @@
+body {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #efe5d1e3;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 2;
+}
+
+.fundo {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../assets/img/fundo1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inicio {
+    color: #7C2728;
+}
+
+.contato {
+    color: #7C2728;
+}
+
+.acomodacao {
+    color: #7C2728;
+}
+
+.login {
+    color: #7C2728;
+}
+
+.logo {
+    width: 85px;
+    height: 80px;
+}
+
+.reserva{
+    width: 700px;
+    height: 90px;
+    background-color: white;
+    margin: 0 auto;
+    position: absolute;
+    bottom: -40px;
+    /* z-index: 10; */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ambiente {
+    color: #7A6640;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 250px;
+    justify-content: center;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+}  
+
+.setapbaixo {
+    width: 25px;
+    height: 25px;
+}
+
+.descricao {
+    width: 100%;
+    height: 600px;
+    background-color: #CCAA6B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img3 {
+    width: 800px;
+    height: 560px;
+    padding: 180px;
+    display: flex;
+}
+
+.pousadat {
+    width: 550px;
+    color: #5C4C30;
+    /* padding: 150px; */
+    margin-right: 300px;
+    align-items: center;
+}
+
+.avaliacao {
+    color: #7A6640;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 150px;
+    justify-content: center;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
