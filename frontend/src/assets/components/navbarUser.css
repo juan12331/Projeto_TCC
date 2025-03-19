@@ -18,14 +18,14 @@
      }
     
     .nav-item{
-        color: #7C2728;
-        font-size: 0.9rem;
-        font-family: "Katibeh";
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
+      color: #7C2728;
+      font-size: 0.9rem;
+      font-family: "Katibeh";
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
      }
     
     .nav-item.active{
@@ -90,7 +90,8 @@
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-right: 2%;
+    padding-left: 14%;
     gap: 12%;
  }
 
