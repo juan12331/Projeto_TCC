@@ -52,6 +52,9 @@
   background-color: transparent;
   border: none;
   text-align: center;
+  outline: none;
+  width: 500px;
+  height: 40px;
 }
 
 /* DE 320 A 480 */
@@ -112,6 +115,7 @@
   color: #5C4C30;
   font-family: "Kreon";
   font-size: 0.8rem;
+  text-align: left;
 }
 
 .buttonSearch-usuarios{
@@ -281,6 +285,7 @@
   color: #5C4C30;
   font-family: "Kreon";
   font-size: 1rem;
+  text-align: left;
 }
 
 .buttonSearch-usuarios{
@@ -450,6 +455,7 @@
   color: #5C4C30;
   font-family: "Kreon";
   font-size: 1rem;
+  text-align: left;
 }
 
 .buttonSearch-usuarios{
@@ -463,21 +469,19 @@
   border-radius: 5px;
   font-family: "Kreon";
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /*ARRUMAR A PARTIR DAQUI*/
 
 .layout-usuarios{
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-left: 80px;
 }
 
-.cards-usuarios{
-  display: flex;
-  align-items: flex-start; 
+.cards-usuarios{ 
   margin-left: 0;
   margin-top: 80px;
 }
@@ -489,7 +493,8 @@
 }
 
 .grid1-usuarios, .grid2-usuarios{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   gap: 40px;
 }
 
@@ -557,6 +562,7 @@
 .adicionarIcon-usuarios{
   width: 20%;
   height: 30px;
+  cursor: pointer;
   color: #5C4C30;
 }
 }
