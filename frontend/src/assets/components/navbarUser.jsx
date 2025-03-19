@@ -1,15 +1,15 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import "../components/navbar.css"; 
+import "../components/navbarUser.css"; 
 
-const NavBar = () => {
+const NavbarUser = () => {
 
   const location = useLocation(); 
 
   return (
 
-    <div className="navbar-container">
-        <header className="navbar">
+    <div className="navbarUser-container">
+        <header className="navbarUser">
         <Link to="/pagina_inicial" className={`nav-item ${location.pathname === "/" ? "active" : ""}`}>
             INÍCIO
         </Link>
@@ -32,4 +32,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavbarUser;
