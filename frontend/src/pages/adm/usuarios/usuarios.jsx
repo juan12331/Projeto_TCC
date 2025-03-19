@@ -1,6 +1,6 @@
 import React from "react";
 import "./usuarios.css";
-import { PlusSquare } from "react-bootstrap-icons";
+import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 
 const Usuarios = () => {
@@ -180,8 +180,10 @@ const Usuarios = () => {
 
       <div className="final-usuarios">
         <div className="fundoFinal-usuarios">
-          <h1>Adicionar novo Usuário</h1>
-          {/* COLOCAR ICONE */}
+          <div className="gridAdicionar-usuarios">
+          <h1 className="textAdicionar-usuarios">Adicionar novo Usuário</h1>
+          <PlusCircle className="adicionarIcon-usuarios"/>
+          </div>
         </div>
       </div>
 
