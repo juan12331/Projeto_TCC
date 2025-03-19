@@ -91,7 +91,7 @@ export async function deleteReserva(id) {
 // funções quartos
 
 
-export async function getQuartosDisponiveis(params) {
+export async function getAllQuartosDisponiveis(params) {
     const response = await http.get('/quartos', {params});
     return response.data;
 }
