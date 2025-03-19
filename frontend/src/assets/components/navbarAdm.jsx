@@ -24,7 +24,7 @@ const NavbarAdm = () => {
             AVALIAÇÕES
         </Link>
 
-        <Link to="/sair" className={`nav-item ${location.pathname === "/sair" ? "active" : ""}`}>
+        <Link to="/login" className={`nav-item ${location.pathname === "/login" ? "active" : ""}`}>
             SAIR
         </Link>
         </header>
