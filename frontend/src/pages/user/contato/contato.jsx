@@ -1,18 +1,14 @@
 import React from "react";
 import "./contato.css";
+import NavbarUser from "../../../assets/components/navbarUser";
+
 
 function Contato() {
   return (
+    <>
     <div className="contato-container">
-      <header className="header">
-        <nav className="nav">
-          <a href="#inicio">INÍCIO</a>
-          <a href="#contato">CONTATO</a>
-          <a href="#quinta">QUINTA CORVADA</a>
-          <a href="#acomodacoes">ACOMODAÇÕES</a>
-          <a href="#login">LOGIN</a>
-        </nav>
-      </header>
+    <NavbarUser/>
+    
 
       <section className="contato-section">
         <h1>Vamos conversar?</h1>
@@ -35,6 +31,7 @@ function Contato() {
         </form>
       </section>
     </div>
+    </>
   );
 }
 

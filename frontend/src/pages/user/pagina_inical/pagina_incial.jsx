@@ -8,9 +8,8 @@ import NavbarUser from "../../../assets/components/navbarUser";
 function Inicio() {
   return (
     <>
-      <NavbarUser/>
-
       <div className="fundo">
+      <NavbarUser/>
         <div className="reserva">
           <div>
             <label htmlFor="checkin">Escolha a data de check-in:</label>
