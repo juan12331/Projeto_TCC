@@ -10,6 +10,7 @@
 
     .navbarUser{
         background-color: #EFE5D1;
+        width: auto;
         height: 80px;
         display: flex;
         align-items: center;
@@ -47,6 +48,7 @@
 
 .navbarUser{
     background-color: #EFE5D1;
+    width: auto;
     height: 80px;
     display: flex;
     align-items: center;
@@ -84,9 +86,13 @@
 
 .navbarUser{
     background-color: #EFE5D1;
+    width: auto;
     height: 100px;
     display: flex;
     align-items: center;
+    padding-right: 2%;
+    padding-left: 14%;
+    gap: 12%;
  }
 
 .nav-item{
