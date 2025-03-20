@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 
 
 const Login = () => {
+  const navigate = useNavigate();
 
 
 
@@ -11,9 +13,9 @@ const Login = () => {
     <div className="login-page">
       <div className="fundo-login">
         <div className="back-container">
-          <button onClick={() => navigate("/pagina_inicial")} className="back-button"> ← </button>
+          <button onClick={() => navigate("/Inicio")} className="back-button"> ← </button>
           <h1 className="back-line">|</h1>
-          <button onClick={() => navigate("/pagina_inicial")} className="back-text"> HOME </button>
+          <button onClick={() => navigate("/Inicio")} className="back-text"> HOME </button>
         </div>
           <div className="container-login">
             <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
