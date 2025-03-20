@@ -38,8 +38,8 @@ const StarRating = ({ totalStars = 5 }) => {
           <button type="submit" className="submit-button">Enviar avaliação</button>
         </form>
       </section>
->>>>>>> 799c934b0582f92c8c6d47e88a2e015cf19a640e
-    </div>
+      
+          </div>
     </>
   );
 };
