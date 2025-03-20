@@ -93,11 +93,12 @@
   border-radius: 2vh;
   font-family: "Katibeh";
   font-size: 2.3vh;
+  align-items: center;
   text-align: center;
   border: none;
   width: 80%;
   max-width: 20vh;
-  height: 5vh;
+  height: 52px;
   cursor: pointer;
 }
 

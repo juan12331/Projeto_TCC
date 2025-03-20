@@ -7,7 +7,7 @@ import fotodescricao from "/src/assets/img/fotodescricao.png";
 function Inicio() {
   return (
     <>
-      <header>
+      {/* <header>
         <h3 className="inicio">Início</h3>
         <h3 className="contato">Contato</h3>
 
@@ -15,7 +15,7 @@ function Inicio() {
 
         <h3 className="acomodacao">Acomodações</h3>
         <h3 className="login">Login</h3>
-      </header>
+      </header> */}
 
       <div className="fundo">
         <div className="reserva">
@@ -74,3 +74,4 @@ function Inicio() {
     </>
   );
 }
+export default Inicio
