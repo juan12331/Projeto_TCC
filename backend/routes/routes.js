@@ -78,6 +78,8 @@ routes.put('/avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.up
 routes.get('/reservas', ReservasControllers.getReservas);
 routes.get('/reservas/:id_quarto', ReservasControllers.getReservasByQuarto);
 routes.get('/reservas/user/:cpf', ReservasControllers.getReservasByCpf);
+routes.get('/reservas/data', ReservasControllers.getReservasByDate);
+
 
 routes.post('/reservas', ReservasControllers.createReserva);
 

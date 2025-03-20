@@ -59,7 +59,17 @@ exports.createReserva = async (req, res) => {
     try {
         const reservas = await Reservas.create(req.body)
         console.log(reservas)
-        return res.send('avaliação adicionada com sucesso')
+        return res.send('reserva adicionada com sucesso')
+    } catch (err) {
+        return res.status(403).send(err)
+    }
+}
+
+exports.getReservasByDate = async (req, res) => {
+    try {
+        const reservas = await Reservas.create(req.body)
+        console.log(reservas)
+        return res.send('reserva adicionada com sucesso')
     } catch (err) {
         return res.status(403).send(err)
     }

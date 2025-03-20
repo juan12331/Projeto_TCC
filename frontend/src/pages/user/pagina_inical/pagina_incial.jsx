@@ -3,19 +3,12 @@ import logo from "/src/assets/img/Logo.png";
 import fundo from "/src/assets/img/fundo_inicio.png";
 import setapbaixo from "/src/assets/img/seta-para-baixo (1).png";
 import fotodescricao from "/src/assets/img/fotodescricao.png";
+import NavbarUser from "../../../assets/components/navbarUser";
 
 function Inicio() {
   return (
     <>
-      <header>
-        <h3 className="inicio">Início</h3>
-        <h3 className="contato">Contato</h3>
-
-        <img src={logo} alt="Pousada" className="logo" />
-
-        <h3 className="acomodacao">Acomodações</h3>
-        <h3 className="login">Login</h3>
-      </header>
+      <NavbarUser/>
 
       <div className="fundo">
         <div className="reserva">
