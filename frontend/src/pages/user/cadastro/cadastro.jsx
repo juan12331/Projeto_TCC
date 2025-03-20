@@ -1,7 +1,12 @@
 import React from "react";
 import "./cadastro.css";
+import { createUser } from '../../../services/Api_service';
+import { useState, useEffect } from "react";
 
 function Cadastro() {
+
+
+
   return (
     <div className="cadastro-container">
       <div className="cadastro-box">

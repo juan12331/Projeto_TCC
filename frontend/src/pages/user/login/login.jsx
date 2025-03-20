@@ -1,12 +1,10 @@
 import React from "react";
 import "./login.css";
+import { loginUser } from "../../../services/Api_service";
 
 
 
 const Login = () => {
-
-
-
     return (
     <div className="login-page">
       <div className="fundo-login">
