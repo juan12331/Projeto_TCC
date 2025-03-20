@@ -11,6 +11,7 @@ import Pagina from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Login from "./pages/user/login/login.jsx";
 import Contato from "./pages/user/contato/contato.jsx";
 import Perfil from "./pages/user/perfil/perfil.jsx";
+import Pix from "./pages/user/pagamento_pix/pix.jsx";
 
 
 
@@ -29,7 +30,8 @@ function MainRoutes() {
       <Route path="/Pagina" element={<Pagina />} /> 
       <Route path="/Login" element={<Login />} />
       <Route path="/Contato" element={<Contato />} />
-      <Route path="/" element={<Perfil />} />
+      <Route path="/Perfil" element={<Perfil />} />
+      <Route path="/" element={<Pix />} />
 
     </Routes>
   );
