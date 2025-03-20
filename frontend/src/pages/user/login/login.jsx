@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import { loginUser } from "../../../services/Api_service";
 
 
 
 const Login = () => {
   const navigate = useNavigate();
-
-
 
     return (
     <div className="login-page">

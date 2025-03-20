@@ -1,29 +1,30 @@
-.cadastro-container {
+.cadastro-container2 {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('src/assets/fundocad.png');
+  background-image: url('src/assets/img/fundocad.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
 }
 
-.cadastro-box {
-  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto com 70% de opacidade */
+.cadastro-box2 {
+  background-color: rgba(0, 0, 0, 0.852); /* Fundo preto com 70% de opacidade */
   backdrop-filter: blur(50%); /* Efeito de desfoque de 30% */
   border-radius: 20px;
   padding: 3rem; /* Espaçamento interno */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 100%; /* Largura total */
-  max-width: 600px; /* Largura máxima da caixa */
+  max-width: 500px; /* Largura máxima da caixa */
 }
 
-.logo {
-  width: 300px;
-  margin: 0 auto 1rem;
+.container22 {
+  width: 400px;
+  height: auto;
+  margin: 0 auto 2rem;
 }
 
 .dots {
@@ -40,7 +41,7 @@
   border-radius: 50%;
 }
 
-.input-field {
+.input-cadastro {
   display: block;
   width: 50%; /* Largura dos campos de entrada */
   margin: 0.9rem auto; /* Centraliza os campos de entrada */
@@ -58,7 +59,7 @@
   opacity: 1; /* Garante que a cor seja totalmente branca */
 }
 
-.submit-button {
+.cadastro-button {
   display: block;
   width: 30%; /* Largura do botão */
   margin: 1.1rem auto; /* Centraliza o botão */
