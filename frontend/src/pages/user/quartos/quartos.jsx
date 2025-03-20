@@ -8,6 +8,7 @@ import img3 from "/src/assets/quartos/image 117.png";
 import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
+import NavbarUser from "../../../assets/components/navbarUser";
 
 function Quartos() {
   const imagens = [img, img1, img2, img3, img4, img5];
@@ -50,13 +51,7 @@ function Quartos() {
 
   return (
     <>
-      <header className="header">
-        <h3 className="inicio">Início</h3>
-        <h3 className="contato">Contato</h3>
-        <img src={logo} alt="Pousada" className="logo" />
-        <h3 className="acomodacao">Acomodações</h3>
-        <h3 className="login">Login</h3>
-      </header>
+      <NavbarUser />
 
       <div className="fundo_quartos">
         <main className="quarto-container">
@@ -231,7 +226,6 @@ function Quartos() {
                 Quarto super confortável e atendimento excelente
               </p>
             </div>
-
             <div className="testimonial-item">
               <div className="testimonial-img-container">
                 <img
@@ -293,7 +287,7 @@ function Quartos() {
                     placeholder="Digite sua mensagem"
                     className="input-mensg"
                   />
-                  
+
                   <button className="btn-enviar">Enviar avaliação</button>
                 </div>
               </div>
