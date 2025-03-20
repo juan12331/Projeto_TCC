@@ -39,11 +39,13 @@ const StarRating = ({ totalStars = 5 }) => {
 const Contato = () => {
   return (
     <div>
-      <form className="contato-form">
-        <input type="text" placeholder="Nome" className="input-field" />
-        <input type="email" placeholder="Email" className="input-field" />
-        <input type="text" placeholder="Digite sua mensagem" className="input-field" />
-        <button type="submit" className="submit-button">Cadastrar</button>
+      <form className="contato-form-contato">
+        <input type="text" placeholder="Nome" className="input-contato2" />
+        <input type="email" placeholder="Email" className="input-contato2" />
+        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" />
+        <div className=".input-button-container">
+        <button type="submit" className="contato-button2">Enviar</button>
+        </div>
       </form>
       
       <header>
@@ -54,11 +56,11 @@ const Contato = () => {
         <h3 className="login">Perfil</h3>
       </header>
       {/* Conteúdo principal */}
-      <div className="container">
+      <div className="container-contato">
         <img
           src="/src/assets/img/fundoctt.png"
           alt="Fundoctt"
-          className="background-image"
+          className="background-image-contato"
         />
         <img src={vamos} alt="Vamos" className="vamos-image" />
       </div>

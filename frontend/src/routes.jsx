@@ -10,6 +10,7 @@ import Cadastro from "./pages/user/cadastro/cadastro.jsx";
 import Pagina from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Login from "./pages/user/login/login.jsx";
 import Contato from "./pages/user/contato/contato.jsx";
+import Perfil from "./pages/user/perfil/perfil.jsx";
 
 
 
@@ -27,7 +28,8 @@ function MainRoutes() {
       <Route path="/Cadastro" element={<Cadastro />} />
       <Route path="/Pagina" element={<Pagina />} /> 
       <Route path="/Login" element={<Login />} />
-      <Route path="/" element={<Contato />} />
+      <Route path="/Contato" element={<Contato />} />
+      <Route path="/" element={<Perfil />} />
 
     </Routes>
   );

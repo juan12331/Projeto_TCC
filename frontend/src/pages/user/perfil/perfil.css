@@ -1,0 +1,81 @@
+header {
+    background-color: #efe5d1e3;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .container-perfil{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 100px); /* Altura total da tela menos a altura do header */
+    overflow: hidden; /* Garante que a imagem não ultrapasse o container */
+    margin-top: 100px; /* Para evitar sobreposição com o header */
+}
+
+.background-image2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem para cobrir o container sem distorcer */
+    display: block;
+}
+
+.contact-box2 {
+    background-color: #efe5d1e3;
+    padding: 30px;
+    border-radius: 30px;
+    height: 75%;
+    width: 1825px;
+    position: absolute;
+    top: 15%;
+    left: 1%;
+ }
+
+.linha-perfil {
+position: absolute;
+top: 360px;
+left: 2px;
+}
+
+.perfil-perfil{
+  position: absolute;
+  left: 150px;
+  bottom: 375px;
+  
+}
+
+.informacoes-perfil{
+  position: absolute;
+  left: 870px;
+}
+
+.text-perfil{
+  position: absolute;
+  top: 120px;
+  color:#7C2728;
+  left: 960px;
+}
+
+.reservados-perfil{
+  position: absolute;
+  left: 640px;
+  top: 372px
+}
+
+.domo-perfil{
+ position: absolute;
+top: 440px;
+left: 760px;
+}
+
+.text-perfil2{
+position: absolute;
+top: 530px;
+left: 1050px;
+color:#7C2728;
+}

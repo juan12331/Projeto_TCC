@@ -1,4 +1,4 @@
-.cadastro-container {
+.cadastro-container2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +10,8 @@
   width: 100%;
 }
 
-.cadastro-box {
-  background-color: rgba(0, 0, 0, 0.6); /* Fundo preto com 70% de opacidade */
+.cadastro-box2 {
+  background-color: rgba(0, 0, 0, 0.852); /* Fundo preto com 70% de opacidade */
   backdrop-filter: blur(50%); /* Efeito de desfoque de 30% */
   border-radius: 20px;
   padding: 3rem; /* Espaçamento interno */
@@ -21,7 +21,7 @@
   max-width: 500px; /* Largura máxima da caixa */
 }
 
-.container {
+.container22 {
   width: 400px;
   height: auto;
   margin: 0 auto 2rem;
@@ -41,7 +41,7 @@
   border-radius: 50%;
 }
 
-.input-field {
+.input-cadastro {
   display: block;
   width: 50%; /* Largura dos campos de entrada */
   margin: 0.9rem auto; /* Centraliza os campos de entrada */
@@ -59,7 +59,7 @@
   opacity: 1; /* Garante que a cor seja totalmente branca */
 }
 
-.submit-button {
+.cadastro-button {
   display: block;
   width: 30%; /* Largura do botão */
   margin: 1.1rem auto; /* Centraliza o botão */

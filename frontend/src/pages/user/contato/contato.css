@@ -17,7 +17,7 @@ header .logo {
 }
 
 
-.background-image {
+.background-image-contato {
   position: absolute;
   bottom: 0; /* Alinhar a imagem na parte inferior */
   left: 0; /* Mover a imagem totalmente para a esquerda */
@@ -84,22 +84,38 @@ left: 1150px;
 top: 160px;
 }
 
-.contato-form{
+.contato-form-contato{
   position: absolute;
-  left: 1400px;
+  left: 1418px;
   top: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.input-field{
+.input-contato2 {
   background-color: #D2AD6F;
   width: 90%;
-  border-radius: 30px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 10px;
+  height: 30px;
+  color: #FFFFFF; /* Cor da letra */
+  text-align: center; /* Centraliza o texto horizontalmente */
+  line-height: 30px; /* Centraliza o texto verticalmente */
 }
+  
 
-.submit-button{
-  width: 90%;
-  border-radius: 30px;
 
+.contato-button2{
+  width: 100%;
+  border-radius: 20px;
+  background-color: #7F2727;
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  color: #FFFFFF;
 }
 
 .contact-text2{
