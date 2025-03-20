@@ -1,0 +1,122 @@
+.navbarAdm-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* DE 320 A 480 */
+@media (min-width: 320px) and (max-width: 480px){
+
+    .navbarAdm{
+        background-color: #EFE5D1;
+        width: auto;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+     }
+    
+    .nav-item{
+        color: #7C2728;
+        font-size: 0.9rem;
+        font-family: "Katibeh";
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+     }
+    
+    .nav-item.active{
+        background-color: #CCAA6B; 
+        color: #7C2728;
+        height: 105px;
+        width: 80px;
+        display: flex;
+        justify-content: center;
+     }
+    
+     .logo_navbar{
+        width: 45px;
+        height: 45px;
+     }
+}
+
+/* DE 481 A 1024 */
+@media (min-width: 481px) and (max-width: 1024px){
+
+.navbarAdm{
+    background-color: #EFE5D1;
+    width: auto;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+ }
+
+.nav-item{
+    color: #7C2728;
+    font-size: 1.2rem;
+    font-family: "Katibeh";
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+ }
+
+.nav-item.active{
+    background-color: #CCAA6B; 
+    color: #7C2728;
+    height: 105px;
+    width: 105px;
+    display: flex;
+    justify-content: center;
+ }
+
+ .logo_navbar{
+    width: 60px;
+    height: 60px;
+ }
+}
+
+/* DE 1025 EM DIANTE */
+@media (min-width: 1025px){
+
+.navbarAdm{
+    background-color: #EFE5D1;
+    width: auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+    padding-left: 14%;
+    gap: 12%;
+ }
+
+.nav-item{
+    color: #7C2728;
+    font-size: 1.8rem;
+    font-family: "Katibeh";
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+ }
+
+.nav-item.active{
+    background-color: #CCAA6B; 
+    color: #7C2728;
+    height: 130px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+ }
+
+.logo_navbar{
+    width: 80px;
+    height: 80px;
+ }
+}

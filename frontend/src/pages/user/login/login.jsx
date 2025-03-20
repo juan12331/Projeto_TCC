@@ -1,21 +1,39 @@
 import React from "react";
 import "./login.css";
 
+
+
 const Login = () => {
+
+
+
     return (
-<>
-    <div className="circulo" style={{ backgroundImage: `url(${circulo})` }}></div>
-
-
-</>
+    <div className="login-page">
+      <div className="fundo-login">
+        <div className="back-container">
+          <button onClick={() => navigate("/pagina_inicial")} className="back-button"> ← </button>
+          <h1 className="back-line">|</h1>
+          <button onClick={() => navigate("/pagina_inicial")} className="back-text"> HOME </button>
+        </div>
+          <div className="container-login">
+            <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
+          </div>
+            <form className="login-form">
+              <h1 className="login-texto">LOGIN</h1>
+              <div>
+                <input type="email" className="login-input" placeholder="EMAIL" />
+              </div>
+              <div>
+                <input type="password" className="login-input" placeholder="SENHA" />
+              </div>
+              <button type="submit" className="login-button">ENTRAR</button>
+              <div className="signup-link">
+                  Não tem login? <a href="cadastro">Cadastre-se</a>
+              </div>
+            </form>
+      </div>
+    </div>
     );
   };
 
 export default Login;
-
-
-//No body, personalizar o display flex e irá colocaro justy center e aling center
-// criar div e definir um tamanho fixo, deixar com background transparente
-// Criar 7 divs e colocar display flex, e column 
-// Apos isso irá definir o tamanho dessas 7 divs para 100%
-//Feito isso irá colocar os elementos dentro da div e personalizar para ter o tamanho e também estar centralizado (obs, pode centralizar tudo na div pai que estará transparente)

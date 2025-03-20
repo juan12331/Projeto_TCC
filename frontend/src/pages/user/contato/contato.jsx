@@ -5,34 +5,42 @@ import logo from "/src/assets/img/Logo.png";
 import vamos from "/src/assets/img/vamos.png"; // Importe a imagem "vamos.png"
 import icons from "/src/assets/img/icons.png"; // Importe a imagem "icons.png"
 import ava from "/src/assets/img/ava.png";
+import NavbarUser from "../../../assets/components/navbarUser";
 
 const StarRating = ({ totalStars = 5 }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
+
   return (
-    <div className="star-rating">
-      {[...Array(totalStars)].map((_, index) => {
-        const currentRating = index + 1;
-        return (
-          <label key={index}>
-            <input
-              type="radio"
-              name="rating"
-              value={currentRating}
-              onClick={() => setRating(currentRating)}
-            />
-            <FaStar
-              className="star"
-              size={30}
-              color={currentRating <= (hover || rating) ? "#FFD700" : "#ccc"}
-              onMouseEnter={() => setHover(currentRating)}
-              onMouseLeave={() => setHover(0)}
-            />
-          </label>
-        );
-      })}
+    <>
+    <div className="contato-container">
+    <NavbarUser/>
+    
+
+      <section className="contato-section">
+        <h1>Vamos conversar?</h1>
+        <p>
+          Entre em contato com a gente para informações sobre reservas, disponibilidade de datas, preços e outras dúvidas. Estaremos à disposição para atendê-lo e tornar a sua experiência com a pousada inesquecível.
+        </p>
+        <button className="fale-conosco-button">Fale conosco</button>
+      </section>
+
+      <section className="avaliacoes-section">
+        <h2>Avaliações</h2>
+        <p>
+          Agradecemos por escolher a Quinta do Ypuá para sua estadia. Compartilhe sua experiência conosco logo abaixo!
+        </p>
+        <form className="avaliacoes-form">
+          <input type="text" placeholder="Nome" className="input-field" />
+          <input type="email" placeholder="Email" className="input-field" />
+          <textarea placeholder="Digite sua mensagem" className="input-field textarea-field"></textarea>
+          <button type="submit" className="submit-button">Enviar avaliação</button>
+        </form>
+      </section>
+>>>>>>> 799c934b0582f92c8c6d47e88a2e015cf19a640e
     </div>
+    </>
   );
 };
 

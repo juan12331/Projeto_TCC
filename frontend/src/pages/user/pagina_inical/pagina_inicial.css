@@ -1,111 +1,455 @@
-body {
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-header {
-    background-color: #efe5d1e3;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    position: fixed;
-    z-index: 2;
+body {
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
 }
 
 .fundo {
-    height: 80vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('../../../assets/img/fundo1.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../../assets/img/fundo1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .inicio {
-    color: #7C2728;
+  color: #7c2728;
+  margin-left: 300px;
 }
 
 .contato {
-    color: #7C2728;
+  color: #7c2728;
+  margin-left: 250px;
 }
 
 .acomodacao {
-    color: #7C2728;
+  color: #7c2728;
+  margin-right: 250px;
 }
 
 .login {
-    color: #7C2728;
+  color: #7c2728;
+  margin-right: 300px;
 }
 
 .logo {
-    width: 85px;
-    height: 80px;
+  width: 85px;
+  height: 80px;
 }
 
-.reserva{
-    width: 700px;
-    height: 90px;
-    background-color: white;
-    margin: 0 auto;
-    position: absolute;
-    bottom: -40px;
-    /* z-index: 10; */
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+.reserva {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.reserva-container {
+  width: 800px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin-top: 39%;
+  background: white;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+}
+
+.campo label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6b2d1a; /* Cor vinho do texto */
+  margin-bottom: 4px;
+}
+
+.campo input {
+  border: 2px solid #6b2d1a;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 18px;
+  width: 135px;
+  height: 40px;
+  text-align: center;
+}
+
+.buscar-btn {
+  background: #6b2d1a;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 6px 0px 0px 10px;
+  width: 120px;
+  height: 50px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.buscar-btn:hover {
+  background: #531f12;
 }
 
 .ambiente {
-    color: #7A6640;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 250px;
-    justify-content: center;
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
-}  
+  color: #7a6640;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 250px;
+  justify-content: center;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
 
 .setapbaixo {
-    width: 25px;
-    height: 25px;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  transition: all 450ms ease;
+  animation: seta 1s linear infinite;
+}
+@keyframes seta {
+  0%{
+    margin-top: 5px;
+  }
+  50%{
+    margin-top: 15px;
+  }
+  100%{
+    margin-top: 5px;
+  }
 }
 
 .descricao {
-    width: 100%;
-    height: 600px;
-    background-color: #CCAA6B;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: 600px;
+  background-color: #ccaa6b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
 }
 
 .img3 {
-    width: 800px;
-    height: 560px;
-    padding: 180px;
-    display: flex;
+  width: 40%;
+  height: 500px;
 }
 
 .pousadat {
-    width: 550px;
-    color: #5C4C30;
-    /* padding: 150px; */
-    margin-right: 300px;
-    align-items: center;
+  width: 550px;
+  color: #5c4c30;
+  align-items: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .avaliacao {
-    color: #7A6640;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 150px;
-    justify-content: center;
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  color: #7a6640;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 150px;
+  justify-content: center;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  padding: 0;
+}
+
+.celular {
+  width: 400px;
+  margin-left: 250px;
+}
+
+.coment {
+  width: 600px;
+  margin-left: 280px;
+}
+
+.quartosinicial {
+  color: #7a6640;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 250px;
+  justify-content: center;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  padding: 0;
+}
+
+.acomodacaorequi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.imgquartos {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  display: flex;
+}
+.imgquartos div {
+  width: 30%;
+  text-align: center;
+}
+.imgquartos div img {
+  width: 100%;
+  transition: all 400ms ease;
+}
+.imgquartos div img:hover {
+  transform: scale(1.1);
+}
+
+.imgquartos div p {
+  color: #7a6640;
+  font-size: 32px;
+  text-decoration: underline;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
+.galeria {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #52372E;
+  margin: 100px 0 0 0;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.galeria p {
+  font-size: 38px;
+  color: #F4F4F4;
+}
+.galeria .fotos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.fotos1{
+  width: 500px;
+  height: 300px;
+}
+
+.fotos2{
+  width: 500px;
+  height: 300px;
+}
+
+.fotos3{
+  width: 400px;
+  height: 300px;
+}
+
+.fotos4{
+  width: 400px;
+  height: 300px;
+}
+
+.fotos5{
+  width: 400px;
+  height: 300px;
+}
+
+.fotos6{
+  width: 400px;
+  height: 300px;
+}
+
+.fotos7{
+  width: 400px;
+  height: 300px;
+}
+
+.fotos8{
+  /* width: 280px; */
+  height: 300px;
+}
+
+.fotos9{
+  width: 370px;
+  height: 300px;
+}
+
+.fotos10{
+  width: 430px;
+  height: 300px;
+}
+
+.rosa{
+  width: 100%;
+  height: 150px;
+  background-color: #7f2727;
+  opacity: 72%;
+}
+
+.localizacao {
+  color: #7E2527;
+  font-size: 40px;
+}
+
+.textolocal{
+  padding: 10px;
+}
+
+.textolocal p {
+  color: #D2AD6F;
+  margin: 5px 0;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  margin-top: 10px;
+}
+
+.info-item img {
+  width: 24px;
+  height: auto;
+}
+
+footer{
+  padding: 40px;
+}
+
+footer .top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.logofinal{
+  width: 150px;
+}
+
+.site {
+  color: #7E2527;
+  font-size: 40px;
+}
+
+.barra{
+  padding: 10px;
+}
+
+.barra p {
+  color: #D2AD6F;
+  margin: 5px 0;
+  font-size: 20px;
+  line-height: 1.8;   
+}
+
+.atendimento {
+  color: #7E2527;
+  font-size: 40px;
+}
+
+.tcontato{
+  padding: 10px;
+}
+
+.tcontato p {
+  width: 300px;
+  color: #D2AD6F;
+  margin: 5px 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.promocao-container {
+  text-align: center;
+  margin-top: 50px;
+
+}
+
+.promocao-container p {
+  color: #D2AD6F; 
+  font-size: 18px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: end;
+  margin-right: 120px;
+}
+
+.info_form_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-email {
+  width: 260px;
+  padding: 12px;
+  border: 1px solid #998050; 
+  border-radius: 12px;
+  text-align: center;
+  color: #7E2527;
+  font-weight: bold;
+  outline: none;
+  font-size: 16px;
+}
+
+.input-email::placeholder {
+  color: #7E2527;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.btn-cadastrar {
+  width: 260px;
+  padding: 12px;
+  background-color: #D2C5AD; 
+  border: none;
+  border-radius: 12px;
+  color: #7E2527;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+  background-color: #c8b9a0;
 }

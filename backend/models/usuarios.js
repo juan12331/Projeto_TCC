@@ -14,7 +14,7 @@ const usuarios = database.define('usuarios', {
         type: Sequelize.STRING,
         AllowNUll: false
     },
-    email : {
+    email: {
         type: Sequelize.STRING,
         AllowNUll: false
     },
@@ -23,13 +23,13 @@ const usuarios = database.define('usuarios', {
         AllowNUll: false
     },
     id_tipo: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         defaultValue: '1',
         AllowNUll: false,
-         references: {
+        references: {
             model: tipos_usuarios,
             key: 'id_tipo'
-         },
+        },
     },
     telefone: {
         type: Sequelize.STRING(20),
@@ -38,13 +38,13 @@ const usuarios = database.define('usuarios', {
 
 });
 
- tipos_usuarios.hasOne(usuarios, {
+tipos_usuarios.hasOne(usuarios, {
     foreignKey: 'id_tipo'
- })
+})
 
- usuarios.belongsTo(tipos_usuarios, {
-     foreignKey: 'id_tipo'
- });
+usuarios.belongsTo(tipos_usuarios, {
+    foreignKey: 'id_tipo'
+});
 
 
 module.exports = usuarios
