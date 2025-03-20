@@ -3,6 +3,7 @@ import logo from "/src/assets/img/Logo.png";
 import fundo from "/src/assets/img/fundo_inicio.png";
 import setapbaixo from "/src/assets/img/seta-para-baixo (1).png";
 import fotodescricao from "/src/assets/img/fotodescricao.png";
+import NavbarUser from "../../../assets/components/navbarUser";
 
 const images = Object.entries(
   import.meta.glob("../../../assets/colagem/*.{png,jpg,jpeg,svg}", {
@@ -18,16 +19,6 @@ const images = Object.entries(
 function Inicio() {
   return (
     <>
-      <header>
-        <h3 className="inicio">Início</h3>
-        <h3 className="contato">Contato</h3>
-
-        <img src={logo} alt="Pousada" className="logo" />
-
-        <h3 className="acomodacao">Acomodações</h3>
-        <h3 className="login">Login</h3>
-      </header>
-
       <div className="fundo">
         <div className="reserva-container">
           <div className="reserva">
@@ -35,7 +26,11 @@ function Inicio() {
               <label htmlFor="checkin">CHECK-IN</label>
               <input id="checkin" type="date" name="checkin" />
             </div>
-
+      <NavbarUser/>
+        <div className="reserva">
+          <div>
+            <label htmlFor="checkin">Escolha a data de check-in:</label>
+            <input id="checkin" type="datetime-local" name="checkin" />
             <div className="campo">
               <label htmlFor="checkout">CHECK-OUT</label>
               <input id="checkout" type="date" name="checkout" />

@@ -1,34 +1,38 @@
 import React from "react";
 import "./login.css";
 
+
+
 const Login = () => {
+
+
+
     return (
-<>
-      <div className="fundo">
-      <p>
-        <div className="container">
-          <img className="logo_login" src="./src/assets/logo_login.png" alt="" />
+    <div className="login-page">
+      <div className="fundo-login">
+        <div className="back-container">
+          <button onClick={() => navigate("/pagina_inicial")} className="back-button"> ← </button>
+          <h1 className="back-line">|</h1>
+          <button onClick={() => navigate("/pagina_inicial")} className="back-text"> HOME </button>
         </div>
-        </p>
-        <form>
-          <h1>Login</h1>
-          <p>
-          <div>
-            <input type="email" placeholder="E-mail" />
+          <div className="container-login">
+            <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
           </div>
-          </p>
-          <div>
-            <input type="password" placeholder="Senha" />
-          </div>
-          <div className="signup-link">
-            <p>
-              Não tem login? <a href="#">Cadastra-se</a>
-            </p>
-          </div>
-          <button>Entrar</button>
-        </form>
+            <form className="login-form">
+              <h1 className="login-texto">LOGIN</h1>
+              <div>
+                <input type="email" className="login-input" placeholder="EMAIL" />
+              </div>
+              <div>
+                <input type="password" className="login-input" placeholder="SENHA" />
+              </div>
+              <button type="submit" className="login-button">ENTRAR</button>
+              <div className="signup-link">
+                  Não tem login? <a href="cadastro">Cadastre-se</a>
+              </div>
+            </form>
       </div>
-</>
+    </div>
     );
   };
 
