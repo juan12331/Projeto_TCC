@@ -27,12 +27,12 @@
   }
 
 .separador-usuarios {
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    width: 100%;
-    max-width: 80%;
-    margin-top: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 100%;
+  max-width: 80%;
+  margin-top: 3vh;
 }
 
 .divider-usuarios {
@@ -114,6 +114,24 @@
   justify-content: space-between; 
   padding-left: 15px;
   width: 100%;
+}
+
+.adicionarIcon-usuarios{
+  width: 20%;
+  height: 30px;
+  color: #5C4C30;
+}
+
+.adicionarButton-usuarios{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 10%;
 }
 
 /* DE 320 A 480 */
@@ -213,12 +231,6 @@
   color: #5C4C30;
   font-size: 1rem;
 }
-
-.adicionarIcon-usuarios{
-  width: 20%;
-  height: 20px;
-  color: #5C4C30;
-}
 } 
 
 /* DE 481 A 1024 */
@@ -317,12 +329,6 @@
   font-weight: 200;
   color: #5C4C30;
   font-size: 1.2rem;
-}
-
-.adicionarIcon-usuarios{
-  width: 20%;
-  height: 25px;
-  color: #5C4C30;
 }
 }
 
@@ -424,13 +430,6 @@
   color: #5C4C30;
   font-size: 1.3rem;
 }
-
-.adicionarIcon-usuarios{
-  width: 20%;
-  height: 30px;
-  cursor: pointer;
-  color: #5C4C30;
-}
 }
 
 /* DE 1501 a 1799 */
@@ -531,14 +530,7 @@
     color: #5C4C30;
     font-size: 1.3rem;
   }
-  
-  .adicionarIcon-usuarios{
-    width: 20%;
-    height: 30px;
-    cursor: pointer;
-    color: #5C4C30;
-  }
-  }
+}
 
 /* DE 1800 em diante */
 @media (min-width: 1800px) {
@@ -637,12 +629,5 @@
     font-weight: 200;
     color: #5C4C30;
     font-size: 1.3rem;
-  }
-  
-  .adicionarIcon-usuarios{
-    width: 20%;
-    height: 30px;
-    cursor: pointer;
-    color: #5C4C30;
   }
   }
