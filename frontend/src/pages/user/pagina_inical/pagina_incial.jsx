@@ -19,6 +19,8 @@ const images = Object.entries(
 function Inicio() {
   return (
     <>
+     <NavbarUser />
+
       <div className="fundo">
         <div className="reserva-container">
           <div className="reserva">
@@ -26,11 +28,7 @@ function Inicio() {
               <label htmlFor="checkin">CHECK-IN</label>
               <input id="checkin" type="date" name="checkin" />
             </div>
-      <NavbarUser/>
-        <div className="reserva">
-          <div>
-            <label htmlFor="checkin">Escolha a data de check-in:</label>
-            <input id="checkin" type="datetime-local" name="checkin" />
+
             <div className="campo">
               <label htmlFor="checkout">CHECK-OUT</label>
               <input id="checkout" type="date" name="checkout" />

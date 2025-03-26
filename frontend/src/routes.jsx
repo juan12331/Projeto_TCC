@@ -11,6 +11,7 @@ import Login from "./pages/user/login/login.jsx";
 import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
 import Contato from "./pages/user/contato/contato.jsx"
+import Quartos from "./pages/user/quartos/quartos.jsx";
 
 
 // FIX: adicionar obrigatoriadoredade de token nas rotas
@@ -25,10 +26,10 @@ function MainRoutes() {
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Cadastro />} />
-      <Route path="/" element={<Pagina />} /> 
+      <Route path="/quartos" element={<Quartos />} />
+      <Route path="/" element={<Inicio />} /> 
       <Route path="/Login" element={<Login />} />
-      <Route path="/Inicio" element={<Inicio />} />
-      <Route path="/Acomodacoes" element={<Acomodacoes />} />
+      <Route path="/acomodacoes" element={<Acomodacoes />} />
       <Route path="/Contato" element={<Contato />} />
     </Routes>
   );

@@ -10,7 +10,7 @@ const NavbarUser = () => {
 
     <div className="navbarUser-container">
         <header className="navbarUser">
-        <Link to="/Inicio" className={`nav-item ${location.pathname === "/Inicio" ? "active" : ""}`}>
+        <Link to="/" className={`nav-item ${location.pathname === "/" ? "active" : ""}`}>
             INÍCIO
         </Link>
 
