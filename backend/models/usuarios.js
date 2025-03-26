@@ -35,6 +35,10 @@ const usuarios = database.define('usuarios', {
         type: Sequelize.STRING(20),
         AllowNUll: false
     },
+    País: {
+        type: Sequelize.STRING(20),
+        AllowNUll: false
+    },
 
 });
 
