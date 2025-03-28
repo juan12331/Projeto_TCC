@@ -1,34 +1,9 @@
 import "./criar_usuarios.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
-import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Select from "react-select";
 
 const Criar_usuarios = () => {
     const navigate = useNavigate();
-
-    const CountrySelect = () => {
-        const [countries, setCountries] = useState([]);
-        const [selectedCountry, setSelectedCountry] = useState(null);
-      
-        useEffect(() => {
-          fetch(
-            "https://valid.layercode.workers.dev/list/countries?format=select&flags=true&value=code"
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              setCountries(data.countries);
-            });
-        }, []);
-        return (
-          <Select
-            options={countries}
-            value={selectedCountry}
-            onChange={(selectedOption) => setSelectedCountry(selectedOption)}
-            placeholder="País"
-          />
-        );
-      };
 
     return(
     <div className="criarUser_page">
@@ -51,11 +26,11 @@ const Criar_usuarios = () => {
                             <div className="name-criarUser">
                                 <input type="name" className="itensName-criarUser" placeholder="Nome" />
                             </div>
+                            <div className="cpf-criarUser">
+                                <input type="cpf" className="itensCpf-criarUser" placeholder="CPF" />
+                            </div>
                             <div className="email-criarUser">
                                 <input type="email" className="itensEmail-criarUser" placeholder="Email" />
-                            </div>
-                            <div className="country-criarUser">
-                                <CountrySelect />
                             </div>
                         </form>
 
@@ -78,7 +53,7 @@ const Criar_usuarios = () => {
             <div className="pageRight-criarUser">
                 <div className="fundoInfo-criarUser">
                     <h1 className="info-criarUser">DESEJA RESERVAR QUARTO?</h1>
-                    <button type="submit" className="reservarUser-button">Reservar</button>
+                    <button onClick={() => navigate("/acomodacoesAdm")} className="reservarUser-button">Reservar</button>
                 </div>
             </div>
         </div>
