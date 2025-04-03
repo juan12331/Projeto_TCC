@@ -98,7 +98,9 @@ routes.put('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT, Aval
 routes.get('/reservas', autenticacao.autenticarJWT, ReservasControllers.getReservas);
 routes.get('/reservas/:id_quarto', autenticacao.autenticarJWT, ReservasControllers.getReservasByQuarto);
 routes.get('/reservas/user/:cpf', autenticacao.autenticarJWT, ReservasControllers.getReservasByCpf);
-routes.get('/reservas/data', autenticacao.autenticarJWT, ReservasControllers.getReservasByDate);
+routes.get('/reservas/data/:data_inicio/:data_final', autenticacao.autenticarJWT, ReservasControllers.getReservasByDate);
+routes.get('/reservas/data/:data_inicio', autenticacao.autenticarJWT, ReservasControllers.getReservasByDate);
+
 
 
 routes.post('/reservas', autenticacao.autenticarJWT, ReservasControllers.createReserva);
