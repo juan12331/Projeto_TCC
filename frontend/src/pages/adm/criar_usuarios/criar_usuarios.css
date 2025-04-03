@@ -9,7 +9,7 @@
     width: 100%;  
     max-width: 100%;
     height: 100%; 
-    padding: 0;
+    padding: 10px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -22,17 +22,22 @@
     outline: none !important; 
 }
 
-/* DE 1800 em diante */
-@media (min-width: 1800px){
-
-.criarUser-page {
-    width: 100%; 
-    padding: 10px;
-}
+/* DE 1025 em diante */
+@media (min-width: 1025px){
 
 .fundo-criarUser{
     display: flex;
-    gap: 220px;
+    height: 900px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.fundoLeft-criarUser{
+    justify-content: center;
+    display: grid;
+    height: 100vh;
+    width: 50%;
+    
 }
 
 .back-criarUser{
@@ -41,7 +46,7 @@
     align-items: center; 
     gap: 1vh;
     width: 250px;
-    padding-left: 90px;
+    /* padding-left: 90px; */
 }
 
 .back-buttonUser{
@@ -74,10 +79,9 @@
     border-right: #7c2728d5 solid 1.5px;
     border-top:#7c2728d5 solid 1.5px ;
     border-radius: 15px;
-    width: 520px;
+    width: 50vh;
     height: 500px;
     text-align: center;
-    margin-left: 210px;
 }
 
 .user_criarUser{
@@ -136,13 +140,20 @@
 }
 
 .pageRight-criarUser{
-    margin-top: 70px;
-    background-image: url('/src/assets/imgCriarUser_Adm/fundo_criarUser.png');
-    background-size: cover;
-    background-position: center;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.backgroundImg-criarUser{
+    overflow: hidden;
+    background-image: url("/src/assets/imgCriarUser_Adm/fundo_criarUser.png") ;
     background-repeat: no-repeat;
-    width: 80%;
-    height: 875px;
+    background-size: cover;
+    background-position: right center;
+    height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

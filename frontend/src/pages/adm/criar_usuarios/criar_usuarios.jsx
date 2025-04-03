@@ -51,9 +51,11 @@ const Criar_usuarios = () => {
             </div>
 
             <div className="pageRight-criarUser">
-                <div className="fundoInfo-criarUser">
-                    <h1 className="info-criarUser">DESEJA RESERVAR QUARTO?</h1>
-                    <button onClick={() => navigate("/acomodacoesAdm")} className="reservarUser-button">Reservar</button>
+                <div className="backgroundImg-criarUser">
+                    <div className="fundoInfo-criarUser">
+                        <h1 className="info-criarUser">DESEJA RESERVAR QUARTO?</h1>
+                        <button onClick={() => navigate("/acomodacoesAdm")} className="reservarUser-button">Reservar</button>
+                    </div>
                 </div>
             </div>
         </div>
