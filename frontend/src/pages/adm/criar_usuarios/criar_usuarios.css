@@ -136,13 +136,13 @@
 }
 
 .pageRight-criarUser{
-    margin-top: 100px;
+    margin-top: 70px;
     background-image: url('/src/assets/imgCriarUser_Adm/fundo_criarUser.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 80%;
-    height: 800px;
+    height: 875px;
     display: flex;
     justify-content: center;
     align-items: center;
