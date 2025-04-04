@@ -5,13 +5,7 @@ import logo from "/src/assets/img/Logo.png";
 function Perfil() {
     return (
      <div>
-      <header>
-      <h3 className="inicio">Início</h3>
-      <h3 className="contato">Contato</h3>
-      <img src={logo} alt="Pousada" className="logo" />
-      <h3 className="acomodacao">Acomodações</h3>
-      <h3 className="login">Perfil</h3>
-      </header>
+      
       <div className="container-perfil">
         <img
           src="/src/assets/img/imgPerfil2.png"

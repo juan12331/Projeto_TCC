@@ -7,18 +7,12 @@ import Criar_usuarios from "./pages/adm/criar_usuarios/criar_usuarios.jsx";
 
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
-import Pagina from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Login from "./pages/user/login/login.jsx";
-<<<<<<< HEAD
 import Contato from "./pages/user/contato/contato.jsx";
 import Perfil from "./pages/user/perfil/perfil.jsx";
 import Pix from "./pages/user/pagamento_pix/pix.jsx";
-
-=======
-import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
-import Contato from "./pages/user/contato/contato.jsx"
->>>>>>> 799c934b0582f92c8c6d47e88a2e015cf19a640e
+import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 
 
 // FIX: adicionar obrigatoriadoredade de token nas rotas
@@ -34,18 +28,12 @@ function MainRoutes() {
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Cadastro />} />
-      <Route path="/Pagina" element={<Pagina />} /> 
+      <Route path="/" element={<Inicio />} /> 
       <Route path="/Login" element={<Login />} />
-<<<<<<< HEAD
       <Route path="/Contato" element={<Contato />} />
       <Route path="/Perfil" element={<Perfil />} />
-      <Route path="/" element={<Pix />} />
-
-=======
-      <Route path="/Inicio" element={<Inicio />} />
+      <Route path="/Pix" element={<Pix />} />
       <Route path="/Acomodacoes" element={<Acomodacoes />} />
-      <Route path="/Contato" element={<Contato />} />
->>>>>>> 799c934b0582f92c8c6d47e88a2e015cf19a640e
     </Routes>
   );
 }
