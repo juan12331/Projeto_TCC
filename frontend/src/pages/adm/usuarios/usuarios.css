@@ -429,6 +429,7 @@
   font-weight: 200;
   color: #5C4C30;
   font-size: 1.3rem;
+  padding-left: 20px;
 }
 }
 
@@ -529,6 +530,7 @@
     font-weight: 200;
     color: #5C4C30;
     font-size: 1.3rem;
+    padding-left: 20px;
   }
 }
 
@@ -629,5 +631,6 @@
     font-weight: 200;
     color: #5C4C30;
     font-size: 1.3rem;
+    padding-left: 20px;
   }
   }
