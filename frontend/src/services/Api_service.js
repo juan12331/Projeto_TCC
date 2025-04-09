@@ -72,6 +72,16 @@ export async function getReservasByCpf(cpf) {
     return response.data;
 }
 
+export async function getReservasByTwoDate(data_inicio, data_final) {
+    const response = await http.get(`/reservas/data/${data_inicio}/${data_final}`);
+    return response.data;
+}
+
+export async function getReservasOneDate(data) {
+    const response = await http.get(`/reservas/data/${data}`);
+    return response.data;
+}
+
 export async function createReserva(cpf, id_quarto, data_inicio, data_final) {
     const response = await http.post(`/reservas`, {cpf: cpf, id_quarto: id_quarto, data_inicio: data_inicio, data_final: data_final});
     return response.data;
