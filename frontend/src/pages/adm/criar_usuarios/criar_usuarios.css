@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 10px;
 }
+/* sdfsfsdfs */
 
 .itensName-criarUser, .itensCpf-criarUser, .itensEmail-criarUser, .itensSobrenome-criarUser, .itensPhone-criarUser, .itensText-criarUser{
     border-radius: 12px;
