@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 
 const Usuarios = () => {
+  const navigate = useNavigate();
 
     return(
     <div className="usuarios-page">
@@ -182,7 +184,7 @@ const Usuarios = () => {
         <div className="fundoFinal-usuarios">
           <div className="gridAdicionar-usuarios">
           <h1 className="textAdicionar-usuarios">Adicionar novo Usuário</h1>
-          <button onClick={() => navigate("/criar_usuario")} className="adicionarButton-usuarios">
+          <button onClick={() => navigate("/criar_usuarios")} className="adicionarButton-usuarios">
             <PlusCircle className="adicionarIcon-usuarios"/>
           </button>
           </div>
