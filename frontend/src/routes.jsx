@@ -14,11 +14,6 @@ import Perfil from "./pages/user/perfil/perfil.jsx";
 import Pix from "./pages/user/pagamento_pix/pix.jsx";
 import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
-import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
-
-
-// FIX: adicionar obrigatoriadoredade de token nas rotas
-
 
 function MainRoutes() {
   return (
