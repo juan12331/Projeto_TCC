@@ -34,7 +34,7 @@ const usuarios = database.define('usuarios', {
     telefone: {
         type: Sequelize.STRING(20),
         AllowNUll: false
-    },
+    }
 
 });
 

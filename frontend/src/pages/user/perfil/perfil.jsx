@@ -7,6 +7,7 @@ function Perfil() {
     return (
      <div>
       <NavbarUser/>
+
       <div className="container-perfil">
         <img
           src="/src/assets/img/imgPerfil2.png"

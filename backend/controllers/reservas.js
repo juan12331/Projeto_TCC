@@ -2,6 +2,10 @@ const { Op } = require('sequelize');
 const Quartos = require('../models/quartos');
 const Reservas = require('../models/reservas');
 const Usuarios = require('../models/usuarios');
+var moment = require('moment-timezone');
+
+const timeZone = "America/Sao_Paulo";
+
 
 exports.getReservas = async (req, res) => {
     try{
@@ -58,22 +62,66 @@ exports.updateReserva = async (req, res) => {
 exports.createReserva = async (req, res) => {
     try {
         const reservas = await Reservas.create(req.body)
-        console.log(reservas)
         return res.send('reserva adicionada com sucesso')
     } catch (err) {
         return res.status(403).send(err)
     }
 }
 
+
 exports.getReservasByDate = async (req, res) => {
     try {
-        const reservas = await Reservas.create(req.body)
-        console.log(reservas)
-        return res.send('reserva adicionada com sucesso')
+        console.log("Parâmetros recebidos:", req.params);
+        
+        // Capturar as datas dos parâmetros
+        const dataInicio = req.params.data_inicio;
+        const dataFinal = req.params.data_final; // Precisamos adicionar este parâmetro na rota
+        
+        console.log("Buscando reservas entre:", dataInicio, "e", dataFinal);
+        
+        // Se não tiver data final, use a mesma data de início
+        const dataFimConsulta = dataFinal || dataInicio;
+        
+        // Converter para objetos Date
+        const dataInicioObj = new Date(dataInicio);
+        const dataFinalObj = new Date(dataFimConsulta);
+        
+        // Buscar todas as reservas
+        const todas = await Reservas.findAll({
+            include: [
+                { model: Quartos },
+                { model: Usuarios }
+            ]
+        });
+        
+        console.log("Total de reservas encontradas:", todas.length);
+        
+        // Filtrar as reservas que se sobrepõem ao período
+        const filtradas = todas.filter(reserva => {
+            // Converter para objetos Date
+            const reservaInicio = new Date(reserva.data_inicio);
+            const reservaFim = new Date(reserva.data_final);
+            
+            // Uma reserva se sobrepõe ao período se:
+            // 1. A data de início da reserva está dentro do período de consulta, OU
+            // 2. A data de fim da reserva está dentro do período de consulta, OU
+            // 3. A reserva engloba todo o período de consulta
+            
+            const inicioNoPeriodo = reservaInicio >= dataInicioObj && reservaInicio <= dataFinalObj;
+            const fimNoPeriodo = reservaFim >= dataInicioObj && reservaFim <= dataFinalObj;
+            const englobaPeriodo = reservaInicio <= dataInicioObj && reservaFim >= dataFinalObj;
+            
+            return inicioNoPeriodo || fimNoPeriodo || englobaPeriodo;
+        });
+        
+        console.log("Reservas encontradas no período:", filtradas.length);
+        return res.json(filtradas);
     } catch (err) {
-        return res.status(403).send(err)
+        console.error("Erro:", err);
+        return res.status(500).json({ error: err.message });
     }
 }
+
 
 exports.deleteReserva = async (req, res) => {
     const encontrarReserva = await Reservas.findOne({ where: { id: req.params.id } })

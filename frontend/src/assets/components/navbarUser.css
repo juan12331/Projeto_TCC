@@ -1,25 +1,27 @@
 .navbarUser-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background-color: #EFE5D1;
+   display: flex;
+   justify-content: center;
 }
 
 /* DE 320 A 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
     .navbarUser{
-        background-color: #EFE5D1;
-        width: auto;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
+      width: 95%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
      }
     
     .nav-item{
       color: #7C2728;
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-family: "Katibeh";
       text-decoration: none;
       display: flex;
@@ -32,7 +34,7 @@
         background-color: #CCAA6B; 
         color: #7C2728;
         height: 105px;
-        width: 80px;
+        width: 84px;
         display: flex;
         justify-content: center;
      }
@@ -47,17 +49,16 @@
 @media (min-width: 481px) and (max-width: 1024px){
 
 .navbarUser{
-    background-color: #EFE5D1;
-    width: auto;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+   width: 90%;
+   height: 80px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
  }
 
 .nav-item{
     color: #7C2728;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: "Katibeh";
     text-decoration: none;
     display: flex;
@@ -70,7 +71,7 @@
     background-color: #CCAA6B; 
     color: #7C2728;
     height: 105px;
-    width: 105px;
+    width: 110px;
     display: flex;
     justify-content: center;
  }
@@ -85,13 +86,11 @@
 @media (min-width: 1025px){
 
 .navbarUser{
-    background-color: #EFE5D1;
-    width: auto;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12%;
+   width: 85%;
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
  }
 
 .nav-item{

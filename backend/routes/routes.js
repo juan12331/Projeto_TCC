@@ -8,83 +8,105 @@ const Fotos_quartosControllers = require('../controllers/fotos_quartos');
 const ReservasControllers = require('../controllers/reservas');
 const TiposUsuariosControllers = require('../controllers/tipos_usuarios');
 const QuartosControllers = require('../controllers/quartos');
+const autenticacao = require('../controllers/authenticate');
+// const authenticate = require('../controllers/authenticate');
+
+
+
+
 
 // função dos usuarios
-
-routes.post('/login', UsuariosControllers.login);
+routes.post('/login', autenticacao.loginJWT);
 routes.post('/usuarios', UsuariosControllers.createUsuario);
 
-routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf);
-routes.get('/usuarios', UsuariosControllers.getAllUsers);
+routes.get('/usuarios/:cpf', autenticacao.loginJWT,  UsuariosControllers.getUsersByCpf);
+routes.get('/usuarios', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), UsuariosControllers.getAllUsers);
 
-routes.delete('/usuarios/:cpf', UsuariosControllers.deleteUsuario);
+routes.delete('/usuarios/:cpf', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), UsuariosControllers.deleteUsuario);
 
-routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario);
+routes.put('/usuarios/:cpf', autenticacao.autenticarJWT, UsuariosControllers.updateUsuario);
+
+routes.post('/logout', autenticacao.logout)
 
 // função do tipos de usuario
 
-routes.post('/tiposusuarios', TiposUsuariosControllers.createTiposUsuarios);
+routes.post('/tiposusuarios', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), TiposUsuariosControllers.createTiposUsuarios);
 
-routes.get('/tiposusuarios', TiposUsuariosControllers.getTiposUsuarios);
+routes.get('/tiposusuarios', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), TiposUsuariosControllers.getTiposUsuarios);
 
-routes.delete('/tiposusuarios/:id_tipo', TiposUsuariosControllers.deleteTiposUsuarios);
+routes.delete('/tiposusuarios/:id_tipo', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), TiposUsuariosControllers.deleteTiposUsuarios);
 
 // rotas Fotos_Quartos
 
-routes.post('/fotosquartos', Fotos_quartosControllers.AdicionarFoto);
+routes.post('/fotosquartos', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), Fotos_quartosControllers.AdicionarFoto);
 
-routes.delete('/fotosquartos/:id_foto', Fotos_quartosControllers.ApagarFoto);
+routes.delete('/fotosquartos/:id_foto', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), Fotos_quartosControllers.ApagarFoto);
 
-routes.get('/fotosquartos', Fotos_quartosControllers.getAllFotos);
+routes.get('/fotosquartos', autenticacao.autenticarJWT, Fotos_quartosControllers.getAllFotos);
 
 // rotas quartos
 
-routes.post('/quartos', QuartosControllers.createQuarto);
+routes.post('/quartos', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), QuartosControllers.createQuarto);
 
-routes.delete('/quartos/:id_quarto', QuartosControllers.deleteQuarto);
+routes.delete('/quartos/:id_quarto', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), QuartosControllers.deleteQuarto);
 
 routes.get('/quartos', QuartosControllers.getAllQuartos);
 routes.get('/quartos/:id_quarto', QuartosControllers.getQuartosById);
 
-routes.put('/quartos/:id_quarto', QuartosControllers.updateQuartos);
+routes.put('/quartos/:id_quarto', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), QuartosControllers.updateQuartos);
 
 // rotas avaliacoes
 
-routes.post('/avaliacoes', AvaliacoesControllers.createAvaliacoes);
+routes.post('/avaliacoes', autenticacao.autenticarJWT, AvaliacoesControllers.createAvaliacoes);
 
-routes.get('/avaliacoes', AvaliacoesControllers.getAllAvaliacoes);
-routes.get('/avaliacoesNota', AvaliacoesControllers.getMediaAvaliacoes);
-routes.get('/avaliacoes/:id_avaliacao', AvaliacoesControllers.getAvaliacoesById);
+routes.get('/avaliacoes', autenticacao.autenticarJWT, AvaliacoesControllers.getAllAvaliacoes);
+routes.get('/avaliacoesNota', autenticacao.autenticarJWT, AvaliacoesControllers.getMediaAvaliacoes);
+routes.get('/avaliacoes/:id_avaliacao', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), AvaliacoesControllers.getAvaliacoesById);
 
-routes.put('/avaliacoes/:id_avaliacao', AvaliacoesControllers.UpdateAvaliacoes);
+routes.put('/avaliacoes/:id_avaliacao', autenticacao.autenticarJWT, AvaliacoesControllers.UpdateAvaliacoes);
 
-routes.delete('/avaliacoes/:id_avaliacao', AvaliacoesControllers.deleteAvaliacoes);
+routes.delete('/avaliacoes/:id_avaliacao', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), AvaliacoesControllers.deleteAvaliacoes);
 
 // rotas avaliacoes_quartos
 
-routes.post('/avaliacoesQuartos', Avaliacoes_quartosControllers.createAvaliacoes);
+routes.post('/avaliacoesQuartos', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.createAvaliacoes);
 
-routes.get('/avaliacoesQuartos', Avaliacoes_quartosControllers.getAllAvaliacoes);
-routes.get('/avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.getAvaliacoesById);
-routes.get('/avaliacoesQuartos/user/:cpf', Avaliacoes_quartosControllers.getAvaliacoesByCpf);
-routes.get('/avaliacoesQuartos/quarto/:id_quarto', Avaliacoes_quartosControllers.getAvaliacoesByQuarto);
+routes.get('/avaliacoesQuartos', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAllAvaliacoes);
+routes.get('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesById);
+routes.get('/avaliacoesQuartos/user/:cpf', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesByCpf);
+routes.get('/avaliacoesQuartos/quarto/:id_quarto', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesByQuarto);
 
-routes.delete('/avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.deleteAvaliacoes);
+routes.delete('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT,
+    autenticacao.verificarPapelUsuario([4]), Avaliacoes_quartosControllers.deleteAvaliacoes);
 
-routes.put('/avaliacoesQuartos/:id_reclamacao', Avaliacoes_quartosControllers.updateAvalicoes);
+routes.put('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.updateAvalicoes);
 
 // rotas reservas
 
-routes.get('/reservas', ReservasControllers.getReservas);
-routes.get('/reservas/:id_quarto', ReservasControllers.getReservasByQuarto);
-routes.get('/reservas/user/:cpf', ReservasControllers.getReservasByCpf);
-routes.get('/reservas/data', ReservasControllers.getReservasByDate);
+routes.get('/reservas', autenticacao.autenticarJWT, ReservasControllers.getReservas);
+routes.get('/reservas/:id_quarto', autenticacao.autenticarJWT, ReservasControllers.getReservasByQuarto);
+routes.get('/reservas/user/:cpf', autenticacao.autenticarJWT, ReservasControllers.getReservasByCpf);
+routes.get('/reservas/data/:data_inicio/:data_final', autenticacao.autenticarJWT, ReservasControllers.getReservasByDate);
+routes.get('/reservas/data/:data_inicio', autenticacao.autenticarJWT, ReservasControllers.getReservasByDate);
 
 
-routes.post('/reservas', ReservasControllers.createReserva);
 
-routes.put('/reservas/:id', ReservasControllers.updateReserva);
+routes.post('/reservas', autenticacao.autenticarJWT, ReservasControllers.createReserva);
 
-routes.delete('/reservas/:id', ReservasControllers.deleteReserva);
+routes.put('/reservas/:id', autenticacao.autenticarJWT, ReservasControllers.updateReserva);
+
+routes.delete('/reservas/:id', autenticacao.autenticarJWT, ReservasControllers.deleteReserva);
 
 module.exports = routes

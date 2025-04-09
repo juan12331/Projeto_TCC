@@ -1,7 +1,8 @@
 const { Op } = require('sequelize');
 const Usuarios = require('../models/usuarios');
 const tipos_usuarios = require('../models/tipos_usuarios');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+
 
 exports.createUsuario = async (req, res) => {
     try {
@@ -21,19 +22,22 @@ exports.createUsuario = async (req, res) => {
     }
 }
 
-exports.login = async (req, res) => {
-    try {
-        const { cpf, senha } = req.body;
-        const usuario = await Usuarios.findOne({ where: { cpf } })
-        const verificarSenha = bcrypt.compare(senha, usuario.senha)
-        if (usuario.cpf == cpf && verificarSenha) {
-            return res.send({ user: usuario })
-        }
-        return res.status(404).send('Usuario not found');
-    } catch (error) {
-        return res.status(500).send(error)
-    }
-}
+// exports.login = async (req, res) => {
+//     try {
+//         const { cpf, senha } = req.body;
+//         const usuario = await Usuarios.findOne({ where: { cpf } })
+//         const verificarSenha = bcrypt.compare(senha, usuario.senha)
+//         if (usuario.cpf == cpf && verificarSenha) {
+//             res.clearCookie('authenticated');
+//             res.cookie('authenticated', true);
+           
+//             return res.send({ user: usuario })
+//         }
+//         return res.status(404).send('Usuario not found');
+//     } catch (error) {
+//         return res.status(500).send(error)
+//     }
+// }
 
 exports.getUsersByCpf = async (req, res) => {
     try {

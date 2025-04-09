@@ -1,16 +1,3 @@
-
-
-
-.background-image-contato {
-  position: absolute;
-  bottom: 0; /* Alinhar a imagem na parte inferior */
-  left: 0; /* Mover a imagem totalmente para a esquerda */
-  width: 55%; /* Cobrir metade da tela */
-  height: 89%; /* Ajustar a altura automaticamente */
-  object-fit: cover; /* Cobrir a área designada sem distorcer a imagem */
-  z-index: -1; /* Colocar atrás do conteúdo, se necessário */
-}
-
 /* Estilos da imagem "vamos.png" */
 .vamos-image {
   position: absolute;

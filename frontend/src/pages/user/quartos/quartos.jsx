@@ -8,6 +8,7 @@ import img3 from "/src/assets/quartos/image 117.png";
 import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
+import NavbarUser from "../../../assets/components/navbarUser";
 
 function Quartos() {
   const imagens = [img, img1, img2, img3, img4, img5];
@@ -51,6 +52,7 @@ function Quartos() {
   return (
     <>
       <NavbarUser/>
+
 
       <div className="fundo_quartos">
         <main className="quarto-container">

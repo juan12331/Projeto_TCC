@@ -21,30 +21,6 @@ body {
   background-size: cover;
 }
 
-.inicio {
-  color: #7c2728;
-  margin-left: 300px;
-}
-
-.contato {
-  color: #7c2728;
-  margin-left: 250px;
-}
-
-.acomodacao {
-  color: #7c2728;
-  margin-right: 250px;
-}
-
-.login {
-  color: #7c2728;
-  margin-right: 300px;
-}
-
-.logo {
-  width: 85px;
-  height: 80px;
-}
 
 .reserva {
   display: flex;

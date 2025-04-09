@@ -1,0 +1,439 @@
+*{
+    margin: 0vh;
+    padding: 0vh;
+    box-sizing: border-box;
+}
+
+.criarUser-page { 
+    background-color: #F2F2F2;
+    width: 100%;  
+    max-width: 100%;
+    height: 100%; 
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; 
+}
+
+.itensName-criarUser:focus, .itensCpf-criarUser:focus, .itensEmail-criarUser:focus, .itensSobrenome-criarUser:focus, .itensPhone-criarUser:focus, .itensText-criarUser:focus { 
+    border: 1.5px solid #5c4c309c !important;  
+    outline: none !important; 
+}
+
+.itensLeft-criarUser, .itensRight-criarUser{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.itensName-criarUser, .itensCpf-criarUser, .itensEmail-criarUser, .itensSobrenome-criarUser, .itensPhone-criarUser, .itensText-criarUser{
+    border-radius: 12px;
+    border-bottom: #5c4c309c solid 1.5px;
+    border-left: #5c4c309c solid 1.5px;
+    border-right: #5c4c309c solid 1.5px;
+    border-top:#5c4c309c solid 1.5px ;
+    background-color: transparent;
+    text-align: center;
+}
+    
+.itensName-criarUser::placeholder, .itensCpf-criarUser::placeholder, .itensEmail-criarUser::placeholder, .itensSobrenome-criarUser::placeholder, .itensPhone-criarUser::placeholder, .itensText-criarUser::placeholder{
+    color: #A38856;
+    font-family: "Kay Pho Du";
+    font-size: 0.8rem;
+}
+    
+.cadastrarUser-button{
+    margin-top: 30px;
+    background-color: #712122b4;
+    color: #EFE5D1;
+    font-family: "Karma";
+    font-size: 1rem;
+    border: none;
+    border-radius: 15px;
+    width: 25%;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.info-criarUser{
+    margin-top: 30px;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 2rem;
+    color: #5C4C30;
+}
+    
+.reservarUser-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+    height: 50px;
+    background-color: #A38856;
+    border: none;
+    border-radius: 20px;
+    color: #5C4C30;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* DE 320 a 480 */
+@media (min-width: 320px) and (max-width: 480px) {
+
+.fundo-criarUser{ 
+    display: grid;
+    height: auto;
+    width: 100%;
+}
+        
+.fundoLeft-criarUser{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+}
+        
+.back-criarUser{
+    position: absolute;
+    top: 150px; 
+    left: 20px;
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    width: 250px;
+}
+        
+.back-buttonUser{
+    color: #7C2728;
+    font-size: 2.2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+        
+.back-lineUser{
+    color: #7C2728;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+        
+.back-textUser{
+    color: #7C2728;
+    font-size: 2rem;
+    font-family: "Katibeh";
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+        
+.pageLeft-criarUser{
+    margin-top: 200px;
+    border-bottom: #7c2728d5 solid 1.5px;
+    border-left: #7c2728d5 solid 1.5px;
+    border-right: #7c2728d5 solid 1.5px;
+    border-top:#7c2728d5 solid 1.5px ;
+    border-radius: 15px;
+    width: 35vh;
+    height: 500px;
+    text-align: center;
+}
+        
+.user_criarUser{
+    margin-top: 30px;
+    width: 120px;
+    height: 120px;
+}
+        
+.grid-criarUser{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+    
+.name-criarUser, .cpf-criarUser, .email-criarUser, .sobrenome-criarUser, .phone-criarUser, .text-criarUser{ 
+    display: grid;
+    justify-content: center;
+    width: 20px;
+    height: 30px;
+}
+    
+.pageRight-criarUser{
+    height: 60vh;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+    
+.backgroundImg-criarUser{
+    overflow: hidden;
+    background-image: url("/src/assets/imgCriarUser_Adm/fundo_criarUser.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:  center;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.fundoInfo-criarUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #ccaa6be5;
+    width: 50%;
+    height: 352px;
+    border-radius: 30px;
+    gap: 15px;
+    margin-top: 80px;
+}
+}
+
+/* DE 481 a 1024 */
+@media (min-width: 481px) and (max-width:1024px) {
+
+.fundo-criarUser{ 
+    display: grid;
+    height: auto;
+    width: 100%;
+}
+    
+.fundoLeft-criarUser{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+}
+    
+.back-criarUser{
+    position: absolute;
+    top: 150px; 
+    left: 40px;
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    width: 250px;
+}
+    
+.back-buttonUser{
+    color: #7C2728;
+    font-size: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+    
+.back-lineUser{
+    color: #7C2728;
+    font-size: 2.7rem;
+    cursor: pointer;
+}
+    
+.back-textUser{
+    color: #7C2728;
+    font-size: 2.2rem;
+    font-family: "Katibeh";
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+    
+.pageLeft-criarUser{
+    margin-top: 200px;
+    border-bottom: #7c2728d5 solid 1.5px;
+    border-left: #7c2728d5 solid 1.5px;
+    border-right: #7c2728d5 solid 1.5px;
+    border-top:#7c2728d5 solid 1.5px ;
+    border-radius: 15px;
+    width: 50vh;
+    height: 500px;
+    text-align: center;
+}
+    
+.user_criarUser{
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+}
+    
+.grid-criarUser{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+    
+.name-criarUser, .cpf-criarUser, .email-criarUser, .sobrenome-criarUser, .phone-criarUser, .text-criarUser{
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+    
+.pageRight-criarUser{
+    height: 60vh;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+    
+.backgroundImg-criarUser{
+    overflow: hidden;
+    background-image: url("/src/assets/imgCriarUser_Adm/fundo_criarUser.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:  center;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.fundoInfo-criarUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #ccaa6be5;
+    width: 50%;
+    height: 352px;
+    border-radius: 30px;
+    gap: 15px;
+    margin-top: 80px;
+}
+}
+
+/* DE 1025 em diante */
+@media (min-width: 1025px){
+
+.fundo-criarUser{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.fundoLeft-criarUser{
+    position: relative;
+    justify-content: center;
+    display: grid;
+    height: 100vh;
+    width: 50%;
+}
+
+.back-criarUser{
+    position: absolute;
+    top: 200px; 
+    left: 70px;
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    width: 250px;
+}
+
+.back-buttonUser{
+    color: #7C2728;
+    font-size: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.back-lineUser{
+    color: #7C2728;
+    font-size: 2.7rem;
+    cursor: pointer;
+}
+
+.back-textUser{
+    color: #7C2728;
+    font-size: 2.2rem;
+    font-family: "Katibeh";
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pageLeft-criarUser{
+    margin-top: 330px;
+    border-bottom: #7c2728d5 solid 1.5px;
+    border-left: #7c2728d5 solid 1.5px;
+    border-right: #7c2728d5 solid 1.5px;
+    border-top:#7c2728d5 solid 1.5px ;
+    border-radius: 15px;
+    width: 50vh;
+    height: 500px;
+    text-align: center;
+}
+
+.user_criarUser{
+    margin-top: 50px;
+    width: 150px;
+    height: 150px;
+}
+
+.grid-criarUser{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.name-criarUser, .cpf-criarUser, .email-criarUser, .sobrenome-criarUser, .phone-criarUser, .text-criarUser{
+    display: flex;
+    width: 100%;
+    height: 40px;
+}
+
+.pageRight-criarUser{
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.backgroundImg-criarUser{
+    overflow: hidden;
+    background-image: url("/src/assets/imgCriarUser_Adm/fundo_criarUser.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fundoInfo-criarUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #ccaa6be5;
+    width: 40%;
+    height: 352px;
+    border-radius: 30px;
+    gap: 15px;
+    margin-top: 140px;
+}
+}
+
