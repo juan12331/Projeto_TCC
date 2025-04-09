@@ -11,7 +11,7 @@
 }
 
 .cadastro-box2 {
-  background-color: rgba(0, 0, 0, 0.852); /* Fundo preto com 70% de opacidade */
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo preto com 70% de opacidade */
   backdrop-filter: blur(50%); /* Efeito de desfoque de 30% */
   border-radius: 20px;
   padding: 3rem; /* Espaçamento interno */

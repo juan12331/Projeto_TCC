@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./contato.css";
 import { FaStar } from "react-icons/fa";
-import logo from "/src/assets/img/Logo.png";
+
+
 import vamos from "/src/assets/img/vamos.png"; // Importe a imagem "vamos.png"
 import icons from "/src/assets/img/icons.png"; // Importe a imagem "icons.png"
 import ava from "/src/assets/img/ava.png";
@@ -9,44 +10,33 @@ import NavbarUser from "../../../assets/components/navbarUser";
 
 const StarRating = ({ totalStars = 5 }) => {
   const [rating, setRating] = useState(0);
-  const [hover, setHover] = useState(0);
-
 
   return (
-    <>
-    <div className="contato-container">
-    <NavbarUser/>
-    
-
-      <section className="contato-section">
-        <h1>Vamos conversar?</h1>
-        <p>
-          Entre em contato com a gente para informações sobre reservas, disponibilidade de datas, preços e outras dúvidas. Estaremos à disposição para atendê-lo e tornar a sua experiência com a pousada inesquecível.
-        </p>
-        <button className="fale-conosco-button">Fale conosco</button>
-      </section>
-
-      <section className="avaliacoes-section">
-        <h2>Avaliações</h2>
-        <p>
-          Agradecemos por escolher a Quinta do Ypuá para sua estadia. Compartilhe sua experiência conosco logo abaixo!
-        </p>
-        <form className="avaliacoes-form">
-          <input type="text" placeholder="Nome" className="input-field" />
-          <input type="email" placeholder="Email" className="input-field" />
-          <textarea placeholder="Digite sua mensagem" className="input-field textarea-field"></textarea>
-          <button type="submit" className="submit-button">Enviar avaliação</button>
-        </form>
-      </section>
+    <div className="star-rating">
+      {Array.from({ length: totalStars }, (_, index) => {
+        const starValue = index + 1;
+        return (
+          <FaStar
+            key={index}
+            size={24}
+            color={starValue <= rating ? "#ffc107" : "#c0c0c0"} // Cinza mais visível
+            style={{ cursor: "pointer" }}
+            onClick={() => setRating(starValue)}
+          />
+        );
+      })}
       
-          </div>
-    </>
+    </div>
   );
 };
+
+
+
 
 const Contato = () => {
   return (
     <div>
+       <NavbarUser/>
       <form className="contato-form-contato">
         <input type="text" placeholder="Nome" className="input-contato2" />
         <input type="email" placeholder="Email" className="input-contato2" />
@@ -56,13 +46,7 @@ const Contato = () => {
         </div>
       </form>
       
-      <header>
-        <h3 className="inicio">Início</h3>
-        <h3 className="contato">Contato</h3>
-        <img src={logo} alt="Pousada" className="logo" />
-        <h3 className="acomodacao">Acomodações</h3>
-        <h3 className="login">Perfil</h3>
-      </header>
+     
       {/* Conteúdo principal */}
       <div className="container-contato">
         <img

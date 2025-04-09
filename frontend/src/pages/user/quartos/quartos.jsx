@@ -50,13 +50,7 @@ function Quartos() {
 
   return (
     <>
-      <header className="header">
-        <h3 className="inicio">Início</h3>
-        <h3 className="contato">Contato</h3>
-        <img src={logo} alt="Pousada" className="logo" />
-        <h3 className="acomodacao">Acomodações</h3>
-        <h3 className="login">Login</h3>
-      </header>
+      <NavbarUser/>
 
       <div className="fundo_quartos">
         <main className="quarto-container">
