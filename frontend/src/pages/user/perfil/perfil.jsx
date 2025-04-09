@@ -56,13 +56,7 @@ function Perfil() {
       
 
       </div>
-    </div>
-
-      
-
-            
-
-            
+    </div>       
     );
   };
   
