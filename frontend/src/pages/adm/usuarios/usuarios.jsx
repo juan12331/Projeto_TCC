@@ -190,7 +190,6 @@ const Usuarios = () => {
           </div>
         </div>
       </div>
-
     </div>
     );
 };
