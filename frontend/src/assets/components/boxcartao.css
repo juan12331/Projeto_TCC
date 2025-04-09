@@ -1,0 +1,31 @@
+.container-geral-inputs2{
+    display: flex;
+}
+
+.container-inputs5{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    margin-top: 10px;
+    
+}
+
+.container-inputs6{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    margin-left: 150px;
+    margin-top: 10px;
+}
+
+.input-forma2{
+    background: transparent;
+    border: 2px solid #a48b60; /* Cor semelhante à da imagem */
+    border-radius: 20px; /* Arredondamento das bordas */
+    padding: 10px 15px; /* Espaçamento interno */
+    color: #a48b60; /* Cor do texto */
+    font-size: 14px;
+    outline: none; /* Remove o contorno ao focar */
+    margin: 0.2rem auto;
+}

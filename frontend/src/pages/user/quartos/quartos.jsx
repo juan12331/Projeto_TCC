@@ -51,7 +51,8 @@ function Quartos() {
 
   return (
     <>
-  <NavbarUser />
+      <NavbarUser/>
+
 
       <div className="fundo_quartos">
         <main className="quarto-container">

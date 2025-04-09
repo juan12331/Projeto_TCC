@@ -12,6 +12,7 @@ import Login from "./pages/user/login/login.jsx";
 import Contato from "./pages/user/contato/contato.jsx";
 import Perfil from "./pages/user/perfil/perfil.jsx";
 import Pix from "./pages/user/pagamento_pix/pix.jsx";
+import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
 import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 
@@ -35,6 +36,7 @@ function MainRoutes() {
       <Route path="/Contato" element={<Contato />} />
       <Route path="/Perfil" element={<Perfil />} />
       <Route path="/Pix" element={<Pix />} />
+      <Route path="/Inicio" element={<Inicio />} />
       <Route path="/Acomodacoes" element={<Acomodacoes />} />
     </Routes>
   );
