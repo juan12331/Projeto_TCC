@@ -6,6 +6,7 @@
    background-color: #EFE5D1;
    display: flex;
    justify-content: center;
+   z-index: 100;
 }
 
 /* DE 320 A 480 */
