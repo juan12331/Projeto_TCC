@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
+import { Link } from "react-router-dom";
 
 const Usuarios = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Usuarios = () => {
           <h1 className="dataReserva-usuarios">Data da Reserva</h1>
         </div>
         <div className="grid1-usuarios">
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -41,9 +42,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -51,9 +52,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -61,9 +62,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -71,9 +72,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -81,9 +82,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -91,9 +92,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -101,14 +102,14 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
         </div>
 
         <div className="cards-usuarios">
           <h1 className="dataReserva-usuarios">Data da Reserva</h1>
         </div>
         <div className="grid2-usuarios">
-          <div className="fundoCards-usuarios">
+        <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -116,9 +117,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -126,9 +127,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -136,9 +137,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -146,9 +147,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -156,9 +157,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -166,9 +167,9 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
 
-          <div className="fundoCards-usuarios">
+          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
@@ -176,7 +177,7 @@ const Usuarios = () => {
             />
             <h1 className="nomeCards-usuarios">Nome</h1>
             <h2 className="cpfCards-usuarios">CPF</h2>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -190,7 +191,6 @@ const Usuarios = () => {
           </div>
         </div>
       </div>
-
     </div>
     );
 };

@@ -24,7 +24,7 @@
   margin-top: 15vh;
   width: 100%;
 
-  }
+}
 
 .separador-usuarios {
   display: flex;
@@ -84,6 +84,7 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
+  text-decoration: none;
 }
 
 .cardsImg-usuarios{
@@ -114,6 +115,7 @@
   justify-content: space-between; 
   padding-left: 15px;
   width: 100%;
+  cursor: pointer;
 }
 
 .adicionarIcon-usuarios{
@@ -436,201 +438,201 @@
 /* DE 1501 a 1799 */
 @media (min-width: 1501px) and (max-width: 1799px) {
 
-  .usuarios-page {
-    width: 100%; 
-    padding: 10px;
-  }
-  
-  .usuarios-titulo{
-    color: #7f2727f5;
-    font-size: 3rem;
-    font-family: "Katibeh";
-    font-weight: 300;
-    text-align: center;
-  }
-  
-  .fundo-usuarios{ 
-    background-color: #F7F2E9;
-    width: 45%;
-    min-width: 600px;
-    max-width: 1000px;
-    height: 100px;
-    margin-top: 6vh;
-    gap: 40px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 30px;
-    padding-right: 10px;
-    border-bottom: #bdbdbd71 solid 4px;
-    border-left: #bdbdbd5d solid 2px;
-    border-right: #bdbdbd5d solid 2px;
-  }
-  
-  .fundoPesquisa-usuarios{
-    background-color: #ccaa6bd2;
-    width: 70%;
-    min-width: auto;
-    max-width: 1000px;
-    height: 60px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: left;
-    align-self: center;
-  }
-  
-  .pesquisa-usuarios{
-    border-radius: 25px;
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
-    padding-left: 30px;
-  }
-  
-  .search-usuarios::placeholder{ 
-    color: #5C4C30;
-    font-family: "Kreon";
-    font-size: 1rem;
-    text-align: left;
-  }
-  
-  .buttonSearch-usuarios{
-    border: transparent;
-    text-align: center;
-    background-color: #7E2527;
-    width: 40%;
-    max-width: 140px;
-    height: 40px;
-    color: #FFFFFF;
-    border-radius: 5px;
-    font-family: "Kreon";
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .grid1-usuarios, .grid2-usuarios{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 40px;
-  }
-  
-  .fundoFinal-usuarios{
-    background-color: #CCAA6B;
-    width: auto;
-    min-width: 500px;
-    height: 60px;
-    border-radius: 15px;
-    display: flex;
-    text-align: center;
-    margin-top: 100px;
-  }
-  
-  .textAdicionar-usuarios{
-    font-family: "Kreon";
-    font-weight: 200;
-    color: #5C4C30;
-    font-size: 1.3rem;
-    padding-left: 20px;
-  }
+.usuarios-page {
+  width: 100%; 
+  padding: 10px;
+}
+
+.usuarios-titulo{
+  color: #7f2727f5;
+  font-size: 3rem;
+  font-family: "Katibeh";
+  font-weight: 300;
+  text-align: center;
+}
+
+.fundo-usuarios{ 
+  background-color: #F7F2E9;
+  width: 45%;
+  min-width: 600px;
+  max-width: 1000px;
+  height: 100px;
+  margin-top: 6vh;
+  gap: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 10px;
+  border-bottom: #bdbdbd71 solid 4px;
+  border-left: #bdbdbd5d solid 2px;
+  border-right: #bdbdbd5d solid 2px;
+}
+
+.fundoPesquisa-usuarios{
+  background-color: #ccaa6bd2;
+  width: 70%;
+  min-width: auto;
+  max-width: 1000px;
+  height: 60px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: left;
+  align-self: center;
+}
+
+.pesquisa-usuarios{
+  border-radius: 25px;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.search-usuarios::placeholder{ 
+  color: #5C4C30;
+  font-family: "Kreon";
+  font-size: 1rem;
+  text-align: left;
+}
+
+.buttonSearch-usuarios{
+  border: transparent;
+  text-align: center;
+  background-color: #7E2527;
+  width: 40%;
+  max-width: 140px;
+  height: 40px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-family: "Kreon";
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.grid1-usuarios, .grid2-usuarios{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+}
+
+.fundoFinal-usuarios{
+  background-color: #CCAA6B;
+  width: auto;
+  min-width: 500px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.textAdicionar-usuarios{
+  font-family: "Kreon";
+  font-weight: 200;
+  color: #5C4C30;
+  font-size: 1.3rem;
+  padding-left: 20px;
+}
 }
 
 /* DE 1800 em diante */
 @media (min-width: 1800px) {
 
-  .usuarios-page {
-    width: 100%; 
-    padding: 10px;
-  }
-  
-  .usuarios-titulo{
-    color: #7f2727f5;
-    font-size: 3rem;
-    font-family: "Katibeh";
-    font-weight: 300;
-    text-align: center;
-  }
-  
-  .fundo-usuarios{ 
-    background-color: #F7F2E9;
-    width: 45%;
-    min-width: 600px;
-    max-width: 1000px;
-    height: 100px;
-    margin-top: 6vh;
-    gap: 40px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 30px;
-    padding-right: 10px;
-    border-bottom: #bdbdbd71 solid 4px;
-    border-left: #bdbdbd5d solid 2px;
-    border-right: #bdbdbd5d solid 2px;
-  }
-  
-  .fundoPesquisa-usuarios{
-    background-color: #ccaa6bd2;
-    width: 70%;
-    min-width: auto;
-    max-width: 1000px;
-    height: 60px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: left;
-    align-self: center;
-  }
-  
-  .pesquisa-usuarios{
-    border-radius: 25px;
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
-    padding-left: 30px;
-  }
-  
-  .search-usuarios::placeholder{ 
-    color: #5C4C30;
-    font-family: "Kreon";
-    font-size: 1rem;
-    text-align: left;
-  }
-  
-  .buttonSearch-usuarios{
-    border: transparent;
-    text-align: center;
-    background-color: #7E2527;
-    width: 40%;
-    max-width: 140px;
-    height: 40px;
-    color: #FFFFFF;
-    border-radius: 5px;
-    font-family: "Kreon";
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .grid1-usuarios, .grid2-usuarios{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 40px;
-  }
-  
-  .fundoFinal-usuarios{
-    background-color: #CCAA6B;
-    width: auto;
-    min-width: 500px;
-    height: 60px;
-    border-radius: 15px;
-    display: flex;
-    text-align: center;
-    margin-top: 100px;
-  }
-  
-  .textAdicionar-usuarios{
-    font-family: "Kreon";
-    font-weight: 200;
-    color: #5C4C30;
-    font-size: 1.3rem;
-    padding-left: 20px;
-  }
-  }
+.usuarios-page {
+  width: 100%; 
+  padding: 10px;
+}
+
+.usuarios-titulo{
+  color: #7f2727f5;
+  font-size: 3rem;
+  font-family: "Katibeh";
+  font-weight: 300;
+  text-align: center;
+}
+
+.fundo-usuarios{ 
+  background-color: #F7F2E9;
+  width: 45%;
+  min-width: 600px;
+  max-width: 1000px;
+  height: 100px;
+  margin-top: 6vh;
+  gap: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 10px;
+  border-bottom: #bdbdbd71 solid 4px;
+  border-left: #bdbdbd5d solid 2px;
+  border-right: #bdbdbd5d solid 2px;
+}
+
+.fundoPesquisa-usuarios{
+  background-color: #ccaa6bd2;
+  width: 70%;
+  min-width: auto;
+  max-width: 1000px;
+  height: 60px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: left;
+  align-self: center;
+}
+
+.pesquisa-usuarios{
+  border-radius: 25px;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.search-usuarios::placeholder{ 
+  color: #5C4C30;
+  font-family: "Kreon";
+  font-size: 1rem;
+  text-align: left;
+}
+
+.buttonSearch-usuarios{
+  border: transparent;
+  text-align: center;
+  background-color: #7E2527;
+  width: 40%;
+  max-width: 140px;
+  height: 40px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-family: "Kreon";
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.grid1-usuarios, .grid2-usuarios{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 40px;
+}
+
+.fundoFinal-usuarios{
+  background-color: #CCAA6B;
+  width: auto;
+  min-width: 500px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.textAdicionar-usuarios{
+  font-family: "Kreon";
+  font-weight: 200;
+  color: #5C4C30;
+  font-size: 1.3rem;
+  padding-left: 20px;
+}
+}
