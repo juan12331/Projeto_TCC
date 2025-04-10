@@ -9,6 +9,7 @@ import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
+import { useNavigate } from "react-router-dom";
 
 function Quartos() {
   const imagens = [img, img1, img2, img3, img4, img5];
@@ -52,6 +53,7 @@ function Quartos() {
   return (
     <>
       <NavbarUser />
+
 
       <div className="fundo_quartos">
         <main className="quarto-container">
@@ -198,8 +200,8 @@ function Quartos() {
 
                 <div className="line2">
                   <div className="item2">
-                    <p className="textcor">Check-in: </p>
-                    <p className="textsem">14h00</p>
+                    <p className="textcor">Mínimo de noites: </p>
+                    <p className="textsem">2 noites</p>
                   </div>
                   <a href="https://www.pousadadomirantenoronha.com.br/p/politica-da-pousada">
                     Leia nossas políticas
@@ -210,10 +212,14 @@ function Quartos() {
           </article>
         </div>
         <div className="avaldomo">
+
+
           <p>AVALIAÇÃO</p>
         </div>
         <section className="avaliacoes">
+
           <div className="testimonials-container">
+            
             <div className="testimonial-item">
               <div className="testimonial-img-container">
                 <img
@@ -222,10 +228,12 @@ function Quartos() {
                   className="testimonial-img"
                 />
               </div>
+
               <p className="testimonial-text">
-                Quarto super confortável e atendimento excelente
+                Quarto confortável e excelente!
               </p>
             </div>
+
             <div className="testimonial-item">
               <div className="testimonial-img-container">
                 <img

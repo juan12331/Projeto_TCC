@@ -112,7 +112,7 @@ label{
 }
 
 .ambiente {
-  color: #7a6640;
+  color: #7A6640;
   font-size: 18px;
   display: flex;
   flex-direction: column;
@@ -120,8 +120,9 @@ label{
   text-align: center;
   height: 250px;
   justify-content: center;
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
   position: relative;
+  font-family: kreon, sans-serif;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 .setapbaixo {
@@ -167,6 +168,7 @@ label{
   justify-content: center;
   flex-direction: column;
   gap: 30px;
+  font-family: kreon, sans-serif;
 }
 
 .avaliacao {
@@ -180,6 +182,7 @@ label{
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
   margin: 0;
   padding: 0;
+  font-family: kreon, sans-serif;
 }
 
 .celular {
@@ -203,6 +206,7 @@ label{
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
   margin: 0;
   padding: 0;
+  font-family: kreon, sans-serif;
 }
 
 .acomodacaorequi {
@@ -254,6 +258,7 @@ label{
 .galeria p {
   font-size: 38px;
   color: #F4F4F4;
+  font-family: kreon, sans-serif;
 }
 .galeria .fotos{
   display: flex;
@@ -350,6 +355,7 @@ label{
 
 footer{
   padding: 40px;
+  font-family: Katibeh;
 }
 
 footer .top{
@@ -395,6 +401,7 @@ footer .top{
   margin: 5px 0;
   font-size: 20px;
   line-height: 1.5;
+  font-family: Katibeh;
 }
 
 .promocao-container {
@@ -423,6 +430,7 @@ footer .top{
   align-items: center;
   flex-direction: column;
   gap: 15px;
+  font-family: Katibeh;
 }
 
 .input-email {
@@ -435,6 +443,7 @@ footer .top{
   font-weight: bold;
   outline: none;
   font-size: 16px;
+  font-family: Katibeh;
 }
 
 .input-email::placeholder {
@@ -454,8 +463,21 @@ footer .top{
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: Katibeh;
 }
 
 .btn-cadastrar:hover {
   background-color: #c8b9a0;
+}
+
+.textsuitecoz{
+  font-family: kreon;
+}
+
+.textdomo {
+  font-family: kreon;
+}
+
+.textchurrua {
+  font-family: kreon;
 }
