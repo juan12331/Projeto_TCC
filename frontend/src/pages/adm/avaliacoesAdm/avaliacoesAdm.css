@@ -88,6 +88,7 @@
 
 .fundoCards-avaliacoesAdm:hover{
     background-color: #be9f6594;
+    transition-duration: 0.3s;
   }
 
 .cardsImg-avaliacoesAdm{
@@ -133,6 +134,7 @@
 
 .buttonSearch-avaliacoesAdm:hover{
     background-color: #962c2e;
+    transition-duration: 0.3s;
 }
 
 /* DE 320 A 480 */

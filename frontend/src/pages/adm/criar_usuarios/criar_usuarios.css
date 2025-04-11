@@ -60,6 +60,7 @@
 
 .cadastrarUser-button:hover{
     background-color: #9c1618b4;
+    transition-duration: 0.3s;
 }
 
 .info-criarUser{
@@ -89,6 +90,7 @@
 
 .reservarUser-button:hover{
     background-color: #a3803d;
+    transition-duration: 0.3s;
 }
 
 

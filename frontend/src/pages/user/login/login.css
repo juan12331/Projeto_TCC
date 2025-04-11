@@ -104,6 +104,7 @@
 
 .login-button:hover{
   background-color: #962c2e;
+  transition-duration: 0.3s;
 }
 
 .login-page .signup-link, a {

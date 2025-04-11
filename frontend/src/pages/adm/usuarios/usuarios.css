@@ -88,6 +88,7 @@
 
 .fundoCards-usuarios:hover{
   background-color: #be9f6594;
+  transition-duration: 0.3s;
 }
 
 .cardsImg-usuarios{
@@ -132,14 +133,17 @@
 
 .adicionarIcon-usuarios:hover{
   color: #816535;
+  transition-duration: 0.3s;
 }
 
 .buttonSearch-usuarios:hover{
   background-color: #962c2e;
+  transition-duration: 0.3s;
 }
 
 .fundoFinal-usuarios:hover{
-  background-color: #c7a567;
+  background-color: #d4b170;
+  transition-duration: 0.3s;
 }
 
 /* DE 320 A 480 */
