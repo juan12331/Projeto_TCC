@@ -19,6 +19,11 @@ export async function loginUser(email, senha) {
     return response.data;
 }
 
+export async function logout() {
+    const response = await http.post('/logout');
+    return;
+}
+
 export async function createUser(cpf, nome, email, senha, telefone) {
     const response = await http.post('/usuarios', { cpf: cpf, nome: nome, email: email, senha: senha, telefone: telefone });
     return response.data;
