@@ -11,11 +11,8 @@ exports.createUsuario = async (req, res) => {
         if (verificacao) {
             return res.send('usuario ja foi cadastrado')
         }
-        console.log(senha)
         const senhaNova = await bcrypt.hash(senha, 10)
-        console.log(senhaNova, senha)
         const usuarioCriado = await Usuarios.create({cpf, nome, email, senha: senhaNova, telefone})
-        console.log(usuarioCriado)
         return res.send('usuario cadastrado com sucesso')
     } catch (err) {
         return res.status(403).send(err)
@@ -41,6 +38,9 @@ exports.createUsuario = async (req, res) => {
 
 exports.getUsersByCpf = async (req, res) => {
     try {
+        const {cpf} = req.params
+
+        console.log(req.params.cpf)
         const encontrarUsuario = await Usuarios.findByPk(req.params.cpf, { include: tipos_usuarios });
         if (!encontrarUsuario) {
             return res.status(404).send('Usuario not found');
@@ -48,7 +48,7 @@ exports.getUsersByCpf = async (req, res) => {
 
         return res.send(encontrarUsuario);
     } catch (error) {
-        return res.status(500).send('Internal Server Error');
+        return res.status(500).send('Internal Server Error', error);
     }
 }
 

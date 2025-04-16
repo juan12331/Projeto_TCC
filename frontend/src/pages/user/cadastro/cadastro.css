@@ -27,6 +27,13 @@
 
 }
 
+.error {
+  width: 100%;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
+
 .container22 {
   width: 100px;
   height: auto;

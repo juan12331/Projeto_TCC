@@ -1,6 +1,6 @@
 import React from "react";
 import "./cadastro.css";
-import { createUser } from '../../../services/Api_service';
+import { createUser , getUsersByCpf } from '../../../services/Api_service';
 import { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -36,7 +36,9 @@ function Cadastro() {
     }
   }
 
-  function Criar() {
+  function Criar(e) {
+    e.preventDefault();
+
     if (senha != confirmar) {
       showError("Confirmar senha e senha tem que estar igual")
       return;
@@ -62,12 +64,16 @@ function Cadastro() {
       return
     }
 
+
     createUser(cpf, nome, email, senha, telefone).then(data => {
-
-
+      console.log(data)
+      if (data == 'usuario ja foi cadastrado'){
+        showError('Usuário Já Cadastrado')
+        return;
+      }
       Login()
-
     }).catch(err => console.log(err))
+    
   }
 
   const showError = (message) => {
@@ -75,6 +81,9 @@ function Cadastro() {
     span.textContent = message;
   }
 
+  function Login() {
+    navigate("/login")
+  }
 
   return (
     <div className="cadastro-container2">
@@ -102,7 +111,7 @@ function Cadastro() {
               <span className='error' id='span'></span>
             </div>
             <div className="botoes-cadastro">
-            <button type="submit" className="cadastro-button">Cadastrar</button>
+            <button className="cadastro-button" onClick={(e) => Criar(e)}>Cadastrar</button>
             </div>
           </form>
       </div>
