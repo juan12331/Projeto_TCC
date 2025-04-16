@@ -49,14 +49,14 @@ const Contato = () => {
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=pousadaquintadoypua@gmail.com" target="_blank" className="gridEmail-contato">
             <Envelope className="emailIcon-contato" />
           </a>
+          <a href="https://www.facebook.com/pousadaquintadoypua" target="_blank" rel="noopener noreferrer" className="gridFacebook-contato">
+            <Facebook className="faceIcon-contato" />
+          </a>
           <a href="https://api.whatsapp.com/send?phone=5548999409732&text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20da%20pousada%20e%20tenho%20interesse%20em%20saber%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" className="gridWhatsapp-contato">
             <Whatsapp className="whatsIcon-contato" />
           </a>
           <a href="https://www.instagram.com/pousadaquintadoypua/" target="_blank" rel="noopener noreferrer" className="gridInstagram-contato">
             <Instagram className="instaIcon-contato" />
-          </a>
-          <a href="https://www.facebook.com/pousadaquintadoypua" target="_blank" rel="noopener noreferrer" className="gridFacebook-contato">
-            <Facebook className="faceIcon-contato" />
           </a>
         </div>
       </div>
