@@ -102,6 +102,11 @@
   cursor: pointer;
 }
 
+.login-button:hover{
+  background-color: #962c2e;
+  transition-duration: 0.3s;
+}
+
 .login-page .signup-link, a {
   color: #ffffffb7;
   font-family: "Katibeh";
@@ -118,6 +123,7 @@
   border: none;
   width: 40vh;
   height: 5vh;
+  outline: none;
 }
 
 .login-input::placeholder {

@@ -86,6 +86,11 @@
     text-decoration: none;
 }
 
+.fundoCards-avaliacoesAdm:hover{
+    background-color: #be9f6594;
+    transition-duration: 0.3s;
+  }
+
 .cardsImg-avaliacoesAdm{
     width: 100px;
     height: 100px;
@@ -125,6 +130,11 @@
     width: 170px;
     height: 100px;
     border-radius: 15px;
+}
+
+.buttonSearch-avaliacoesAdm:hover{
+    background-color: #962c2e;
+    transition-duration: 0.3s;
 }
 
 /* DE 320 A 480 */

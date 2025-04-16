@@ -183,12 +183,10 @@ const Usuarios = () => {
 
       <div className="final-usuarios">
         <div className="fundoFinal-usuarios">
-          <div className="gridAdicionar-usuarios">
-          <h1 className="textAdicionar-usuarios">Adicionar novo Usuário</h1>
-          <button onClick={() => navigate("/criar_usuarios")} className="adicionarButton-usuarios">
+          <Link to="/criar_usuarios" className="gridAdicionar-usuarios">
+            <h1 className="textAdicionar-usuarios">Adicionar novo Usuário</h1>
             <PlusCircle className="adicionarIcon-usuarios"/>
-          </button>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
