@@ -1,10 +1,15 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../components/navbarAdm.css"; 
+import { logout } from "../../services/Api_service";
 
 const NavbarAdm = () => {
 
   const location = useLocation(); 
+
+    async function LogOut(){
+        logout()
+    }
 
   return (
 
@@ -24,7 +29,11 @@ const NavbarAdm = () => {
             AVALIAÇÕES
         </Link>
 
-        <Link to="/login" className={`nav-item ${location.pathname === "/login" ? "active" : ""}`}>
+        <Link to="/login" className={`nav-item ${location.pathname === "/login" ? "active" : ""}`} onClick={() => {
+    localStorage.clear();
+    LogOut
+  }}
+>
             SAIR
         </Link>
         </header>
