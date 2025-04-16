@@ -1,9 +1,11 @@
 import React from "react";
 import "./cadastro.css";
 import { createUser } from '../../../services/Api_service';
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
+  const navigate = useNavigate();
 
   const rageEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const rageSenha = /^(?=.*[A-Z])(?=.*\d).+$/;
@@ -77,27 +79,32 @@ function Cadastro() {
   return (
     <div className="cadastro-container2">
       <div className="cadastro-box2">
-        <div className="container22">
-          <img
-            src="src/assets/img/logo2.png"
-            alt="Logo"
-            className=""
-          />
-        </div>
-        <form className="cadastro-form">
-          <input type="text" placeholder="Nome" value={nome} onChange={(e) => setName(e.target.value)} className="input-cadastro login-input" />
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-cadastro login-input" />
-          <input type="text" placeholder="CPF" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} className="input-cadastro login-input" />
-          <input type="tel" placeholder="Número de telefone" value={telefone} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} className="input-cadastro login-input" />
-          <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="input-cadastro login-input" />
-          <input type="password" placeholder="Confirmar senha" value={confirmar} onChange={(e) => setConfirmar(e.target.value)} className="input-cadastro login-input" />
-          <div className="row">
-            <span className='error' id='span'></span>
+        <div className="back-cadastro">
+            <button onClick={() => navigate("/login")} className="backButton-cadastro"> ← </button>
+            <h1 className="backLine-cadastro">|</h1>
+            <button onClick={() => navigate("/login")} className="backText-cadastro"> LOGIN </button>
           </div>
-          <div className="botoes-cadastro">
-          <button type="submit" className="cadastro-button">Cadastrar</button>
+          <div className="container22">
+            <img
+              src="src/assets/img/logo2.png"
+              alt="Logo"
+              className="logo-cadastro"
+            />
           </div>
-        </form>
+          <form className="cadastro-form">
+            <input type="text" placeholder="Nome" value={nome} onChange={(e) => setName(e.target.value)} className="input-cadastro login-input" />
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-cadastro login-input" />
+            <input type="text" placeholder="CPF" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} className="input-cadastro login-input" />
+            <input type="tel" placeholder="Número de telefone" value={telefone} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} className="input-cadastro login-input" />
+            <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="input-cadastro login-input" />
+            <input type="password" placeholder="Confirmar senha" value={confirmar} onChange={(e) => setConfirmar(e.target.value)} className="input-cadastro login-input" />
+            <div className="row">
+              <span className='error' id='span'></span>
+            </div>
+            <div className="botoes-cadastro">
+            <button type="submit" className="cadastro-button">Cadastrar</button>
+            </div>
+          </form>
       </div>
     </div>
   );
