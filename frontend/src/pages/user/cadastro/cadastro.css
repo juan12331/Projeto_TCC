@@ -21,6 +21,12 @@
   max-width: 500px; /* Largura máxima da caixa */
 }
 
+.botoes-cadastro{
+  display: flex;
+  padding: 0;
+
+}
+
 .container22 {
   width: 400px;
   height: auto;
@@ -70,6 +76,11 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition:all 0.2s ;
+}
+
+.cadastro-button:hover{
+  transform: translate(0, -2.5px);
 }
 
 .submit-button:hover {
