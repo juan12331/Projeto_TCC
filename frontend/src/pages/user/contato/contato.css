@@ -13,7 +13,7 @@
   border-radius: 30px;
   width: 320px;
   height: 320px;
-  margin-top: 300px;
+  margin-top: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@
 
 .ava-image{
   position: absolute;
-  left: 1150px;
+  left: 1250px;
   top: 160px;
 }
 
@@ -91,7 +91,6 @@
   justify-content: center; /* Centraliza horizontalmente */
   color: #FFFFFF;
   font-size: 14px; /* Opcional: ajuste o tamanho da fonte */
-
   cursor: pointer;
 }
 
@@ -101,6 +100,9 @@
   left: 1300px;
   color: #7F2727;
   line-height: 1.5;
+  font-family: "Kreon";
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .star-rating {
@@ -110,6 +112,7 @@
   position: absolute;
   top: 450px; /* Ajuste para posicionar corretamente */
   left: 1440px;
+  gap: 20px;
 }
 
 .star-rating input {
@@ -124,8 +127,9 @@
 .icons-container{
   display: flex;
   justify-content: center;
-  gap: 35px;
+  gap: 40px;
   width: 300px;
+  height: 120px;
 }
 
 .container-contato{
@@ -143,7 +147,7 @@
 
 .phoneIcon-contato, .emailIcon-contato, .whatsIcon-contato, .instaIcon-contato, .faceIcon-contato{
   color: #D2AD6F;
-  height: 35px;
+  height: 37px;
   width: auto;
 }
 

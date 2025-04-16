@@ -16,7 +16,7 @@ const StarRating = ({ totalStars = 5 }) => {
         return (
           <FaStar
             key={index}
-            size={24}
+            size={35}
             color={starValue <= rating ? "#ffc107" : "#c0c0c0"} // Cinza mais visível
             style={{ cursor: "pointer" }}
             onClick={() => setRating(starValue)}
@@ -32,15 +32,6 @@ const Contato = () => {
   return (
     <div>
        <NavbarUser/>
-      <form className="contato-form-contato">
-        <input type="text" placeholder="Nome" className="input-contato2" />
-        <input type="email" placeholder="Email" className="input-contato2" />
-        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" />
-        <div className=".input-button-container">
-        <button type="submit" className="contato-button2">Enviar</button>
-        </div>
-      </form>
-  
       <div className="container-contato">
         <img src={vamos} alt="Vamos" className="vamos-image" />
         <div className="contact-box">
@@ -74,8 +65,15 @@ const Contato = () => {
         Agradecemos por escolher a Quinta do Ypuã para sua estadia. <br />
         Compartilhe sua experiência conosco logo abaixo!
       </p>
-      {/* Adicionando o sistema de estrelas abaixo do texto de avaliações */}
       <StarRating />
+      <form className="contato-form-contato">
+        <input type="text" placeholder="Nome" className="input-contato2" />
+        <input type="email" placeholder="Email" className="input-contato2" />
+        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" />
+        <div className=".input-button-container">
+        <button type="submit" className="contato-button2">Enviar</button>
+        </div>
+      </form>
     </div>
   );
 };
