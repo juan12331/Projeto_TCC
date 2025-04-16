@@ -759,10 +759,10 @@
   border-color: #7a664000;
   background-color: #997f5085;
   border-radius: 8px;
-  font-family: "Katibeh";
-  font-weight: 200;
+  font-family: "Katibeh, cursive";
+  font-weight: bold;
   color: #712123;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: none;
   width: 30%;
   max-width: 1024px;
@@ -832,21 +832,21 @@
   text-align: center;
 }
 
-  .fundo-acomodacoes{ 
-    background-color: #F7F2E9;
-    width: 90%;
-    min-width: auto;
-    max-width: 1000px;
-    height: 150px;
-    margin-top: 6vh;
-    gap: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: #bdbdbd71 solid 4px;
-    border-left: #bdbdbd5d solid 2px;
-    border-right: #bdbdbd5d solid 2px;
-    }
+.fundo-acomodacoes{ 
+  background-color: #F7F2E9;
+  width: 90%;
+  min-width: auto;
+  max-width: 1000px;
+  height: 150px;
+  margin-top: 6vh;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #bdbdbd71 solid 4px;
+  border-left: #bdbdbd5d solid 2px;
+  border-right: #bdbdbd5d solid 2px;
+  }
 
 .buscar-acomodacoes{ 
   color: #F7F2E9;
@@ -1117,10 +1117,10 @@
   background-color: #997f5085;
   border-radius: 8px;
   margin-top: 8px;
-  font-family: "Katibeh";
-  font-weight: 200;
+  font-family: "Katibeh, cursive";
+  font-weight: bold;
   color: #712123;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: none;
   width: 50%;
   height: 50px;
