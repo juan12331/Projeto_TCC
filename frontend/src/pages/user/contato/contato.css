@@ -10,86 +10,97 @@
 
 .contact-box {
   background-color: #d2ae6fa9;
-  padding: 30px;
   border-radius: 30px;
+  width: 320px;
+  height: 320px;
+  margin-top: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  width: 300px;
-  position: absolute;
-  top: 55%;
-  left: 25%;
-  transform: translate(-50%, -50%);
- 
+  gap: 25px;
 }
 
 .contact-text {
-  color: white;
-  font-size: 14px;
-  line-height: 1.5;
+  color: #EFE5D1;
+  font-size: 1.2rem;
+  font-family: "Kreon";
+  text-align: center;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-weight: 400;
 }
 
 .contact-button {
   background-color: #7F2727;
-  color: white;
-  padding: 10px 20px;
+  color: #EFE5D1;
   border: none;
   cursor: pointer;
-  border-radius: 30px;
-  font-size: 14px;
-  margin-top: 10px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Katibeh, cursive";
+  font-weight: bold;
 }
 
 .contact-button:hover {
   background-color: #7F2727;
-  
-}
-
-.icons-image{
-  position: absolute;
-  top: 800px;
-  left: 235px;
 }
 
 .ava-image{
-position: absolute;
-left: 1150px;
-top: 160px;
+  position: absolute;
+  left: 1250px;
+  top: 160px;
 }
 
 .contato-form-contato{
   position: absolute;
-  left: 1418px;
+  left: 1485px;
   top: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
 }
 
 .input-contato2 {
   background-color: #D2AD6F;
-  width: 90%;
+  width: 180%;
   border-radius: 20px;
   border: none;
   margin-bottom: 10px;
-  height: 30px;
+  height: 50px;
   color: #FFFFFF; /* Cor da letra */
   text-align: center; /* Centraliza o texto horizontalmente */
   line-height: 30px; /* Centraliza o texto verticalmente */
 }
-  
+
+.input-contato2::placeholder{
+  font-family: "Katibeh";
+  font-size: 1.7rem;
+  color: #EFE5D1;
+}
 
 .contato-button2 {
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  height: 45px;
   border-radius: 20px;
   background-color: #7F2727;
   border: none;
   display: flex;
   align-items: center; /* Centraliza verticalmente */
   justify-content: center; /* Centraliza horizontalmente */
-  color: #FFFFFF;
-  font-size: 14px; /* Opcional: ajuste o tamanho da fonte */
-
+  color: #EFE5D1;
   cursor: pointer;
+  font-family: "Katibeh, cursive";
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .contact-text2{
@@ -98,23 +109,58 @@ top: 160px;
   left: 1300px;
   color: #7F2727;
   line-height: 1.5;
-  
+  font-family: "Kreon";
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
-.star-rating {
+.contato-page .star-rating {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   position: absolute;
   top: 450px; /* Ajuste para posicionar corretamente */
   left: 1440px;
+  gap: 20px;
 }
 
-.star-rating input {
+.contato-page .star-rating input {
   display: none;
 }
 
-.star {
+.contato-page .star {
   cursor: pointer;
   transition: color 0.2s;
+}
+
+.icons-container{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  width: 300px;
+  height: 120px;
+}
+
+.container-contato{
+  background-image: url('/src/assets/img/fundoctt.png');
+  height: 945px;
+  width: 60%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.phoneIcon-contato, .emailIcon-contato, .whatsIcon-contato, .instaIcon-contato, .faceIcon-contato{
+  color: #D2AD6F;
+  height: 37px;
+  width: auto;
+}
+
+.phoneIcon-contato:hover, .emailIcon-contato:hover, .whatsIcon-contato:hover, .instaIcon-contato:hover, .faceIcon-contato:hover{
+  transform: scale(1.5);
+  color: #c08f39;
 }

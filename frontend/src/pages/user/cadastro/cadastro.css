@@ -18,13 +18,28 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 100%; /* Largura total */
-  max-width: 500px; /* Largura máxima da caixa */
+  max-width: 650px; /* Largura máxima da caixa */
+}
+
+.botoes-cadastro{
+  display: flex;
+  padding: 0;
+
+}
+
+.error {
+  width: 100%;
+  color: red;
+  text-align: center;
+  font-weight: bold;
 }
 
 .container22 {
-  width: 400px;
+  width: 100px;
   height: auto;
   margin: 0 auto 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .dots {
@@ -62,16 +77,58 @@
 .cadastro-button {
   display: block;
   width: 30%; /* Largura do botão */
+  height: 50px;
   margin: 1.1rem auto; /* Centraliza o botão */
-  padding: 0.75rem;
   background-color: #7F2727;
-  color: #fff;
-  font-size: 1rem;
+  color: #ffffffb7;
+  font-size: 1.6rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
+  transition:all 0.2s ;
+  font-family: "Katibeh";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cadastro-button:hover{
+  transform: translate(0, -2.5px);
 }
 
 .submit-button:hover {
   background-color: #7F2727;
+}
+
+.logo-cadastro{
+  width: 300px;
+}
+
+.back-cadastro{
+  display: flex;
+  align-items: center; 
+  gap: 1vh;
+  top: 6vh;
+}
+
+.backButton-cadastro{
+  color: #ffffffb7;
+  background-color: #fffbfb00;
+  border: none;
+  font-size: 5vh;
+  cursor: pointer;
+}
+
+.backLine-cadastro{
+  color: #ffffffb7;
+  font-size: 5vh;
+}
+
+.backText-cadastro{
+  color: #ffffffb7;
+  background-color: #fffbfb00;
+  font-size: 3.3vh;
+  font-family: "Katibeh";
+  border: none;
+  cursor: pointer;
 }

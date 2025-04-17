@@ -1,5 +1,6 @@
 import "./avaliacoesAdm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
+import { Link } from "react-router-dom";
 
 const AvaliacoesAdm = () => {
 
@@ -26,87 +27,87 @@ const AvaliacoesAdm = () => {
 
         <div className="layout-avaliacoesAdm">
             <div className="grid1-avaliacoesAdm">
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
             </div>
 
             <div className="grid2-avaliacoesAdm">
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
 
-                <div className="fundoCards-avaliacoesAdm">
+                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </div>
+                </Link>
             </div>
         </div>
     </div>

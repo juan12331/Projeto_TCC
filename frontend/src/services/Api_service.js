@@ -14,9 +14,14 @@ export async function getUsersByCpf(cpf) {
     return response.data;
 }
 
-export async function loginUser(email, senha) {
-    const response = await http.post('/login', { email: email, senha: senha });
+export async function loginUser(cpf, senha) {
+    const response = await http.post('/login', { cpf: cpf, senha: senha });
     return response.data;
+}
+
+export async function logout() {
+    const response = await http.post('/logout');
+    return;
 }
 
 export async function createUser(cpf, nome, email, senha, telefone) {

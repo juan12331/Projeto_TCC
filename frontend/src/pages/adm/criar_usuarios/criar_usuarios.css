@@ -58,6 +58,11 @@
     cursor: pointer;
 }
 
+.cadastrarUser-button:hover{
+    background-color: #9c1618b4;
+    transition-duration: 0.3s;
+}
+
 .info-criarUser{
     margin-top: 30px;
     font-family: "Karma";
@@ -82,6 +87,12 @@
     font-size: 1.1rem;
     cursor: pointer;
 }
+
+.reservarUser-button:hover{
+    background-color: #a3803d;
+    transition-duration: 0.3s;
+}
+
 
 /* DE 320 a 480 */
 @media (min-width: 320px) and (max-width: 480px) {

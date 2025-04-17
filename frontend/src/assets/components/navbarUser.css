@@ -6,43 +6,44 @@
    background-color: #EFE5D1;
    display: flex;
    justify-content: center;
+   z-index: 100;
 }
 
 /* DE 320 A 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
-    .navbarUser{
-      width: 95%;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-     }
-    
-    .nav-item{
-      color: #7C2728;
-      font-size: 1rem;
-      font-family: "Katibeh";
-      text-decoration: none;
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-     }
-    
-    .nav-item.active{
-        background-color: #CCAA6B; 
-        color: #7C2728;
-        height: 105px;
-        width: 84px;
-        display: flex;
-        justify-content: center;
-     }
-    
-     .logo_navbar{
-        width: 45px;
-        height: 45px;
-     }
+.navbarUser{
+   width: 95%;
+   height: 80px;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+   
+.nav-item{
+   color: #7C2728;
+   font-size: 1rem;
+   font-family: "Katibeh";
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+}
+   
+.nav-item.active{
+   background-color: #CCAA6B; 
+   color: #7C2728;
+   height: 105px;
+   width: 84px;
+   display: flex;
+   justify-content: center;
+}
+   
+.logo_navbar{
+   width: 45px;
+   height: 45px;
+}
 }
 
 /* DE 481 A 1024 */
@@ -57,28 +58,28 @@
  }
 
 .nav-item{
-    color: #7C2728;
-    font-size: 1.3rem;
-    font-family: "Katibeh";
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+   color: #7C2728;
+   font-size: 1.3rem;
+   font-family: "Katibeh";
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
  }
 
 .nav-item.active{
-    background-color: #CCAA6B; 
-    color: #7C2728;
-    height: 105px;
-    width: 110px;
-    display: flex;
-    justify-content: center;
+   background-color: #CCAA6B; 
+   color: #7C2728;
+   height: 105px;
+   width: 110px;
+   display: flex;
+   justify-content: center;
  }
 
  .logo_navbar{
-    width: 60px;
-    height: 60px;
+   width: 60px;
+   height: 60px;
  }
 }
 
@@ -91,30 +92,30 @@
    display: flex;
    align-items: center;
    justify-content: space-around;
- }
+}
 
 .nav-item{
-    color: #7C2728;
-    font-size: 1.8rem;
-    font-family: "Katibeh";
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
- }
+   color: #7C2728;
+   font-size: 1.8rem;
+   font-family: "Katibeh";
+   text-decoration: none;
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+}
 
 .nav-item.active{
-    background-color: #CCAA6B; 
-    color: #7C2728;
-    height: 130px;
-    width: 160px;
-    display: flex;
-    justify-content: center;
- }
+   background-color: #CCAA6B; 
+   color: #7C2728;
+   height: 130px;
+   width: 160px;
+   display: flex;
+   justify-content: center;
+}
 
 .logo_navbar{
-    width: 80px;
-    height: 80px;
+   width: 80px;
+   height: 80px;
  }
 }

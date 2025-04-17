@@ -24,7 +24,7 @@ const usuarios = database.define('usuarios', {
     },
     id_tipo: {
         type: Sequelize.INTEGER,
-        defaultValue: '1',
+        defaultValue: '2',
         AllowNUll: false,
         references: {
             model: tipos_usuarios,

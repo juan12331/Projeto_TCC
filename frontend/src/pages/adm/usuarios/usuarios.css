@@ -23,7 +23,6 @@
   align-items: center;
   margin-top: 15vh;
   width: 100%;
-
 }
 
 .separador-usuarios {
@@ -84,6 +83,12 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
+  text-decoration: none;
+}
+
+.fundoCards-usuarios:hover{
+  background-color: #bb9a609d;
+  transition-duration: 0.3s;
 }
 
 .cardsImg-usuarios{
@@ -112,9 +117,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between; 
+  text-align: center;
   padding-left: 15px;
   width: 100%;
+  height: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .adicionarIcon-usuarios{
@@ -123,16 +131,19 @@
   color: #5C4C30;
 }
 
-.adicionarButton-usuarios{
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  width: 40%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  padding-right: 10%;
+.adicionarIcon-usuarios:hover{
+  color: #816535;
+  transition-duration: 0.3s;
+}
+
+.buttonSearch-usuarios:hover{
+  background-color: #962c2e;
+  transition-duration: 0.3s;
+}
+
+.fundoFinal-usuarios:hover{
+  background-color: #d4b170;
+  transition-duration: 0.3s;
 }
 
 /* DE 320 A 480 */
@@ -224,6 +235,7 @@
   display: flex;
   text-align: center;
   margin-top: 100px;
+  cursor: pointer;
 }
 
 .textAdicionar-usuarios{
@@ -323,6 +335,7 @@
   display: flex;
   text-align: center;
   margin-top: 100px;
+  cursor: pointer;
 }
 
 .textAdicionar-usuarios{
@@ -423,6 +436,7 @@
   display: flex;
   text-align: center;
   margin-top: 100px;
+  cursor: pointer;
 }
 
 .textAdicionar-usuarios{
@@ -524,6 +538,7 @@
   display: flex;
   text-align: center;
   margin-top: 100px;
+  cursor: pointer;
 }
 
 .textAdicionar-usuarios{
@@ -625,6 +640,7 @@
   display: flex;
   text-align: center;
   margin-top: 100px;
+  cursor: pointer;
 }
 
 .textAdicionar-usuarios{
