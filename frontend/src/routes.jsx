@@ -14,6 +14,7 @@ import Perfil from "./pages/user/perfil/perfil.jsx";
 import Pix from "./pages/user/pagamento_pix/pix.jsx";
 import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
+import Quartos from "./pages/user/quartos/quartos.jsx";
 
 function MainRoutes() {
   return (
@@ -33,6 +34,7 @@ function MainRoutes() {
       <Route path="/Pix" element={<Pix />} />
       <Route path="/Inicio" element={<Inicio />} />
       <Route path="/Acomodacoes" element={<Acomodacoes />} />
+      <Route path="/Quartos" element={<Quartos />} />
     </Routes>
   );
 }
