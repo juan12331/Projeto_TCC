@@ -15,13 +15,19 @@ export async function getUsersByCpf(cpf) {
 }
 
 export async function loginUser(cpf, senha) {
-    const response = await http.post('/login', { cpf: cpf, senha: senha });
+    const response = await http.post('/login', { cpf, senha });
+
+    const { token } = response.data;
+    if (token) {
+        localStorage.setItem('token', token);
+    }
+
     return response.data;
 }
 
 export async function logout() {
-    const response = await http.post('/logout');
-    return;
+    await http.post('/logout');
+    localStorage.removeItem('token');
 }
 
 export async function createUser(cpf, nome, email, senha, telefone) {

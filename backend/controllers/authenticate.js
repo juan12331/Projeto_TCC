@@ -7,7 +7,8 @@ const CHAVE_SECRETA = 'senai928';
 
 // Middleware de autenticação JWT
 const autenticarJWT = (req, res, next) => {
-    const token = req.cookies.token;
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
 
     if (!token) {
         return res.status(401).send('Token de autenticação não fornecido');
@@ -21,6 +22,7 @@ const autenticarJWT = (req, res, next) => {
         return res.status(403).send('Token inválido ou expirado');
     }
 };
+
 
 // Middleware para verificar permissões de usuário
 const verificarPapelUsuario = (papeisPermitidos) => {
@@ -77,6 +79,7 @@ const loginJWT = async (req, res) => {
 
         return res.json({
             mensagem: 'Login realizado com sucesso',
+            token: token,
             usuario: {
                 cpf: usuario.cpf,
                 nome: usuario.nome,

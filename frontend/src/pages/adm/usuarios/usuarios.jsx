@@ -3,8 +3,18 @@ import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
+import { getUser } from "../../../services/Api_service";
+import { useEffect } from "react";
 
 const Usuarios = () => {
+
+   useEffect(() => {
+    name()
+    }, [])
+
+    async function name() {
+      await getUser().then(data => console.log(data))
+    }
 
     return(
     <div className="usuarios-page">

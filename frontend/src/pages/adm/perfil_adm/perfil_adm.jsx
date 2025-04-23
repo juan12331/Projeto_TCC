@@ -1,11 +1,11 @@
 import "./perfil.css";
-import NavbarUser from "../../../assets/components/navbarUser";
+import NavbarAdm from "../../../assets/components/navbarAdm";
 
 
 function Perfil() {
   return (
     <div className="div-mae-peril">
-      <NavbarUser />
+      <NavbarAdm />
       <div className="container-perfil">
         <div className="parte-de-cima">
           <div className="img-perfil-icone">
@@ -16,7 +16,7 @@ function Perfil() {
           <div className="info-perfil">
             <div className="img-possition-perfil">
               <img
-                src="/src/assets/img/informações.png"
+                src="/src/assets/img/infoUsuario.png"
               />
             </div>
             <div className="text-perfil">
@@ -47,7 +47,10 @@ function Perfil() {
           <div className="text-perfil-3">
             <h4 className="text-perfil-4">Domo - 3 noites</h4>
             <h4 className="text-perfil-4">Total a pagar: R$ 1770,00</h4>
-
+          </div>
+          <div>
+          <button type="submit" className="perfil-button1">Excluir perfil</button>
+          <button type="submit" className="perfil-button2">Desmarcar perfil</button>
           </div>
 
         </div>

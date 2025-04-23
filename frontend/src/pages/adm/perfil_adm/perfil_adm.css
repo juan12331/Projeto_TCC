@@ -83,3 +83,39 @@
 .text-perfil-3{
   margin-left: 20px;
 }
+
+.perfil-button1 {
+  width: 150px;
+  height: 45px;
+  border-radius: 20px;
+  background-color: #7F2727;
+  border: none;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  color: #EFE5D1;
+  cursor: pointer;
+  font-family: "Katibeh, cursive";
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.perfil-button2 {
+  width: 150px;
+  height: 45px;
+  border-radius: 20px;
+  background-color: #7F2727;
+  border: none;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  color: #EFE5D1;
+  cursor: pointer;
+  font-family: "Katibeh, cursive";
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  margin-top: 20px;
+}

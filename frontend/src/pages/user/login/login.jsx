@@ -43,6 +43,7 @@ const Login = () => {
 
   
   function Logar() {
+    localStorage.clear() 
     if (cpf == '' || senha == '') {
       showError('preencha todos os campos')
       return;
@@ -50,7 +51,7 @@ const Login = () => {
 
     loginUser(cpf, senha).then(data => {
       console.log(data.usuario.tipoUsuario)
-      localStorage.clear() 
+      
      localStorage.setItem("cpf", data.usuario.cpf);
       if (data.usuario.tipoUsuario == '2') {     
         navigate('/')
