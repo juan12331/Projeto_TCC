@@ -6,12 +6,12 @@ import "../components/boxcartao.css";
 
 function CartaoBox() {
   return (
-    <div className="container-geral-inputs2">
+    <div className="container-geral-inputs3">
     <div className="container-inputs5">
       <input type="text" placeholder="Número do Cartão" className="input-forma2" />
       <input type="text" placeholder="Nome impresso no cartão" className="input-forma2" />
       <input type="text" placeholder="Cód. de segurança" className="input-forma2" />
-      <input type="text" placeholder=" parcelas (maximo 20)" className="input-forma2" />
+      <input type="text" placeholder=" Parcelas (maximo 20)" className="input-forma2" />
     </div>
     <div className="container-inputs6">
      <input type="text" placeholder="Validade" className="input-forma2" />

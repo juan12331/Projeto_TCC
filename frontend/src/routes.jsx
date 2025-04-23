@@ -7,6 +7,7 @@ import Criar_usuarios from "./pages/adm/criar_usuarios/criar_usuarios.jsx";
 import AvaliacoesAdm from "./pages/adm/avaliacoesAdm/avaliacoesAdm.jsx";
 import Avaliacao from "./pages/adm/ava_adm/ava_adm.jsx";
 
+
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
 import Login from "./pages/user/login/login.jsx";
@@ -25,6 +26,7 @@ function MainRoutes() {
       <Route path="/Criar_usuarios" element={<Criar_usuarios />} />
       <Route path="/AvaliacoesAdm" element={<AvaliacoesAdm />} />
       <Route path="/Avaliacao" element={<Avaliacao />} />
+      
 
 
       {/* User Routes */}

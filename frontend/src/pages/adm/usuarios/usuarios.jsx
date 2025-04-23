@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate,  } from "react-router-dom";
 import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
-import { getUser,  } from "../../../services/Api_service";
 import { useEffect, useState } from "react";
+import { getUser } from "../../../services/Api_service";
+
 
 const Usuarios = () => {
 
@@ -24,8 +24,6 @@ const Usuarios = () => {
         }
       }
     }
-
-  const navigate = useNavigate();
 
     return(
     <div className="usuarios-page">
