@@ -1,12 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
 
 const Usuarios = () => {
-  const navigate = useNavigate();
 
     return(
     <div className="usuarios-page">
