@@ -1,6 +1,8 @@
 import http from "./http"
 
 
+
+
 // funções usuarios
 
 
@@ -24,6 +26,8 @@ export async function loginUser(cpf, senha) {
 
     return response.data;
 }
+
+
 
 export async function logout() {
     await http.post('/logout');
