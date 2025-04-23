@@ -114,7 +114,7 @@
   font-size: 1.3rem;
 }
 
-.star-rating {
+.contato-page .star-rating {
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -124,11 +124,11 @@
   gap: 20px;
 }
 
-.star-rating input {
+.contato-page .star-rating input {
   display: none;
 }
 
-.star {
+.contato-page .star {
   cursor: pointer;
   transition: color 0.2s;
 }

@@ -30,7 +30,7 @@ const StarRating = ({ totalStars = 5 }) => {
 
 const Contato = () => {
   return (
-    <div>
+    <div className="contato-page">
        <NavbarUser/>
       <div className="container-contato">
         <img src={vamos} alt="Vamos" className="vamos-image" />
