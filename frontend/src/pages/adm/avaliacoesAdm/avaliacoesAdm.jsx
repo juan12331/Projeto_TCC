@@ -27,7 +27,7 @@ const AvaliacoesAdm = () => {
 
         <div className="layout-avaliacoesAdm">
             <div className="grid1-avaliacoesAdm">
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -35,7 +35,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -43,7 +43,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -51,7 +51,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -59,7 +59,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -69,7 +69,7 @@ const AvaliacoesAdm = () => {
             </div>
 
             <div className="grid2-avaliacoesAdm">
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -77,7 +77,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -85,7 +85,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -93,7 +93,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
@@ -101,7 +101,7 @@ const AvaliacoesAdm = () => {
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
                 </Link>
 
-                <Link to="/ava_adm" className="fundoCards-avaliacoesAdm">
+                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>

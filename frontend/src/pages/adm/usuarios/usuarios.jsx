@@ -1,11 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,  } from "react-router-dom";
 import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
+import { getUser } from "../../../services/Api_service";
+import { useEffect, useState } from "react";
 
 const Usuarios = () => {
+
+   useEffect(() => {
+    name()
+    }, [])
+
+    async function name() {
+      await getUser().then(data => console.log(data))
+    }
+
   const navigate = useNavigate();
 
     return(

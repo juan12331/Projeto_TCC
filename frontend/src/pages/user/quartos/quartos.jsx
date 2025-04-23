@@ -51,10 +51,13 @@ function Quartos() {
 
   return (
     <>
-      <NavbarUser/>
-
-
       <div className="fundo_quartos">
+        <NavbarUser/>
+        <div className="back-quartos">
+          <button onClick={() => navigate("/acomodacoes")} className="backButton-quartos"> ← </button>
+          <h1 className="backLine-quartos">|</h1>
+          <button onClick={() => navigate("/acomodacoes")} className="backText-quartos"> DOMO </button> {/* JUAN, É DE ACORDO COM O NOME DO QUARTO SELECIONADO ---> ISABELA*/}
+        </div>
         <main className="quarto-container">
           <section className="galeria-principal">
             <img
