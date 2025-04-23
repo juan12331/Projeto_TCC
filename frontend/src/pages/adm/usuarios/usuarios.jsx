@@ -4,17 +4,25 @@ import "./usuarios.css";
 import { PlusCircle } from "react-bootstrap-icons";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
-import { getUser } from "../../../services/Api_service";
+import { getUser,  } from "../../../services/Api_service";
 import { useEffect, useState } from "react";
 
 const Usuarios = () => {
 
    useEffect(() => {
-    name()
+    verificacao()
     }, [])
 
-    async function name() {
-      await getUser().then(data => console.log(data))
+    async function verificacao() {
+      try{
+        await getUser().then(data => console.log('log'))
+      } catch(error) {
+        console.log(error);
+        if (error.status == 401) {
+          window.alert('acesso não autorizado')
+          navigate('/login')
+        }
+      }
     }
 
   const navigate = useNavigate();

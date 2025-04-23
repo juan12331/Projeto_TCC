@@ -19,6 +19,7 @@ exports.createUsuario = async (req, res) => {
     }
 }
 
+
 // exports.login = async (req, res) => {
 //     try {
 //         const { cpf, senha } = req.body;
