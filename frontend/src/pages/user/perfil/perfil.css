@@ -1,3 +1,9 @@
+*{
+  margin: 0vh;
+  padding: 0vh;
+  box-sizing: border-box;
+}
+
 .div-mae-peril{
   background-image: url("/src/assets/img/imgPerfil2.png");
   width: 1920px;
@@ -7,6 +13,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 100px;
+  
 }
 
 .container-perfil{
@@ -37,6 +44,7 @@
 
 .img-possition-perfil{
   justify-content: start;
+
 }
 
 .img-perfil-icone{
@@ -83,3 +91,10 @@
 .text-perfil-3{
   margin-left: 20px;
 }
+
+/* DE 320 A 480 */
+@media (min-width: 320px) and (max-width: 480px){
+
+  
+  }
+  
