@@ -1,4 +1,4 @@
-.div-mae-peril{
+.div-mae-perilAdm{
   background-image: url("/src/assets/img/imgPerfil2.png");
   width: 1920px;
   height: 811px;
@@ -9,7 +9,7 @@
   margin-top: 100px;
 }
 
-.container-perfil{
+.container-perfilAdm{
   width: 1700px;
   height: 85%;
   background-color: #efe5d1cb;
@@ -17,13 +17,13 @@
 
 }
 
-.parte-de-cima{
+.parte-de-cimaAdm{
   display: flex;
   border-radius: 20px;
   justify-content: space-between;
 }
 
-.info-perfil{
+.info-perfilAdm{
   
   width: 900px;
   height: 353px;
@@ -35,32 +35,32 @@
  
 }
 
-.img-possition-perfil{
+.img-possition-perfilAdm{
   justify-content: start;
 }
 
-.img-perfil-icone{
+.img-perfil-iconeAdm{
   margin-left: 190px;
 }
 
-.text-perfil-1{
+.text-perfil-1Adm{
   display: flex;
   margin-bottom: 60px;
 }
 
-.text-perfil-2{
+.text-perfil-2Adm{
   display: flex;
 }
 
-.Email-perfil{
+.Email-perfilAdm{
   margin-left: 30px;
 }
 
-.telefone-perfil{
+.telefone-perfilAdm{
   margin-left: 170px;
 }
 
-.parte-de-baixo{
+.parte-de-baixoAdm{
   width: 1700px;
   height: 318px;
   border-radius: 20px;
@@ -70,21 +70,21 @@
   
 }
 
-.domo_perfil_img{
+.domo_perfil_imgAdm{
   width: 300px;
   height: 300px;
 
 }
 
-.text-perfil-4{
+.text-perfil-4Adm{
   color: #7C2728;
 }
 
-.text-perfil-3{
+.text-perfil-3Adm{
   margin-left: 20px;
 }
 
-.perfil-button1 {
+.perfil-button1Adm {
   width: 150px;
   height: 45px;
   border-radius: 20px;
@@ -102,7 +102,7 @@
 }
 
 
-.perfil-button2 {
+.perfil-button2Adm {
   width: 150px;
   height: 45px;
   border-radius: 20px;
