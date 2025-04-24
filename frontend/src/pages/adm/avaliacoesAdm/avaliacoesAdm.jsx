@@ -1,8 +1,26 @@
 import "./avaliacoesAdm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const AvaliacoesAdm = () => {
+
+    useEffect(() => {
+        verificacao()
+        }, [])
+    
+        
+     async function verificacao() {
+          try{
+            await getUser().then(data => console.log('log'))
+          } catch(error) {
+            console.log(error);
+            if (error.status == 401) {
+              window.alert('acesso não autorizado')
+              window.location.href = "/login"
+            }
+          }
+        }
 
     return(
     <div className="avaliacoesAdm-page">

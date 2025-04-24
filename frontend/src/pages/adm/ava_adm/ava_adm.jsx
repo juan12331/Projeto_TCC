@@ -3,6 +3,7 @@ import "./ava_adm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 // Componente de Estrelas
 const StarRating = ({ totalStars = 5 }) => {
@@ -27,6 +28,24 @@ const StarRating = ({ totalStars = 5 }) => {
 };
 
 function Avaliacao() {
+
+    useEffect(() => {
+        verificacao()
+        }, [])
+    
+
+     async function verificacao() {
+          try{
+            await getUser().then(data => console.log('log'))
+          } catch(error) {
+            console.log(error);
+            if (error.status == 401) {
+              window.alert('acesso não autorizado')
+              window.location.href = "/login"
+            }
+          }
+        }
+
     const navigate = useNavigate();
 
     return (
