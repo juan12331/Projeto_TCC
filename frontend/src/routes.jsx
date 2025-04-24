@@ -7,7 +7,8 @@ import Criar_usuarios from "./pages/adm/criar_usuarios/criar_usuarios.jsx";
 import AvaliacoesAdm from "./pages/adm/avaliacoesAdm/avaliacoesAdm.jsx";
 import Avaliacao from "./pages/adm/ava_adm/ava_adm.jsx";
 import PerfilAdm from "./pages/adm/perfil_adm/perfil_adm.jsx";
-
+import QuartosAdm from "./pages/adm/quartos_Adm/quartosAdm.jsx";
+import Controle_quartos from "./pages/adm/controle_quartos/controle_quartos.jsx";
 
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
@@ -28,6 +29,9 @@ function MainRoutes() {
       <Route path="/AvaliacoesAdm" element={<AvaliacoesAdm />} />
       <Route path="/Avaliacao" element={<Avaliacao />} />
       <Route path="/PerfilAdm" element={<PerfilAdm />} />
+      <Route path="/quartosAdm" element={<QuartosAdm />} />
+      <Route path="/Controle_quartos" element={<Controle_quartos />} />
+
       
 
 
