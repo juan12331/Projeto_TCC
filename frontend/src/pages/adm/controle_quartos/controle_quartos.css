@@ -1,0 +1,23 @@
+.add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ccaa6bcc; 
+    color: #4b3f24; 
+    border: none;
+    border-radius: 16px;
+    padding: 10px 16px;
+    cursor: pointer;
+    width: 450px;
+    font-family: kreon, sans-serif;
+    font-size: 20px;
+    margin: 30px;
+  }
+  
+  .add-btn:hover {
+    background-color: #c9aa6d;
+  }
+  
+  .add-btn .icon {
+    stroke-width: 2;
+  }
