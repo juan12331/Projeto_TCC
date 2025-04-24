@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale"; 
 import "./acomodacoesAdm.css";
-import NavbarAdm from "../../../assets/components/navbarUser";
+import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusCircle } from "react-bootstrap-icons";
 
