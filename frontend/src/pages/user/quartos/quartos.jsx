@@ -9,8 +9,10 @@ import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
+import { useNavigate } from "react-router-dom";
 
 function Quartos() {
+  const navigate = useNavigate();
   const imagens = [img, img1, img2, img3, img4, img5];
   const [imagemAtual, setImagemAtual] = useState(imagens[0]);
 
@@ -100,7 +102,7 @@ function Quartos() {
                 <option>2 Crianças</option>
                 <option>3 Crianças</option>
               </select>
-              <button className="btn-reservar">Reservar</button>
+              <button  onClick={() => navigate("/pix")} className="btn-reservar">Reservar</button>
             </div>
           </section>
         </main>

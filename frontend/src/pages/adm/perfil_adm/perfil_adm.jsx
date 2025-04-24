@@ -1,9 +1,10 @@
 import "./perfil_adm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 function PerfilAdm() {
+  const navigate = useNavigate();
 
   useEffect(() => {
       verificacao()
@@ -26,6 +27,11 @@ function PerfilAdm() {
     <div className="div-mae-perilAdm">
       <NavbarAdm />
       <div className="container-perfilAdm">
+        <div className="back-container">
+          <button onClick={() => navigate("/usuarios")} className="back-button"> ← </button>
+          <h1 className="back-line">|</h1>
+          <button onClick={() => navigate("/usuarios")} className="back-text"> USUÁRIOS </button>
+        </div>
         <div className="parte-de-cimaAdm">
           <div className="img-perfil-iconeAdm">
             <img
