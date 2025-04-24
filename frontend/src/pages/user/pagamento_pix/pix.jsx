@@ -2,17 +2,19 @@ import { useState } from "react";
 import "./pix.css";
 import Pixbox from "../../../assets/components/boxpix";
 import Cartaobox from "../../../assets/components/boxcartao";
+import { useNavigate } from "react-router-dom";
 
 function Pix() {
   const [selectedPayment, setSelectedPayment] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="div-mae">
       <div className="container-pagamento">
         <div className="backPix-container">
-          <button onClick={() => navigate("/")} className="backPix-button"> ← </button>
+          <button onClick={() => navigate("/quartos")} className="backPix-button"> ← </button> {/* JUAN, É DE ACORDO COM O QUARTO SELECIONADO ---> ISABELA*/}
           <h1 className="backPix-line">|</h1>
-          <button onClick={() => navigate("/")} className="backPix-text"> DOMO </button> {/* JUAN, É DE ACORDO COM O NOME DO QUARTO SELECIONADO ---> ISABELA*/}
+          <button onClick={() => navigate("/quartos")} className="backPix-text"> DOMO </button> {/* JUAN, É DE ACORDO COM O NOME DO QUARTO SELECIONADO ---> ISABELA*/}
         </div>
         <div className="conteudo-pix">
           <img src="/src/assets/img/bolinha.png" className="bolinha-pix2" width="60%" /> 

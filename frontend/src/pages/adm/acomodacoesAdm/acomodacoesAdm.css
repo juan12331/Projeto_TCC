@@ -1,0 +1,603 @@
+*{
+    margin: 0vh;
+    padding: 0vh;
+    box-sizing: border-box;
+}
+
+.acomodacoes-pageAdm { 
+    background-color: #F2F2F2;
+    width: 100%;  
+    max-width: 100%;
+    height: 100%; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; 
+}
+
+.inicio-acomodacoesAdm{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh;
+    width: 100%;
+}
+
+.separador-acomodacoesAdm {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    width: 100%;
+    max-width: 80%;
+    margin-top: 3vh;
+}
+
+.divider-acomodacoesAdm {
+    width: 80%;
+    height: 0.5px;
+    background-color: #CCAA6B; 
+}
+
+.circle-acomodacoesAdm {
+    width: 8px;
+    height: 8px;
+    background-color: #CCAA6B;
+    border-radius: 50%;
+}
+
+.react-datepicker__header { 
+    background-color: #F2F2F2; 
+    border-bottom: 2px solid #7E2527;
+}
+
+.react-datepicker { 
+    background-color: #F2F2F2;
+    border: #F2F2F2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.react-datepicker__input-container input:focus { 
+    border: 2px solid #7E2527 !important; 
+    outline: none !important; 
+}
+
+.react-datepicker__day:hover { 
+    background-color: #d2ae6f99 !important; 
+    color: white !important;
+}
+
+.react-datepicker__day--in-selecting-range { 
+    background-color: #D2AD6F !important; 
+}
+
+.react-datepicker__day--in-range {
+    background-color: #D2AD6F !important; 
+    color: black !important;
+}
+
+.react-datepicker__day--today { 
+    background-color: #d2ae6f00 !important; 
+    color: black !important;
+    font-weight: normal;
+}
+
+.react-datepicker__day--selected { 
+    background-color: #d2ae6f99 !important; 
+    color: white !important; 
+}
+
+.react-datepicker__day--disabled { 
+    color: #cccccc !important; 
+    cursor: not-allowed; 
+    background-color: #f8f8f8 !important; 
+}
+
+.react-datepicker__day--disabled:hover { 
+    background-color: #e0e0e0 !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #4caf4f00 !important; 
+    color: rgb(0, 0, 0) !important; 
+}
+
+.clientes-acomodacoesAdm:focus {
+    border: 2px solid #7E2527 !important; 
+    outline: none !important; 
+}
+
+.layout-acomodacoesAdm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 3vh;
+    margin-top: 3vh;
+    width: 100%;
+}
+
+.gridAdicionar-acomodacoesAdm{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    text-align: center;
+    padding-left: 15px;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.adicionarIcon-acomodacoesAdm{
+    width: 20%;
+    height: 30px;
+    color: #5C4C30;
+}
+
+.adicionarIcon-acomodacoesAdm:hover{
+    color: #816535;
+    transition-duration: 0.3s;
+}
+
+.buttonSearch-acomodacoesAdm:hover{
+    background-color: #962c2e;
+    transition-duration: 0.3s;
+}
+
+.fundoFinal-acomodacoesAdm:hover{
+    background-color: #d4b170;
+    transition-duration: 0.3s;
+}
+  
+.cadastro-acomodacoesAdm:active {
+    background-color: #997f5085 !important;
+    outline: none;
+}
+
+.buscar-acomodacoesAdm:hover, .cardsButton-acomodacoesAdm:hover{
+    background-color: #962c2e;
+    transition-duration: 0.3s;
+}
+
+/* DE 320 A 480 */
+@media (min-width: 320px) and (max-width: 480px){
+
+.acomodacoes-pageAdm {
+    width: 100%; 
+    padding: 10px;
+}
+
+.acomodacoes-tituloAdm{
+    color: #CCAA6B;
+    font-size: 1.6rem;
+    font-family: "Chonburi";
+    text-align: center;
+}
+
+.fundo-acomodacoesAdm{ 
+    background-color: #F7F2E9;
+    width: 90%;
+    max-width: 480px;
+    min-width: auto;
+    height: auto;
+    margin-top: 6vh;
+    padding: 20px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #bdbdbd71 solid 4px;
+    border-left: #bdbdbd5d solid 2px;
+    border-right: #bdbdbd5d solid 2px;
+}
+
+.buscar-acomodacoesAdm{ 
+    color: #F7F2E9;
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    padding: 1%;
+    font-size: 0.5rem;
+    border: none;
+    width: 45%;
+    cursor: pointer;
+    margin-top: 1.2vh;
+    align-self: center;
+}
+
+.data-acomodacoesAdm, .clientes-acomodacoesAdm{ 
+    background-color: #f2f2f200;
+    border-bottom: #7E2527 solid 2px;
+    border-left: #7E2527 solid 2px;
+    border-right: #7E2527 solid 2px;
+    border-top:#7E2527 solid 2px ;
+    border-radius: 4px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+}
+
+.data-acomodacoesAdm::placeholder{ 
+    text-align: center;
+    font-size: 0.5rem;
+    color: #BDBDBD;
+}
+
+.checkin-acomodacoesAdm, .checkout-acomodacoesAdm, .adultos-acomodacoesAdm, .criancas-acomodacoesAdm{ 
+    font-family: "Kreon";
+    font-size: 1.5vw;
+    color: #712123;
+    text-align: start ;
+}
+
+.cardsFundo-acomodacoesAdm{
+    background-color: #d2ae6f99;
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.cardsConteudo-acomodacoesAdm{
+    text-align: center;
+    padding: 0;
+}
+
+.cardsImg-acomodacoesAdm{
+    height: auto;
+    max-width: 80%;
+    padding: 0;
+}
+
+.cardsTitle-acomodacoesAdm{
+    color: #7C2728;
+    font-family: "Kreon";
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-top: 1vh;
+}
+
+.cardsText-acomodacoesAdm{
+    color: #7A6640;
+    font-family: "Kreon";
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-top: 1vh;
+}
+
+.cardsButton-acomodacoesAdm{
+    color: #F7F2E9; 
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    border: none;
+    cursor: pointer; 
+    font-size: 0.8rem;
+    width: 30%;
+    margin-top: 1vh;
+    padding: 4px;
+}
+
+.fundoFinal-acomodacoesAdm{
+    background-color: #CCAA6B;
+    width: auto;
+    min-width: 280px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    margin-top: 100px;
+    cursor: pointer;
+}
+
+.textAdicionar-acomodacoesAdm{
+    font-family: "Kreon";
+    font-weight: 200;
+    color: #5C4C30;
+    font-size: 1rem;
+}
+}
+
+/* DE 481 A 1024 */
+@media (min-width: 481px) and (max-width: 1024px) {
+
+.acomodacoes-pageAdm {
+    width: 100%; 
+    padding: 10px;
+}
+
+.acomodacoes-tituloAdm{
+    color: #CCAA6B;
+    font-size: 1.8rem;
+    font-family: "Chonburi";
+    text-align: center;
+}
+
+.fundo-acomodacoesAdm{ 
+    background-color: #F7F2E9;
+    width: 100%;
+    min-width: auto;
+    max-width: 600px;
+    height: 100px;
+    margin-top: 6vh;
+    padding: 15px;
+    gap: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #bdbdbd71 solid 4px;
+    border-left: #bdbdbd5d solid 2px;
+    border-right: #bdbdbd5d solid 2px;
+}
+
+.buscar-acomodacoesAdm{ 
+    color: #F7F2E9;
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    padding: 1%;
+    font-size: 0.6rem;
+    border: none;
+    width: 40%;
+    min-width: 60px;
+    max-width: 90px;
+    height: 25px;
+    cursor: pointer;
+    margin-top: 12px;
+    align-self: center;
+}
+
+.data-acomodacoesAdm, .clientes-acomodacoesAdm{ 
+    background-color: #f2f2f200;
+    border-bottom: #7E2527 solid 2px;
+    border-left: #7E2527 solid 2px;
+    border-right: #7E2527 solid 2px;
+    border-top:#7E2527 solid 2px ;
+    border-radius: 4px;
+    width: 100px;
+    max-width: 85px;
+    height: 25px;
+    text-align: center;
+}
+
+.data-acomodacoesAdm::placeholder{ 
+    text-align: center;
+    font-size: 0.7rem;
+    color: #BDBDBD;
+}
+
+.checkin-acomodacoesAdm, .checkout-acomodacoesAdm, .adultos-acomodacoesAdm, .criancas-acomodacoesAdm{ 
+    font-family: "Kreon";
+    font-size: 10px;
+    color: #712123;
+    text-align: start ;
+}
+
+.cardsFundo-acomodacoesAdm{
+    background-color: #d2ae6f99;
+    height: auto;
+    width: 110%;
+    max-height: 200px;
+    max-width: 1024px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.cardsConteudo-acomodacoesAdm{
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    max-width: 700px; 
+    padding-left: 4vh;
+    gap: 10px;
+}
+
+.cardsImg-acomodacoesAdm{
+    height: auto;
+    max-height: 180px;
+    max-width: 200px;
+    padding-left: 30px;
+}
+
+.cardsTitle-acomodacoesAdm{
+    color: #7C2728;
+    font-family: "Kreon";
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.cardsText-acomodacoesAdm{
+    color: #7A6640;
+    font-family: "Kreon";
+    font-weight: 400;
+    font-size: 0.7rem;
+    padding-right: 50px;
+}
+
+.cardsButton-acomodacoesAdm{
+    color: #F7F2E9; 
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    border: none;
+    cursor: pointer; 
+    font-size: 0.8rem;
+    width: 80px;
+    padding: 4px;
+}
+
+.fundoFinal-acomodacoesAdm{
+    background-color: #CCAA6B;
+    width: auto;
+    min-width: 350px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    margin-top: 100px;
+    cursor: pointer;
+}
+
+.textAdicionar-acomodacoesAdm{
+    font-family: "Kreon";
+    font-weight: 200;
+    color: #5C4C30;
+    font-size: 1.2rem;
+}
+}
+
+/* DE 1025 EM DIANTE */
+@media (min-width: 1025px) {
+.acomodacoes-pageAdm{
+    width: 100%; 
+    padding: 10px;
+}
+
+.acomodacoes-tituloAdm{
+    color: #CCAA6B;
+    font-size: 2.7rem;
+    font-family: "Chonburi";
+    text-align: center;
+}
+
+.fundo-acomodacoesAdm{ 
+    background-color: #F7F2E9;
+    width: 90%;
+    min-width: auto;
+    max-width: 1000px;
+    height: 150px;
+    margin-top: 6vh;
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #bdbdbd71 solid 4px;
+    border-left: #bdbdbd5d solid 2px;
+    border-right: #bdbdbd5d solid 2px;
+}
+
+.buscar-acomodacoesAdm{ 
+    color: #F7F2E9;
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    padding: 1%;
+    font-size: 0.9rem;
+    border: none;
+    width: 60%;
+    max-width: 150px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-acomodacoesAdm, .clientes-acomodacoesAdm{ 
+    background-color: #f2f2f200;
+    border-bottom: #7E2527 solid 2px;
+    border-left: #7E2527 solid 2px;
+    border-right: #7E2527 solid 2px;
+    border-top:#7E2527 solid 2px ;
+    border-radius: 4px;
+    width: 170px;
+    max-width: 200px;
+    height: 45px;
+    text-align: center;
+}
+
+.data-acomodacoesAdm::placeholder{ 
+    text-align: center;
+    font-size: 1.2rem;
+    color: #BDBDBD;
+}
+
+.checkin-acomodacoesAdm, .checkout-acomodacoesAdm, .adultos-acomodacoesAdm, .criancas-acomodacoesAdm{ 
+    font-family: "Kreon";
+    font-size: 13px;
+    color: #712123;
+    text-align: start ;
+}
+
+.cardsFundo-acomodacoesAdm{
+    background-color: #d2ae6f99;
+    height: auto;
+    width: 110%;
+    min-width: 1024px;
+    min-height: 350px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.cardsConteudo-acomodacoesAdm{
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    min-width: 90px; 
+    padding-left: 5vh;
+    gap: 30px;
+}
+
+.cardsImg-acomodacoesAdm{
+    height: auto;
+    width: 50px;
+    max-height: 330px;
+    min-width: 450px;
+    padding-left: 5%;
+}
+
+.cardsTitle-acomodacoesAdm{
+    color: #7C2728;
+    font-family: "Kreon";
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.cardsText-acomodacoesAdm{
+    color: #7A6640;
+    font-family: "Kreon";
+    font-weight: 400;
+    font-size: 1.3rem;
+    padding-right: 10vh;
+}
+
+.cardsButton-acomodacoesAdm{
+    color: #F7F2E9; 
+    background-color: #712122;
+    font-family: "Kreon";
+    border-radius: 2vh;
+    border: none;
+    cursor: pointer; 
+    font-size: 1.2rem;
+    width: 150px;
+    height: 40px;
+    padding: 4px;
+}
+
+.fundoFinal-acomodacoesAdm{
+    background-color: #CCAA6B;
+    width: auto;
+    min-width: 500px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    text-align: center;
+    margin-top: 100px;
+    cursor: pointer;
+}
+
+.textAdicionar-acomodacoesAdm{
+    font-family: "Kreon";
+    font-weight: 200;
+    color: #5C4C30;
+    font-size: 1.3rem;
+    padding-left: 20px;
+}
+}

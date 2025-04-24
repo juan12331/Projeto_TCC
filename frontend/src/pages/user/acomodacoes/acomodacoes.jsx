@@ -5,8 +5,7 @@ import { ptBR } from "date-fns/locale";
 import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./acomodacoes.css";
 import NavbarUser from "../../../assets/components/navbarUser";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Acomodacoes = () => {
   const navigate = useNavigate();
