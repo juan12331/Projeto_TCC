@@ -9,6 +9,8 @@ import { getUser } from "../../../services/Api_service";
 
 const Usuarios = () => {
 
+
+
    useEffect(() => {
     verificacao()
     }, [])
@@ -20,7 +22,7 @@ const Usuarios = () => {
         console.log(error);
         if (error.status == 401) {
           window.alert('acesso não autorizado')
-          navigate('/login')
+          window.location.href = "/login"
         }
       }
     }
