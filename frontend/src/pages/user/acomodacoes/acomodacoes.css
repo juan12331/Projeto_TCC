@@ -48,29 +48,29 @@
   border-radius: 50%;
 }
 
-.react-datepicker__header { /*cabeçalho calendário*/
+.react-datepicker__header { 
   background-color: #F2F2F2; 
   border-bottom: 2px solid #7E2527;
 }
 
-.react-datepicker { /*calendário*/
+.react-datepicker {
   background-color: #F2F2F2;
   border: #F2F2F2;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.react-datepicker__input-container input:focus { /*borda ao clicar*/
+.react-datepicker__input-container input:focus { 
   border: 2px solid #7E2527 !important; 
   outline: none !important; 
 }
 
-.react-datepicker__day:hover { /*ao passar mouse*/
+.react-datepicker__day:hover { 
   background-color: #d2ae6f99 !important; 
   color: white !important;
 }
 
-.react-datepicker__day--in-selecting-range { /*ao passar mouse geral*/
+.react-datepicker__day--in-selecting-range {
   background-color: #D2AD6F !important; 
 }
 
@@ -79,33 +79,33 @@
   color: black !important;
 }
 
-.react-datepicker__day--today { /*dia atual*/
+.react-datepicker__day--today { 
   background-color: #d2ae6f00 !important; 
   color: black !important;
   font-weight: normal;
 }
 
-.react-datepicker__day--selected { /*dia selecionado*/
+.react-datepicker__day--selected { 
   background-color: #d2ae6f99 !important; 
   color: white !important; 
 }
 
-.react-datepicker__day--disabled { /*data indisponível*/
+.react-datepicker__day--disabled { 
   color: #cccccc !important; 
   cursor: not-allowed; 
   background-color: #f8f8f8 !important; 
 }
 
-.react-datepicker__day--disabled:hover { /*ao passar mouse sobre data indisponível*/
+.react-datepicker__day--disabled:hover { 
   background-color: #e0e0e0 !important;
 }
 
-.react-datepicker__day--keyboard-selected { /* primeira data disponível no check-out */
+.react-datepicker__day--keyboard-selected {
   background-color: #4caf4f00 !important; 
   color: rgb(0, 0, 0) !important; 
 }
 
-.clientes-acomodacoes:focus { /*borda ao clicar*/
+.clientes-acomodacoes:focus { 
   border: 2px solid #7E2527 !important; 
   outline: none !important; 
 }
