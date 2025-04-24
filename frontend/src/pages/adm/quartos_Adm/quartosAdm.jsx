@@ -9,7 +9,7 @@ import img3 from "/src/assets/quartos/image 117.png";
 import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
-import NavbarUser from "../../../assets/components/navbarUser";
+import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate } from "react-router-dom";
 
 function QuartosAdm() {
@@ -53,9 +53,14 @@ function QuartosAdm() {
 
   return (
     <>
-      <NavbarUser />
+      <NavbarAdm />
 
       <div className="fundo_quartos">
+        <div className="back-quartosAdm">
+          <button onClick={() => navigate("/acomodacoesAdm")} className="backButton-quartosAdm"> ← </button>
+          <h1 className="backLine-quartosAdm">|</h1>
+          <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
+        </div>
         <main className="quarto-container">
           <section className="galeria-principal">
             <img

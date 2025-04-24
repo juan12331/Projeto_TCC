@@ -19,7 +19,7 @@ const NavbarAdm = () => {
             USUÁRIOS
         </Link>
 
-        <Link to="/quartosAdm" className={`nav-item ${location.pathname === "/quartosAdm" || location.pathname === "/acomodacoesAdm"  ? "active" : ""}`}>
+        <Link to="/acomodacoesAdm" className={`nav-item ${location.pathname === "/acomodacoesAdm" || location.pathname === "/quartosAdm"  ? "active" : ""}`}>
             QUARTOS
         </Link>
 

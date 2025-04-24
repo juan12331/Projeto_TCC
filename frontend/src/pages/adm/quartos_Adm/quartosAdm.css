@@ -3,6 +3,36 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  .back-quartosAdm{
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    margin-top: 160px;
+    padding-left: 150px;
+  }
+
+  .backButton-quartosAdm{
+    color: #7C2728;
+    background-color: #fffbfb00;
+    border: none;
+    font-size: 6vh;
+    cursor: pointer;
+  }
+  
+  .backLine-quartosAdm{
+    color: #7C2728;
+    font-size: 6vh;
+  }
+  
+  .backText-quartosAdm{
+    color: #7C2728;
+    background-color: #fffbfb00;
+    font-size: 4vh;
+    font-family: "Katibeh";
+    border: none;
+    cursor: pointer;
+  }
   
   .fundo_quartos {
     background-color: #ccaa6b85;
