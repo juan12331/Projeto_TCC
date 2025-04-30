@@ -5,7 +5,6 @@ import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-// Componente de Estrelas
 const StarRating = ({ totalStars = 5 }) => {
     const [rating, setRating] = useState(0);
 
@@ -49,25 +48,24 @@ function Avaliacao() {
     const navigate = useNavigate();
 
     return (
-        <div className="div_mae_ava">
-            <NavbarAdm />
-            <div className="criar_usuario">
-                <div className="inicio-ava">
-                    <div className="back-ava">
-                        <button onClick={() => navigate("/avaliacoesAdm")} className="backButton-ava"> ← </button>
-                        <h1 className="backLine-ava">|</h1>
-                        <button onClick={() => navigate("/avaliacoesAdm")} className="backText-ava"> AVALIAÇÕES </button>
-                    </div>
-
-                    <div className="container-ava">
-                        <img
-                            src="/src/assets/img/icone_usario.png"
-                            className="icone_usuario"
-                        />
-                        {/* Aqui é onde as estrelas aparecem */}
+    <div className="div_mae_ava">
+        <NavbarAdm/>
+        <div className="fundo-avaAdm">
+            <div className="backgroundImg-ava">
+                <div className="back-ava">
+                    <button onClick={() => navigate("/avaliacoesAdm")} className="backButton-ava"> ← </button>
+                    <h1 className="backLine-ava">|</h1>
+                    <button onClick={() => navigate("/avaliacoesAdm")} className="backText-ava"> AVALIAÇÕES </button>
+                </div>
+                <div className="container-ava">
+                    <img
+                        src="/src/assets/img/icone_usario.png"
+                        className="icone_usuario"
+                    />
+                    <div className="grid-avaAdm">
                         <StarRating />
                         <div className="input-ava">
-                            <h3 className="Informações_do_Usuario">Informações do Usuario</h3>
+                            <h3 className="Informações_do_Usuario">Informações do Usuário</h3>
                         </div>
                     </div>
                 </div>
@@ -83,6 +81,9 @@ function Avaliacao() {
                 </div>
             </div>
         </div>
+
+        <div className="rodapePage-avaAdm"></div>
+    </div>
     );
 }
 

@@ -1,78 +1,416 @@
-.criar_usuario {
-    height: 100vh;
-    width: 50%;
-    background-image: url("/src/assets/img/fundo_ava.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-
+*{
+  margin: 0vh;
+  padding: 0vh;
+  box-sizing: border-box;
 }
 
-.inicio-ava{
-  width: 700px;
+.div_mae_ava { 
+  background-color: #F2F2F2;
+  width: 100%;  
+  max-width: 100%;
+  height: 100%; 
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden; 
+}
+
+.rodapePage-avaAdm{
+  height: 40px;
+}
+
+/* DE 320 a 480 */
+@media (min-width: 320px) and (max-width: 480px){
+
+.fundo-avaAdm{ 
   display: grid;
+  height: auto;
+  width: 100%;
+}
+
+.backgroundImg-ava{
+  overflow: hidden;
+  background-image: url("/src/assets/img/fundo_ava.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:  center;
+  height: 90vh;
+  width: 100%;
+  display: flex;
   justify-content: center;
-}
-
-.avaliacoes_text {
-    margin-top: 100px;
-    color: #7F2727;
-
-}
-
-.flecha-pix-ava {
-
-    position: absolute;
-    width: 50px;
-    margin-right: 900px;
-    margin-top: 110px;
-
+  align-items: center;
 }
 
 .back-ava{
-  display: flex;
-  gap: 1vh;
-  margin-top: 160px;
   position: absolute;
+  top: 130px; 
+  left: 20px;
+  display: flex;
+  align-items: center; 
+  gap: 1vh;
+  width: 250px;
 }
 
 .backButton-ava{
   color: #7C2728;
-  background-color: #fffbfb00;
+  font-size: 2.7rem;
+  background-color: transparent;
   border: none;
-  font-size: 6vh;
   cursor: pointer;
 }
 
 .backLine-ava{
   color: #7C2728;
-  font-size: 6vh;
+  font-size: 2.5rem;
+  cursor: pointer;
 }
 
 .backText-ava{
   color: #7C2728;
-  background-color: #fffbfb00;
-  font-size: 4vh;
+  font-size: 2rem;
   font-family: "Katibeh";
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.container-ava {
-    background-color: #ccaa6bf8;
-    width: 500px;
-    height: 500px;
-    margin-top: 320px;
-    border-radius: 30px ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.grid-avaAdm{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
 
+.container-ava {
+  background-color: #ccaa6bf8;
+  border-radius: 15px;
+  width: 35vh;
+  height: 400px;
+  text-align: center;
+  margin-top: 160px;
+}
+
+.icone_usuario{
+    margin-top: 20px;
+    
+}
+
+.star-rating-ava {
+    margin-top: 20px;
+}
+
+.input-ava {
+  background-color: #977b4c85;
+  width: 220px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 5px;
+  height: 130px;
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Informações_do_Usuario{
+  color: #5C4C30;
+  font-family: "Kay Pho Du";
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.reclamacao{
+  width: auto;
+  height: 700px;
+  margin-top: 50px;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.container-reclamação{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  margin-top: 140px;
+  background-color: transparent;
+  border: 2px solid #7C2728;
+}
+
+.ava-button {
+  width: 120px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #7F2727;
+  border: none;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  color: #EFE5D1; 
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 80px;
+  font-family: "Karma";
+  font-size: 1.2rem;
+
+}
+
+.input-button-container-ava{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.reclama-ava{
+  font-family: "Kay Pho Du";
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #7C2728;
+}
+}
+
+/* DE 481 a 1024 */
+@media (min-width: 481px) and (max-width: 1024px){
+
+.fundo-avaAdm{ 
+  display: grid;
+  height: auto;
+  width: 100%;
+}
+
+.backgroundImg-ava{
+  overflow: hidden;
+  background-image: url("/src/assets/img/fundo_ava.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:  center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-ava{
+  position: absolute;
+  top: 130px; 
+  left: 50px;
+  display: flex;
+  align-items: center; 
+  gap: 1vh;
+  width: 250px;
+}
+
+.backButton-ava{
+  color: #7C2728;
+  font-size: 3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.backLine-ava{
+  color: #7C2728;
+  font-size: 2.7rem;
+  cursor: pointer;
+}
+
+.backText-ava{
+  color: #7C2728;
+  font-size: 2.2rem;
+  font-family: "Katibeh";
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.grid-avaAdm{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.container-ava {
+  background-color: #ccaa6bf8;
+  border-radius: 15px;
+  width: 50vh;
+  height: 500px;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.icone_usuario{
+    margin-top: 20px;
+    
+}
+
+.star-rating-ava {
+    margin-top: 20px;
+}
+
+.input-ava {
+  background-color: #977b4c85;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 5px;
+  height: 220px;
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Informações_do_Usuario{
+  color: #5C4C30;
+  font-family: "Kay Pho Du";
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.reclamacao{
+  width: auto;
+  height: 700px;
+  margin-top: 50px;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.container-reclamação{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  margin-top: 140px;
+  background-color: transparent;
+  border: 2px solid #7C2728;
+}
+
+.ava-button {
+  width: 160px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #7F2727;
+  border: none;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  color: #EFE5D1; 
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 80px;
+  font-family: "Karma";
+  font-size: 1.2rem;
+
+}
+
+.input-button-container-ava{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.reclama-ava{
+  font-family: "Kay Pho Du";
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #7C2728;
+}
+}
+
+/* DE 1025 em diante */
+@media (min-width: 1025px){
+
+.fundo-avaAdm{ 
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.backgroundImg-ava{
+  overflow: hidden;
+  background-image: url("/src/assets/img/fundo_ava.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back-ava{
+  position: absolute;
+  top: 180px; 
+  left: 70px;
+  display: flex;
+  align-items: center; 
+  gap: 1vh;
+  width: 250px;
+}
+
+.backButton-ava{
+  color: #7C2728;
+  font-size: 3rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.backLine-ava{
+  color: #7C2728;
+  font-size: 2.7rem;
+  cursor: pointer;
+}
+
+.backText-ava{
+  color: #7C2728;
+  font-size: 2.2rem;
+  font-family: "Katibeh";
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.grid-avaAdm{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.container-ava {
+  background-color: #ccaa6bf8;
+  width: 500px;
+  height: 500px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 250px;
 }
 
 .icone_usuario{
@@ -82,87 +420,81 @@
 
 .star-rating-ava {
     margin-top: 20px;
-  
-   
 }
 
 .input-ava {
-    background-color: #977b4c85;
-    width: 80%;
-    border-radius: 20px;
-    border: none;
-    margin-top: 15px;
-    height: 250px;
-    color: #FFFFFF; /* Cor da letra */
-    text-align: center; /* Centraliza o texto horizontalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
+  background-color: #977b4c85;
+  width: 390px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 5px;
+  height: 230px;
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 
-  .Informações_do_Usuario{
+.Informações_do_Usuario{
   color: #5C4C30;
   font-family: "Kay Pho Du";
   font-size: 1.5rem;
   font-weight: 500;
-  }
+}
 
-  .reclamacao{
-    width: 50%;
-    height: 811px;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-  }
+.reclamacao{
+  width: 50%;
+  height: 700px;
+  margin-top: 120px;
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .div_mae_ava{
-    display: flex;
-  }
+.container-reclamação{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  border-radius: 20px;
+  margin-top: 140px;
+  background-color: transparent;
+  border: 2px solid #7C2728;
+}
 
-  .container-reclamação{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border: 2px solid #7C2728;
-    outline: none;
-    border-radius: 20px;
-    width: 500px;
-    height: 400px;
-    color: white;
-    margin-top: 140px;
-  }
+.ava-button {
+  width: 160px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #7F2727;
+  border: none;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  color: #EFE5D1; 
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 80px;
+  font-family: "Karma";
+  font-size: 1.2rem;
 
-  .ava-button {
-    width: 160px;
-    height: 60px;
-    border-radius: 20px;
-    background-color: #7F2727;
-    border: none;
-    display: flex;
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    color: #EFE5D1;
-    font-size: 14px; /* Opcional: ajuste o tamanho da fonte */
-    cursor: pointer;
-    margin-top: 80px;
-    margin-left: 100px;
-    margin-right: 100px;
-    font-family: "Karma";
-    font-size: 1.2rem;
-  }
+}
 
-  .input-button-container-ava{
-    display: flex;
-   
-
-  }
+.input-button-container-ava{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
 
 .reclama-ava{
   font-family: "Kay Pho Du";
   font-size: 1.5rem;
   font-weight: 200;
+  color: #7C2728;
+}
 }
