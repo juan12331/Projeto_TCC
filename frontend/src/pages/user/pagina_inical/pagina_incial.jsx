@@ -4,6 +4,10 @@ import fundo from "/src/assets/img/fundo_inicio.png";
 import setapbaixo from "/src/assets/img/seta-para-baixo (1).png";
 import fotodescricao from "/src/assets/img/fotodescricao.png";
 import NavbarUser from "../../../assets/components/navbarUser";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { ptBR } from "date-fns/locale";
+import React, { useState } from "react";
 
 const images = Object.entries(
   import.meta.glob("../../../assets/colagem/*.{png,jpg,jpeg,svg}", {
@@ -17,33 +21,74 @@ const images = Object.entries(
   .map(([, module]) => module.default);
 
 function Inicio() {
+  const [checkIn, setCheckIn] = useState(null);
+  const [checkOut, setCheckOut] = useState(null);
+
+  const handleCheckInChange = (date) => {
+    setCheckIn(date);
+    setCheckOut(null);
+  };
+
+  const handleCheckOutChange = (date) => {
+    setCheckOut(date);
+  };
   return (
     <>
-     <NavbarUser />
+      <NavbarUser />
 
       <div className="fundo">
-        <div className="reserva-container">
-          <div className="reserva">
-            <div className="campo">
-              <label htmlFor="checkin">CHECK-IN</label>
-              <input id="checkin" type="date" name="checkin" />
-            </div>
-
-            <div className="campo">
-              <label htmlFor="checkout">CHECK-OUT</label>
-              <input id="checkout" type="date" name="checkout" />
-            </div>
-
-            <div className="campo">
-              <label htmlFor="adulto">ADULTOS</label>
-              <input type="number" id="adulto" name="adulto" />
-            </div>
-            <div className="campo">
-              <label htmlFor="crianca">CRIANÇAS</label>
-              <input type="number" id="crianca" name="crianca" />
-            </div>
-            <button className="buscar-btn">BUSCAR</button>
+        <div className="fundo-inicio">
+          <div className="reservation-inicio">
+            <h2 className="checkin-inicio">CHECK-IN</h2>
+            <DatePicker
+              className="data-inicio"
+              selected={checkIn}
+              onChange={handleCheckInChange}
+              locale={ptBR}
+              selectsStart
+              placeholderText="__/__/__"
+              dateFormat="dd/MM/yyyy"
+              minDate={new Date()}
+            />
           </div>
+
+          <div className="reservation-inicio">
+            <h3 className="checkout-inicio">CHECK-OUT</h3>
+            <DatePicker
+              className="data-inicio"
+              selected={checkOut}
+              onChange={handleCheckOutChange}
+              locale={ptBR}
+              selectsEnd
+              minDate={checkIn || new Date()}
+              placeholderText="__/__/__"
+              dateFormat="dd/MM/yyyy"
+            />
+          </div>
+
+          <div className="reservation-inicio">
+            <h4 className="adultos-inicio">ADULTOS</h4>
+            <input
+              type="number"
+              className="clientes-inicio"
+              min="0"
+              required
+            />
+          </div>
+
+          <div className="reservation-inicio">
+            <h4 className="criancas-inicio">CRIANÇAS</h4>
+            <input
+              type="number"
+              className="clientes-inicio"
+              min="0"
+              required
+            />
+          </div>
+
+          <button onClick={() => navigate("/")} className="buscar-inicio">
+            BUSCAR
+          </button>
         </div>
       </div>
 

@@ -27,36 +27,193 @@ label{
   background-size: cover;
 }
 
-.inicio {
-  color: #7c2728;
-  margin-left: 300px;
+.react-datepicker__header { /*cabeçalho calendário*/
+  background-color: #F2F2F2; 
+  border-bottom: 2px solid #7E2527;
 }
 
-.contato {
-  color: #7c2728;
-  margin-left: 250px;
+.react-datepicker { /*calendário*/
+  background-color: #F2F2F2;
+  border: #F2F2F2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.acomodacao {
-  color: #7c2728;
-  margin-right: 250px;
+.react-datepicker__input-container input:focus { /*borda ao clicar*/
+  border: 2px solid #7E2527 !important; 
+  outline: none !important; 
 }
 
-.login {
-  color: #7c2728;
-  margin-right: 300px;
+.react-datepicker__day:hover { /*ao passar mouse*/
+  background-color: #d2ae6f99 !important; 
+  color: white !important;
 }
 
-.logo {
-  width: 85px;
-  height: 80px;
+.react-datepicker__day--in-selecting-range { /*ao passar mouse geral*/
+  background-color: #D2AD6F !important; 
 }
 
-.reserva {
+.react-datepicker__day--in-range {
+  background-color: #D2AD6F !important; 
+  color: black !important;
+}
+
+.react-datepicker__day--today { /*dia atual*/
+  background-color: #d2ae6f00 !important; 
+  color: black !important;
+  font-weight: normal;
+}
+
+.react-datepicker__day--selected { /*dia selecionado*/
+  background-color: #d2ae6f99 !important; 
+  color: white !important; 
+}
+
+.react-datepicker__day--disabled { /*data indisponível*/
+  color: #cccccc !important; 
+  cursor: not-allowed; 
+  background-color: #f8f8f8 !important; 
+}
+
+.react-datepicker__day--disabled:hover { /*ao passar mouse sobre data indisponível*/
+  background-color: #e0e0e0 !important;
+}
+
+.react-datepicker__day--keyboard-selected { /* primeira data disponível no check-out */
+  background-color: #4caf4f00 !important; 
+  color: rgb(0, 0, 0) !important; 
+}
+
+.clientes-inicio:focus { /*borda ao clicar*/
+  border: 2px solid #7E2527 !important; 
+  outline: none !important; 
+}
+
+.layout-inicio {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center; 
   align-items: center;
-  justify-content: flex-end;
+  gap: 3vh;
+  margin-top: 3vh;
+  width: 100%;
+}
+
+.grid4-inicio{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+}
+
+.inicio-input:focus {
+  outline: none;
+  border-color: #998050 solid 2px;
+}
+
+.data-inicio, .clientes-inicio{ 
+  background-color: #f2f2f200;
+  border-bottom: #7E2527 solid 2px;
+  border-left: #7E2527 solid 2px;
+  border-right: #7E2527 solid 2px;
+  border-top:#7E2527 solid 2px ;
+  border-radius: 4px;
+  padding: 20px 0;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+}
+
+.buscar-inicio{ 
+  color: #F7F2E9;
+  background-color: #712122;
+  font-family: "Kreon";
+  border-radius: 2vh;
+  padding: 1%;
+  font-size: 1rem;
+  border: none;
+  width: 15%;
+  cursor: pointer;
+  margin-top: 15px;
+  align-self: center;
+}
+
+.cadastro-inicio:active {
+  background-color: #997f5085 !important;
+  outline: none;
+}
+
+.fundo-inicio{ 
+  background-color: #FFFFFF;
+  width: 60%;
+  min-width: auto;
+  max-width: 1000px;
+  height: 130px;
+  margin-top: 6vh;
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: -10%;
+  z-index: 10;
+  }
+
+.checkin-inicio, .checkout-inicio, .adultos-inicio, .criancas-inicio{ 
+  font-family: "Kreon";
+  font-size: 22px;
+  color: #712123;
+  text-align: start ;
+}
+
+.cardsFundo-inicio{
+  background-color: #d2ae6f99;
+  flex-direction: column;
+  height: auto;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.cardsConteudo-inicio{
+  text-align: center;
+  padding: 0;
+}
+
+.cardsImg-inicio{
+  height: auto;
+  max-width: 80%;
+  padding: 0;
+}
+
+.cardsTitle-inicio{
+  color: #7C2728;
+  font-family: "Kreon";
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: 1vh;
+}
+
+.cardsText-inicio{
+  color: #fff7e8;
+  font-family: "Kreon";
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-top: 1vh;
+}
+
+.cardsButton-inicio{
+  color: #F7F2E9; 
+  background-color: #712122;
+  font-family: "Kreon";
+  border-radius: 2vh;
+  border: none;
+  cursor: pointer; 
+  font-size: 0.8rem;
+  width: 30%;
+  margin-top: 1vh;
+  padding: 4px;
 }
 .reserva-container {
   width: 800px;
@@ -69,46 +226,6 @@ label{
   border-radius: 2px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   gap: 15px;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  margin: 12px;
-}
-
-.campo label {
-  font-size: 18px;
-  font-weight: bold;
-  color: #6b2d1a; /* Cor vinho do texto */
-  margin-bottom: 4px;
-}
-
-.campo input {
-  border: 2px solid #6b2d1a;
-  border-radius: 6px;
-  padding: 8px;
-  font-size: 18px;
-  width: 135px;
-  height: 40px;
-  text-align: center;
-}
-
-.buscar-btn {
-  background: #6b2d1a;
-  color: white;
-  font-weight: bold;
-  padding: 10px 20px;
-  margin: 6px 0px 0px 10px;
-  width: 120px;
-  height: 50px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-.buscar-btn:hover {
-  background: #531f12;
 }
 
 .ambiente {

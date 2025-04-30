@@ -21,7 +21,7 @@ function QuartosAdm() {
     const [hover, setHover] = useState(0);
 
     return (
-      <div className="star-rating">
+      <div className="star-rating-Adm">
         {[...Array(totalStars)].map((_, index) => {
           const currentRating = index + 1;
           return (
@@ -34,7 +34,7 @@ function QuartosAdm() {
                 style={{ display: "none" }}
               />
               <FaStar
-                className="star"
+                className="starAdm"
                 size={30}
                 color={currentRating <= (hover || rating) ? "#FFD700" : "#ccc"}
                 onMouseEnter={() => setHover(currentRating)}
@@ -55,15 +55,15 @@ function QuartosAdm() {
     <>
       <NavbarUser />
 
-      <div className="fundo_quartos">
-        <main className="quarto-container">
-          <section className="galeria-principal">
+      <div className="fundo_quartos-Adm">
+        <main className="quarto-container-Adm">
+          <section className="galeria-principal-Adm">
             <img
               src={imagemAtual}
               alt="Imagem do domo"
-              className="imagem-principal"
+              className="imagem-principal-Adm"
             />
-            <div className="miniaturas">
+            <div className="miniaturas-Adm">
               {imagens.map((img, index) => (
                 <img
                   key={index}
@@ -76,14 +76,14 @@ function QuartosAdm() {
             </div>
           </section>
 
-          <section className="detalhes-quarto">
-            <div className="preco-container">
+          <section className="detalhes-quarto-Adm">
+            <div className="preco-container-Adm">
               <p>A PARTIR DE</p>
               <h2>R$590,00</h2>
               <p>POR NOITE</p>
             </div>
 
-            <div className="form-reserva">
+            <div className="form-reserva-Adm">
               <input type="date" placeholder="Check-in" />
               <input type="date" placeholder="Check-out" />
               <select>
@@ -98,16 +98,16 @@ function QuartosAdm() {
                 <option>2 Crianças</option>
                 <option>3 Crianças</option>
               </select>
-              <button className="btn-reservar">Reservar</button>
+              <button className="btn-reservar-Adm">Reservar</button>
             </div>
           </section>
         </main>
-        <div className="tudo_domo">
-          <div className="domo_titulo">
+        <div className="tudo_domo-Adm">
+          <div className="domo_titulo-Adm">
             <p>CONHEÇA O DOMO</p>
           </div>
           <article>
-            <div className="aviso">
+            <div className="aviso-Adm">
               <div>
                 <p>
                   Os valores exibidos no site estão sujeitos a constantes
@@ -120,10 +120,10 @@ function QuartosAdm() {
               </div>
             </div>
 
-            <div className="informacoes_domo">
-              <div className="top">
-                <div className="line">
-                  <div className="item">
+            <div className="informacoes_domo-Adm">
+              <div className="top-Adm">
+                <div className="line-Adm">
+                  <div className="item-Adm">
                     <img
                       src="/src/assets/quartos/ar-condicionado.png"
                       alt="ar-condicionado"
@@ -132,26 +132,26 @@ function QuartosAdm() {
                   </div>
                 </div>
 
-                <div className="line">
-                  <div className="item">
+                <div className="line-Adm">
+                  <div className="item-Adm">
                     <img
                       src="/src/assets/quartos/televisao.png"
                       alt="televisao"
                     />
                     <p>TV</p>
                   </div>
-                  <div className="item">
+                  <div className="item-Adm">
                     <img src="/src/assets/quartos/wifi.png" alt="wifi" />
                     <p>Wifi</p>
                   </div>
                 </div>
 
-                <div className="line">
-                  <div className="item">
+                <div className="line-Adm">
+                  <div className="item-Adm">
                     <img src="/src/assets/quartos/ducha.png" alt="ducha" />
                     <p>Ducha</p>
                   </div>
-                  <div className="item">
+                  <div className="item-Adm">
                     <img
                       src="/src/assets/quartos/frigobar.png"
                       alt="frigobar"
@@ -160,12 +160,12 @@ function QuartosAdm() {
                   </div>
                 </div>
 
-                <div className="line">
-                  <div className="item">
+                <div className="line-Adm">
+                  <div className="item-Adm">
                     <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
                     <p>Toalhas</p>
                   </div>
-                  <div className="item">
+                  <div className="item-Adm">
                     <img
                       src="/src/assets/quartos/cozinha_domo.png"
                       alt="cozinha"
@@ -175,33 +175,33 @@ function QuartosAdm() {
                 </div>
               </div>
 
-              <div className="botton">
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Acomoda: </p>
-                    <p className="textsem">3 pessoas</p>
+              <div className="botton-Adm">
+                <div className="line2-Adm">
+                  <div className="item2-Adm">
+                    <p className="textcor-Adm">Acomoda: </p>
+                    <p className="textsem-Adm">3 pessoas</p>
                   </div>
-                  <div className="item2">
-                    <p className="textcor">Camas: </p>
-                    <p className="textsem">1 cama de casal</p>
-                  </div>
-                </div>
-
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Check-in: </p>
-                    <p className="textsem">14h00</p>
-                  </div>
-                  <div className="item2">
-                    <p className="textcor">Check-out: </p>
-                    <p className="textsem">10h00</p>
+                  <div className="item2-Adm">
+                    <p className="textcor-Adm">Camas: </p>
+                    <p className="textsem-Adm">1 cama de casal</p>
                   </div>
                 </div>
 
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Mínimo de noites: </p>
-                    <p className="textsem">2 noites</p>
+                <div className="line2-Adm">
+                  <div className="item2-Adm">
+                    <p className="textcor-Adm">Check-in: </p>
+                    <p className="textsem-Adm">14h00</p>
+                  </div>
+                  <div className="item2-Adm">
+                    <p className="textcor-Adm">Check-out: </p>
+                    <p className="textsem-Adm">10h00</p>
+                  </div>
+                </div>
+
+                <div className="line2-Adm">
+                  <div className="item2-Adm">
+                    <p className="textcor-Adm">Mínimo de noites: </p>
+                    <p className="textsem-Adm">2 noites</p>
                   </div>
                   <a href="https://www.pousadadomirantenoronha.com.br/p/politica-da-pousada">
                     Leia nossas políticas
@@ -210,7 +210,7 @@ function QuartosAdm() {
               </div>
             </div>
           </article>
-          <div className="inf-excluir">
+          <div className="inf-excluir-Adm">
             <div>
               <button className="inf-adm">EDITAR INFORMAÇÕES</button>
             </div>

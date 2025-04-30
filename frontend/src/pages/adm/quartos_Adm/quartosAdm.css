@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.fundo_quartos {
+.fundo_quartos-Adm {
   background-color: #ccaa6b85;
   max-width: 100%;
   overflow-x: hidden;
@@ -31,9 +31,9 @@ body {
   cursor: pointer;
   color: #5a2a2a;
   font-weight: bold;
-}
+} 
 
-.quarto-container {
+.quarto-container-Adm {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -41,13 +41,13 @@ body {
   gap: 50px;
 }
 
-.galeria-principal {
+.galeria-principal-Adm {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.imagem-principal {
+.imagem-principal-Adm {
   width: 650px;
   height: 450px;
   /* object-fit: cover; */
@@ -55,13 +55,13 @@ body {
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
-.miniaturas {
+.miniaturas-Adm {
   display: flex;
   gap: 10px;
   margin-top: 15px;
 }
 
-.miniatura {
+.miniatura-Adm {
   width: 100px;
   height: 70px;
   object-fit: cover;
@@ -71,13 +71,13 @@ body {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-.miniatura:hover,
-.miniatura.ativa {
+.miniatura-Adm:hover,
+.miniatura-Adm.ativa {
   opacity: 1;
   transform: scale(1.05);
 }
 
-.detalhes-quarto {
+.detalhes-quarto-Adm {
   background-color: #efe5d1e3;
   padding: 30px;
   border-radius: 20px;
@@ -88,19 +88,19 @@ body {
   gap: 20px;
 }
 
-.preco-container p {
+.preco-container-Adm p {
   color: #661f1f;
   font-size: 18px;
 }
 
-.preco-container h2 {
+.preco-container-Adm   h2 {
   color: #5a2a2a;
   font-size: 36px;
   margin: 10px 0;
 }
 
-.form-reserva input,
-.form-reserva select {
+.form-reserva-Adm input,
+.form-reserva-Adm select {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -108,7 +108,7 @@ body {
   border-radius: 10px;
 }
 
-.btn-reservar {
+.btn-reservar-Adm {
   background-color: #8a4b4b;
   color: white;
   padding: 12px 20px;
@@ -118,11 +118,11 @@ body {
   transition: background-color 0.3s;
 }
 
-.btn-reservar:hover {
+.btn-reservar-Adm:hover {
   background-color: #7a3f3f;
 }
 
-.domo_titulo {
+.domo_titulo-Adm {
   color: #7c2728;
   font-size: 40px;
   align-items: center;
@@ -131,7 +131,7 @@ body {
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-.aviso div {
+.aviso-Adm div {
   opacity: 96%;
   background-color: #a38856;
   color: white;
@@ -141,7 +141,7 @@ body {
   max-width: 300px;
 }
 
-.aviso {
+.aviso-Adm {
   background-image: url("../../../assets/quartos/domo-grande.png");
   width: 50%;
   background-repeat: no-repeat;
@@ -153,20 +153,20 @@ body {
   justify-content: center;
 }
 
-.aviso p {
+.aviso-Adm p {
   margin: 0;
   font-size: 1.2rem;
   text-align: center;
 }
 
-.tudo_domo {
+.tudo_domo-Adm {
   margin-top: 50px;
   width: 100%;
   text-align: center;
   padding: 20px 0 0 0;
 }
 
-.tudo_domo article {
+.tudo_domo-Adm article {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -174,33 +174,33 @@ body {
   padding: 50px 0 0 0;
 }
 
-.informacoes_domo {
+.informacoes_domo-Adm {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
 }
 
-.informacoes_domo .botton {
+.informacoes_domo-Adm .botton {
   background-color: #f2f2f2;
   height: 350px;
   width: 100%;
 }
-.informacoes_domo .top {
+.informacoes_domo-Adm .top {
   height: 350px;
   width: 100%;
   padding: 0px 30px;
 }
 
-.arcondicionado {
+.arcondicionado-Adm {
   display: flex;
 }
 
-.line {
+.line-Adm {
   display: flex;
 }
 
-.item {
+.item-Adm {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -209,15 +209,15 @@ body {
   color: #712123;
 }
 
-.item p {
+.item-Adm p {
   margin: 10px;
 }
 
-.line2 {
+.line2-Adm {
   display: flex;
 }
 
-.line2 a {
+.line2-Adm a {
   color: #a38856;
   display: flex;
   align-items: center;
@@ -225,7 +225,7 @@ body {
   padding: 10px;
 }
 
-.item2 {
+.item2-Adm {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -234,7 +234,7 @@ body {
   margin: 0;
 }
 
-.textcor {
+.textcor-Adm {
   background-color: #7c2728c4;
   color: #efe5d1;
   font-size: 25px;
@@ -242,7 +242,7 @@ body {
   width: 150px;
 }
 
-.textsem {
+.textsem-Adm {
   color: #a38856;
   font-size: 20px;
   padding: 0px 10px;
@@ -250,7 +250,7 @@ body {
   align-items: center;
 }
 
-.avaldomo {
+.avaldomo-Adm {
   background-color: #f2f2f2;
   color: #7c2728;
   font-size: 40px;
@@ -259,7 +259,7 @@ body {
   padding-left: 80px;
 }
 
-.testimonials-container {
+.testimonials-container-Adm {
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -268,7 +268,7 @@ body {
   margin-left: 40px;
 }
 
-.testimonial-item {
+.testimonial-item-Adm {
   display: flex;
   align-items: center;
   background: #efe5d1;
@@ -279,13 +279,13 @@ body {
   margin-left: 50px;
 }
 
-.testimonial-item:nth-child(2),
-.testimonial-item:nth-child(4) {
+.testimonial-item-Adm:nth-child(2),
+.testimonial-item-Adm:nth-child(4) {
   flex-direction: row-reverse;
   margin-left: 200px;
 }
 
-.testimonial-img-container {
+.testimonial-img-container-Adm {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -297,48 +297,48 @@ body {
   justify-content: center;
 }
 
-.testimonial-img {
+.testimonial-img-Adm {
   width: 60%;
   height: 60%;
   object-fit: cover;
 }
 
-.testimonial-text {
+.testimonial-text-Adm {
   font-size: 16px;
   color: #712123;
   font-weight: lighter;
   margin: 10px;
 }
 
-.star-rating {
+.star-rating-Adm {
   display: flex;
   justify-content: center;
   top: 450px; /* Ajuste para posicionar corretamente */
   left: 1425px;
 }
 
-.star-rating input {
+.star-rating-Adm input {
   display: none;
 }
 
-.star {
+.star-Adm {
   cursor: pointer;
   transition: color 0.2s;
 }
 
-.avaliacoes {
+.avaliacoes-Adm {
   display: flex;
   align-items: center;
   background-color: #f2f2f2;
 }
 
-.aval_domo p {
+.aval_domo-Adm p {
   color: #7e2527;
   font-size: 25px;
   padding: 20px;
 }
 
-.aval_domo {
+.aval_domo-Adm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -346,7 +346,7 @@ body {
   margin-left: 300px;
 }
 
-.aval-container {
+.aval-container-Adm {
   text-align: center;
   margin-top: 50px;
   display: flex;
@@ -355,21 +355,21 @@ body {
   margin-left: 120px;
 }
 
-.aval-container p {
+.aval-container-Adm p {
   color: #d2ad6f;
   font-size: 18px;
   margin-bottom: 20px;
   width: 300px;
 }
 
-.form-aval {
+.form-aval-Adm {
   display: flex;
   flex-direction: column;
   align-items: end;
   margin-right: 120px;
 }
 
-.info_form_aval {
+.info_form_aval-Adm {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -377,7 +377,7 @@ body {
   gap: 15px;
 }
 
-.input-email {
+.input-email-Adm {
   background-color: #7c2728c4;
   width: 260px;
   padding: 12px;
@@ -390,13 +390,13 @@ body {
   font-size: 16px;
 }
 
-.input-email::placeholder {
+.input-email-Adm::placeholder {
   color: #efe5d1;
   opacity: 1;
   font-weight: lighter;
 }
 
-.input-nome {
+.input-nome-Adm {
   background-color: #7c2728c4;
   width: 260px;
   padding: 12px;
@@ -409,13 +409,13 @@ body {
   font-size: 16px;
 }
 
-.input-nome::placeholder {
+.input-nome-Adm::placeholder {
   color: #efe5d1;
   opacity: 1;
   font-weight: lighter;
 }
 
-.input-mensg {
+.input-mensg-Adm {
   background-color: #7c2728c4;
   width: 260px;
   padding: 12px;
@@ -428,13 +428,13 @@ body {
   font-size: 16px;
 }
 
-.input-mensg::placeholder {
+.input-mensg-Adm::placeholder {
   color: #efe5d1;
   opacity: 1;
   font-weight: lighter;
 }
 
-.btn-enviar {
+.btn-enviar-Adm {
   width: 200px;
   padding: 12px;
   background-color: #e0cda8;
@@ -447,446 +447,12 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.btn-enviar:hover {
+.btn-enviar-Adm:hover {
   background-color: #ccaa6bb7;
 }
 
-@media (max-width: 1370px) {
-  .img {
-    width: 80px;
-  }
-
-  .inicio,
-  .contato,
-  .acomodacao,
-  .login {
-    cursor: pointer;
-    color: #5a2a2a;
-    font-weight: bold;
-  }
-
-  .quarto-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 120px;
-    gap: 50px;
-  }
-
-  .galeria-principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .imagem-principal {
-    width: 460px;
-    height: 400px;
-    /* object-fit: cover; */
-    border-radius: 20px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .miniaturas {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-  }
-
-  .miniatura {
-    width: 65px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 10px;
-    opacity: 0.6;
-    cursor: pointer;
-    transition: opacity 0.3s, transform 0.3s;
-  }
-
-  .miniatura:hover,
-  .miniatura.ativa {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  .detalhes-quarto {
-    background-color: #efe5d1e3;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .preco-container p {
-    color: #661f1f;
-    font-size: 18px;
-  }
-
-  .preco-container h2 {
-    color: #5a2a2a;
-    font-size: 36px;
-    margin: 10px 0;
-  }
-
-  .form-reserva input,
-  .form-reserva select {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-  }
-
-  .btn-reservar {
-    background-color: #8a4b4b;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .btn-reservar:hover {
-    background-color: #7a3f3f;
-  }
-
-  .domo_titulo {
-    color: #7c2728;
-    font-size: 40px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .aviso div {
-    opacity: 96%;
-    background-color: #a38856;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 300px;
-  }
-
-  .aviso {
-    background-image: url("../../../assets/quartos/domo-grande.png");
-    width: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .aviso p {
-    margin: 0;
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
-  .tudo_domo {
-    margin-top: 50px;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0 0 0;
-  }
-
-  .tudo_domo article {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 50px 0 0 0;
-  }
-
-  .informacoes_domo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-  }
-
-  .informacoes_domo .botton {
-    background-color: #f2f2f2;
-    height: 350px;
-    width: 100%;
-  }
-  .informacoes_domo .top {
-    height: 350px;
-    width: 100%;
-    padding: 0px 30px;
-  }
-
-  .arcondicionado {
-    display: flex;
-  }
-
-  .line {
-    display: flex;
-  }
-
-  .item {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    width: 40%;
-    padding: 10px;
-    color: #712123;
-  }
-
-  .item p {
-    margin: 10px;
-  }
-
-  .line2 {
-    display: flex;
-  }
-
-  .line2 a {
-    color: #a38856;
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    padding: 30px;
-  }
-
-  .item2 {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    width: 40%;
-    padding: 40px 20px;
-    margin: 0;
-  }
-
-  .textcor {
-    background-color: #7c2728c4;
-    color: #efe5d1;
-    font-size: 25px;
-    border-radius: 10px;
-    width: 150px;
-  }
-
-  .textsem {
-    color: #a38856;
-    font-size: 20px;
-    padding: 0px 10px;
-    justify-content: start;
-    align-items: center;
-  }
-
-  .avaldomo {
-    background-color: #f2f2f2;
-    color: #7c2728;
-    font-size: 40px;
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
-    padding-top: 70px;
-    padding-left: 80px;
-  }
-
-  .testimonials-container {
-    background-color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    padding: 50px;
-  }
-
-  .testimonial-item {
-    display: flex;
-    align-items: center;
-    background: #efe5d1;
-    border-radius: 20px;
-    width: 400px;
-    max-width: 400px;
-    height: 50px;
-    margin-left: 50px;
-  }
-
-  .testimonial-item:nth-child(2),
-  .testimonial-item:nth-child(4) {
-    flex-direction: row-reverse;
-    margin-left: 200px;
-  }
-
-  .testimonial-img-container {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-
-    background: #ccaa6b; /* Cor do fundo do círculo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .testimonial-img {
-    width: 60%;
-    height: 60%;
-    object-fit: cover;
-  }
-
-  .testimonial-text {
-    font-size: 16px;
-    color: #712123;
-    font-weight: lighter;
-    margin: 10px;
-  }
-
-  .star-rating {
-    display: flex;
-    justify-content: center;
-    top: 450px; /* Ajuste para posicionar corretamente */
-    left: 1425px;
-  }
-
-  .star-rating input {
-    display: none;
-  }
-
-  .star {
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-
-  .avaliacoes {
-    display: flex;
-    align-items: center;
-    background-color: #f2f2f2;
-  }
-
-  .aval_domo p {
-    color: #7e2527;
-    font-size: 25px;
-    padding: 20px;
-  }
-
-  .aval_domo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 30px;
-  }
-
-  .aval-container {
-    text-align: center;
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 120px;
-  }
-
-  .aval-container p {
-    color: #d2ad6f;
-    font-size: 18px;
-    margin-bottom: 20px;
-    width: 300px;
-  }
-
-  .form-aval {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    margin-right: 120px;
-  }
-
-  .info_form_aval {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .input-email {
-    background-color: #7c2728c4;
-    width: 260px;
-    padding: 12px;
-    border: 1px solid #998050;
-    border-radius: 12px;
-    text-align: center;
-    color: #efe5d1;
-    font-weight: bold;
-    outline: none;
-    font-size: 16px;
-  }
-
-  .input-email::placeholder {
-    color: #efe5d1;
-    opacity: 1;
-    font-weight: lighter;
-  }
-
-  .input-nome {
-    background-color: #7c2728c4;
-    width: 260px;
-    padding: 12px;
-    border: 1px solid #998050;
-    border-radius: 12px;
-    text-align: center;
-    color: #efe5d1;
-    font-weight: bold;
-    outline: none;
-    font-size: 16px;
-  }
-
-  .input-nome::placeholder {
-    color: #efe5d1;
-    opacity: 1;
-    font-weight: lighter;
-  }
-
-  .input-mensg {
-    background-color: #7c2728c4;
-    width: 260px;
-    padding: 12px;
-    border: 1px solid #998050;
-    border-radius: 12px;
-    text-align: center;
-    color: #efe5d1;
-    font-weight: bold;
-    outline: none;
-    font-size: 16px;
-  }
-
-  .input-mensg::placeholder {
-    color: #efe5d1;
-    opacity: 1;
-    font-weight: lighter;
-  }
-
-  .btn-enviar {
-    width: 200px;
-    padding: 12px;
-    background-color: #e0cda8;
-    border: none;
-    border-radius: 20px;
-    color: #ccaa6b;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-enviar:hover {
-    background-color: #ccaa6bb7;
-  }
-}
-
 @media (max-width: 700px) {
-  .img {
+  .img-Adm {
     width: 30px;
   }
 
@@ -899,7 +465,7 @@ body {
     font-weight: bold;
   }
 
-  .quarto-container {
+  .quarto-container-Adm {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -907,13 +473,13 @@ body {
     gap: 50px;
   }
 
-  .galeria-principal {
+  .galeria-principal-Adm {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .imagem-principal {
+  .imagem-principal-Adm {
     width: 10px;
     height: 40px;
     /* object-fit: cover; */
@@ -921,13 +487,13 @@ body {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
   }
 
-  .miniaturas {
+  .miniaturas-Adm {
     display: flex;
     gap: 10px;
     margin-top: 15px;
   }
 
-  .miniatura {
+  .miniatura-Adm {
     width: 10px;
     height: 70px;
     object-fit: cover;
@@ -937,13 +503,13 @@ body {
     transition: opacity 0.3s, transform 0.3s;
   }
 
-  .miniatura:hover,
-  .miniatura.ativa {
+  .miniatura-Adm:hover,
+  .miniatura-Adm.ativa {
     opacity: 1;
     transform: scale(1.05);
   }
 
-  .detalhes-quarto {
+  .detalhes-quarto-Adm {
     background-color: #efe5d1e3;
     padding: 30px;
     border-radius: 20px;
@@ -954,19 +520,19 @@ body {
     gap: 20px;
   }
 
-  .preco-container p {
+  .preco-container-Adm p {
     color: #661f1f;
     font-size: 18px;
   }
 
-  .preco-container h2 {
+  .preco-container-Adm h2 {
     color: #5a2a2a;
     font-size: 36px;
     margin: 10px 0;
   }
 
-  .form-reserva input,
-  .form-reserva select {
+  .form-reserva-Adm input,
+  .form-reserva-Adm select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -974,7 +540,7 @@ body {
     border-radius: 10px;
   }
 
-  .btn-reservar {
+  .btn-reservar-Adm {
     background-color: #8a4b4b;
     color: white;
     padding: 12px 20px;
@@ -984,11 +550,11 @@ body {
     transition: background-color 0.3s;
   }
 
-  .btn-reservar:hover {
+  .btn-reservar-Adm:hover {
     background-color: #7a3f3f;
   }
 
-  .domo_titulo {
+  .domo_titulo-Adm {
     color: #7c2728;
     font-size: 40px;
     align-items: center;
@@ -997,7 +563,7 @@ body {
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
   }
 
-  .aviso div {
+  .aviso-Adm div {
     opacity: 96%;
     background-color: #a38856;
     color: white;
@@ -1007,7 +573,7 @@ body {
     max-width: 300px;
   }
 
-  .aviso {
+  .aviso-Adm {
     background-image: url("../../../assets/quartos/domo-grande.png");
     width: 50%;
     background-repeat: no-repeat;
@@ -1019,20 +585,20 @@ body {
     justify-content: center;
   }
 
-  .aviso p {
+  .aviso-Adm p {
     margin: 0;
     font-size: 1.2rem;
     text-align: center;
   }
 
-  .tudo_domo {
+  .tudo_domo-Adm {
     margin-top: 50px;
     width: 100%;
     text-align: center;
     padding: 20px 0 0 0;
   }
 
-  .tudo_domo article {
+  .tudo_domo-Adm article {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1040,33 +606,33 @@ body {
     padding: 50px 0 0 0;
   }
 
-  .informacoes_domo {
+  .informacoes_domo-Adm {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
   }
 
-  .informacoes_domo .botton {
+  .informacoes_domo-Adm .botton {
     background-color: #f2f2f2;
     height: 350px;
     width: 100%;
   }
-  .informacoes_domo .top {
+  .informacoes_domo-Adm .top {
     height: 350px;
     width: 100%;
     padding: 0px 30px;
   }
 
-  .arcondicionado {
+  .arcondicionado-Adm {
     display: flex;
   }
 
-  .line {
+  .line-Adm {
     display: flex;
   }
 
-  .item {
+  .item-Adm {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -1075,15 +641,15 @@ body {
     color: #712123;
   }
 
-  .item p {
+  .item-Adm p {
     margin: 10px;
   }
 
-  .line2 {
+  .line2-Adm {
     display: flex;
   }
 
-  .line2 a {
+  .line2-Adm a {
     color: #a38856;
     display: flex;
     align-items: center;
@@ -1091,7 +657,7 @@ body {
     padding: 10px;
   }
 
-  .item2 {
+  .item2-Adm {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -1100,7 +666,7 @@ body {
     margin: 0;
   }
 
-  .textcor {
+  .textcor-Adm {
     background-color: #7c2728c4;
     color: #efe5d1;
     font-size: 25px;
@@ -1108,7 +674,7 @@ body {
     width: 150px;
   }
 
-  .textsem {
+  .textsem-Adm {
     color: #a38856;
     font-size: 20px;
     padding: 0px 10px;
@@ -1116,7 +682,7 @@ body {
     align-items: center;
   }
 
-  .avaldomo {
+  .avaldomo-Adm {
     background-color: #f2f2f2;
     color: #7c2728;
     font-size: 40px;
@@ -1125,7 +691,7 @@ body {
     padding-left: 80px;
   }
 
-  .testimonials-container {
+  .testimonials-container-Adm {
     background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
@@ -1134,7 +700,7 @@ body {
     margin-left: 40px;
   }
 
-  .testimonial-item {
+  .testimonial-item-Adm {
     display: flex;
     align-items: center;
     background: #efe5d1;
@@ -1145,13 +711,13 @@ body {
     margin-left: 50px;
   }
 
-  .testimonial-item:nth-child(2),
-  .testimonial-item:nth-child(4) {
+  .testimonial-item-Adm:nth-child(2),
+  .testimonial-item-Adm:nth-child(4) {
     flex-direction: row-reverse;
     margin-left: 200px;
   }
 
-  .testimonial-img-container {
+  .testimonial-img-container-Adm {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -1163,48 +729,48 @@ body {
     justify-content: center;
   }
 
-  .testimonial-img {
+  .testimonial-img-Adm {
     width: 60%;
     height: 60%;
     object-fit: cover;
   }
 
-  .testimonial-text {
+  .testimonial-text-Adm {
     font-size: 16px;
     color: #712123;
     font-weight: lighter;
     margin: 10px;
   }
 
-  .star-rating {
+  .star-rating-Adm {
     display: flex;
     justify-content: center;
     top: 450px; /* Ajuste para posicionar corretamente */
     left: 1425px;
   }
 
-  .star-rating input {
+  .star-rating-Adm input {
     display: none;
   }
 
-  .star {
+  .star-Adm {
     cursor: pointer;
     transition: color 0.2s;
   }
 
-  .avaliacoes {
+  .avaliacoes-Adm {
     display: flex;
     align-items: center;
     background-color: #f2f2f2;
   }
 
-  .aval_domo p {
+  .aval_domo-Adm p {
     color: #7e2527;
     font-size: 25px;
     padding: 20px;
   }
 
-  .aval_domo {
+  .aval_domo-Adm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1212,7 +778,7 @@ body {
     margin-left: 300px;
   }
 
-  .aval-container {
+  .aval-container-Adm {
     text-align: center;
     margin-top: 50px;
     display: flex;
@@ -1221,21 +787,21 @@ body {
     margin-left: 120px;
   }
 
-  .aval-container p {
+  .aval-container-Adm p {
     color: #d2ad6f;
     font-size: 18px;
     margin-bottom: 20px;
     width: 300px;
   }
 
-  .form-aval {
+  .form-aval-Adm {
     display: flex;
     flex-direction: column;
     align-items: end;
     margin-right: 120px;
   }
 
-  .info_form_aval {
+  .info_form_aval-Adm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1243,7 +809,7 @@ body {
     gap: 15px;
   }
 
-  .input-email {
+  .input-email-Adm {
     background-color: #7c2728c4;
     width: 260px;
     padding: 12px;
@@ -1256,13 +822,13 @@ body {
     font-size: 16px;
   }
 
-  .input-email::placeholder {
+  .input-email-Adm::placeholder {
     color: #efe5d1;
     opacity: 1;
     font-weight: lighter;
   }
 
-  .input-nome {
+  .input-nome-Adm {
     background-color: #7c2728c4;
     width: 260px;
     padding: 12px;
@@ -1275,13 +841,13 @@ body {
     font-size: 16px;
   }
 
-  .input-nome::placeholder {
+  .input-nome-Adm::placeholder {
     color: #efe5d1;
     opacity: 1;
     font-weight: lighter;
   }
 
-  .input-mensg {
+  .input-mensg-Adm {
     background-color: #7c2728c4;
     width: 260px;
     padding: 12px;
@@ -1294,13 +860,13 @@ body {
     font-size: 16px;
   }
 
-  .input-mensg::placeholder {
+  .input-mensg-Adm::placeholder {
     color: #efe5d1;
     opacity: 1;
     font-weight: lighter;
   }
 
-  .btn-enviar {
+  .btn-enviar-Adm {
     width: 200px;
     padding: 12px;
     background-color: #e0cda8;
@@ -1313,15 +879,15 @@ body {
     transition: background-color 0.3s ease;
   }
 
-  .btn-enviar:hover {
+  .btn-enviar-Adm:hover {
     background-color: #ccaa6bb7;
   }
 }
 
-.inf-excluir {
+.inf-excluir-Adm {
   display: flex;
   align-items: center;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   gap: 30px;
   padding: 40px;
 }
