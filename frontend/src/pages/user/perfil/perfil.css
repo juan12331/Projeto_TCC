@@ -15,91 +15,143 @@
   padding: 0vh;
   display: flex;
   justify-content: center;
-  margin-top: 100px;
   align-items: center;
 }
 
-.container-perfil{
-  width: 1700px;
-  height: 83%;
-  background-color: #efe5d1cb;
-  border-radius: 20px;
-  margin-top: 130px;
-
+.sair-perfil:hover{
+  background-color: #962c2e;
+  transition-duration: 0.3s;
 }
 
-.parte-de-cima{
-  display: flex;
+/* DE 1025 em diante */
+@media (min-width: 1025px){
+
+.container-perfil{
+  width: 80%;
+  height: 700px;
+  background-color: #efe5d1cb;
   border-radius: 20px;
-  justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 150px;
+  display: flex;
+}
+
+.right-perfil{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.infoText-perfil{
+  color: #7C2728;
+  font-family: "Chonburi";
+  font-weight: 300;
+  font-size: 2.2rem;
+}
+
+.reservados-perfil{
+  color: #7C2728;
+  font-family: "Chonburi";
+  font-weight: 300;
+  font-size: 2.2rem;
+  /* margin-top: 50px; */
 }
 
 .info-perfil{
-  
-  width: 900px;
-  height: 353px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
   flex-direction: column;
-  margin-right: 120px;
- 
+  gap: 30px;
 }
 
 .img-possition-perfil{
-  justify-content: start;
+  margin-top: 40px;
+}
 
+.imgInfo-perfil{
+  width: 300px;
 }
 
 .img-perfil-icone{
-  margin-left: 190px;
+  width: 200px;
+  height: 200px;
+  margin-top: 40px;
 }
 
-.text-perfil-1{
+.text-perfil{
+  display: grid;
+  flex-direction: column;
+  height: auto;
+  gap: 10px;
+}
+
+.nomeText-perfil, .emailText-perfil, .cpfText-perfil, .telefoneText-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: #7C2728;
+  margin-top: 10px;
   display: flex;
-  margin-bottom: 60px;
-}
-
-.text-perfil-2{
-  display: flex;
-}
-
-.Email-perfil{
-  margin-left: 30px;
-}
-
-.telefone-perfil{
-  margin-left: 170px;
-}
-
-.parte-de-baixo{
-  width: 1700px;
-  height: 318px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  align-items: center;
+}
+
+.textStyle-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: #960d10;
+}
+
+.linhaMeio-perfil{
+  height: 700px;
+}
+
+.left-perfil{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
 }
 
 .domo_perfil_img{
-  width: 300px;
-  height: 300px;
-
+  width: 350px;
+  height: 350px;
+  margin-top: 40px;
 }
 
-.text-perfil-4{
+.text-perfilFinal{
+  display: grid;
+  flex-direction: column;
+  height: auto;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.domoText-perfil, .pagarText-perfil{
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 1.7rem;
   color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.text-perfil-3{
-  margin-left: 20px;
+.sair-perfil{
+  color: #EFE5D1;
+  background-color: #712122e1;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 20%;
+  height: 50px;
+  font-family: "Kay Pho Du";
+  font-weight: 600;
+  margin-top: 30px;
 }
-
-/* DE 320 A 480 */
-@media (min-width: 320px) and (max-width: 480px){
-
-  
-  }
-  
+}

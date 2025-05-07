@@ -74,25 +74,25 @@ const Login = () => {
           <h1 className="back-line">|</h1>
           <button onClick={() => navigate("/")} className="back-text"> HOME </button>
         </div>
-          <div className="container-login">
-            <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
+        <div className="container-login">
+          <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
+        </div>
+        <form className="login-form">
+          <h1 className="login-texto">LOGIN</h1>
+          <div>
+            <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="cpf" />
           </div>
-            <form className="login-form">
-              <h1 className="login-texto">LOGIN</h1>
-              <div>
-                <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="cpf" />
-              </div>
-              <div>
-                <input type="password" className="login-input" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="SENHA" />
-              </div>
-              <div className="row">
-              <span className='error' id='span'></span>
-            </div>
-              <button type="button" className="login-button" onClick={Logar}>ENTRAR</button>
-              <div className="signup-link">
-                  Não tem login? <a href="cadastro">Cadastre-se</a>
-              </div>
-            </form>
+          <div>
+            <input type="password" className="login-input" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="SENHA" />
+          </div>
+          <div className="row">
+            <span className='error' id='span'></span>
+          </div>
+          <button type="button" className="login-button" onClick={Logar}>ENTRAR</button>
+          <div className="signup-link">
+              Não tem login? <a href="cadastro">Cadastre-se</a>
+          </div>
+        </form>
       </div>
     </div>
     );
