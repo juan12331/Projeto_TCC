@@ -6,11 +6,30 @@ import "./acomodacoesAdm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusCircle } from "react-bootstrap-icons";
+import { useEffect } from "react";
+import { getUser } from "../../../services/Api_service";
 
 const AcomodacoesAdm = () => {
   const navigate = useNavigate();
   const [checkIn, setCheckIn] = useState(null); 
   const [checkOut, setCheckOut] = useState(null); 
+
+    useEffect(() => {
+        verificacao()
+        }, [])
+    
+        async function verificacao() {
+              try{
+                await getUser().then(data => console.log('log'))
+              } catch(error) {
+                console.log(error);
+                if (error.status == 403 || error.status == 401) {
+                  window.alert('acesso não autorizado')
+                  window.location.href = "/login"
+                }
+              }
+            }
+        
 
   const handleCheckInChange = (date) => {
     setCheckIn(date); 

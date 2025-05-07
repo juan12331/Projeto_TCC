@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./quartosAdm.css";
 
 import logo from "/src/assets/img/Logo.png";
@@ -11,8 +11,28 @@ import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getUser } from "../../../services/Api_service";
 
 function QuartosAdm() {
+
+  useEffect(() => {
+      verificacao()
+      }, [])
+  
+      async function verificacao() {
+            try{
+              await getUser().then(data => console.log('log'))
+            } catch(error) {
+              console.log(error);
+              if (error.status == 403 || error.status == 401) {
+                window.alert('acesso não autorizado')
+                window.location.href = "/login"
+              }
+            }
+          }
+      
+
   const navigate = useNavigate();
   const imagens = [img, img1, img2, img3, img4, img5];
   const [imagemAtual, setImagemAtual] = useState(imagens[0]);

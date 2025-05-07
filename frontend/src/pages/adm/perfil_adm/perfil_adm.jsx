@@ -1,27 +1,29 @@
 import "./perfil_adm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getUser } from "../../../services/Api_service";
+
 import { useNavigate } from "react-router-dom";
 
 function PerfilAdm() {
   const navigate = useNavigate();
 
   useEffect(() => {
-      verificacao()
-      }, [])
-  
-
-   async function verificacao() {
-        try{
-          await getUser().then(data => console.log('log'))
-        } catch(error) {
-          console.log(error);
-          if (error.status == 401) {
-            window.alert('acesso não autorizado')
-            window.location.href = "/login"
-          }
-        }
-      }
+        verificacao()
+        }, [])
+    
+        async function verificacao() {
+              try{
+                await getUser().then(data => console.log('log'))
+              } catch(error) {
+                console.log(error);
+                if (error.status == 403 || error.status == 401) {
+                  window.alert('acesso não autorizado')
+                  window.location.href = "/login"
+                }
+              }
+            }
+        
 
   return (
     <div className="div-mae-perilAdm">

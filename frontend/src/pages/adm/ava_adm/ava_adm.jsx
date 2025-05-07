@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ava_adm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getUser } from "../../../services/Api_service";
+
 
 const StarRating = ({ totalStars = 5 }) => {
     const [rating, setRating] = useState(0);
@@ -34,16 +36,17 @@ function Avaliacao() {
     
 
      async function verificacao() {
-          try{
-            await getUser().then(data => console.log('log'))
-          } catch(error) {
-            console.log(error);
-            if (error.status == 401) {
-              window.alert('acesso não autorizado')
-              window.location.href = "/login"
-            }
-          }
-        }
+           try{
+             await getUser().then(data => console.log('log'))
+           } catch(error) {
+             console.log(error);
+             if (error.status == 403 || error.status == 401) {
+               window.alert('acesso não autorizado')
+               window.location.href = "/login"
+             }
+           }
+         }
+     
 
     const navigate = useNavigate();
 
