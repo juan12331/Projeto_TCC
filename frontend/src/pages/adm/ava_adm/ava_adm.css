@@ -17,10 +17,6 @@
   overflow-x: hidden; 
 }
 
-.rodapePage-avaAdm{
-  height: 40px;
-}
-
 /* DE 320 a 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
@@ -177,6 +173,10 @@
   font-size: 1.5rem;
   font-weight: 200;
   color: #7C2728;
+}
+
+.rodapePage-avaAdm{
+  height: 40px;
 }
 }
 
@@ -336,6 +336,10 @@
   font-size: 1.5rem;
   font-weight: 200;
   color: #7C2728;
+}
+
+.rodapePage-avaAdm{
+  height: 40px;
 }
 }
 
