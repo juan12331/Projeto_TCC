@@ -20,7 +20,7 @@ const Usuarios = () => {
         await getUser().then(data => console.log('log'))
       } catch(error) {
         console.log(error);
-        if (error.status == 401) {
+        if (error.status == 403 || error.status == 401) {
           window.alert('acesso não autorizado')
           window.location.href = "/login"
         }

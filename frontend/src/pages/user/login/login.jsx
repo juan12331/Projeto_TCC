@@ -4,10 +4,6 @@ import { useState, useEffect } from "react";
 import "./login.css";
 import { loginUser, getUsersByCpf } from "../../../services/Api_service";
 
-
-
-
-
 const Login = () => {
 
   async function verificar () {
@@ -80,7 +76,7 @@ const Login = () => {
             <form className="login-form">
               <h1 className="login-texto">LOGIN</h1>
               <div>
-                <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="cpf" />
+                <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="CPF" />
               </div>
               <div>
                 <input type="password" className="login-input" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="SENHA" />
