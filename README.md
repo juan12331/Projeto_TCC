@@ -1,6 +1,8 @@
 # Projeto_TCC
 ***Readme incompleto***
 
+crie um arquivo .env na pasta backend
+
 Como configurar o arquivo .env
 ```
 TOKEN_SECRETO_JWT=[escreva seu token aqui]
