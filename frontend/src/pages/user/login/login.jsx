@@ -4,10 +4,6 @@ import { useState, useEffect } from "react";
 import "./login.css";
 import { loginUser, getUsersByCpf } from "../../../services/Api_service";
 
-
-
-
-
 const Login = () => {
 
   async function verificar () {
@@ -93,6 +89,7 @@ const Login = () => {
               Não tem login? <a href="cadastro">Cadastre-se</a>
           </div>
         </form>
+
       </div>
     </div>
     );

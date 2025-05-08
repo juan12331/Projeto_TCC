@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./quartos.css";
-import logo from "/src/assets/img/Logo.png";
 import img from "/src/assets/quartos/domo_quartos.png";
 import img1 from "/src/assets/quartos/image 120.png";
 import img2 from "/src/assets/quartos/image 114.png";

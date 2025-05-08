@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const Usuarios = require('../models/usuarios');
 const tipos_usuarios = require('../models/tipos_usuarios');
 
-const CHAVE_SECRETA = 'senai928';
+const CHAVE_SECRETA = process.env.TOKEN_SECRETO_JWT;
 
 // Middleware de autenticação JWT
 const autenticarJWT = (req, res, next) => {
