@@ -23,6 +23,12 @@
   transition-duration: 0.3s;
 }
 
+.textNome-perfil:focus, .textEmail-perfil:focus, .textTel-perfil:focus{
+  border: 2px solid #886b31;
+  outline: none; 
+  border-radius: 10px;
+}
+
 /* DE 1025 em diante */
 @media (min-width: 1025px){
 
@@ -87,14 +93,21 @@
   margin-top: 20px;
 }
 
-.nomeText-perfil, .finalText-perfil{
+.infoForm-perfil{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 80px;
+}
+
+.finalText-perfil{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
 
-.textInfo-perfil, .finalInfo-perfil{
+.finalInfo-perfil{
   font-family: "Katibeh";
   font-weight: 300;
   font-size: 1.6rem;
@@ -102,10 +115,81 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.textNome-perfil, .textNome-perfil::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 260px;
+}
+
+.textEmail-perfil, .textEmail-perfil::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 340px;
+}
+
+.textTel-perfil, .textTel-perfil::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 130px;
+}
+
+.textCpf-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0;
 }
 
-.textStyle-perfil, .finalStyle-perfil{
+.textStyle-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #960d10;
+  width: 10=30px;
+}
+
+.pencilIcon-perfil{
+  color: #5a1819;
+  height: 18px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.finalStyle-perfil{
   font-family: "Katibeh";
   font-weight: 300;
   font-size: 1.7rem;

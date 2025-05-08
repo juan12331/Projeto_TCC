@@ -1,6 +1,6 @@
 import "./perfil.css";
 import NavbarUser from "../../../assets/components/navbarUser";
-
+import { Pencil } from "react-bootstrap-icons";
 
 function Perfil() {
   return (
@@ -16,24 +16,27 @@ function Perfil() {
             />
           </div>
           <div className="info-perfil">
-            <div className="text-perfil">
-              <div className="nomeText-perfil">
+            <form className="text-perfil">
+              <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">Nome:</h1>
-                <h2 className="textInfo-perfil"> Neymar da Silva Santos Junior</h2>
+                <input type="text" placeholder="Neymar da Silva Santos Junior" className="textNome-perfil" />
+                <Pencil className="pencilIcon-perfil"/>
               </div>
-              <div className="nomeText-perfil">
+              <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">Email:</h1>
-                <h2 className="textInfo-perfil"> Neymardasilvasantosjunior@gmail.com</h2>
+                <input type="email" placeholder="Neymardasilvasantosjunior@gmail.com" className="textEmail-perfil" />
+                <Pencil className="pencilIcon-perfil"/>
               </div>
-              <div className="nomeText-perfil">
+              <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">CPF:</h1>
-                <h2 className="textInfo-perfil"> 382.443.358-31</h2>
+                <h2 className="textCpf-perfil"> 382.443.358-31</h2>
               </div>
-              <div className="nomeText-perfil">
+              <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">Numero De Telefone:</h1>
-                <h2 className="textInfo-perfil">  55 13 3476-1111</h2>
+                <input type="tel" placeholder="55 13 3476-1111" className="textTel-perfil" />
+                <Pencil className="pencilIcon-perfil"/>
               </div>
-            </div>
+            </form>
           </div>
         </div>
 
