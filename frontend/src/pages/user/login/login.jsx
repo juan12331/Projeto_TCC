@@ -46,14 +46,16 @@ const Login = () => {
     }
 
     loginUser(cpf, senha).then(data => {
+      
       localStorage.setItem("cpf", data.usuario.cpf);
       if (data.usuario.tipoUsuario == '2') {
         navigate('/')
         return;
       } if (data.usuario.tipoUsuario == '1') {
         window.location.href = '/Usuarios'
+        return
       }
-    }).catch(err => console.log(err))
+    }).catch(err => showError('Cpf ou senha incorretos'))
   }
 
   const showError = (message) => {
@@ -79,13 +81,14 @@ const Login = () => {
           <div>
             <input type="password" className="login-input" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="SENHA" />
           </div>
-          <div className="row">
-            <span className='error' id='span'></span>
-          </div>
+          
           <div className="forgot-password">
             <a href="ForgotPassword" className="forgot-password2">Esqueci Minha senha</a> <span></span>
           </div>
           <button type="button" className="login-button" onClick={Logar}>ENTRAR</button>
+          <div className="row">
+            <span className='error' id='span'></span>
+          </div>
           <div className="signup-link">
             Não tem login? <a href="cadastro">Cadastre-se</a>
           </div>

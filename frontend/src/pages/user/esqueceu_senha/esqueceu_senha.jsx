@@ -24,12 +24,16 @@ const ForgotPassword = () => {
     })
   }
 
-  async function mandarEmail () {
+  async function mandarEmail (e) {
+    e.preventdefault()
     localStorage.clear() 
         if (cpf == '') {
-          showError('digite seu cpf')
+          showError('Digite seu CPF')
           return;
         }
+        await getUsersByCpf(cpf).then(data =>{
+
+        }).catch(error => showError('Cpf não encontrado'))
 
   }
 
@@ -65,10 +69,11 @@ const ForgotPassword = () => {
               <div>
                 <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="Digite o seu cpf" />
               </div>
+              
+              <button type="button" className="login-button" onClick={mandarEmail(e)}>Mandar Email</button>
               <div className="row">
               <span className='error' id='span'></span>
             </div>
-              <button type="button" className="login-button" onClick={mandarEmail}>Mandar Email</button>
               <div className="signup-link">
                   Não tem conta? <a href="cadastro">Cadastre-se</a>
               </div>
