@@ -101,6 +101,7 @@
   max-width: 20vh;
   height: 52px;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .login-button:hover{
@@ -111,22 +112,22 @@
 .login-page .signup-link, a {
   color: #ffffffb7;
   font-family: "Katibeh";
-  font-size: 3vh;
-  margin-top: 1.5vh;
+  font-size: 1.7rem;
+  margin-top: 7px;
 }
 
 .forgot-password{
-  margin-top: -3vh;
-  font-size: small;
-  margin-bottom: 1.5vh;
-  width: 43%;
   display: flex;
-  justify-content: flex-start;
-}
-
-.forgot-password2{
-  color: rgb(0, 153, 255);
-  font-size: x-large;
+  justify-content: center;
+  align-items: center;
+  color: #ffffffb7;
+  background-color: transparent;
+  border: none;
+  font-family: "Katibeh";
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: underline;
+  height: 10px;
 }
 
 .login-input{

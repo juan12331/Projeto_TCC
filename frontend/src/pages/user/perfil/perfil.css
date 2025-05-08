@@ -23,11 +23,14 @@
   transition-duration: 0.3s;
 }
 
-/* DE 1025 em diante */
-@media (min-width: 1025px){
+.textNome-perfil:focus, .textEmail-perfil:focus, .textTel-perfil:focus{
+  border: 2px solid #886b31;
+  outline: none; 
+  border-radius: 10px;
+}
 
 .container-perfil{
-  width: 80%;
+  width: 90%;
   height: 700px;
   background-color: #efe5d1cb;
   border-radius: 20px;
@@ -54,7 +57,7 @@
   color: #7C2728;
   font-family: "Chonburi";
   font-weight: 300;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
 }
 
 .info-perfil{
@@ -87,14 +90,46 @@
   margin-top: 20px;
 }
 
-.nomeText-perfil, .finalText-perfil{
+.infoForm-perfil{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 50px;
+}
+
+.finalText-perfil{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
 
-.textInfo-perfil, .finalInfo-perfil{
+.finalInfo-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textNome-perfil, .textNome-perfil::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 260px;
+}
+
+.textEmail-perfil, .textEmail-perfil::placeholder{
   font-family: "Katibeh";
   font-weight: 300;
   font-size: 1.6rem;
@@ -103,9 +138,54 @@
   justify-content: center;
   align-items: center;
   margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 330px;
 }
 
-.textStyle-perfil, .finalStyle-perfil{
+.textTel-perfil, .textTel-perfil::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 130px;
+}
+
+.textCpf-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+
+.textStyle-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #960d10;
+  width: 10=30px;
+}
+
+.pencilIcon-perfil{
+  color: #5a1819;
+  height: 18px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.finalStyle-perfil{
   font-family: "Katibeh";
   font-weight: 300;
   font-size: 1.7rem;
@@ -113,7 +193,16 @@
 }
 
 .linhaMeio-perfil{
+  width: 3px;
   height: 700px;
+  background-color: #7C2728; 
+}
+
+.linha-perfil{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 50px;
 }
 
 .left-perfil{
@@ -175,5 +264,4 @@
   border-radius: 10px;
   font-family: "Kay Pho Du";
   font-weight: 800;
-}
 }

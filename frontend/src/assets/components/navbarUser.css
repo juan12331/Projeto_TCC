@@ -29,6 +29,15 @@
    justify-content: center;
    text-align: center;
    align-items: center;
+   width: 90px;
+}
+
+.img-navbar{
+   width: 90px;
+   display: flex;
+   justify-content: center;
+   padding: 0;
+   margin: 0;
 }
    
 .nav-item.active{
@@ -59,14 +68,23 @@
 
 .nav-item{
    color: #7C2728;
-   font-size: 1.3rem;
+   font-size: 1.2rem;
    font-family: "Katibeh";
    text-decoration: none;
    display: flex;
    justify-content: center;
    text-align: center;
    align-items: center;
+   width: 100px;
  }
+
+.img-navbar{
+   width: 100px;
+   display: flex;
+   justify-content: center;
+   padding: 0;
+   margin: 0;
+}
 
 .nav-item.active{
    background-color: #CCAA6B; 
@@ -103,6 +121,15 @@
    justify-content: center;
    text-align: center;
    align-items: center;
+   width: 150px;
+}
+
+.img-navbar{
+   width: 150px;
+   display: flex;
+   justify-content: center;
+   padding: 0;
+   margin: 0;
 }
 
 .nav-item.active{
