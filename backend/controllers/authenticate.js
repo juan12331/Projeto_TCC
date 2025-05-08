@@ -7,8 +7,14 @@ const CHAVE_SECRETA = process.env.TOKEN_SECRETO_JWT;
 
 // Middleware de autenticação JWT
 const autenticarJWT = (req, res, next) => {
+    // Primeiro tenta pegar do cabeçalho de autorização
     const authHeader = req.headers.authorization;
-    const token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
+    let token = authHeader && authHeader.split(' ')[1]; // Bearer <token>
+    
+    // Se não encontrar no cabeçalho, tenta pegar do cookie
+    if (!token && req.cookies.token) {
+        token = req.cookies.token;
+    }
 
     if (!token) {
         return res.status(401).send('Token de autenticação não fornecido');
@@ -59,8 +65,6 @@ const loginJWT = async (req, res) => {
         if (!senhaCorreta) {
             return res.status(401).send('Senha incorreta');
         }
-
-        console.log(usuario.cpf, usuario.nome, usuario.id_tipo)
 
         const token = jwt.sign(
             {
