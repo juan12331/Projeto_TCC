@@ -112,7 +112,21 @@
   color: #ffffffb7;
   font-family: "Katibeh";
   font-size: 3vh;
-  margin-top: 3vh;
+  margin-top: 1.5vh;
+}
+
+.forgot-password{
+  margin-top: -3vh;
+  font-size: small;
+  margin-bottom: 1.5vh;
+  width: 43%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.forgot-password2{
+  color: rgb(0, 153, 255);
+  font-size: x-large;
 }
 
 .login-input{

@@ -69,12 +69,12 @@ const loginJWT = async (req, res) => {
                 tipoUsuario: usuario.id_tipo
             },
             CHAVE_SECRETA,
-            { expiresIn: '1h' }
+            { expiresIn: '24h' }
         );
 
         res.cookie('token', token, {
             httpOnly: true,
-            maxAge: 3600000
+            maxAge: 86400000
         });
 
         return res.json({
