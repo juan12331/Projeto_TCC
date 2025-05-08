@@ -136,20 +136,20 @@
 /* DE 320 A 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
-  .logo_login {
-    width: 30vh; 
-    height: auto;     
-    margin-bottom: 4vh;
-  }
+.logo_login {
+  width: 30vh; 
+  height: auto;     
+  margin-bottom: 4vh;
+}
 
-  .login-input{
-    background-color: #ffffffb7;
-    border-radius: 2vh;
-    padding-left: 2vh;
-    margin-bottom: 2vh;
-    padding-inline-end: 2vh;
-    border: none;
-    width: 30vh;
-    height: 5vh;
-  }
+.login-input{
+  background-color: #ffffffb7;
+  border-radius: 2vh;
+  padding-left: 2vh;
+  margin-bottom: 2vh;
+  padding-inline-end: 2vh;
+  border: none;
+  width: 30vh;
+  height: 5vh;
+}
 }

@@ -63,7 +63,7 @@ function PerfilAdm() {
             <div></div>
           </div>
         </div>
-        <img src="/src/assets/img/linha.png" width="100%" />
+        {/* <img src="/src/assets/img/linha.png" width="100%" /> */}
         <div className="parte-de-baixoAdm">
           <div className="domo_perfil_imgAdm">
             <img
