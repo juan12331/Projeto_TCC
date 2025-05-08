@@ -25,7 +25,12 @@ const ForgotPassword = () => {
   }
 
   async function mandarEmail () {
-    console.log('DO IT')
+    localStorage.clear() 
+        if (cpf == '') {
+          showError('digite seu cpf')
+          return;
+        }
+
   }
 
   useEffect(() => {
@@ -48,9 +53,9 @@ const ForgotPassword = () => {
     <div className="login-page">
       <div className="fundo-login">
         <div className="back-container">
-          <button onClick={() => navigate("/")} className="back-button"> ← </button>
+          <button onClick={() => navigate("/login")} className="back-button"> ← </button>
           <h1 className="back-line">|</h1>
-          <button onClick={() => navigate("/")} className="back-text"> LOGIN </button>
+          <button onClick={() => navigate("/login")} className="back-text"> LOGIN </button>
         </div>
           <div className="container-login">
             <img className="logo_login" src="./src/assets/imgLogin/logo_login.png" alt="" />
