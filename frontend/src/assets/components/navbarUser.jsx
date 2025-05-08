@@ -17,8 +17,10 @@ const NavbarUser = () => {
         <Link to="/contato" className={`nav-item ${location.pathname === "/contato" ? "active" : ""}`}>
             CONTATO
         </Link>
-
-        <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="" />
+        
+        <Link to="/" className="img-navbar">
+            <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
+        </Link>
 
         <Link to="/acomodacoes" className={`nav-item ${ location.pathname === "/acomodacoes" || location.pathname === "/quartos" ? "active" : ""}`}>
             ACOMODAÇÕES

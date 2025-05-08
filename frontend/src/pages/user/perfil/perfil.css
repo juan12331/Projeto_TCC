@@ -29,11 +29,8 @@
   border-radius: 10px;
 }
 
-/* DE 1025 em diante */
-@media (min-width: 1025px){
-
 .container-perfil{
-  width: 80%;
+  width: 90%;
   height: 700px;
   background-color: #efe5d1cb;
   border-radius: 20px;
@@ -60,7 +57,7 @@
   color: #7C2728;
   font-family: "Chonburi";
   font-weight: 300;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
 }
 
 .info-perfil{
@@ -97,7 +94,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  padding-left: 80px;
+  padding-left: 50px;
 }
 
 .finalText-perfil{
@@ -140,11 +137,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   margin: 0;
   background-color: transparent;
   border: none;
-  width: 340px;
+  width: 330px;
 }
 
 .textTel-perfil, .textTel-perfil::placeholder{
@@ -197,7 +193,16 @@
 }
 
 .linhaMeio-perfil{
+  width: 3px;
   height: 700px;
+  background-color: #7C2728; 
+}
+
+.linha-perfil{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 50px;
 }
 
 .left-perfil{
@@ -259,5 +264,4 @@
   border-radius: 10px;
   font-family: "Kay Pho Du";
   font-weight: 800;
-}
 }

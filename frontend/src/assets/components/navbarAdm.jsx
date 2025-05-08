@@ -23,7 +23,9 @@ const NavbarAdm = () => {
             QUARTOS
         </Link>
 
-        <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="" />
+        <Link to="/" className="img-navbar">
+          <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
+        </Link>
 
         <Link to="/avaliacoesAdm" className={`nav-item ${ location.pathname === "/avaliacoesAdm" || location.pathname === "/Avaliacao"?  "active" : ""}`}>
 

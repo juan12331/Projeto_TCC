@@ -41,7 +41,7 @@ function Perfil() {
         </div>
 
         <div className="linha-perfil">
-          <img className="linhaMeio-perfil" src="/src/assets/img/linha.png" width="100%" />
+          <div className="linhaMeio-perfil"></div>
         </div>
 
         <div className="left-perfil">
