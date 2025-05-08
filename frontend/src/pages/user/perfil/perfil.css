@@ -19,7 +19,7 @@
 }
 
 .sair-perfil:hover{
-  background-color: #962c2e;
+  background-color: #a01e23;
   transition-duration: 0.3s;
 }
 
@@ -55,7 +55,6 @@
   font-family: "Chonburi";
   font-weight: 300;
   font-size: 2.2rem;
-  /* margin-top: 50px; */
 }
 
 .info-perfil{
@@ -84,24 +83,32 @@
   display: grid;
   flex-direction: column;
   height: auto;
-  gap: 10px;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.nomeText-perfil, .emailText-perfil, .cpfText-perfil, .telefoneText-perfil{
-  font-family: "Katibeh";
-  font-weight: 300;
-  font-size: 1.5rem;
-  color: #7C2728;
-  margin-top: 10px;
+.nomeText-perfil, .finalText-perfil{
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
-.textStyle-perfil{
+.textInfo-perfil, .finalInfo-perfil{
   font-family: "Katibeh";
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.textStyle-perfil, .finalStyle-perfil{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.7rem;
   color: #960d10;
 }
 
@@ -120,38 +127,53 @@
 .domo_perfil_img{
   width: 350px;
   height: 350px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .text-perfilFinal{
   display: grid;
   flex-direction: column;
   height: auto;
-  gap: 5px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .domoText-perfil, .pagarText-perfil{
   font-family: "Katibeh";
   font-weight: 200;
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: #7C2728;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.sairConta-perfil{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 45px;
+}
+
 .sair-perfil{
   color: #EFE5D1;
-  background-color: #712122e1;
+  background-color: #712123;
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
   border-radius: 10px;
-  width: 20%;
+  width: 50%;
   height: 50px;
   font-family: "Kay Pho Du";
   font-weight: 600;
-  margin-top: 30px;
+}
+
+.conta-perfil{
+  color: #712123;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  font-family: "Kay Pho Du";
+  font-weight: 800;
 }
 }

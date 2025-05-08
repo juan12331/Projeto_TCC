@@ -17,10 +17,22 @@ function Perfil() {
           </div>
           <div className="info-perfil">
             <div className="text-perfil">
-              <h3 className="nomeText-perfil"><h4 className="textStyle-perfil">Nome:</h4> Neymar da Silva Santos Junior</h3>
-              <h3 className="emailText-perfil"><h4 className="textStyle-perfil">Email:</h4> Neymardasilvasantosjunior@gmail.com</h3>
-              <h3 className="cpfText-perfil"><h4 className="textStyle-perfil">CPF:</h4> 382.443.358-31</h3>
-              <h3 className="telefoneText-perfil"><h4 className="textStyle-perfil">Numero De Telefone:</h4> 55 13 3476-1111</h3>
+              <div className="nomeText-perfil">
+                <h1 className="textStyle-perfil">Nome:</h1>
+                <h2 className="textInfo-perfil"> Neymar da Silva Santos Junior</h2>
+              </div>
+              <div className="nomeText-perfil">
+                <h1 className="textStyle-perfil">Email:</h1>
+                <h2 className="textInfo-perfil"> Neymardasilvasantosjunior@gmail.com</h2>
+              </div>
+              <div className="nomeText-perfil">
+                <h1 className="textStyle-perfil">CPF:</h1>
+                <h2 className="textInfo-perfil"> 382.443.358-31</h2>
+              </div>
+              <div className="nomeText-perfil">
+                <h1 className="textStyle-perfil">Numero De Telefone:</h1>
+                <h2 className="textInfo-perfil">  55 13 3476-1111</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -38,10 +50,19 @@ function Perfil() {
             />
           </div>
           <div className="text-perfilFinal">
-            <h4 className="domoText-perfil">Domo: 3 noites</h4>
-            <h4 className="pagarText-perfil">Total a pagar: R$ 1770,00</h4>
+            <div className="finalText-perfil">
+              <h1 className="finalStyle-perfil">Domo:</h1>
+              <h2 className="finalInfo-perfil">3 noites</h2>
+            </div>
+            <div className="finalText-perfil">
+              <h1 className="finalStyle-perfil">Total a pagar:</h1>
+              <h2 className="finalInfo-perfil">R$ 1770,00</h2>
+            </div>
           </div>
-          <button onClick={() => navigate("/")} className="sair-perfil"> Sair </button>
+          <div className="sairConta-perfil">
+            <h1 className="conta-perfil">Deseja sair da sua conta?</h1>
+            <button onClick={() => navigate("/")} className="sair-perfil"> Sair </button>
+          </div>
         </div>
       </div>
     </div>
