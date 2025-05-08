@@ -6,14 +6,14 @@ import { loginUser, getUsersByCpf } from "../../../services/Api_service";
 
 const Login = () => {
 
-  async function verificar () {
+  async function verificar() {
     const cpfzin = localStorage.getItem('cpf')
     console.log(cpfzin)
     if (cpfzin == null || cpfzin == undefined) {
       return;
     }
     await getUsersByCpf(cpfzin).then(data => {
-      if (data.tipos_usuario.permissao == 'user'){
+      if (data.tipos_usuario.permissao == 'user') {
         navigate('/')
         return;
       } if (data.tipos_usuario.permissao == 'admin') {
@@ -37,24 +37,22 @@ const Login = () => {
     return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
   }
 
-  
+
   function Logar() {
-    localStorage.clear() 
+    localStorage.clear()
     if (cpf == '' || senha == '') {
       showError('preencha todos os campos')
       return;
     }
 
     loginUser(cpf, senha).then(data => {
-      console.log(data.usuario.tipoUsuario)
-      
-     localStorage.setItem("cpf", data.usuario.cpf);
-      if (data.usuario.tipoUsuario == '2') {     
+      localStorage.setItem("cpf", data.usuario.cpf);
+      if (data.usuario.tipoUsuario == '2') {
         navigate('/')
         return;
-      } else if ( data.usuario.tipoUsuario == '1') {
-      window.location.href = '/Usuarios'
-    }
+      } if (data.usuario.tipoUsuario == '1') {
+        window.location.href = '/Usuarios'
+      }
     }).catch(err => console.log(err))
   }
 
@@ -62,7 +60,7 @@ const Login = () => {
     const span = document.getElementById('span');
     span.textContent = message;
   }
-    return (
+  return (
     <div className="login-page">
       <div className="fundo-login">
         <div className="back-container">
@@ -84,15 +82,18 @@ const Login = () => {
           <div className="row">
             <span className='error' id='span'></span>
           </div>
+          <div className="forgot-password">
+            <a href="ForgotPassword" className="forgot-password2">Esqueci Minha senha</a> <span></span>
+          </div>
           <button type="button" className="login-button" onClick={Logar}>ENTRAR</button>
           <div className="signup-link">
-              Não tem login? <a href="cadastro">Cadastre-se</a>
+            Não tem login? <a href="cadastro">Cadastre-se</a>
           </div>
         </form>
 
       </div>
     </div>
-    );
-  };
+  );
+};
 
 export default Login;
