@@ -122,7 +122,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin: 0;
   background-color: transparent;
   border: none;
@@ -137,6 +137,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: left;
   margin: 0;
   background-color: transparent;
   border: none;
@@ -151,7 +152,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin: 0;
   background-color: transparent;
   border: none;
@@ -166,7 +167,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin: 0;
 }
 
