@@ -1,4 +1,4 @@
-.div-mae-perilAdm{
+/* .div-mae-perilAdm{
   background-image: url("/src/assets/img/imgPerfil2.png");
   background-size: cover;
   background-position: center;
@@ -116,17 +116,17 @@
 
 .text-perfil-3Adm{
   margin-left: 20px;
-}
+} */
 
-.perfil-button1Adm {
+/* .perfil-button1Adm {
   width: 150px;
   height: 45px;
   border-radius: 20px;
   background-color: #7F2727;
   border: none;
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; 
+  justify-content: center; 
   color: #EFE5D1;
   cursor: pointer;
   font-family: "Katibeh, cursive";
@@ -143,8 +143,8 @@
   background-color: #7F2727;
   border: none;
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; 
+  justify-content: center; 
   color: #EFE5D1;
   cursor: pointer;
   font-family: "Katibeh, cursive";
@@ -152,4 +152,296 @@
   font-weight: bold;
 
   margin-top: 20px;
+} */
+
+*{
+  margin: 0vh;
+  padding: 0vh;
+  box-sizing: border-box;
+}
+
+.div-mae-perilAdm{
+  background-image: url("/src/assets/img/imgPerfil2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  margin: 0vh;
+  padding: 0vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-containerAdm{
+  display: flex;
+  align-items: center; 
+  gap: 1vh;
+  padding-left: 30px;
+  height: 120px;
+  width: 10px;
+  z-index: 100;
+}
+
+.back-buttonAdm{
+  color: #7C2728;
+  background-color: #fffbfb00;
+  border: none;
+  font-size: 6vh;
+  cursor: pointer;
+}
+
+.back-lineAdm{
+  color: #7C2728;
+  font-size: 6vh;
+}
+
+.back-textAdm{
+  color: #7C2728;
+  background-color: #fffbfb00;
+  font-size: 4vh;
+  font-family: "Katibeh";
+  border: none;
+  cursor: pointer;
+}
+
+.perfil-button1Adm:hover, .perfil-button2Adm:hover{
+  background-color: #a01e23;
+  transition-duration: 0.3s;
+}
+
+.textNome-perfilAdm:focus, .textEmail-perfilAdm:focus, .textTel-perfilAdm:focus{
+  border: 2px solid #886b31;
+  outline: none; 
+  border-radius: 10px;
+}
+
+.container-perfilAdm{
+  width: 90%;
+  height: 700px;
+  background-color: #efe5d1cb;
+  border-radius: 20px;
+  margin-top: 150px;
+  display: flex;
+}
+
+.right-perfilAdm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.infoText-perfilAdm{
+  color: #7C2728;
+  font-family: "Chonburi";
+  font-weight: 300;
+  font-size: 2.2rem;
+}
+
+.reservados-perfilAdm{
+  color: #7C2728;
+  font-family: "Chonburi";
+  font-weight: 300;
+  font-size: 2.1rem;
+}
+
+.info-perfilAdm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.img-possition-perfilAdm{
+  margin-top: 40px;
+}
+
+.imgInfo-perfilAdm{
+  width: 300px;
+}
+
+.img-perfil-iconeAdm{
+  width: 200px;
+  height: 200px;
+  margin-top: 40px;
+}
+
+.text-perfilAdm{
+  display: grid;
+  flex-direction: column;
+  height: auto;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.infoForm-perfilAdm{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: 50px;
+}
+
+.finalText-perfilAdm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.finalInfo-perfilAdm{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textNome-perfilAdm, .textNome-perfilAdm::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 260px;
+}
+
+.textEmail-perfilAdm, .textEmail-perfilAdm::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 330px;
+}
+
+.textTel-perfilAdm, .textTel-perfilAdm::placeholder{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 130px;
+}
+
+.textCpf-perfilAdm{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+
+.textStyle-perfilAdm{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #960d10;
+  width: 10=30px;
+}
+
+.pencilIcon-perfilAdm{
+  color: #5a1819;
+  height: 18px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.finalStyle-perfilAdm{
+  font-family: "Katibeh";
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #960d10;
+}
+
+.linhaMeio-perfilAdm{
+  width: 3px;
+  height: 700px;
+  background-color: #7C2728; 
+}
+
+.linha-perfilAdm{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 50px;
+}
+
+.left-perfilAdm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.domo_perfil_imgAdm{
+  width: 350px;
+  height: 350px;
+  margin-top: 30px;
+}
+
+.text-perfilFinalAdm{
+  display: grid;
+  flex-direction: column;
+  height: auto;
+  margin-top: 10px;
+}
+
+.domoText-perfilAdm, .pagarText-perfilAdm{
+  font-family: "Katibeh";
+  font-weight: 200;
+  font-size: 2rem;
+  color: #7C2728;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sairConta-perfilAdm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 45px;
+}
+
+.perfil-button1Adm, .perfil-button2Adm{
+  color: #EFE5D1;
+  background-color: #712123;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 120%;
+  height: 50px;
+  font-family: "Kay Pho Du";
+  font-weight: 600;
 }
