@@ -92,7 +92,7 @@ function PerfilAdm() {
         </div>
         <div className="sairConta-perfilAdm">
           <button type="submit" className="perfil-button1Adm">Excluir perfil</button>
-          <button type="submit" className="perfil-button2Adm">Desmarcar perfil</button>
+          <button type="submit" className="perfil-button2Adm">Editar perfil</button>
         </div>
       </div>
     </div>
