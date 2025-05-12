@@ -110,7 +110,11 @@ function PerfilAdm() {
           </div>
         </div>
         <div className="sairConta-perfilAdm">
+<<<<<<< HEAD
           <button type="submit" className="perfil-button1Adm" onClick={deletarusuario}>Excluir perfil</button>
+=======
+          <button type="submit" className="perfil-button1Adm">Excluir perfil</button>
+>>>>>>> bb959d37a13aa0e66af4586f40ed400dea11282c
           <button type="submit" className="perfil-button2Adm">Editar perfil</button>
         </div>
       </div>
