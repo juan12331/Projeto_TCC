@@ -1,8 +1,17 @@
 import "./perfil.css";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { Pencil } from "react-bootstrap-icons";
+import { logout } from "../../../services/Api_service";
+
+
 
 function Perfil() {
+
+  async function deslogar() {
+            logout()
+            window.location.href = '/login'
+  }
+
   return (
     <div className="div-mae-peril">
       <NavbarUser />
@@ -64,7 +73,7 @@ function Perfil() {
           </div>
           <div className="sairConta-perfil">
             <h1 className="conta-perfil">Deseja sair da sua conta?</h1>
-            <button onClick={() => navigate("/")} className="sair-perfil"> Sair </button>
+            <button onClick={() => deslogar()} className="sair-perfil"> Sair </button>
           </div>
         </div>
       </div>

@@ -3,15 +3,27 @@ import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useEffect, useState } from "react";
 import { Pencil } from "react-bootstrap-icons";
 import { getUser } from "../../../services/Api_service";
-
+import { useParams } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import { getUsersByCpf, deleteUser } from "../../../services/Api_service";
 
 function PerfilAdm() {
   const navigate = useNavigate();
 
+  const cpf = useParams()
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [tel, setTel] = useState('')
+
+
   useEffect(() => {
         verificacao()
+        preencher()
         }, [])
+
+        async function deletarusuario() {
+          await deleteUser(cpf)
+        }
     
         async function verificacao() {
               try{
@@ -24,7 +36,14 @@ function PerfilAdm() {
                 }
               }
             }
-        
+
+            async function preencher(){
+              getUsersByCpf(cpf.cpf).then(data =>{
+                setNome(data.nome)
+                setEmail(data.email)
+                setTel(data.telefone)
+              }).catch(error => console.log(error))
+            }
 
   return (
   <div className="div-mae-perilAdm">
@@ -47,21 +66,21 @@ function PerfilAdm() {
           <form className="text-perfilAdm">
             <div className="infoForm-perfilAdm">
               <h1 className="textStyle-perfilAdm">Nome:</h1>
-              <input type="text" placeholder="Neymar da Silva Santos Junior" className="textNome-perfilAdm" />
+              <input type="text" value={nome} className="textNome-perfilAdm" onChange={(e) => setNome(e.target.value)} />
               <Pencil className="pencilIcon-perfilAdm"/>
             </div>
             <div className="infoForm-perfilAdm">
               <h1 className="textStyle-perfilAdm">Email:</h1>
-              <input type="email" placeholder="Neymardasilvasantosjunior@gmail.com" className="textEmail-perfilAdm" />
+              <input type="email" value={email} className="textEmail-perfilAdm" onChange={(e) => setEmail(e.target.value)} />
               <Pencil className="pencilIcon-perfilAdm"/>
             </div>
             <div className="infoForm-perfilAdm">
               <h1 className="textStyle-perfilAdm">CPF:</h1>
-              <h2 className="textCpf-perfilAdm"> 382.443.358-31</h2>
+              <h2 className="textCpf-perfilAdm"> {cpf.cpf}</h2>
             </div>
             <div className="infoForm-perfilAdm">
               <h1 className="textStyle-perfilAdm">Numero De Telefone:</h1>
-              <input type="tel" placeholder="55 13 3476-1111" className="textTel-perfilAdm" />
+              <input type="tel" value={tel} onChange={(e) => setTel(e.target.value)} className="textTel-perfilAdm" />
               <Pencil className="pencilIcon-perfilAdm"/>
             </div>
           </form>
@@ -91,8 +110,8 @@ function PerfilAdm() {
           </div>
         </div>
         <div className="sairConta-perfilAdm">
-          <button type="submit" className="perfil-button1Adm">Excluir perfil</button>
-          <button type="submit" className="perfil-button2Adm">Desmarcar perfil</button>
+          <button type="submit" className="perfil-button1Adm" onClick={deletarusuario}>Excluir perfil</button>
+          <button type="submit" className="perfil-button2Adm">Editar perfil</button>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const autenticacao = require('../controllers/authenticate');
 // const authenticate = require('../controllers/authenticate');
 
 // função dos usuarios
-routes.post('/login', autenticacao.loginJWT);
+routes.post('/login', autenticacao.loginJWT); 
 routes.post('/usuarios', UsuariosControllers.createUsuario);
 
 routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf);
@@ -24,7 +24,7 @@ routes.delete('/usuarios/:cpf', autenticacao.autenticarJWT,
 
 routes.put('/usuarios/:cpf', autenticacao.autenticarJWT, UsuariosControllers.updateUsuario);
 
-routes.post('/logout', autenticacao.logout)
+routes.post('/logout', autenticacao.logout) 
 
 // função do tipos de usuario
 routes.post('/tiposusuarios', autenticacao.autenticarJWT,

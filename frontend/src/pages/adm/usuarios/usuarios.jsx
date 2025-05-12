@@ -9,11 +9,20 @@ import { getUser } from "../../../services/Api_service";
 
 const Usuarios = () => {
 
-
+const [usuarios, setUsuarios] = useState([])
+const [pesquisa, setPesquisa] = useState('')
 
    useEffect(() => {
     verificacao()
+    pegarUsuario()
     }, [])
+
+    async function pegarUsuario(pesquisa) {
+      await getUser(pesquisa).then(data => {
+        setUsuarios(data) 
+        console.log(usuarios)
+      }).catch(error => window.alert(error))
+    }
 
     async function verificacao() {
       try{
@@ -27,6 +36,16 @@ const Usuarios = () => {
       }
     }
 
+    function limite(text) {
+      if (text.length > 15) {
+        return text.substring(0, 15) + '...'
+      }
+      return text;
+    }
+
+    function view(cpf) {
+      window.location.href = `/PerfilAdm/${cpf}`
+    }
     return(
     <div className="usuarios-page">
         <NavbarAdm/>
@@ -42,10 +61,10 @@ const Usuarios = () => {
       <div className="fundo-usuarios">
         <div className="fundoPesquisa-usuarios">
           <div className="pesquisa-usuarios">
-          <input id='search' className='search-usuarios' placeholder='CPF ou NOME de usuário'></input>
+          <input id='search' className='search-usuarios' placeholder='CPF ou NOME de usuário' value={pesquisa} onChange={(e) => {setPesquisa(e.target.value)}}></input>
           </div>
         </div>
-        <button type="submit" className="buttonSearch-usuarios">BUSCAR</button>
+        <button type="submit" className="buttonSearch-usuarios" onClick={pegarUsuario}>BUSCAR</button>
       </div>
 
       <div className="layout-usuarios">
@@ -53,150 +72,19 @@ const Usuarios = () => {
           <h1 className="dataReserva-usuarios">Data da Reserva</h1>
         </div>
         <div className="grid1-usuarios">
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
+          {usuarios.map((usuarios,  index) =>
+          
+          <div className="fundoCards-usuarios" key={usuarios.cpf} onClick={() => view(usuarios.cpf)}>
 
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
             <img 
             className="cardsImg-usuarios" 
             src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
             alt="" 
             />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-        </div>
-
-        <div className="cards-usuarios">
-          <h1 className="dataReserva-usuarios">Data da Reserva</h1>
-        </div>
-        <div className="grid2-usuarios">
-        <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
-
-          <Link to="/perfilAdm" className="fundoCards-usuarios">
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">Nome</h1>
-            <h2 className="cpfCards-usuarios">CPF</h2>
-          </Link>
+            <h1 className="nomeCards-usuarios">{limite(usuarios.nome)}</h1>
+            <h2 className="cpfCards-usuarios">{limite(usuarios.cpf)}</h2>
+          </div>
+          )}
         </div>
       </div>
 

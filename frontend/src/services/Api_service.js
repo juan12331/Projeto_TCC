@@ -1,10 +1,7 @@
 import http from "./http"
 
 
-
-
 // funções usuarios
-
 
 export async function getUser(params){
     const response = await http.get('/usuarios', {params});
@@ -26,8 +23,6 @@ export async function loginUser(cpf, senha) {
 
     return response.data;
 }
-
-
 
 export async function logout() {
     await http.post('/logout');

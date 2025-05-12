@@ -7,19 +7,22 @@ import { loginUser, getUsersByCpf } from "../../../services/Api_service";
 const Login = () => {
 
   async function verificar() {
-    const cpfzin = localStorage.getItem('cpf')
-    console.log(cpfzin)
-    if (cpfzin == null || cpfzin == undefined) {
+    const cpfzin = localStorage.getItem('cpf');
+    console.log(cpfzin);
+  
+    if (!cpfzin) {
       return;
     }
+  
     await getUsersByCpf(cpfzin).then(data => {
-      if (data.tipos_usuario.permissao == 'user') {
-        navigate('/')
+      if (data.tipos_usuario.permissao === 'user') {
+        navigate('/');
         return;
-      } if (data.tipos_usuario.permissao == 'admin') {
-        navigate('/Usuarios')
       }
-    })
+      if (data.tipos_usuario.permissao === 'admin') {
+        navigate('/Usuarios');
+      }
+    });
   }
 
   useEffect(() => {

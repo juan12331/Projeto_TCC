@@ -30,7 +30,7 @@ function MainRoutes() {
       <Route path="/Criar_usuarios" element={<Criar_usuarios />} />
       <Route path="/AvaliacoesAdm" element={<AvaliacoesAdm />} />
       <Route path="/Avaliacao" element={<Avaliacao />} />
-      <Route path="/PerfilAdm" element={<PerfilAdm />} />
+      <Route path="/PerfilAdm/:cpf" element={<PerfilAdm />} />
       <Route path="/AcomodacoesAdm" element={<AcomodacoesAdm />} />
       <Route path="/quartosAdm" element={<QuartosAdm />} />
       
