@@ -7,7 +7,7 @@ import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusCircle } from "react-bootstrap-icons";
 import { useEffect } from "react";
-import { getUser } from "../../../services/Api_service";
+import { getUser, createQuarto} from "../../../services/Api_service";
 
 const AcomodacoesAdm = () => {
   const navigate = useNavigate();
@@ -39,6 +39,42 @@ const AcomodacoesAdm = () => {
   const handleCheckOutChange = (date) => {
     setCheckOut(date); 
   };
+
+  const [formularioVisivel, setFormularioVisivel] = useState(false);
+
+  const abrirFormulario = () => {
+    setFormularioVisivel(true);
+  };
+
+  const fecharFormulario = () => {
+    setFormularioVisivel(false);
+  };
+  
+  const [nome, setNome] = useState('')
+  const [preco, setPreco] = useState('')
+  const [descricao, setDescricao] = useState('')
+
+  async function Criar(e) {
+    e.preventDefault();
+
+    if (nome == '' ||  preco == '' || descricao == '') {
+      showError('preencha todos os campos')
+      return;
+    }
+
+    await createQuarto(nome, preco, descricao).then(data => {
+      if (data == 'quarto ja foi cadastrado'){
+        showError('Quarto Já Cadastrado')
+        return;
+      }
+    }).catch(err => console.log(err))
+  }
+
+  const showError = (message) => {
+    const span = document.getElementById('span');
+    span.textContent = message;
+  }
+  
 
   return (
     <div className="acomodacoes-pageAdm">
@@ -188,11 +224,20 @@ const AcomodacoesAdm = () => {
       
       <div className="final-acomodacoesAdm">
         <div className="fundoFinal-acomodacoesAdm">
-          <Link to="" className="gridAdicionar-acomodacoesAdm">
+          <Link onClick={abrirFormulario} className="gridAdicionar-acomodacoesAdm">
             <h1 className="textAdicionar-acomodacoesAdm">Adicionar nova Acomodação</h1>
             <PlusCircle className="adicionarIcon-acomodacoesAdm"/>
           </Link>
         </div>
+        {formularioVisivel && (
+          <div className="forms-acomodacoesAdm">
+            <input type="text" className="itensForms-acomodacoesAdm" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
+            <input type="text" className="itensForms-acomodacoesAdm" placeholder="Valor" value={preco} onChange={(e) => setPreco(e.target.value)}/>
+            <input type="text" className="itensForms-acomodacoesAdm" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
+            <button type="submit" className="buttonForms-acomodacoesAdm">Adicionar</button>
+            <button onClick={fecharFormulario} className="buttonForms-acomodacoesAdm">Fechar</button>
+          </div>
+         )}
       </div>
     </div>
   );
