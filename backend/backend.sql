@@ -82,7 +82,7 @@ INSERT INTO tipos_usuarios (permissao) VALUES
 -- 11. Inserir usuários
 INSERT INTO usuarios (cpf, nome, email, senha, id_tipo, telefone)
 VALUES
-('111.111.111-11', 'Adm', 'Adm@gmail.com', 'Adm', 1, '(12) 3123-1232'),
+('111.111.111-11', 'Adm', 'Adm@gmail.com', '$10$PnOoSUdYCkWgzGztPKs7NOKMizwgmxZBtW.IM3yDbOQgtPOJd2TUG', 1, '(12) 3123-1232'), --A senha equivale a 901.129.420-32Aa
 ('123.123.123-19', 'usuario já foi cadastrado', 'akjbfds@gmail.com', 'senha_hash2', 2, '(12) 3213-1212'),
 ('123.123.123-20', 'createUser', '123.123.123-21@gmail.com', 'senha_hash3', 2, '(12) 3123-1232'),
 ('123.123.123-21', 'asojd', 'aoiusjd1@gmail.com', 'senha_hash4', 2, '(12) 3123-1212'),

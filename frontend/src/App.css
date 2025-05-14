@@ -12,3 +12,27 @@
 
 /* Karma */
 @import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
+
+::-webkit-scrollbar-track {
+    background: #EFE5D1;  
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #712123;  
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5e1c1d;  
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #712123 #EFE5D1;
+  }
+  
+  body {
+    scrollbar-face-color: #712123;
+    scrollbar-track-color: #EFE5D1;
+    scrollbar-arrow-color: #712123;
+    scrollbar-shadow-color: #712123;
+  }
+  
