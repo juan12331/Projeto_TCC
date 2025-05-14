@@ -9,8 +9,36 @@ import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { useNavigate } from "react-router-dom";
+import { getUser, createAvaliacoes } from "../../../services/Api_service";
 
 function Quartos() {
+
+  const [avaliacao_texto, setAvaliacao_texto] = useState('')
+  const [nota, setNota] = useState(0)
+  const [id_quarto, setId_quarto] = useState('')
+  const [cpf, setCpf] = useState('')
+
+  async function Criar(e) {
+    e.preventDefault();
+
+    if (avaliacao_texto == '' ||  nota == '' || id_quarto == '' || cpf == '') {
+      showError('preencha todos os campos')
+      return;
+    }
+
+    await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf).then(data => {
+      if (data == 'avaliação adicionada com sucesso'){
+        showError('Avaliação Já Adicionada')
+        return;
+      }
+    }).catch(err => console.log(err))
+  }
+
+  const showError = (message) => {
+    const span = document.getElementById('span');
+    span.textContent = message;
+  }
+
   const navigate = useNavigate();
   const imagens = [img, img1, img2, img3, img4, img5];
   const [imagemAtual, setImagemAtual] = useState(imagens[0]);
@@ -18,7 +46,7 @@ function Quartos() {
   const StarRating = ({ totalStars = 5 }) => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
-
+    
     return (
       <div className="star-rating">
         {[...Array(totalStars)].map((_, index) => {
@@ -29,7 +57,7 @@ function Quartos() {
                 type="radio"
                 name="rating"
                 value={currentRating}
-                onClick={() => setRating(currentRating)}
+                onClick={() => {setRating(currentRating); setNota(currentRating)}}
                 style={{ display: "none" }}
               />
               <FaStar
@@ -289,6 +317,8 @@ function Quartos() {
                     className="input-email"
                   />
                   <input
+                    value={avaliacao_texto} 
+                    onChange={(e) => {setAvaliacao_texto((e.target.value))}}
                     type="text"
                     placeholder="Digite sua mensagem"
                     className="input-mensg"

@@ -12,7 +12,7 @@ import { FaStar } from "react-icons/fa";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getUser } from "../../../services/Api_service";
+import { getUser, createQuartos } from "../../../services/Api_service";
 
 function QuartosAdm() {
 
@@ -31,7 +31,10 @@ function QuartosAdm() {
               }
             }
           }
-      
+
+  const [nome, setNome] = useState('')
+  const [preco, setPreco] = useState('')
+  const [descricao, setDescricao] = useState('')
 
   const navigate = useNavigate();
   const imagens = [img, img1, img2, img3, img4, img5];
@@ -40,6 +43,27 @@ function QuartosAdm() {
   const StarRating = ({ totalStars = 5 }) => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
+
+  async function Criar(e) {
+    e.preventDefault();
+
+    if (nome == '' ||  preco == '' || descricao == '') {
+      showError('preencha todos os campos')
+      return;
+    }
+
+    await createQuartos(nome, preco, descricao).then(data => {
+      if (data == 'quarto ja foi cadastrado'){
+        showError('Quarto Já Cadastrado')
+        return;
+      }
+    }).catch(err => console.log(err))
+  }
+
+  const showError = (message) => {
+    const span = document.getElementById('span');
+    span.textContent = message;
+  }
 
     return (
       <div className="star-rating">
