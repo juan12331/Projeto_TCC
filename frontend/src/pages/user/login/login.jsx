@@ -6,27 +6,28 @@ import { loginUser, getUsersByCpf } from "../../../services/Api_service";
 
 const Login = () => {
 
-  async function verificar() {
-    const cpfzin = localStorage.getItem('cpf');
-    console.log(cpfzin);
+  // async function verificar() {
+  //   const cpfzin = localStorage.getItem('cpf');
+  //   console.log('CPF no localStorage:', cpfzin);
   
-    if (!cpfzin) {
-      return;
-    }
+  //   if (!cpfzin) return;
   
-    await getUsersByCpf(cpfzin).then(data => {
-      if (data.tipos_usuario.permissao === 'user') {
-        navigate('/');
-        return;
-      }
-      if (data.tipos_usuario.permissao === 'admin') {
-        navigate('/Usuarios');
-      }
-    });
-  }
+  //   try {
+  //     const data = await getUsersByCpf(cpfzin);
+  //     if (data.tipos_usuario.permissao === 'user') {
+  //       navigate('/');
+  //     } else if (data.tipos_usuario.permissao === 'admin') {
+  //       navigate('/Usuarios');
+  //     }
+  //   } catch (error) {
+  //     console.log('Erro na verificação automática:', error);
+  //     // Se a requisição falhar, não redireciona
+  //   }
+  // }
+  
 
   useEffect(() => {
-    verificar()
+    // verificar()
   }, [])
 
 
