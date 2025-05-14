@@ -1,159 +1,3 @@
-/* .div-mae-perilAdm{
-  background-image: url("/src/assets/img/imgPerfil2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
-  margin: 0vh;
-  padding: 0vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-perfilAdm .back-container{
-  display: flex;
-  align-items: center; 
-  gap: 1vh;
-  margin-top: 18px;
-  padding-left: 30px;
-}
-
-.container-perfilAdm .back-button{
-  color: #7C2728;
-  background-color: #fffbfb00;
-  border: none;
-  font-size: 6vh;
-  cursor: pointer;
-}
-
-.container-perfilAdm .back-line{
-  color: #7C2728;
-  font-size: 6vh;
-}
-
-.container-perfilAdm .back-text{
-  color: #7C2728;
-  background-color: #fffbfb00;
-  font-size: 4vh;
-  font-family: "Katibeh";
-  border: none;
-  cursor: pointer;
-}
-
-.container-perfilAdm{
-  width: 1700px;
-  height: 84%;
-  background-color: #efe5d1cb;
-  border-radius: 20px;
-  margin-top: 130px;
-}
-
-.parte-de-cimaAdm{
-  display: flex;
-  border-radius: 20px;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.info-perfilAdm{
-  
-  width: 900px;
-  height: 353px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  margin-right: 120px;
- 
-}
-
-.img-possition-perfilAdm{
-  justify-content: start;
-}
-
-.img-perfil-iconeAdm{
-  margin-left: 190px;
-}
-
-.text-perfil-1Adm{
-  display: flex;
-  margin-bottom: 60px;
-}
-
-.text-perfil-2Adm{
-  display: flex;
-}
-
-.Email-perfilAdm{
-  margin-left: 30px;
-}
-
-.telefone-perfilAdm{
-  margin-left: 170px;
-}
-
-.parte-de-baixoAdm{
-  width: 1700px;
-  height: 318px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-.domo_perfil_imgAdm{
-  width: 300px;
-  height: 300px;
-
-}
-
-.text-perfil-4Adm{
-  color: #7C2728;
-}
-
-.text-perfil-3Adm{
-  margin-left: 20px;
-} */
-
-/* .perfil-button1Adm {
-  width: 150px;
-  height: 45px;
-  border-radius: 20px;
-  background-color: #7F2727;
-  border: none;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  color: #EFE5D1;
-  cursor: pointer;
-  font-family: "Katibeh, cursive";
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-
-.perfil-button2Adm {
-  width: 150px;
-  height: 45px;
-  border-radius: 20px;
-  background-color: #7F2727;
-  border: none;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  color: #EFE5D1;
-  cursor: pointer;
-  font-family: "Katibeh, cursive";
-  font-size: 1.2rem;
-  font-weight: bold;
-
-  margin-top: 20px;
-} */
-
 *{
   margin: 0vh;
   padding: 0vh;
@@ -435,20 +279,21 @@
 .modal-container.show {
   display: flex;
   opacity: 1;
-  animation: fadeIn 0.5s ease-out; /* Animação de entrada */
+  animation: fadeIn 0.3s ease-out; /* Animação de entrada */
 }
 
 /* Animação de fade-in */
 @keyframes fadeIn {
   from {
-    transform: scale(0.9);
-    opacity: 0;
+    opacity: 0.5;
   }
   to {
     transform: scale(1);
     opacity: 1;
   }
 }
+
+
 
 /* Modal content */
 .modal-content {
@@ -460,18 +305,9 @@
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-20px);
-  animation: slideUp 0.3s ease-out; /* Animação para subir suavemente */
 }
 
-/* Animação de slide up */
-@keyframes slideUp {
-  from {
-    transform: translateY(-20px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
+
 
 /* Modal header */
 .modal-header {
@@ -524,16 +360,27 @@
 }
 
 .confirm-button {
-  background-color: #d9534f;
   color: white;
+}
+
+.delete{
+  background-color: #bb4844;
+}
+
+.edit{
+  background-color: rgb(0, 110, 255);
+}
+
+.edit:hover{
+  background-color: blue;
 }
 
 .cancel-button:hover {
   background-color: #e1e1e1;
 }
 
-.confirm-button:hover {
-  background-color: #c9302c;
+.delete:hover {
+  background-color: #ff0800;
 }
 
 .cancel-button:active {

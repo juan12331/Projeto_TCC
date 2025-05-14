@@ -15,6 +15,31 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden; 
+    
+}
+
+.itensText-criarUser {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    appearance: none; /* remove o estilo nativo */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1.5px solid #5c4c309c !important;  
+    outline: none !important; 
+    border-radius: 12px;
+    border-bottom: #5c4c309c solid 1.5px;
+    border-left: #5c4c309c solid 1.5px;
+    border-right: #5c4c309c solid 1.5px;
+    border-top:#5c4c309c solid 1.5px ;
+    background-color: transparent;
+    text-align: center;
+    color: #A38856;
+    font-family: "Kay Pho Du";
+    font-size: 0.8rem;
 }
 
 .itensName-criarUser:focus, .itensCpf-criarUser:focus, .itensEmail-criarUser:focus, .itensSobrenome-criarUser:focus, .itensPhone-criarUser:focus, .itensText-criarUser:focus { 

@@ -29,8 +29,8 @@ export async function logout() {
     localStorage.removeItem('token');
 }
 
-export async function createUser(cpf, nome, email, senha, telefone) {
-    const response = await http.post('/usuarios', { cpf: cpf, nome: nome, email: email, senha: senha, telefone: telefone });
+export async function createUser(cpf, nome, email, senha, telefone, papel=2) {
+    const response = await http.post('/usuarios', { cpf: cpf, nome: nome, email: email, senha: senha, telefone: telefone, papel: papel });
     return response.data;
 }
 
@@ -39,8 +39,8 @@ export async function deleteUser(cpf) {
     return;
 }
 
-export async function updateUser(cpf, nome, email, senha, papel, telefone) {
-    const response = await http.put(`/usuarios/${cpf}`, { nome: nome, email: email, senha: senha, papel: papel, telefone: telefone });
+export async function updateUser(cpf, nome, email,  telefone) {
+    const response = await http.put(`/usuarios/${cpf}`, { nome: nome, email: email, telefone: telefone });
     return console.log(response.data);
 }
 
@@ -93,7 +93,7 @@ export async function getReservasOneDate(data) {
 }
 
 export async function createReserva(cpf, id_quarto, data_inicio, data_final) {
-    const response = await http.post(`/reservas`, {cpf: cpf, id_quarto: id_quarto, data_inicio: data_inicio, data_final: data_final});
+    const response = await http.post(`/reservas`, {cpf: cpf, id_quarto: id_quarto, data_inicio: data_inicio, data_final: data_final}); // ISABELA
     return response.data;
 }
 
@@ -122,7 +122,7 @@ export async function getQuartosDisponiveis(id_quarto) {
 }
 
 export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao});
+    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // ISABELA
     return response.data;
 }
 
@@ -140,7 +140,7 @@ export async function deleteQuartos(id_quarto) {
 
 
 export async function createFotos(id_quarto, imagem) {
-    const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem});
+    const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // ISABELA
     return response.data;
 }
 
@@ -173,7 +173,7 @@ export async function getAvaliacoesById(id_avaliacao) {
 }
 
 export async function createAvaliacoes(avaliacao_texto, nota, cpf) {
-    const response = await http.post(`/avaliacoes`, {avaliacao_texto: avaliacao_texto, nota: nota, cpf: cpf});
+    const response = await http.post(`/avaliacoes`, {avaliacao_texto: avaliacao_texto, nota: nota, cpf: cpf}); // ISABELA
     return response.data;
 }
 
@@ -217,7 +217,7 @@ export async function deleteAvaliacoes_quartos(id_quarto) {
 }
 
 export async function createAvaliacoes_quartos(avaliacao_texto, nota, id_quarto, cpf) {
-    const response = await http.post(`/avaliacoesQuartos`, {avaliacao_texto: avaliacao_texto, nota: nota, id_quarto: id_quarto, cpf: cpf});
+    const response = await http.post(`/avaliacoesQuartos`, {avaliacao_texto: avaliacao_texto, nota: nota, id_quarto: id_quarto, cpf: cpf}); // ISABELA
     return response.data;
 }
 

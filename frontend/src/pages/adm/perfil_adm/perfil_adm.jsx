@@ -1,38 +1,29 @@
 import "./perfil_adm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useEffect, useState } from "react";
-import { Pencil } from "react-bootstrap-icons";
-import { getUser } from "../../../services/Api_service";
-import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
-import { getUsersByCpf, deleteUser,  } from "../../../services/Api_service";
+import { getUser, getUsersByCpf, deleteUser, updateUser } from "../../../services/Api_service";
+import { useParams, useNavigate } from "react-router-dom";
 
 function PerfilAdm() {
   const navigate = useNavigate();
+  const { cpf } = useParams();
 
-  const cpf = useParams();
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
-  
-  // Estado para controle do modal
-  const [showModal, setShowModal] = useState(false);
+
+  const [showModal, setShowModal] = useState(false);      // Modal de exclusão
+  const [showEditModal, setShowEditModal] = useState(false); // Modal de edição
 
   useEffect(() => {
     verificacao();
     preencher();
   }, []);
 
-  async function deletarusuario() {
-    await deleteUser(cpf.cpf);
-    window.location.href = '/usuarios';
-  }
-
   async function verificacao() {
     try {
-      await getUser().then(data => console.log('log'));
+      await getUser();
     } catch (error) {
-      console.log(error);
       if (error.status === 403 || error.status === 401) {
         window.alert('Acesso não autorizado');
         window.location.href = "/login";
@@ -41,15 +32,33 @@ function PerfilAdm() {
   }
 
   async function preencher() {
-    getUsersByCpf(cpf.cpf).then(data => {
+    try {
+      const data = await getUsersByCpf(cpf);
       setNome(data.nome);
       setEmail(data.email);
       setTel(data.telefone);
-    }).catch(error => console.log(error));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function deletarusuario() {
+    await deleteUser(cpf);
+    window.location.href = '/usuarios';
+  }
+
+  async function editarUsuario(cpf, nome, email, senha, papel, telefone) {
+    console.log(cpf, nome, email, senha, papel, telefone)
+    await updateUser(cpf, nome, email, senha, papel, telefone);
+    setShowEditModal(false);
+    window.alert("Perfil atualizado com sucesso!");
   }
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+
+  const handleCloseEdit = () => setShowEditModal(false);
+  const handleShowEdit = () => setShowEditModal(true);
 
   return (
     <div className="div-mae-perilAdm">
@@ -60,34 +69,30 @@ function PerfilAdm() {
           <h1 className="back-lineAdm">|</h1>
           <button onClick={() => navigate("/usuarios")} className="back-textAdm"> USUÁRIOS </button>
         </div>
+
         <div className="right-perfilAdm">
           <h1 className="infoText-perfilAdm">Suas Informações</h1>
           <div className="container-imgIconeAdm">
-            <img
-              className="img-perfil-iconeAdm" 
-              src="/src/assets/img/perfil.png"
-            />
+            <img className="img-perfil-iconeAdm" src="/src/assets/img/perfil.png" />
           </div>
+
           <div className="info-perfilAdm">
             <form className="text-perfilAdm">
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">Nome:</h1>
                 <input type="text" value={nome} className="textNome-perfilAdm" onChange={(e) => setNome(e.target.value)} />
-                <Pencil className="pencilIcon-perfilAdm"/>
               </div>
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">Email:</h1>
                 <input type="email" value={email} className="textEmail-perfilAdm" onChange={(e) => setEmail(e.target.value)} />
-                <Pencil className="pencilIcon-perfilAdm"/>
               </div>
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">CPF:</h1>
-                <h2 className="textCpf-perfilAdm"> {cpf.cpf}</h2>
+                <h2 className="textCpf-perfilAdm">{cpf}</h2>
               </div>
               <div className="infoForm-perfilAdm">
-                <h1 className="textStyle-perfilAdm">Numero De Telefone:</h1>
-                <input type="tel" value={tel} onChange={(e) => setTel(e.target.value)} className="textTel-perfilAdm" />
-                <Pencil className="pencilIcon-perfilAdm"/>
+                <h1 className="textStyle-perfilAdm">Telefone:</h1>
+                <input type="tel" className="textTel-perfilAdm" />
               </div>
             </form>
           </div>
@@ -100,10 +105,7 @@ function PerfilAdm() {
         <div className="left-perfilAdm">
           <h1 className="reservados-perfilAdm">Quartos Reservados</h1>
           <div className="domo_perfil_imgAdm">
-            <img
-              className="domo_perfilAdm" src="/src/assets/img/domo_perfil.png"
-              width="100%"
-            />
+            <img className="domo_perfilAdm" src="/src/assets/img/domo_perfil.png" width="100%" />
           </div>
           <div className="text-perfilFinalAdm">
             <div className="finalText-perfilAdm">
@@ -116,26 +118,42 @@ function PerfilAdm() {
             </div>
           </div>
           <div className="sairConta-perfilAdm">
-            {/* Botão de Excluir Perfil que chama o modal */}
             <button type="button" className="perfil-button1Adm" onClick={handleShow}>Excluir perfil</button>
-            <button type="submit" className="perfil-button2Adm">Editar perfil</button>
+            <button type="button" className="perfil-button2Adm" onClick={handleShowEdit}>Editar perfil</button>
           </div>
         </div>
       </div>
 
-      {/* Modal de Confirmação (CSS com estado para controle) */}
+      {/* Modal de Exclusão */}
       <div className={`modal-container ${showModal ? 'show' : ''}`}>
-        <div className="modal-content">
+        <div className="modal-content modal-delete slide-up">
           <div className="modal-header">
-            <h2>Confirmação</h2>
+            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
             <button className="close-button" onClick={handleClose}>×</button>
           </div>
           <div className="modal-body">
-            <p>Tem certeza que deseja excluir esse perfil?</p>
+            <p><strong>Tem certeza que deseja excluir esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
           </div>
           <div className="modal-footer">
             <button className="cancel-button" onClick={handleClose}>Cancelar</button>
-            <button className="confirm-button" onClick={deletarusuario}>Sim, Excluir</button>
+            <button className="confirm-button delete" onClick={deletarusuario}>Sim, Excluir</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal de Edição */}
+      <div className={`modal-container ${showEditModal ? 'show' : ''}`}>
+        <div className="modal-content modal-edit slide-up">
+          <div className="modal-header">
+            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+            <button className="close-button" onClick={handleCloseEdit}>×</button>
+          </div>
+          <div className="modal-body">
+            <p><strong>Tem certeza que deseja editar esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+          </div>
+          <div className="modal-footer">
+            <button className="cancel-button" onClick={handleCloseEdit}>Cancelar</button>
+            <button className="confirm-button edit" onClick={() => editarUsuario(cpf, nome, email, tel)}>Sim, Editar</button>
           </div>
         </div>
       </div>
