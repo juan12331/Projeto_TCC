@@ -415,6 +415,153 @@
   margin-top: 10px;
 }
 
+/* Modal container */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Quando o modal é visível */
+.modal-container.show {
+  display: flex;
+  opacity: 1;
+  animation: fadeIn 0.5s ease-out; /* Animação de entrada */
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 400px;
+  max-width: 80%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  animation: slideUp 0.3s ease-out; /* Animação para subir suavemente */
+}
+
+/* Animação de slide up */
+@keyframes slideUp {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Close button */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Modal body */
+.modal-body {
+  margin: 20px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Modal footer */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Buttons */
+.cancel-button,
+.confirm-button {
+  padding: 12px 24px;
+  border: none;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button {
+  background-color: #f1f1f1;
+  color: #555;
+}
+
+.confirm-button {
+  background-color: #d9534f;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #e1e1e1;
+}
+
+.confirm-button:hover {
+  background-color: #c9302c;
+}
+
+.cancel-button:active {
+  background-color: #d1d1d1;
+}
+
+.confirm-button:active {
+  background-color: #a8322b;
+}
+
+/* Modal background overlay */
+.modal-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-container.show::before {
+  opacity: 1;
+}
+
 .domoText-perfilAdm, .pagarText-perfilAdm{
   font-family: "Katibeh";
   font-weight: 200;

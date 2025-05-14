@@ -58,7 +58,7 @@ exports.deleteUsuario = async (req, res) => {
     try {
         const encontrarUsuario = await Usuarios.findOne({ where: { cpf: req.params.cpf } })
         await encontrarUsuario.destroy();
-        return res.send('usuario deletado')
+        return res.status(200).send('Usuario deletado')
     } catch (err) {
         return res.send('aqui deu erro mn se liga', err)
     }
