@@ -6,29 +6,55 @@ import vamos from "/src/assets/img/vamos.png"; // Importe a imagem "vamos.png"
 import ava from "/src/assets/img/ava.png";
 import NavbarUser from "../../../assets/components/navbarUser";
 
-const StarRating = ({ totalStars = 5 }) => {
-  const [rating, setRating] = useState(0);
-
-  return (
-    <div className="star-rating">
-      {Array.from({ length: totalStars }, (_, index) => {
-        const starValue = index + 1;
-        return (
-          <FaStar
-            key={index}
-            size={35}
-            color={starValue <= rating ? "#ffc107" : "#c0c0c0"} // Cinza mais visível
-            style={{ cursor: "pointer" }}
-            onClick={() => setRating(starValue)}
-          />
-        );
-      })}
-      
-    </div>
-  );
-};
-
 const Contato = () => {
+
+  const StarRating = ({ totalStars = 5 }) => {
+    const [rating, setRating] = useState(0);
+
+    return (
+      <div className="star-rating">
+        {Array.from({ length: totalStars }, (_, index) => {
+          const starValue = index + 1;
+          return (
+            <FaStar
+              key={index}
+              size={35}
+              color={starValue <= rating ? "#ffc107" : "#c0c0c0"} // Cinza mais visível
+              style={{ cursor: "pointer" }}
+              onClick={() => {setRating(starValue); setNota(starValue)}}
+            />
+          );
+        })}
+        
+      </div>
+    );
+  };
+
+    const [avaliacao_texto, setAvaliacao_texto] = useState('')
+    const [nota, setNota] = useState(0)
+    const [cpf, setCpf] = useState('')
+
+    async function Criar(e) {
+      e.preventDefault();
+
+      if (avaliacao_texto == '' ||  nota == '' || cpf == '') {
+        showError('preencha todos os campos')
+        return;
+      }
+
+      await createAvaliacoes(avaliacao_texto, nota, cpf).then(data => {
+        if (data == 'avaliação adicionada com sucesso'){
+          showError('Avaliação Já Adicionada')
+          return;
+        }
+      }).catch(err => console.log(err))
+    }
+
+    const showError = (message) => {
+      const span = document.getElementById('span');
+      span.textContent = message;
+    }
+
   return (
     <div className="contato-page">
        <NavbarUser/>
@@ -69,7 +95,7 @@ const Contato = () => {
       <form className="contato-form-contato">
         <input type="text" placeholder="Nome" className="input-contato2" />
         <input type="email" placeholder="Email" className="input-contato2" />
-        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" />
+        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" value={avaliacao_texto} onChange={(e) => {setAvaliacao_texto((e.target.value))}}/>
         <div className=".input-button-container">
         <button type="submit" className="contato-button2">Enviar</button>
         </div>

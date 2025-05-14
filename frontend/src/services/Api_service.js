@@ -122,7 +122,7 @@ export async function getQuartosDisponiveis(id_quarto) {
 }
 
 export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // ISABELA ---> Juan vai criar modal
+    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // ISABELA ---> Isabela criando modal
     return response.data;
 }
 
@@ -173,7 +173,7 @@ export async function getAvaliacoesById(id_avaliacao) {
 }
 
 export async function createAvaliacoes(avaliacao_texto, nota, cpf) {
-    const response = await http.post(`/avaliacoes`, {avaliacao_texto: avaliacao_texto, nota: nota, cpf: cpf}); // ISABELA
+    const response = await http.post(`/avaliacoes`, {avaliacao_texto: avaliacao_texto, nota: nota, cpf: cpf}); // Falta cpf
     return response.data;
 }
 
@@ -217,7 +217,7 @@ export async function deleteAvaliacoes_quartos(id_quarto) {
 }
 
 export async function createAvaliacoes_quartos(avaliacao_texto, nota, id_quarto, cpf) {
-    const response = await http.post(`/avaliacoesQuartos`, {avaliacao_texto: avaliacao_texto, nota: nota, id_quarto: id_quarto, cpf: cpf}); // Falta a nota, quarto e cpf
+    const response = await http.post(`/avaliacoesQuartos`, {avaliacao_texto: avaliacao_texto, nota: nota, id_quarto: id_quarto, cpf: cpf}); // Falta quarto e cpf
     return response.data;
 }
 
