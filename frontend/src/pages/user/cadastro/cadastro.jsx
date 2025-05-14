@@ -122,12 +122,12 @@ function Cadastro() {
             />
           </div>
           <form className="cadastro-form">
-            <input type="text" placeholder="Nome" value={nome} onChange={(e) => setName(e.target.value)} className="input-cadastro login-input" />
-            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-cadastro login-input" />
-            <input type="text" placeholder="CPF" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} className="input-cadastro login-input" />
-            <input type="tel" placeholder="Número de telefone" value={telefone} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} className="input-cadastro login-input" />
-            <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="input-cadastro login-input" />
-            <input type="password" placeholder="Confirmar senha" value={confirmar} onChange={(e) => setConfirmar(e.target.value)} className="input-cadastro login-input" />
+            <input type="text" placeholder="Nome" value={nome} onChange={(e) => setName(e.target.value)} className="input-cadastro login-input" maxLength={100} />
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-cadastro login-input"maxLength={100} />
+            <input type="text" placeholder="CPF" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} className="input-cadastro login-input"maxLength={100} />
+            <input type="tel" placeholder="Número de telefone" value={telefone} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} className="input-cadastro login-input"maxLength={25} />
+            <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="input-cadastro login-input"maxLength={100} />
+            <input type="password" placeholder="Confirmar senha" value={confirmar} onChange={(e) => setConfirmar(e.target.value)} className="input-cadastro login-input"maxLength={100} />
             <div className="row">
               <span className='error' id='span'></span>
             </div>

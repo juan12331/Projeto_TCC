@@ -97,9 +97,28 @@ exports.updateUsuario = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
     try {
-        const encontrarUsuario = await Usuarios.findAll({ include: {model: tipos_usuarios} });
-        return res.send(encontrarUsuario);
+        const { nome, email, cpf } = req.query || {};
+
+        if (!nome && !email && !cpf) {
+            const usuarios = await Usuarios.findAll();
+            return res.send(usuarios)
+        }
+
+
+        const pesquisa = {
+            [Op.or]: [
+                nome ? { nome: { [Op.like]: `%${nome}%` } } : undefined,
+                email ? { email: { [Op.like]: `%${email}%` } } : undefined,
+                cpf ? { cpf: { [Op.like]: `%${cpf}%` } } : undefined,
+            ].filter(Boolean)
+        }
+
+        const usuarios = await Usuarios.findAll({ where: pesquisa, limit: 20 })
+        return res.send(usuarios)
+
     } catch (error) {
+        console.error(error)
         return res.status(500).send('Internal Server Error');
     }
+
 }

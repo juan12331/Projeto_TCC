@@ -82,7 +82,8 @@ const Criar_usuarios = () => {
             const papelValue = papel;
             
             // Chamada da API passando o valor selecionado
-            const data = await createUser(cpf, nome, email, senha, tel, Number(papel));
+            const data = await createUser(cpf, nome, email, senha, tel, Number(papel)
+        );
             
             if (data === 'usuario ja foi cadastrado') {
                 showError('Usuário Já Cadastrado')
@@ -155,22 +156,22 @@ const Criar_usuarios = () => {
                         <div className="grid-criarUser">
                             <form className="itensLeft-criarUser">
                                 <div className="name-criarUser">
-                                    <input type="name" className="itensName-criarUser" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+                                    <input type="name" className="itensName-criarUser" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} maxLength={100} />
                                 </div>
                                 <div className="cpf-criarUser">
-                                    <input type="cpf" className="itensCpf-criarUser" placeholder="CPF" value={cpf} onChange={(e) => setCPF(formatCPF(e.target.value))} />
+                                    <input type="cpf" className="itensCpf-criarUser" placeholder="CPF" value={cpf} onChange={(e) => setCPF(formatCPF(e.target.value))} maxLength={100} />
                                 </div>
                                 <div className="email-criarUser">
-                                    <input type="email" className="itensEmail-criarUser" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input type="email" className="itensEmail-criarUser" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}  maxLength={100}/>
                                 </div>
                             </form>
 
                             <form className="itensRight-criarUser">
                                 <div className="sobrenome-criarUser">
-                                    <input type="password" className="itensSobrenome-criarUser" placeholder="senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
+                                    <input type="password" className="itensSobrenome-criarUser" placeholder="senha" value={senha} onChange={(e) => setSenha(e.target.value)} maxLength={100} />
                                 </div>
                                 <div className="phone-criarUser">
-                                    <input type="tel" className="itensPhone-criarUser" placeholder="Telefone" value={tel} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} />
+                                    <input type="tel" className="itensPhone-criarUser" placeholder="Telefone" value={tel} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} maxLength={100} />
                                 </div>
                                 <div className="text-criarUser">
                                     <select

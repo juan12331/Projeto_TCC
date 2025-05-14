@@ -40,7 +40,7 @@ const AvaliacoesAdm = () => {
         <div className="fundo-avaliacoesAdm">
             <div className="fundoPesquisa-avaliacoesAdm">
                 <div className="pesquisa-avaliacoesAdm">
-                    <input id='search' className='search-avaliacoesAdm' placeholder='CPF ou NOME de usuário'></input>
+                    <input id='search' className='search-avaliacoesAdm' placeholder='CPF ou NOME de usuário' maxLength={100}></input>
                 </div>
             </div>
             <button type="submit" className="buttonSearch-avaliacoesAdm">BUSCAR</button>

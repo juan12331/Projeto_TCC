@@ -6,50 +6,72 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getUser } from "../../../services/Api_service";
 
-
 const Usuarios = () => {
+  const [usuarios, setUsuarios] = useState([]);
+  const [pesquisa, setPesquisa] = useState('');
 
-const [usuarios, setUsuarios] = useState([])
-const [pesquisa, setPesquisa] = useState('')
+  useEffect(() => {
+    verificacao();
+    pegarUsuario(); // Carrega todos os usuários no início
+  }, []);
 
-   useEffect(() => {
-    verificacao()
-    pegarUsuario()
-    }, [])
-
-    async function pegarUsuario(pesquisa) {
-      await getUser(pesquisa).then(data => {
-        setUsuarios(data) 
-        console.log(usuarios)
-      }).catch(error => window.alert(error))
-    }
-
-    async function verificacao() {
-      try{
-        await getUser().then(data => console.log('log'))
-      } catch(error) {
-        console.log(error);
-        if (error.status == 403 || error.status == 401) {
-          window.alert('acesso não autorizado')
-          window.location.href = "/login"
+  // Função modificada para tratar o parâmetro de pesquisa corretamente
+  async function pegarUsuario(termoPesquisa = '') {
+    try {
+      // Determina qual campo de pesquisa usar baseado no formato do termo
+      let params = {};
+      
+      if (termoPesquisa) {
+        // Verifica se o termo parece um CPF (contém pontos ou traços)
+        if (termoPesquisa.match(/[.-]/)) {
+          params.cpf = termoPesquisa;
+        } else {
+          // Assume que é um nome se não parecer um CPF
+          params.nome = termoPesquisa;
         }
       }
+      
+      const data = await getUser(params);
+      setUsuarios(data);
+      console.log("Usuários carregados:", data);
+    } catch (error) {
+      console.error("Erro ao buscar usuários:", error);
+      window.alert(error);
     }
+  }
 
-    function limite(text) {
-      if (text.length > 15) {
-        return text.substring(0, 15) + '...'
+  async function verificacao() {
+    try {
+      await getUser();
+      console.log('Verificação concluída');
+    } catch (error) {
+      console.log(error);
+      if (error.status === 403 || error.status === 401) {
+        window.alert('Acesso não autorizado');
+        window.location.href = "/login";
       }
-      return text;
     }
+  }
 
-    function view(cpf) {
-      window.location.href = `/PerfilAdm/${cpf}`
+  function limite(text) {
+    if (text && text.length > 15) {
+      return text.substring(0, 15) + '...';
     }
-    return(
+    return text || '';
+  }
+
+  function view(cpf) {
+    window.location.href = `/PerfilAdm/${cpf}`;
+  }
+
+  const Buscar = () => {
+    pegarUsuario(pesquisa);
+  };
+  
+  return (
     <div className="usuarios-page">
-        <NavbarAdm/>
-        <div className="inicio-usuarios">
+      <NavbarAdm />
+      <div className="inicio-usuarios">
         <h1 className="usuarios-titulo">Buscar por Usuários</h1>
         <div className="separador-usuarios">
           <div className="circle-usuarios"></div>
@@ -61,10 +83,24 @@ const [pesquisa, setPesquisa] = useState('')
       <div className="fundo-usuarios">
         <div className="fundoPesquisa-usuarios">
           <div className="pesquisa-usuarios">
-          <input id='search' className='search-usuarios' placeholder='CPF ou NOME de usuário' value={pesquisa} onChange={(e) => {setPesquisa(e.target.value)}}></input>
+            <input 
+              id='search' 
+              className='search-usuarios' 
+              placeholder='CPF ou NOME de usuário' 
+              value={pesquisa} 
+              onChange={(e) => setPesquisa(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && Buscar()} 
+              maxLength={100}
+            />
           </div>
         </div>
-        <button type="submit" className="buttonSearch-usuarios" onClick={pegarUsuario}>BUSCAR</button>
+        <button 
+          type="submit" 
+          className="buttonSearch-usuarios" 
+          onClick={Buscar}
+        >
+          BUSCAR
+        </button>
       </div>
 
       <div className="layout-usuarios">
@@ -72,18 +108,24 @@ const [pesquisa, setPesquisa] = useState('')
           <h1 className="dataReserva-usuarios">Data da Reserva</h1>
         </div>
         <div className="grid1-usuarios">
-          {usuarios.map((usuarios,  index) =>
-          
-          <div className="fundoCards-usuarios" key={usuarios.cpf} onClick={() => view(usuarios.cpf)}>
-
-            <img 
-            className="cardsImg-usuarios" 
-            src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
-            alt="" 
-            />
-            <h1 className="nomeCards-usuarios">{limite(usuarios.nome)}</h1>
-            <h2 className="cpfCards-usuarios">{limite(usuarios.cpf)}</h2>
-          </div>
+          {usuarios.length > 0 ? (
+            usuarios.map((usuario, index) => (
+              <div 
+                className="fundoCards-usuarios" 
+                key={usuario.cpf} 
+                onClick={() => view(usuario.cpf)}
+              >
+                <img 
+                  className="cardsImg-usuarios" 
+                  src="/src/assets/imgUsuarios_Adm/foto_usuarios.png" 
+                  alt="Foto do usuário" 
+                />
+                <h1 className="nomeCards-usuarios">{limite(usuario.nome)}</h1>
+                <h2 className="cpfCards-usuarios">{limite(usuario.cpf)}</h2>
+              </div>
+            ))
+          ) : (
+            <div className="sem-resultados">Nenhum usuário encontrado</div>
           )}
         </div>
       </div>
@@ -92,12 +134,12 @@ const [pesquisa, setPesquisa] = useState('')
         <div className="fundoFinal-usuarios">
           <Link to="/criar_usuarios" className="gridAdicionar-usuarios">
             <h1 className="textAdicionar-usuarios">Adicionar novo Usuário</h1>
-            <PlusCircle className="adicionarIcon-usuarios"/>
+            <PlusCircle className="adicionarIcon-usuarios" />
           </Link>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
-export default Usuarios
+export default Usuarios;

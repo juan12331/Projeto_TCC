@@ -67,9 +67,9 @@ const Contato = () => {
       </p>
       <StarRating />
       <form className="contato-form-contato">
-        <input type="text" placeholder="Nome" className="input-contato2" />
-        <input type="email" placeholder="Email" className="input-contato2" />
-        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" />
+        <input type="text" placeholder="Nome" className="input-contato2" maxLength={100}/>
+        <input type="email" placeholder="Email" className="input-contato2" maxLength={100}/>
+        <input type="text" placeholder="Digite sua mensagem" className="input-contato2"maxLength={100} />
         <div className=".input-button-container">
         <button type="submit" className="contato-button2">Enviar</button>
         </div>

@@ -83,12 +83,12 @@ const AcomodacoesAdm = () => {
 
           <div className="reservation-acomodacoesAdm">
             <h4 className="adultos-acomodacoesAdm">ADULTOS</h4>
-            <input type="number" className="clientes-acomodacoesAdm" min= "0" required />
+            <input type="number" className="clientes-acomodacoesAdm" min= "0" required  maxLength={100}/>
           </div>
 
           <div className="reservation-acomodacoesAdm">
             <h4 className="criancas-acomodacoesAdm">CRIANÇAS</h4>
-            <input type="number" className="clientes-acomodacoesAdm" min= "0" required />
+            <input type="number" className="clientes-acomodacoesAdm" min= "0" required  maxLength={100}/>
           </div>
 
           <button onClick={() => navigate("/")}className="buscar-acomodacoesAdm">BUSCAR</button>
