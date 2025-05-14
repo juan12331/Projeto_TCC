@@ -4,7 +4,7 @@ import http from "./http"
 // funções usuarios
 
 export async function getUser(params){
-    const response = await http.get('/usuarios', {params});
+    const response = await http.get('/usuarios', {params}); // Terminado
     return response.data
 }
 
@@ -14,7 +14,7 @@ export async function getUsersByCpf(cpf) {
 }
 
 export async function loginUser(cpf, senha) {
-    const response = await http.post('/login', { cpf, senha });
+    const response = await http.post('/login', { cpf, senha }); // Terminado
 
     const { token } = response.data;
     if (token) {
@@ -26,20 +26,31 @@ export async function loginUser(cpf, senha) {
 
 export async function logout() {
     await http.post('/logout');
-    localStorage.removeItem('token');
+    localStorage.removeItem('token'); 
 }
 
-export async function createUser(cpf, nome, email, senha, telefone, papel=2) {
-    const response = await http.post('/usuarios', { cpf: cpf, nome: nome, email: email, senha: senha, telefone: telefone, papel: papel });
+export async function createUser(cpf, nome, email, senha, telefone, papel) { // Terminado
+    console.log("API Service - enviando papel como id_tipo:", papel);
+    
+    const response = await http.post('/usuarios', { 
+        cpf: cpf, 
+        nome: nome, 
+        email: email, 
+        senha: senha, 
+        telefone: telefone, 
+        papel: papel  // Agora enviando como id_tipo em vez de papel
+    });
+    
+    console.log("Resposta do servidor após criar usuário:", response.data);
     return response.data;
 }
 
-export async function deleteUser(cpf) {
+export async function deleteUser(cpf) {     
     const response = await http.delete(`/usuarios/${cpf}`);
     return;
 }
 
-export async function updateUser(cpf, nome, email,  telefone) {
+export async function updateUser(cpf, nome, email, telefone) {
     const response = await http.put(`/usuarios/${cpf}`, { nome: nome, email: email, telefone: telefone });
     return console.log(response.data);
 }

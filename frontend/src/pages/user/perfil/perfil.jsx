@@ -28,12 +28,12 @@ function Perfil() {
             <form className="text-perfil">
               <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">Nome:</h1>
-                <input type="text" placeholder="Neymar da Silva Santos Junior" className="textNome-perfil" />
+                <input type="text" placeholder="Neymar da Silva Santos Junior" className="textNome-perfil" maxLength={100} />
                 <Pencil className="pencilIcon-perfil"/>
               </div>
               <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">Email:</h1>
-                <input type="email" placeholder="Neymardasilvasantosjunior@gmail.com" className="textEmail-perfil" />
+                <input type="email" placeholder="Neymardasilvasantosjunior@gmail.com" className="textEmail-perfil" maxLength={100} />
                 <Pencil className="pencilIcon-perfil"/>
               </div>
               <div className="infoForm-perfil">
@@ -42,7 +42,7 @@ function Perfil() {
               </div>
               <div className="infoForm-perfil">
                 <h1 className="textStyle-perfil">Numero De Telefone:</h1>
-                <input type="tel" placeholder="55 13 3476-1111" className="textTel-perfil" />
+                <input type="tel" placeholder="55 13 3476-1111" className="textTel-perfil" maxLength={100} />
                 <Pencil className="pencilIcon-perfil"/>
               </div>
             </form>

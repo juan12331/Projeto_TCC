@@ -5,6 +5,7 @@ import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootst
 import vamos from "/src/assets/img/vamos.png"; // Importe a imagem "vamos.png"
 import ava from "/src/assets/img/ava.png";
 import NavbarUser from "../../../assets/components/navbarUser";
+import {createAvaliacoes } from "../../../services/Api_service";
 
 const Contato = () => {
 
@@ -93,9 +94,9 @@ const Contato = () => {
       </p>
       <StarRating />
       <form className="contato-form-contato">
-        <input type="text" placeholder="Nome" className="input-contato2" />
-        <input type="email" placeholder="Email" className="input-contato2" />
-        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" value={avaliacao_texto} onChange={(e) => {setAvaliacao_texto((e.target.value))}}/>
+        <input type="text" placeholder="Nome" className="input-contato2" maxLength={100}/>
+        <input type="email" placeholder="Email" className="input-contato2" maxLength={100}/>
+        <input type="text" placeholder="Digite sua mensagem" className="input-contato2" maxLength={100} value={avaliacao_texto} onChange={(e) => {setAvaliacao_texto((e.target.value))}}/>
         <div className=".input-button-container">
         <button type="submit" className="contato-button2">Enviar</button>
         </div>

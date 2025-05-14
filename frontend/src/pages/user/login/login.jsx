@@ -80,10 +80,10 @@ const Login = () => {
         <form className="login-form">
           <h1 className="login-texto">LOGIN</h1>
           <div>
-            <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="CPF" />
+            <input type="tecxt" className="login-input" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} placeholder="CPF" maxLength={100} />
           </div>
           <div>
-            <input type="password" className="login-input" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="SENHA" />
+            <input type="password" className="login-input" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="SENHA"  maxLength={100}/>
           </div>
           <button onClick={() => navigate("/EsqueceuSenha")} className="forgot-password"> Esqueci Minha senha </button>
           <button type="button" className="login-button" onClick={Logar}>ENTRAR</button>

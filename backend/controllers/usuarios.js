@@ -6,15 +6,28 @@ const bcrypt = require('bcrypt');
 
 exports.createUsuario = async (req, res) => {
     try {
-        const {cpf, nome, email, senha, telefone} = req.body
+        const {cpf, nome, email, senha, telefone, papel} = req.body
+        
         const verificacao = await Usuarios.findOne({ where: {cpf}});
         if (verificacao) {
             return res.send('usuario ja foi cadastrado')
         }
+        
         const senhaNova = await bcrypt.hash(senha, 10)
-        const usuarioCriado = await Usuarios.create({cpf, nome, email, senha: senhaNova, telefone})
+        
+        // Agora incluindo o id_tipo baseado no papel recebido
+        const usuarioCriado = await Usuarios.create({
+            cpf, 
+            nome, 
+            email, 
+            senha: senhaNova, 
+            telefone,
+            id_tipo: papel
+        })
+        
         return res.send('usuario cadastrado com sucesso')
     } catch (err) {
+        console.error("Erro ao criar usuário:", err);
         return res.status(403).send(err)
     }
 }
@@ -84,9 +97,28 @@ exports.updateUsuario = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
     try {
-        const encontrarUsuario = await Usuarios.findAll({ include: {model: tipos_usuarios} });
-        return res.send(encontrarUsuario);
+        const { nome, email, cpf } = req.query || {};
+
+        if (!nome && !email && !cpf) {
+            const usuarios = await Usuarios.findAll();
+            return res.send(usuarios)
+        }
+
+
+        const pesquisa = {
+            [Op.or]: [
+                nome ? { nome: { [Op.like]: `%${nome}%` } } : undefined,
+                email ? { email: { [Op.like]: `%${email}%` } } : undefined,
+                cpf ? { cpf: { [Op.like]: `%${cpf}%` } } : undefined,
+            ].filter(Boolean)
+        }
+
+        const usuarios = await Usuarios.findAll({ where: pesquisa, limit: 20 })
+        return res.send(usuarios)
+
     } catch (error) {
+        console.error(error)
         return res.status(500).send('Internal Server Error');
     }
+
 }

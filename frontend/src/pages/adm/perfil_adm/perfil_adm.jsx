@@ -80,11 +80,11 @@ function PerfilAdm() {
             <form className="text-perfilAdm">
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">Nome:</h1>
-                <input type="text" value={nome} className="textNome-perfilAdm" onChange={(e) => setNome(e.target.value)} />
+                <input type="text" value={nome} className="textNome-perfilAdm" onChange={(e) => setNome(e.target.value)} maxLength={100} />
               </div>
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">Email:</h1>
-                <input type="email" value={email} className="textEmail-perfilAdm" onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" value={email} className="textEmail-perfilAdm" onChange={(e) => setEmail(e.target.value)} maxLength={100}/>
               </div>
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">CPF:</h1>
@@ -92,7 +92,7 @@ function PerfilAdm() {
               </div>
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">Telefone:</h1>
-                <input type="tel" className="textTel-perfilAdm" />
+                <input type="tel" className="textTel-perfilAdm" value={ tel} onChange={(e) => setTelefone(e.target.value)} maxLength={100}/>
               </div>
             </form>
           </div>

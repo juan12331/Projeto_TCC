@@ -23,14 +23,14 @@ function Pix() {
             <form className="cadastro-form-hospede">
               <div className="container-geral-inputs">
                 <div className="container-inputs">
-                  <input type="text" placeholder="Nome" className="input-pix" />
-                  <input type="text" placeholder="CPF" className="input-pix" />
-                  <input type="email" placeholder="Email" className="input-pix" />
+                  <input type="text" placeholder="Nome" className="input-pix" maxLength={100} />
+                  <input type="text" placeholder="CPF" className="input-pix" maxLength={100} />
+                  <input type="email" placeholder="Email" className="input-pix" maxLength={100} />
                 </div>
                 <div className="container-inputs2">
-                  <input type="text" placeholder="Sobrenome" className="input-pix" />
-                  <input type="tel" placeholder="Telefone" className="input-pix" />
-                  <input type="text" placeholder="Pedidos Especiais" className="input-pix" />
+                  <input type="text" placeholder="Sobrenome" className="input-pix" maxLength={100} />
+                  <input type="tel" placeholder="Telefone" className="input-pix" maxLength={100} />
+                  <input type="text" placeholder="Pedidos Especiais" className="input-pix" maxLength={100} />
                 </div>
               </div>
               <div className="finalInput-pix">
