@@ -27,6 +27,7 @@ export async function loginUser(cpf, senha) {
 export async function logout() {
     await http.post('/logout');
     localStorage.removeItem('token'); 
+    localStorage.removeItem('cpf'); 
 }
 
 export async function createUser(cpf, nome, email, senha, telefone, papel) { // Terminado
@@ -55,6 +56,10 @@ export async function updateUser(cpf, nome, email, telefone) {
     return console.log(response.data);
 }
 
+export async function updatePassword(cpf, senha) {
+    const response = await http.put(`/usuarios/${cpf}`, { senha: senha });
+    return console.log(response.data);
+}
 
 // funções tipos_usuarios
 

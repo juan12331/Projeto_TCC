@@ -1,35 +1,55 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../components/navbarUser.css"; 
 
 const NavbarUser = () => {
-
-  const location = useLocation(); 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    // Verificar se há um CPF no localStorage para determinar se o usuário está logado
+    const userCpf = localStorage.getItem('cpf');
+    setIsLoggedIn(!!userCpf); // Converte para booleano (true se existir, false se não)
+  }, [location]); // Re-verificar sempre que a localização mudar
+  
+  const handleLogout = () => {
+    // Limpar localStorage e redirecionar para login
+    localStorage.clear();
+    navigate('/login');
+  };
 
   return (
-
     <div className="navbarUser-container">
-        <header className="navbarUser">
+      <header className="navbarUser">
         <Link to="/" className={`nav-item ${location.pathname === "/" ? "active" : ""}`}>
-            INÍCIO
+          INÍCIO
         </Link>
 
         <Link to="/contato" className={`nav-item ${location.pathname === "/contato" ? "active" : ""}`}>
-            CONTATO
+          CONTATO
         </Link>
         
         <Link to="/" className="img-navbar">
-            <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
+          <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
         </Link>
 
         <Link to="/acomodacoes" className={`nav-item ${ location.pathname === "/acomodacoes" || location.pathname === "/quartos" ? "active" : ""}`}>
-            ACOMODAÇÕES
+          ACOMODAÇÕES
         </Link>
 
-        <Link to="/perfil" className={`nav-item ${location.pathname === "/perfil" ? "active" : ""}`}>
+        {isLoggedIn ? (
+          // Se logado, mostra PERFIL
+          <Link to="/perfil" className={`nav-item ${location.pathname === "/perfil" ? "active" : ""}`}>
             PERFIL
-        </Link>
-        </header>
+          </Link>
+        ) : (
+          // Se não logado, mostra LOGIN
+          <Link to="/login" className={`nav-item ${location.pathname === "/login" ? "active" : ""}`}>
+            LOGIN
+          </Link>
+        )}
+      </header>
     </div>
   );
 };

@@ -24,7 +24,7 @@ const Criar_usuarios = () => {
     const rageEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const rageSenha = /^(?=.*[A-Z])(?=.*\d).+$/;
     const rageCaracter = /^.{8,}$/;
-    const regexMaisDe14Caracteres = /^.{15,}$/
+    const regexMaisDe20Caracteres = /^.{20,}$/
 
     function formatCPF(cpf) {
         cpf = cpf.replace(/\D/g, '');
@@ -54,16 +54,13 @@ const Criar_usuarios = () => {
         if (!rageEmail.test(email)) {
             showError('Email invalido')
             return;
-        } if (!rageSenha.test(senha)) {
-            showError('Senha fraca, coloque numeros e letras maiusculas')
-            return;
         } if (!rageCaracter.test(senha)) {
             showError('senha precisa no minimo de 8 caracteres')
             return
         } if (regexMaisDe14Caracteres.test(cpf)) {
             showError('Cpf incorreto')
             return
-        } if (regexMaisDe14Caracteres.test(tel)) {
+        } if (regexMaisDe20Caracteres.test(tel)) {
             showError('telefone não suportado/incorreto')
             return
         } if (validateCPF(cpf) !== true) {

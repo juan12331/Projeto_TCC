@@ -22,7 +22,7 @@ routes.get('/usuarios', autenticacao.autenticarJWT,
 routes.delete('/usuarios/:cpf', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), UsuariosControllers.deleteUsuario);
 
-routes.put('/usuarios/:cpf', autenticacao.autenticarJWT, UsuariosControllers.updateUsuario);
+routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario);
 
 routes.post('/logout', autenticacao.logout) 
 
@@ -43,7 +43,7 @@ routes.post('/fotosquartos', autenticacao.autenticarJWT,
 routes.delete('/fotosquartos/:id_foto', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), Fotos_quartosControllers.ApagarFoto);
 
-routes.get('/fotosquartos', autenticacao.autenticarJWT, Fotos_quartosControllers.getAllFotos);
+routes.get('/fotosquartos', Fotos_quartosControllers.getAllFotos);
 
 // rotas quartos
 routes.post('/quartos', autenticacao.autenticarJWT,
