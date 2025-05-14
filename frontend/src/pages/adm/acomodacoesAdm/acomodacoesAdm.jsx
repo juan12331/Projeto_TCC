@@ -7,7 +7,7 @@ import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusCircle } from "react-bootstrap-icons";
 import { useEffect } from "react";
-import { getUser, createQuarto} from "../../../services/Api_service";
+import { getUser, createQuartos} from "../../../services/Api_service";
 
 const AcomodacoesAdm = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const AcomodacoesAdm = () => {
       return;
     }
 
-    await createQuarto(nome, preco, descricao).then(data => {
+    await createQuartos(nome, preco, descricao).then(data => {
       if (data == 'quarto ja foi cadastrado'){
         showError('Quarto Já Cadastrado')
         return;
