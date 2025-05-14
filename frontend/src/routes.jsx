@@ -20,7 +20,7 @@ import Inicio from "./pages/user/pagina_inical/pagina_incial.jsx";
 import Acomodacoes from "./pages/user/acomodacoes/acomodacoes.jsx";
 import Quartos from "./pages/user/quartos/quartos.jsx";
 import EsqueceuSenha from "./pages/user/esqueceu_senha/esqueceu_senha.jsx"
-import RedefinirSenha from "./pages/user/esqueceu_senha/esqueceu_senha.jsx"
+import RedefinirSenha from "./pages/user/redefinir_senha/redefinir_senha.jsx"
 
 function MainRoutes() {
   return (
@@ -46,7 +46,7 @@ function MainRoutes() {
       <Route path="/Acomodacoes" element={<Acomodacoes />} />
       <Route path="/Quartos" element={<Quartos />} />
       <Route path="/ForgotPassword" element={<EsqueceuSenha />} />
-      <Route path="/ResetPassword" element={<EsqueceuSenha />} />
+      <Route path="/ResetPassword" element={<RedefinirSenha />} />
     </Routes>
   );
 }

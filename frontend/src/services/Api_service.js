@@ -56,6 +56,10 @@ export async function updateUser(cpf, nome, email, telefone) {
     return console.log(response.data);
 }
 
+export async function updatePassword(cpf, senha) {
+    const response = await http.put(`/usuarios/${cpf}`, { senha: senha });
+    return console.log(response.data);
+}
 
 // funções tipos_usuarios
 

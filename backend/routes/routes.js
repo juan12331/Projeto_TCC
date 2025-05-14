@@ -22,7 +22,7 @@ routes.get('/usuarios', autenticacao.autenticarJWT,
 routes.delete('/usuarios/:cpf', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), UsuariosControllers.deleteUsuario);
 
-routes.put('/usuarios/:cpf', autenticacao.autenticarJWT, UsuariosControllers.updateUsuario);
+routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario);
 
 routes.post('/logout', autenticacao.logout) 
 
