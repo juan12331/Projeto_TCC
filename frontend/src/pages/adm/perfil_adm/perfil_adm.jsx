@@ -92,7 +92,7 @@ function PerfilAdm() {
               </div>
               <div className="infoForm-perfilAdm">
                 <h1 className="textStyle-perfilAdm">Telefone:</h1>
-                <input type="tel" className="textTel-perfilAdm" />
+                <input type="tel" className="textTel-perfilAdm" value={ tel} onChange={(e) => setTelefone(e.target.value)}/>
               </div>
             </form>
           </div>

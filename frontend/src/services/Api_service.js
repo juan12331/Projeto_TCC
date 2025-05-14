@@ -29,8 +29,19 @@ export async function logout() {
     localStorage.removeItem('token');
 }
 
-export async function createUser(cpf, nome, email, senha, telefone, papel=2) {
-    const response = await http.post('/usuarios', { cpf: cpf, nome: nome, email: email, senha: senha, telefone: telefone, papel: papel });
+export async function createUser(cpf, nome, email, senha, telefone, papel) {
+    console.log("API Service - enviando papel como id_tipo:", papel);
+    
+    const response = await http.post('/usuarios', { 
+        cpf: cpf, 
+        nome: nome, 
+        email: email, 
+        senha: senha, 
+        telefone: telefone, 
+        papel: papel  // Agora enviando como id_tipo em vez de papel
+    });
+    
+    console.log("Resposta do servidor após criar usuário:", response.data);
     return response.data;
 }
 

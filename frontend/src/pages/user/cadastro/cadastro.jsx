@@ -69,7 +69,7 @@ function Cadastro() {
     }
     console.log(cpf, nome, email, senha, telefone)
 
-    createUser(cpf, nome, email, senha, telefone).then(data => {
+    createUser(cpf, nome, email, senha, telefone, 2).then(data => {
       console.log(data)
       if (data == 'usuario ja foi cadastrado'){
         showError('Usuário Já Cadastrado')
