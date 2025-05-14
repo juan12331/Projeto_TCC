@@ -27,6 +27,11 @@
 
 }
 
+.captcha-container{
+  display: flex;
+  justify-content: center;
+}
+
 .error {
   width: 100%;
   color: red;
