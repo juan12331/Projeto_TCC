@@ -50,10 +50,8 @@ function Cadastro() {
     if (!rageEmail.test(email)) {
       showError('Email invalido')
       return;
-    } if (!rageSenha.test(senha)) {
-      showError('Senha fraca, coloque numeros e letras maiusculas')
-      return;
-    } if (!rageCaracter.test(senha)) {
+    }
+     if (!rageCaracter.test(senha)) {
       showError('senha precisa no minimo de 8 caracteres')
       return
     } if (regexMaisDe14Caracteres.test(cpf)) {

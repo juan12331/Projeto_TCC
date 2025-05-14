@@ -27,6 +27,7 @@ export async function loginUser(cpf, senha) {
 export async function logout() {
     await http.post('/logout');
     localStorage.removeItem('token'); 
+    localStorage.removeItem('cpf'); 
 }
 
 export async function createUser(cpf, nome, email, senha, telefone, papel) { // Terminado
