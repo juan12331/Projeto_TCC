@@ -7,7 +7,7 @@ import { getUser } from "../../../services/Api_service";
 
 const AvaliacoesAdm = () => {
 
-    useEffect(() => {
+    useEffect(() => {   
         verificacao()
         }, [])
     
@@ -46,40 +46,8 @@ const AvaliacoesAdm = () => {
             <button type="submit" className="buttonSearch-avaliacoesAdm">BUSCAR</button>
         </div>
 
-        <div className="layout-avaliacoesAdm">
+        <div className="layout-avaliacoesAdm"> {/*Fazer igual usuario*/}
             <div className="grid1-avaliacoesAdm">
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
                 <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
@@ -90,38 +58,6 @@ const AvaliacoesAdm = () => {
             </div>
 
             <div className="grid2-avaliacoesAdm">
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
-                <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
-                    <div className="reclamacao-avaliacoesAdm">
-                        <h1 className="text-avaliacoesAdm">Reclamação!</h1>
-                    </div>
-                    <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
-                    <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
-                </Link>
-
                 <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>

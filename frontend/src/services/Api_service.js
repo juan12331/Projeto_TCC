@@ -1,5 +1,4 @@
-import http from "./http"
-
+import http from "./http";
 
 // funções usuarios
 
@@ -154,11 +153,38 @@ export async function deleteQuartos(id_quarto) {
 
 // funções fotos_quartos
 
+const baseURL = "http://localhost:3001";
+
+import axios from "axios";
 
 export async function createFotos(id_quarto, imagem) {
-    const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // ISABELA
-    return response.data;
-}
+    try {
+      // Obter o token do localStorage ou de onde você o armazena
+      const token = localStorage.getItem('token'); // ou outro método que você usa
+      
+      const response = await axios.post(
+        `${baseURL}/fotosquartos`,
+        { id_quarto, imagem },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`, // Adiciona o token de autenticação
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao criar foto:", error);
+      if (error.response && error.response.status === 403) {
+        // Se for erro de permissão
+        return "Sem permissão para adicionar fotos";
+      }
+      throw error;
+    }
+  }
+  
+  
 
 export async function deleteFotos(id_foto) {
     const response = await http.delete(`/fotosquartos/${id_foto}`);
@@ -174,7 +200,7 @@ export async function GetFotos() {
 // funções avaliações
 
 export async function GetAllAvaliacoes(params) {
-    const response = await http.get('/avaliacoes', {params});
+    const response = await http.get('/avaliacoes', {params}); 
     return response.data;
 }
 
