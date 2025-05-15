@@ -17,20 +17,20 @@ import { getUser, createQuartos } from "../../../services/Api_service";
 function QuartosAdm() {
 
   useEffect(() => {
-      verificacao()
-      }, [])
-  
-      async function verificacao() {
-            try{
-              await getUser().then(data => console.log('log'))
-            } catch(error) {
-              console.log(error);
-              if (error.status == 403 || error.status == 401) {
-                window.alert('acesso não autorizado')
-                window.location.href = "/login"
-              }
-            }
-          }
+    verificacao()
+  }, [])
+
+  async function verificacao() {
+    try {
+      await getUser().then(data => console.log('log'))
+    } catch (error) {
+      console.log(error);
+      if (error.status == 403 || error.status == 401) {
+        window.alert('acesso não autorizado')
+        window.location.href = "/login"
+      }
+    }
+  }
 
   const [nome, setNome] = useState('')
   const [preco, setPreco] = useState('')
@@ -44,26 +44,26 @@ function QuartosAdm() {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
 
-  async function Criar(e) {
-    e.preventDefault();
+    async function Criar(e) {
+      e.preventDefault();
 
-    if (nome == '' ||  preco == '' || descricao == '') {
-      showError('preencha todos os campos')
-      return;
-    }
-
-    await createQuartos(nome, preco, descricao).then(data => {
-      if (data == 'quarto ja foi cadastrado'){
-        showError('Quarto Já Cadastrado')
+      if (nome == '' || preco == '' || descricao == '') {
+        showError('preencha todos os campos')
         return;
       }
-    }).catch(err => console.log(err))
-  }
 
-  const showError = (message) => {
-    const span = document.getElementById('span');
-    span.textContent = message;
-  }
+      await createQuartos(nome, preco, descricao).then(data => {
+        if (data == 'quarto ja foi cadastrado') {
+          showError('Quarto Já Cadastrado')
+          return;
+        }
+      }).catch(err => console.log(err))
+    }
+
+    const showError = (message) => {
+      const span = document.getElementById('span');
+      span.textContent = message;
+    }
 
     return (
       <div className="star-rating">
@@ -104,7 +104,7 @@ function QuartosAdm() {
         <div className="back-quartosAdm">
           <button onClick={() => navigate("/acomodacoesAdm")} className="backButton-quartosAdm"> ← </button>
           <h1 className="backLine-quartosAdm">|</h1>
-          <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
+          <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button>
         </div>
         <main className="quarto-container">
           <section className="galeria-principal">

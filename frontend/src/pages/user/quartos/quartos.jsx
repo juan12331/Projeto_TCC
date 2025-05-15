@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./quartos.css";
 import img from "/src/assets/quartos/domo_quartos.png";
 import img1 from "/src/assets/quartos/image 120.png";
@@ -8,15 +8,28 @@ import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
-import { useNavigate } from "react-router-dom";
-import { getUser, createAvaliacoes } from "../../../services/Api_service";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUser, createAvaliacoes, getQuartosDisponiveis } from "../../../services/Api_service";
 
 function Quartos() {
 
   const [avaliacao_texto, setAvaliacao_texto] = useState('')
   const [nota, setNota] = useState(0)
-  const [id_quarto, setId_quarto] = useState('')
   const [cpf, setCpf] = useState('')
+  const [quarto, setQuarto] = useState([])
+
+  const { id_quarto } = useParams();
+
+  useEffect(() => {
+      preencher();
+    }, []);
+
+    async function preencher(){
+      getQuartosDisponiveis(id_quarto).then(data => {
+       console.log(data);
+       setQuarto(data)
+      })
+    }
 
   async function Criar(e) {
     e.preventDefault();
@@ -110,7 +123,7 @@ function Quartos() {
           <section className="detalhes-quarto">
             <div className="preco-container">
               <p>A PARTIR DE</p>
-              <h2>R$590,00</h2>
+              <h2>R${quarto.preco},00</h2>
               <p>POR NOITE</p>
             </div>
 
