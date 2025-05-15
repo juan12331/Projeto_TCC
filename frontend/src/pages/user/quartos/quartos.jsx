@@ -15,7 +15,6 @@ function Quartos() {
 
   const [avaliacao_texto, setAvaliacao_texto] = useState('')
   const [nota, setNota] = useState(0)
-  const [cpf, setCpf] = useState('')
   const [quarto, setQuarto] = useState([])
 
   const { id_quarto } = useParams();
