@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale"; 
@@ -6,7 +6,6 @@ import "./acomodacoesAdm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusCircle } from "react-bootstrap-icons";
-import { useEffect } from "react";
 import { getUser, createQuartos} from "../../../services/Api_service";
 
 const AcomodacoesAdm = () => {
@@ -41,6 +40,7 @@ const AcomodacoesAdm = () => {
   };
 
   const [formularioVisivel, setFormularioVisivel] = useState(false);
+  const formularioRef = useRef(null);
 
   const abrirFormulario = () => {
     setFormularioVisivel(true);
@@ -49,6 +49,12 @@ const AcomodacoesAdm = () => {
   const fecharFormulario = () => {
     setFormularioVisivel(false);
   };
+
+  useEffect(() => {
+    if (formularioVisivel && formularioRef.current) {
+      formularioRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [formularioVisivel]);
   
   const [nome, setNome] = useState('')
   const [preco, setPreco] = useState('')
@@ -137,14 +143,14 @@ const AcomodacoesAdm = () => {
           src="/src/assets/imgAcomodacoes/domoImg_acomodacoes.png" 
           alt="" 
           />
-        <div className="cardsConteudo-acomodacoesAdm">
-          <h1 className="cardsTitle-acomodacoesAdm">Domo - R$ 599</h1>
-          <h2 className="cardsText-acomodacoesAdm">
-            Experimente o charme do Domo geodésico da Quinta do Ypuã, uma acomodação aconchegante e exclusiva para até três pessoas. Com uma cama de casal confortável e um ambiente cuidadosamente planejado, é o refúgio ideal para quem busca tranquilidade e contato com a natureza.
-          </h2>
-          <button onClick={() => navigate("/quartosAdm")} className="cardsButton-acomodacoesAdm"> Reservar </button>
+          <div className="cardsConteudo-acomodacoesAdm">
+            <h1 className="cardsTitle-acomodacoesAdm">Domo - R$ 599</h1>
+            <h2 className="cardsText-acomodacoesAdm">
+              Experimente o charme do Domo geodésico da Quinta do Ypuã, uma acomodação aconchegante e exclusiva para até três pessoas. Com uma cama de casal confortável e um ambiente cuidadosamente planejado, é o refúgio ideal para quem busca tranquilidade e contato com a natureza.
+            </h2>
+            <button onClick={() => navigate("/quartosAdm")} className="cardsButton-acomodacoesAdm"> Reservar </button>
+          </div>
         </div>
-      </div>
       
         <div className="cardsFundo-acomodacoesAdm">
           <img 
@@ -230,7 +236,7 @@ const AcomodacoesAdm = () => {
           </Link>
         </div>
         {formularioVisivel && (
-          <div className="forms-acomodacoesAdm">
+          <div  ref={formularioRef} className="forms-acomodacoesAdm">
             <input type="text" className="itensForms-acomodacoesAdm" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
             <input type="text" className="itensForms-acomodacoesAdm" placeholder="Valor" value={preco} onChange={(e) => setPreco(e.target.value)}/>
             <input type="text" className="itensForms-acomodacoesAdm" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
