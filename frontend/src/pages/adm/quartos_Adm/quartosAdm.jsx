@@ -17,20 +17,20 @@ import { getUser } from "../../../services/Api_service";
 function QuartosAdm() {
 
   useEffect(() => {
-      verificacao()
-      }, [])
-  
-      async function verificacao() {
-            try{
-              await getUser().then(data => console.log('log'))
-            } catch(error) {
-              console.log(error);
-              if (error.status == 403 || error.status == 401) {
-                window.alert('acesso não autorizado')
-                window.location.href = "/login"
-              }
-            }
-          }
+    verificacao()
+  }, [])
+
+  async function verificacao() {
+    try {
+      await getUser().then(data => console.log('log'))
+    } catch (error) {
+      console.log(error);
+      if (error.status == 403 || error.status == 401) {
+        window.alert('acesso não autorizado')
+        window.location.href = "/login"
+      }
+    }
+  }
 
 
   const navigate = useNavigate();
@@ -81,7 +81,7 @@ function QuartosAdm() {
         <div className="back-quartosAdm">
           <button onClick={() => navigate("/acomodacoesAdm")} className="backButton-quartosAdm"> ← </button>
           <h1 className="backLine-quartosAdm">|</h1>
-          <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
+          <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button>
         </div>
         <main className="quarto-container">
           <section className="galeria-principal">

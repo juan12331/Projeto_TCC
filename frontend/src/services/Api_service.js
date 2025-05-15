@@ -184,7 +184,10 @@ export async function createFotos(id_quarto, imagem) {
     }
   }
   
-  
+//   export async function createFotos(id_quarto, imagem) {
+//     const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // ISABELA
+//     return response.data;
+// }
 
 export async function deleteFotos(id_foto) {
     const response = await http.delete(`/fotosquartos/${id_foto}`);

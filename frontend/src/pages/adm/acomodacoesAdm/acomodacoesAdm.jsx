@@ -22,6 +22,7 @@ const AcomodacoesAdm = () => {
   const formularioRef = useRef(null);
 
   useEffect(() => {
+
     verificacao();
     getQuartos();
     if (formularioVisivel && formularioRef.current) {
@@ -62,6 +63,7 @@ const AcomodacoesAdm = () => {
   const handleCheckOutChange = (date) => {
     setCheckOut(date);
   };
+
 
   const abrirFormulario = () => {setFormularioVisivel(true);};
   const fecharFormulario = () => {setFormularioVisivel(false);};
@@ -131,7 +133,6 @@ const AcomodacoesAdm = () => {
     }
   }
 
-  
 
   return (
     <div className="acomodacoes-pageAdm">
@@ -178,6 +179,7 @@ const AcomodacoesAdm = () => {
 
         <div className="reservation-acomodacoesAdm">
           <h4 className="adultos-acomodacoesAdm">ADULTOS</h4>
+
           <input
             type="number"
             className="clientes-acomodacoesAdm"
@@ -185,6 +187,7 @@ const AcomodacoesAdm = () => {
             required
             maxLength={100}
           />
+
         </div>
 
         <div className="reservation-acomodacoesAdm">
@@ -201,6 +204,7 @@ const AcomodacoesAdm = () => {
         <button onClick={() => navigate("/")} className="buscar-acomodacoesAdm">
           BUSCAR
         </button>
+
       </div>
 
       <div className="layout-acomodacoesAdm">
@@ -211,7 +215,7 @@ const AcomodacoesAdm = () => {
                 className="cardsImg-acomodacoesAdm"
                 src={quartos.fotos_quartos[0].imagem }
                 alt=""
-              //n esta lendo a imagem, (imagem inexistente) /> */} 
+              //                                                n esta lendo a imagem, (imagem inexistente) /> */} 
               <div className="cardsConteudo-acomodacoesAdm">
                 <h1 className="cardsTitle-acomodacoesAdm">
                   {quartos.nome} - R$ {quartos.preco}
@@ -231,11 +235,14 @@ const AcomodacoesAdm = () => {
           ))
         ) : (
           <div className="sem-resultados">Nenhum quarto encontrado</div>
+
         )}
+
       </div>
 
       <div className="final-acomodacoesAdm">
         <div className="fundoFinal-acomodacoesAdm">
+
           <Link
             onClick={abrirFormulario}
             className="gridAdicionar-acomodacoesAdm"
@@ -243,6 +250,7 @@ const AcomodacoesAdm = () => {
             <h1 className="textAdicionar-acomodacoesAdm">
               Adicionar nova Acomodação
             </h1>
+
             <PlusCircle className="adicionarIcon-acomodacoesAdm" />
           </Link>
         </div>
