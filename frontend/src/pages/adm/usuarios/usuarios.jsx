@@ -15,18 +15,14 @@ const Usuarios = () => {
     pegarUsuario(); // Carrega todos os usuários no início
   }, []);
 
-  // Função modificada para tratar o parâmetro de pesquisa corretamente
   async function pegarUsuario(termoPesquisa = '') {
     try {
-      // Determina qual campo de pesquisa usar baseado no formato do termo
       let params = {};
       
       if (termoPesquisa) {
-        // Verifica se o termo parece um CPF (contém pontos ou traços)
         if (termoPesquisa.match(/[.-]/)) {
           params.cpf = termoPesquisa;
         } else {
-          // Assume que é um nome se não parecer um CPF
           params.nome = termoPesquisa;
         }
       }

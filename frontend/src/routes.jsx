@@ -32,7 +32,7 @@ function MainRoutes() {
       <Route path="/Avaliacao" element={<Avaliacao />} />
       <Route path="/PerfilAdm/:cpf" element={<PerfilAdm />} />
       <Route path="/AcomodacoesAdm" element={<AcomodacoesAdm />} />
-      <Route path="/quartosAdm" element={<QuartosAdm />} />
+      <Route path="/quartosAdm/:id_quarto" element={<QuartosAdm />} />
       
 
 
