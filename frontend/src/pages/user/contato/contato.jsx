@@ -33,7 +33,6 @@ const Contato = () => {
 
     const [avaliacao_texto, setAvaliacao_texto] = useState('')
     const [nota, setNota] = useState(0)
-    const [cpf, setCpf] = useState('')
 
     async function Criar(e) {
       e.preventDefault();

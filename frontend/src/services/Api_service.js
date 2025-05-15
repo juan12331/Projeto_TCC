@@ -137,7 +137,7 @@ export async function getQuartosDisponiveis(id_quarto) {
 }
 
 export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Feito
+    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Terminado
     return response.data;
 }
 
@@ -218,7 +218,7 @@ export async function getAvaliacoesById(id_avaliacao) {
 }
 
 export async function createAvaliacoes(avaliacao_texto, nota, cpf) {
-    const response = await http.post(`/avaliacoes`, {avaliacao_texto: avaliacao_texto, nota: nota, cpf: cpf}); // Falta cpf
+    const response = await http.post(`/avaliacoes`, {avaliacao_texto: avaliacao_texto, nota: nota, cpf: cpf}); // Terminado (so falta cpf)
     return response.data;
 }
 
