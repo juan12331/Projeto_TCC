@@ -138,7 +138,7 @@ export async function getQuartosDisponiveis(id_quarto) {
 }
 
 export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); 
+    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Feito
     return response.data;
 }
 
