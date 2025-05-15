@@ -8,7 +8,7 @@ function PerfilAdm() {
   const navigate = useNavigate();
   const { cpf } = useParams();
 
-  const [nome, setNome] = useState('');
+  const [nome, setNome] = useState(''); 
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
 

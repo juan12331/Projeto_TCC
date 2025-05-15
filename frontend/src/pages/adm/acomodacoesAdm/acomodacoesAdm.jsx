@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale"; 
@@ -6,19 +6,23 @@ import "./acomodacoesAdm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, Link } from "react-router-dom";
 import { PlusCircle } from "react-bootstrap-icons";
-import { useEffect } from "react";
-import { getUser, getAllQuartosDisponiveis } from "../../../services/Api_service";
+import { getUser, getAllQuartosDisponiveis, createQuartos } from "../../../services/Api_service";
 
 const AcomodacoesAdm = () => {
   const navigate = useNavigate();
   const [checkIn, setCheckIn] = useState(null); 
   const [checkOut, setCheckOut] = useState(null); 
   const [quartos, setQuartos] = useState([])
+  const [formularioVisivel, setFormularioVisivel] = useState(false);
+  const formularioRef = useRef(null);
 
     useEffect(() => {
         verificacao()
         getQuartos()
-        }, [])
+        if (formularioVisivel && formularioRef.current) {
+          formularioRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+        }, [formularioVisivel])
 
         async function getQuartos(params) {
           getAllQuartosDisponiveis(params).then(data => {
@@ -53,6 +57,42 @@ const AcomodacoesAdm = () => {
   const handleCheckOutChange = (date) => {
     setCheckOut(date); 
   };
+
+
+
+  const abrirFormulario = () => {
+    setFormularioVisivel(true);
+  };
+
+  const fecharFormulario = () => {
+    setFormularioVisivel(false);
+  };
+  
+  const [nome, setNome] = useState('')
+  const [preco, setPreco] = useState('')
+  const [descricao, setDescricao] = useState('')
+
+  async function Criar(e) {
+    e.preventDefault();
+
+    if (nome == '' ||  preco == '' || descricao == '') {
+      showError('preencha todos os campos')
+      return;
+    }
+
+    await createQuartos(nome, preco, descricao).then(data => {
+      if (data == 'quarto ja foi cadastrado'){
+        showError('Quarto Já Cadastrado')
+        return;
+      }
+    }).catch(err => console.log(err))
+  }
+
+  const showError = (message) => {
+    const span = document.getElementById('span');
+    span.textContent = message;
+  }
+  
 
   return (
     <div className="acomodacoes-pageAdm">
@@ -109,23 +149,26 @@ const AcomodacoesAdm = () => {
       </div>
 
       <div className="layout-acomodacoesAdm">
+
         {quartos.length > 0 ? (
           quartos.map((quartos, index) => (
-        <div className="cardsFundo-acomodacoesAdm"  key={quartos.id_quarto} 
-        >
-         <img 
-         className="cardsImg-acomodacoesAdm" 
-         src={quartos.fotos_quartos[0].imagem}
-         alt="" 
-         />
-         <div className="cardsConteudo-acomodacoesAdm">
-          <h1 className="cardsTitle-acomodacoesAdm">{quartos.nome} - R$ {quartos.preco}</h1>
-          <h2 className="cardsText-acomodacoesAdm">
-          {quartos.descricao}
-          </h2>
-          <button onClick={() => view(quartos.id_quarto)} className="cardsButton-acomodacoesAdm"> Reservar </button>
-         </div>
-        </div>
+       
+            <div className="cardsFundo-acomodacoesAdm"
+              key={quartos.id_quarto}
+            >
+            <img 
+            className="cardsImg-acomodacoesAdm" 
+            src={quartos.fotos_quartos[0].imagem}
+            alt="" 
+            />
+            <div className="cardsConteudo-acomodacoesAdm">
+              <h1 className="cardsTitle-acomodacoesAdm">{quartos.nome} - R$ {quartos.preco}</h1>
+              <h2 className="cardsText-acomodacoesAdm">
+                {quartos.descricao}
+              </h2>
+              <button onClick={() => view(quartos.id_quarto)} className="cardsButton-acomodacoesAdm"> Reservar </button>
+            </div>
+          </div>
         ))
         ) : (
           <div className="sem-resultados">Nenhum quarto encontrado</div>
@@ -135,11 +178,20 @@ const AcomodacoesAdm = () => {
         
       <div className="final-acomodacoesAdm">
         <div className="fundoFinal-acomodacoesAdm">
-          <Link to="" className="gridAdicionar-acomodacoesAdm">
+          <Link onClick={abrirFormulario} className="gridAdicionar-acomodacoesAdm">
             <h1 className="textAdicionar-acomodacoesAdm">Adicionar nova Acomodação</h1>
             <PlusCircle className="adicionarIcon-acomodacoesAdm"/>
           </Link>
         </div>
+        {formularioVisivel && (
+          <div  ref={formularioRef} className="forms-acomodacoesAdm">
+            <input type="text" className="itensForms-acomodacoesAdm" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
+            <input type="text" className="itensForms-acomodacoesAdm" placeholder="Valor" value={preco} onChange={(e) => setPreco(e.target.value)}/>
+            <input type="text" className="itensForms-acomodacoesAdm" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
+            <button type="submit" className="buttonForms-acomodacoesAdm">Adicionar</button>
+            <button onClick={fecharFormulario} className="buttonForms-acomodacoesAdm">Fechar</button>
+          </div>
+         )}
       </div>
     </div>
   );

@@ -162,6 +162,61 @@
     transition-duration: 0.3s;
 }
 
+.final-acomodacoesAdm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms-acomodacoesAdm{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 400px;
+    background-color: #d2ae6f99;
+}
+
+.itensForms-acomodacoesAdm{
+    height: 40px;
+    width: 250px;
+    background-color: transparent;
+    border-bottom: #64410b71 solid 3px;
+    border-left: #64410b71 solid 3px;
+    border-right: #64410b71 solid 3px;
+    border-top: #64410b71 solid 3px;
+    color: #b38b4e;
+    font-size: 1rem;
+    font-family: "Kreon";
+    font-weight: 400;
+    text-align: center;
+}
+
+.itensForms-acomodacoesAdm:focus{
+    border: 3px solid #64410b71; 
+    outline: none;
+}
+
+.itensForms-acomodacoesAdm::placeholder{
+    color: #7e5f31;
+    font-size: 1rem;
+    font-family: "Kreon";
+    font-weight: 400;
+}
+
+.buttonForms-acomodacoesAdm{
+    font-size: 1rem;
+    font-family: "Kreon";
+    font-weight: 400;
+    height: 40px;
+    width: 250px;
+    border: none;
+    color: #EFE5D1;
+    background-color: #712123;
+    cursor: pointer;
+}
+
 /* DE 320 A 480 */
 @media (min-width: 320px) and (max-width: 480px){
 
@@ -299,6 +354,56 @@
     font-weight: 200;
     color: #5C4C30;
     font-size: 1rem;
+}
+
+.final-acomodacoesAdm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms-acomodacoesAdm{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    background-color: #d2ae6f99;
+}
+
+.itensForms-acomodacoesAdm{
+    height: 40px;
+    width: 250px;
+    background-color: transparent;
+    border-bottom: #64410b71 solid 3px;
+    border-left: #64410b71 solid 3px;
+    border-right: #64410b71 solid 3px;
+    border-top: #64410b71 solid 3px;
+    color: #b38b4e;
+    font-size: 1rem;
+    font-family: "Kreon";
+    font-weight: 400;
+    text-align: center;
+}
+
+.itensForms-acomodacoesAdm::placeholder{
+    color: #7e5f31;
+    font-size: 1rem;
+    font-family: "Kreon";
+    font-weight: 400;
+}
+
+.buttonForms-acomodacoesAdm{
+    font-size: 1rem;
+    font-family: "Kreon";
+    font-weight: 400;
+    height: 40px;
+    width: 250px;
+    border: none;
+    color: #EFE5D1;
+    background-color: #712123;
+    cursor: pointer;
 }
 }
 
@@ -589,8 +694,9 @@
     border-radius: 15px;
     display: flex;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 5vh;
     cursor: pointer;
+    z-index: 100;
 }
 
 .textAdicionar-acomodacoesAdm{
