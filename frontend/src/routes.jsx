@@ -44,7 +44,7 @@ function MainRoutes() {
       <Route path="/Perfil" element={<Perfil />} />
       <Route path="/Pix" element={<Pix />} />
       <Route path="/Acomodacoes" element={<Acomodacoes />} />
-      <Route path="/Quartos" element={<Quartos />} />
+      <Route path="/Quartos/:id_quarto" element={<Quartos />} />
       <Route path="/ForgotPassword" element={<EsqueceuSenha />} />
       <Route path="/ResetPassword" element={<RedefinirSenha />} />
     </Routes>
