@@ -42,7 +42,7 @@ function MainRoutes() {
       <Route path="/Login" element={<Login />} />
       <Route path="/Contato" element={<Contato />} />
       <Route path="/Perfil" element={<Perfil />} />
-      <Route path="/Pix" element={<Pix />} />
+      <Route path="/Pix/:id_quarto" element={<Pix />} />
       <Route path="/Acomodacoes" element={<Acomodacoes />} />
       <Route path="/Quartos/:id_quarto" element={<Quartos />} />
       <Route path="/ForgotPassword" element={<EsqueceuSenha />} />
