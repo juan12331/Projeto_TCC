@@ -23,6 +23,7 @@ function Quartos() {
   const [adultos, setAdultos] = useState('1 Adulto');
   const [criancas, setCriancas] = useState('0 Crianças');
 
+
   const { id_quarto } = useParams();
 
   useEffect(() => {
