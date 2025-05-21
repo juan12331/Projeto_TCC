@@ -137,7 +137,7 @@ export async function getQuartosDisponiveis(id_quarto) {
 }
 
 export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Terminado
+    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Precisa fazer
     return response.data;
 }
 
@@ -185,7 +185,7 @@ export async function createFotos(id_quarto, imagem) {
   }
   
 //   export async function createFotos(id_quarto, imagem) {
-//     const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // ISABELA
+//     const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // Precisa fazer
 //     return response.data;
 // }
 
