@@ -9,6 +9,7 @@ import Avaliacao from "./pages/adm/ava_adm/ava_adm.jsx";
 import PerfilAdm from "./pages/adm/perfil_adm/perfil_adm.jsx";
 import AcomodacoesAdm from "./pages/adm/acomodacoesAdm/acomodacoesAdm.jsx";
 import QuartosAdm from "./pages/adm/quartos_Adm/quartosAdm.jsx";
+import CriarAcomodacao from "./pages/adm/criarAcomodacao/criarAcomodacao.jsx";
 
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
@@ -33,7 +34,7 @@ function MainRoutes() {
       <Route path="/PerfilAdm/:cpf" element={<PerfilAdm />} />
       <Route path="/AcomodacoesAdm" element={<AcomodacoesAdm />} />
       <Route path="/quartosAdm/:id_quarto" element={<QuartosAdm />} />
-      
+      <Route path="/CriarAcomodacao" element={<CriarAcomodacao />} />
 
 
       {/* User Routes */}

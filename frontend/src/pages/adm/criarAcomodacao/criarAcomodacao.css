@@ -1,0 +1,294 @@
+*{
+    margin: 0vh;
+    padding: 0vh;
+    box-sizing: border-box;
+}
+
+.criarAcomodacao-page { 
+    background-color: #F2F2F2;
+    width: 100%;  
+    max-width: 100%;
+    height: 100%; 
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; 
+    
+}
+
+.itensName-criarAcomodacao:focus, .itensValor-criarAcomodacao:focus, .itensDescricao-criarAcomodacao:focus{ 
+    border: 1.5px solid #5c4c309c !important;  
+    outline: none !important; 
+}
+
+.itensCenter-criarAcomodacao{
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.itensName-criarAcomodacao, .itensValor-criarAcomodacao, .itensDescricao-criarAcomodacao{
+    border-radius: 12px;
+    border-bottom: #5c4c309c solid 1.5px;
+    border-left: #5c4c309c solid 1.5px;
+    border-right: #5c4c309c solid 1.5px;
+    border-top:#5c4c309c solid 1.5px ;
+    background-color: transparent;
+    text-align: center;
+    width: 80%;
+    height: 40px;
+}
+    
+.itensName-criarAcomodacao::placeholder, .itensValor-criarAcomodacao::placeholder, .itensDescricao-criarAcomodacao::placeholder{
+    color: #A38856;
+    font-family: "Kay Pho Du";
+    font-size: 1rem;
+}
+    
+.cadastrarAcomodacao-button{
+    margin-top: 25px;
+    background-color: #712122b4;
+    color: #EFE5D1;
+    font-family: "Karma";
+    font-size: 1rem;
+    border: none;
+    border-radius: 15px;
+    width: 25%;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cadastrarAcomodacao-button:hover{
+    background-color: #9c1618b4;
+    transition-duration: 0.3s;
+}
+
+.info-criarAcomodacao{
+    margin-top: 30px;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 2rem;
+    color: #5C4C30;
+}
+    
+.reservarAcomodacao-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+    height: 50px;
+    background-color: #A38856;
+    border: none;
+    border-radius: 20px;
+}
+
+.reservarAcomodacao-button::placeholder{
+    color: #5C4C30  ;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.reservarAcomodacao-button:focus{
+    outline: none;
+}
+
+.tituloQuarto-criarAcomodacao{
+    color: #5C4C30  ;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
+
+.tituloInfo-criarAcomodacao{
+    color: #5C4C30  ;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.checkbox-criarAcomodacao{
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
+    padding-left: 50px;
+}
+
+.nameItem-criarAcomodacao{
+    color: #A38856;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.formItens-criarAcomodacao{
+    display: flex;
+    justify-content: start;
+}
+
+.fundo-criarAcomodacao{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.fundoLeft-criarAcomodacao{
+    position: relative;
+    justify-content: center;
+    display: grid;
+    height: 100vh;
+    width: 50%;
+}
+
+.back-criarAcomodacao{
+    position: absolute;
+    top: 200px; 
+    left: 70px;
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    width: 250px;
+}
+
+.back-buttonAcomodacao{
+    color: #7C2728;
+    font-size: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.back-lineAcomodacao{
+    color: #7C2728;
+    font-size: 2.7rem;
+    cursor: pointer;
+}
+
+.back-textAcomodacao{
+    color: #7C2728;
+    font-size: 2.2rem;
+    font-family: "Katibeh";
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pageLeft-criarAcomodacao{
+    margin-top: 320px;
+    border-bottom: #7c2728d5 solid 1.5px;
+    border-left: #7c2728d5 solid 1.5px;
+    border-right: #7c2728d5 solid 1.5px;
+    border-top:#7c2728d5 solid 1.5px ;
+    border-radius: 15px;
+    width: 50vh;
+    height: 530px;
+    text-align: center;
+}
+
+.grid-criarAcomodacao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.name-criarAcomodacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.valor-criarAcomodacao, .descricao-criarAcomodacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageRight-criarAcomodacao{
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.background-criarAcomodacao{
+    overflow: hidden;
+    background-color: #ccaa6bce;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fundoInfo-criarAcomodacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #EFE5D1;
+    width: 40%;
+    height: 352px;
+    border-radius: 30px;
+    gap: 15px;
+    margin-top: 140px;
+}
+
+.final-criarAcomodacao{
+    margin-top: 100px;
+    display: flex;
+    height: 50px;
+    gap: 40px;
+}
+
+.quadrado-criarAcomodacao{
+    background-color: #EFE5D1;
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-criarAcomodacao{
+    width: 95px;
+    height: 85px;
+    background-color: #A38856;
+    border: none;
+    border-radius: 10px;
+}
+
+.foto-criarAcomodacao::placeholder{
+    color: #5C4C30  ;
+    font-family: "Karma";
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.foto-criarAcomodacao:focus{
+    outline: none;
+    text-align: center ;
+}
