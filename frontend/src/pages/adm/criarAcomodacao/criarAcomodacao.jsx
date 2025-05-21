@@ -2,7 +2,7 @@ import "./criarAcomodacao.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-// import { createFotos, createQuartos } from "../../../services/Api_service";
+import { createFotos, createQuartos } from "../../../services/Api_service";
 
 const CriarAcomodacao = () => {
     const navigate = useNavigate();
@@ -26,65 +26,7 @@ const CriarAcomodacao = () => {
         setSelectedOptions([...selectedOptions, optionId]);
       }
     };
-
-    // const [nome, setNome] = useState("");
-    // const [preco, setPreco] = useState("");
-    // const [descricao, setDescricao] = useState("");
-    // const [id_quarto, setId_quarto] = useState('');
-    // const [imagem, setImagem] = useState('');
-
-    // const showError = (message) => {
-    //     const span = document.getElementById("span");
-    //     if (span) {
-    //     span.textContent = message;
-    //     } else {
-    //     console.error("Elemento 'span' não encontrado:", message);
-    //     }
-    // };
-
-    // async function criarQuarto(e) {
-    //     e.preventDefault();
     
-    //     if (!nome || !preco || !descricao || !imagem) {
-    //     showError("Preencha todos os campos");
-    //     return;
-    //     }
-    
-    //     try {
-    //     const dataQuarto = await createQuartos(nome, preco, descricao);
-    
-    //     if (dataQuarto === "quarto ja foi cadastrado") {
-    //         showError("Quarto Já Cadastrado");
-    //         return;
-    //     }
-    
-    //     const id = dataQuarto.id || dataQuarto;
-    //     setId_quarto(id);
-    
-    //     try {
-    //         const dataFoto = await createFotos(id, imagem);
-            
-    //         if (dataFoto === "Foto já adicionada") {
-    //         showError("Quarto criado, mas a foto já existe");
-    //         } else if (dataFoto === "Sem permissão para adicionar fotos") {
-    //         showError("Quarto criado, mas você não tem permissão para adicionar fotos");
-    //         } else {
-    //         showError("Acomodação adicionada com sucesso");
-    //         setNome("");
-    //         setPreco("");
-    //         setDescricao("");
-    //         setImagem("");
-    //         setId_quarto("");
-    //         }
-    //     } catch (fotoError) {
-    //         console.error("Erro ao adicionar foto:", fotoError);
-    //         showError("Quarto foi criado, mas houve um erro ao adicionar a foto");
-    //     }
-    //     } catch (err) {
-    //     console.error("Erro ao criar quarto:", err);
-    //     showError("Erro ao adicionar acomodação");
-    //     }
-    // }
 
     return (
     <div className="criarAcomodacao-page">

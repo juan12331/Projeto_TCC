@@ -4,18 +4,21 @@ import NavbarAdm from "../../../assets/components/navbarAdm";
 import { FaStar } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getUser, getAvaliacoesById, deleteAvaliacoes } from "../../../services/Api_service";
+import { getUser, getAvaliacoes_quartosById, deleteAvaliacoes_quartos } from "../../../services/Api_service";
 
-function Avaliacao() {
-    const { id_avaliacao } = useParams();
-    const [informacoes, setInformacoes] = useState({ nota: 0 });
+function AvaliacaoQuarto() {
+    const { id_ava } = useParams();
+    const [informacoes, setInformacoes] = useState({ 
+        nota: 0,
+        quarto: {},
+        usuario: {}
+    });
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
 
-
-    // Componente StarRating modificado para receber e exibir a nota da avaliação
+    // Componente StarRating para exibir a nota da avaliação
     const StarRating = ({ rating = 0, totalStars = 5 }) => {
         return (
             <div className="star-rating-ava">
@@ -35,13 +38,18 @@ function Avaliacao() {
     };
 
     async function deletarAvaliacao() {
-        deleteAvaliacoes(id_avaliacao)
-        window.location.href = '/avaliacoesAdm'
+        try {
+            await deleteAvaliacoes_quartos(id_ava);
+            window.location.href = '/avaliacoesAdm';
+        } catch (error) {
+            console.error("Erro ao deletar avaliação:", error);
+            alert("Erro ao deletar avaliação. Tente novamente.");
+        }
     }
 
     async function preencher() {
         try {
-            const info = await getAvaliacoesById(id_avaliacao);
+            const info = await getAvaliacoes_quartosById(id_ava);
             console.log("Dados carregados da API:", info);
             setInformacoes(info);
         } catch (error) {
@@ -83,18 +91,33 @@ function Avaliacao() {
                             alt="Ícone do usuário"
                         />
                         <div className="grid-avaAdm">
-                            {/* Passando a nota da avaliação como prop para o componente StarRating */}
+                            {/* Exibindo as estrelas com base na nota */}
                             <StarRating rating={informacoes.nota || 0} />
+                            
+                            {/* Informação do usuário */}
                             <div className="input-ava">
-                                <h3 className="Informações_do_Usuario">{informacoes.cpf || "Carregando..."}</h3>
+                                <h3 className="Informações_do_Usuario">
+                                    {informacoes.usuario && informacoes.usuario.nome ? 
+                                        `${informacoes.usuario.nome} (${informacoes.cpf})` : 
+                                        informacoes.cpf || "Carregando..."}
+                                </h3>
                             </div>
+                            
+                            {/* Informação do quarto */}
+                            {informacoes.quarto && (
+                                <div className="info-quarto">
+                                    <h3 className="nome-quarto">Quarto: {informacoes.quarto.nome || ""}</h3>
+                                    <p className="preco-quarto">Preço: R$ {informacoes.quarto.preco?.toFixed(2) || ""}</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
 
                 <div className="reclamacao">
                     <div className="container-reclamação">
-                        <h3 className="reclama-ava">{informacoes.avaliacao_texto || ""}</h3>
+                        <h3 className="reclama-ava">Avaliação do Quarto</h3>
+                        <p className="texto-avaliacao">{informacoes.avaliacao_texto || ""}</p>
                     </div>
                     <div className="input-button-container-ava">
                         <button onClick={handleShow} className="ava-button">Excluir</button>
@@ -103,24 +126,25 @@ function Avaliacao() {
             </div>
 
             <div className="rodapePage-avaAdm"></div>
-            <div className={`modal-container ${showModal ? 'show' : ''}`}>
-        <div className="modal-content modal-delete slide-up">
-          <div className="modal-header">
-            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
-            <button className="close-button" onClick={handleClose}>×</button>
-          </div>
-          <div className="modal-body">
-            <p><strong>Tem certeza que deseja excluir esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
-          </div>
-          <div className="modal-footer">
-            <button className="cancel-button" onClick={handleClose}>Cancelar</button>
-            <button className="confirm-button delete" onClick={deletarAvaliacao}>Sim, Excluir</button>
-          </div>
-        </div>
-      </div>
             
+            {/* Modal de confirmação */}
+            <div className={`modal-container ${showModal ? 'show' : ''}`}>
+                <div className="modal-content modal-delete slide-up">
+                    <div className="modal-header">
+                        <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+                        <button className="close-button" onClick={handleClose}>×</button>
+                    </div>
+                    <div className="modal-body">
+                        <p><strong>Tem certeza que deseja excluir essa avaliação de quarto? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+                    </div>
+                    <div className="modal-footer">
+                        <button className="cancel-button" onClick={handleClose}>Cancelar</button>
+                        <button className="confirm-button delete" onClick={deletarAvaliacao}>Sim, Excluir</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
 
-export default Avaliacao;
+export default AvaliacaoQuarto;

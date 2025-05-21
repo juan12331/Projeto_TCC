@@ -10,6 +10,7 @@ import PerfilAdm from "./pages/adm/perfil_adm/perfil_adm.jsx";
 import AcomodacoesAdm from "./pages/adm/acomodacoesAdm/acomodacoesAdm.jsx";
 import QuartosAdm from "./pages/adm/quartos_Adm/quartosAdm.jsx";
 import CriarAcomodacao from "./pages/adm/criarAcomodacao/criarAcomodacao.jsx";
+import AvaliacaoQuarto from "./pages/adm/ava_adm/ava_adm.jsx"
 
 //Rotas dos usuarios
 import Cadastro from "./pages/user/cadastro/cadastro.jsx";
@@ -23,6 +24,7 @@ import Quartos from "./pages/user/quartos/quartos.jsx";
 import EsqueceuSenha from "./pages/user/esqueceu_senha/esqueceu_senha.jsx"
 import RedefinirSenha from "./pages/user/redefinir_senha/redefinir_senha.jsx"
 
+
 function MainRoutes() {
   return (
     <Routes>
@@ -30,7 +32,8 @@ function MainRoutes() {
       <Route path="/Usuarios" element={<Usuarios />} />
       <Route path="/Criar_usuarios" element={<Criar_usuarios />} />
       <Route path="/AvaliacoesAdm" element={<AvaliacoesAdm />} />
-      <Route path="/Avaliacao" element={<Avaliacao />} />
+      <Route path="/Avaliacao/:id_avaliacao" element={<Avaliacao />} />
+      <Route path="/AvaliacaoQuarto/:id_ava" element={<AvaliacaoQuarto />} />
       <Route path="/PerfilAdm/:cpf" element={<PerfilAdm />} />
       <Route path="/AcomodacoesAdm" element={<AcomodacoesAdm />} />
       <Route path="/quartosAdm/:id_quarto" element={<QuartosAdm />} />
