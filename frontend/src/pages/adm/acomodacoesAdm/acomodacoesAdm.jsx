@@ -129,11 +129,11 @@ const AcomodacoesAdm = () => {
         {quartos.length > 0 ? (
           quartos.map((quartos, index) => (
             <div className="cardsFundo-acomodacoesAdm" key={quartos.id_quarto}>
-              {/* <img
+               <img
                 className="cardsImg-acomodacoesAdm"
                 src={quartos.fotos_quartos[0].imagem }
                 alt=""
-              //                                                n esta lendo a imagem, (imagem inexistente) /> */} 
+                                                              /> 
               <div className="cardsConteudo-acomodacoesAdm">
                 <h1 className="cardsTitle-acomodacoesAdm">
                   {quartos.nome} - R$ {quartos.preco}

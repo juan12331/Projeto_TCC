@@ -9,46 +9,142 @@ import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { useNavigate, useParams } from "react-router-dom";
-import { getUser, createAvaliacoes, getQuartosDisponiveis } from "../../../services/Api_service";
+import { createAvaliacoes, getQuartosDisponiveis } from "../../../services/Api_service";
 
 function Quartos() {
+  const [avaliacao_texto, setAvaliacao_texto] = useState('');
+  const [nota, setNota] = useState(0);
+  const [cpf, setCpf] = useState('');
+  const [quarto, setQuarto] = useState([]);
+  
+  // Estado para os dados de reserva
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [adultos, setAdultos] = useState('1 Adulto');
+  const [criancas, setCriancas] = useState('0 Crianças');
 
-  const [avaliacao_texto, setAvaliacao_texto] = useState('')
-  const [nota, setNota] = useState(0)
-  const [quarto, setQuarto] = useState([])
-  const [cpf, setCpf] = useState('')
+
   const { id_quarto } = useParams();
 
   useEffect(() => {
-      preencher();
-    }, []);
+    preencher();
+  }, []);
 
-    async function preencher(){
-      getQuartosDisponiveis(id_quarto).then(data => {
-       console.log(data);
-       setQuarto(data)
-      })
+  function saveReservationData() {
+    // Verificar se as datas foram selecionadas
+    if (!checkIn || !checkOut) {
+      showError('Por favor, selecione as datas de check-in e check-out');
+      return;
     }
+    
+    // Converter strings para objetos Date
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+    const today = new Date();
+    
+    // Resetar as horas para comparação apenas de datas
+    today.setHours(0, 0, 0, 0);
+    
+    // Verificar se a data de check-in é no passado
+    if (checkInDate < today) {
+      showError('A data de check-in não pode ser no passado');
+      return;
+    }
+    
+    // Verificar se a data de check-out é igual ou anterior à data de check-in
+    if (checkOutDate <= checkInDate) {
+      showError('A data de check-out deve ser posterior à data de check-in');
+      return;
+    }
+    
+    // Formatar as datas para comparação apenas de dia/mês/ano
+    const checkInDateStr = checkInDate.toISOString().split('T')[0];
+    const checkOutDateStr = checkOutDate.toISOString().split('T')[0];
+    
+    // Verificar se o check-in e check-out são no mesmo dia
+    if (checkInDateStr === checkOutDateStr) {
+      showError('O check-out não pode ser no mesmo dia do check-in');
+      return;
+    }
+    
+    // Calcular a diferença de dias
+    const diffTime = Math.abs(checkOutDate - checkInDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Verificar se a estadia é maior que 30 dias
+    if (diffDays > 30) {
+      showError('Não é possível fazer reservas por mais de 30 dias');
+      return;
+    }
+    
+    // Se passou por todas as validações, criar objeto com os dados da reserva
+    const reservationData = {
+      checkIn: checkIn,
+      checkOut: checkOut,
+      adultos: adultos,
+      criancas: criancas,
+      quartoId: id_quarto,
+      quartoNome: quarto.nome,
+      quartoPreco: quarto.preco,
+      diasEstadia: diffDays
+    };
+    
+    // Salvar no localStorage
+    localStorage.setItem('reservationData', JSON.stringify(reservationData));
+    
+    // Navegar para a página de pagamento
+    navigate(`/pix/${id_quarto}`);
+  }
+
+  async function preencher(){
+    getQuartosDisponiveis(id_quarto).then(data => {
+      console.log(data);
+      setQuarto(data);
+    });
+  }
 
   async function Criar(e) {
     e.preventDefault();
 
     if (avaliacao_texto == '' ||  nota == '' || id_quarto == '' || cpf == '') {
-      showError('preencha todos os campos')
+      showError('preencha todos os campos');
       return;
     }
 
     await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf).then(data => {
       if (data == 'avaliação adicionada com sucesso'){
-        showError('Avaliação Já Adicionada')
+        showError('Avaliação Já Adicionada');
         return;
       }
-    }).catch(err => console.log(err))
+    }).catch(err => console.log(err));
   }
 
   const showError = (message) => {
     const span = document.getElementById('span');
-    span.textContent = message;
+    if (span) {
+      span.textContent = message;
+    } else {
+      // Criar um elemento para exibir o erro se não existir
+      const errorSpan = document.createElement('span');
+      errorSpan.id = 'span';
+      errorSpan.style.color = 'red';
+      errorSpan.style.display = 'block';
+      errorSpan.style.marginTop = '10px';
+      errorSpan.style.textAlign = 'center';
+      errorSpan.style.fontWeight = 'bold';
+      errorSpan.textContent = message;
+      
+      // Adicionar ao formulário de reserva
+      const formReserva = document.querySelector('.form-reserva');
+      formReserva.appendChild(errorSpan);
+      
+      // Remover após 5 segundos
+      setTimeout(() => {
+        if (errorSpan.parentNode) {
+          errorSpan.parentNode.removeChild(errorSpan);
+        }
+      }, 5000);
+    }
   }
 
   const navigate = useNavigate();
@@ -127,27 +223,52 @@ function Quartos() {
             </div>
 
             <div className="form-reserva">
-              <input type="date" placeholder="Check-in" />
-              <input type="date" placeholder="Check-out" />
-              <select>
+              <input 
+                type="date" 
+                placeholder="Check-in" 
+                value={checkIn}
+                min={new Date().toISOString().split('T')[0]}
+                onChange={(e) => {
+                  setCheckIn(e.target.value);
+                  // Se o check-out for no mesmo dia ou antes do novo check-in, limpar o check-out
+                  if (checkOut && new Date(checkOut) <= new Date(e.target.value)) {
+                    setCheckOut('');
+                  }
+                }}
+              />
+              <input 
+                type="date" 
+                placeholder="Check-out"
+                value={checkOut}
+                min={checkIn ? new Date(new Date(checkIn).getTime() + 86400000).toISOString().split('T')[0] : new Date(Date.now() + 86400000).toISOString().split('T')[0]}
+                onChange={(e) => setCheckOut(e.target.value)}
+                disabled={!checkIn}
+              />
+              <select
+                value={adultos}
+                onChange={(e) => setAdultos(e.target.value)}
+              >
                 <option>1 Adulto</option>
                 <option>2 Adultos</option>
                 <option>3 Adultos</option>
               </select>
 
-              <select>
+              <select
+                value={criancas}
+                onChange={(e) => setCriancas(e.target.value)}
+              >
                 <option>0 Crianças</option>
-                <option>1 Crianças</option>
+                <option>1 Criança</option>
                 <option>2 Crianças</option>
                 <option>3 Crianças</option>
               </select>
-              <button  onClick={() => navigate("/pix")} className="btn-reservar">Reservar</button>
+              <button onClick={saveReservationData} className="btn-reservar">Reservar</button>
             </div>
           </section>
         </main>
         <div className="tudo_domo">
           <div className="domo_titulo">
-            <p>CONHEÇA O DOMO</p>
+            <p>CONHEÇA {quarto.nome}</p>
           </div>
           <article>
             <div className="aviso">
@@ -310,7 +431,7 @@ function Quartos() {
 
           <div className="aval_domo">
             <p>
-              Agradecemos por escolher o Domo para sua estadia. <br />{" "}
+              Agradecemos por escolher {quarto.nome} para sua estadia. <br />{" "}
               Compartilhe sua experiência conosco logo abaixo!
             </p>
             <StarRating />
@@ -336,7 +457,7 @@ function Quartos() {
                     className="input-mensg"
                   />
                   
-                  <button className="btn-enviar">Enviar avaliação</button>
+                  <button onClick={Criar} className="btn-enviar">Enviar avaliação</button>
                 </div>
               </div>
             </div>
