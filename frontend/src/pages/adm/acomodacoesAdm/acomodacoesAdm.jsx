@@ -26,6 +26,11 @@ const AcomodacoesAdm = () => {
       .catch((error) => console.error(error, "erro no get de quartos"));
   }
 
+  useEffect(() => {
+      verificacao();
+      getQuartos(); // Carrega todos os usuários no início
+    }, []);
+
   async function verificacao() {
     try {
       await getUser().then((data) => console.log("log"));
