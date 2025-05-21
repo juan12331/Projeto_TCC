@@ -57,13 +57,16 @@ const AvaliacoesAdm = () => {
                 </Link>
             </div>
 
+            <span className="avaliacoesAdm-titulo">avaliacoes de quartos</span>
             <div className="grid2-avaliacoesAdm">
+                
                 <Link to="/Avaliacao" className="fundoCards-avaliacoesAdm">
                     <div className="reclamacao-avaliacoesAdm">
                         <h1 className="text-avaliacoesAdm">Reclamação!</h1>
                     </div>
                     <h2 className="nomeCards-avaliacoesAdm">Nome</h2>
                     <h3 className="cpfCards-avaliacoesAdm">CPF</h3>
+                    <h3 className="cpfCards-avaliacoesAdm">id_quarto</h3>
                 </Link>
             </div>
         </div>

@@ -14,7 +14,7 @@ import { createAvaliacoes_quartos, getQuartosDisponiveis } from "../../../servic
 function Quartos() {
   const [avaliacao_texto, setAvaliacao_texto] = useState('');
   const [nota, setNota] = useState(0);
-  const [cpf, setCpf] = useState('');
+  const cpf = localStorage.getItem('cpf')
   const [quarto, setQuarto] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(false);
@@ -35,6 +35,11 @@ function Quartos() {
   useEffect(() => {
     preencher();
   }, []);
+
+  async function criar_avaliacao() {
+    console.log('comece a pensar')
+    await createAvaliacoes_quartos(avaliacao_texto, nota, id_quarto, cpf).then(data => console.log(data)).catch(error => console.log(error))
+  }
 
   // Efeito para configurar as imagens quando o quarto for carregado
   useEffect(() => {
@@ -623,7 +628,7 @@ function Quartos() {
                   <input
                     type="text"
                     placeholder="CPF"
-                    className="input-cpf"
+                    className="input-mensg"
                     value={cpf}
                     onChange={(e) => setCpf(e.target.value)}
                   />
@@ -635,7 +640,7 @@ function Quartos() {
                     className="input-mensg"
                   />
                   
-                  <button onClick={Criar} className="btn-enviar">Enviar avaliação</button>
+                  <button onClick={() => {criar_avaliacao(); console.log('uff')}} className="btn-enviar">Enviar avaliação</button>
                 </div>
               </div>
             </div>
