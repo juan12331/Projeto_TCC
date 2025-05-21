@@ -273,10 +273,10 @@
 
 .foto-criarAcomodacao{
     width: 95px;
-    height: 85px;
+    height: 45px;
     background-color: #A38856;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .foto-criarAcomodacao::placeholder{

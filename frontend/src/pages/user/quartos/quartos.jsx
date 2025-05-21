@@ -9,7 +9,7 @@ import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { useNavigate, useParams } from "react-router-dom";
-import { createAvaliacoes, getQuartosDisponiveis } from "../../../services/Api_service";
+import { createAvaliacoes_quartos, getQuartosDisponiveis } from "../../../services/Api_service";
 
 function Quartos() {
   const [avaliacao_texto, setAvaliacao_texto] = useState('');
@@ -106,12 +106,12 @@ function Quartos() {
   async function Criar(e) {
     e.preventDefault();
 
-    if (avaliacao_texto == '' ||  nota == '' || id_quarto == '' || cpf == '') {
+    if (avaliacao_texto == '' ||  nota == '' || quarto == '' || cpf == '') {
       showError('preencha todos os campos');
       return;
     }
 
-    await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf).then(data => {
+    await createAvaliacoes_quartos(avaliacao_texto, nota, quarto, cpf).then(data => {
       if (data == 'avaliação adicionada com sucesso'){
         showError('Avaliação Já Adicionada');
         return;

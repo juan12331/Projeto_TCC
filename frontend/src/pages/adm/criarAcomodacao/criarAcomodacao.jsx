@@ -127,7 +127,7 @@ const CriarAcomodacao = () => {
                             </div>
                         </form>
                     </div>
-                    <button className="cadastrarAcomodacao-button">Cadastrar</button>
+                    <button /*onClick={criarAcomodacao}*/ className="cadastrarAcomodacao-button">Cadastrar</button>
                 </div>
             </div>
 
