@@ -9,7 +9,7 @@ const ReservasControllers = require('../controllers/reservas');
 const TiposUsuariosControllers = require('../controllers/tipos_usuarios');
 const QuartosControllers = require('../controllers/quartos');
 const autenticacao = require('../controllers/authenticate');
-// const authenticate = require('../controllers/authenticate');
+//  const authenticate = require('../controllers/authenticate');
 
 // função dos usuarios
 routes.post('/login', autenticacao.loginJWT); 

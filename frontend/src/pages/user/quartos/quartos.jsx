@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./quartos.css";
-import img from "/src/assets/quartos/domo_quartos.png";
 import img1 from "/src/assets/quartos/image 120.png";
 import img2 from "/src/assets/quartos/image 114.png";
 import img3 from "/src/assets/quartos/image 117.png";
 import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
+// import placeholderImg from "/src/assets/quartos/image-placeholder.png"; // Assumo que você terá uma imagem de placeholder
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { useNavigate, useParams } from "react-router-dom";
@@ -15,7 +15,9 @@ function Quartos() {
   const [avaliacao_texto, setAvaliacao_texto] = useState('');
   const [nota, setNota] = useState(0);
   const [cpf, setCpf] = useState('');
-  const [quarto, setQuarto] = useState([]);
+  const [quarto, setQuarto] = useState(null);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(false);
   
   // Estado para os dados de reserva
   const [checkIn, setCheckIn] = useState('');
@@ -23,12 +25,52 @@ function Quartos() {
   const [adultos, setAdultos] = useState('1 Adulto');
   const [criancas, setCriancas] = useState('0 Crianças');
 
+  // Estado para as imagens
+  const [imagens, setImagens] = useState([]);
+  const [imagemAtual, setImagemAtual] = useState(null);
 
   const { id_quarto } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     preencher();
   }, []);
+
+  // Efeito para configurar as imagens quando o quarto for carregado
+  useEffect(() => {
+    if (quarto) {
+      // Configura o array de imagens com as imagens do quarto se disponíveis,
+      // caso contrário, usa as imagens estáticas como fallback
+      const imagensDoQuarto = [];
+      
+      // Verifica se o quarto tem fotos e adiciona a primeira como imagem principal
+      if (quarto.fotos_quartos && quarto.fotos_quartos.length > 0) {
+        quarto.fotos_quartos.forEach(foto => {
+          if (foto && foto.imagem) {
+            imagensDoQuarto.push(foto.imagem);
+          }
+        });
+      }
+      
+      // Adiciona as imagens de fallback se necessário
+      if (imagensDoQuarto.length === 0) {
+        // Se não tiver imagens do quarto, usa apenas as imagens estáticas
+        setImagens([img1, img2, img3, img4, img5]);
+      } else {
+        // Combina as imagens do quarto com as estáticas
+        setImagens([...imagensDoQuarto,]);
+      }
+      
+      // Define a imagem atual
+      if (imagensDoQuarto.length > 0) {
+        setImagemAtual(imagensDoQuarto[0]);
+      } else if (img1) {
+        setImagemAtual(img1);
+      } else {
+        setImagemAtual(placeholderImg);
+      }
+    }
+  }, [quarto]);
 
   function saveReservationData() {
     // Verificar se as datas foram selecionadas
@@ -84,8 +126,8 @@ function Quartos() {
       adultos: adultos,
       criancas: criancas,
       quartoId: id_quarto,
-      quartoNome: quarto.nome,
-      quartoPreco: quarto.preco,
+      quartoNome: quarto?.nome || '',
+      quartoPreco: quarto?.preco || 0,
       diasEstadia: diffDays
     };
     
@@ -96,33 +138,68 @@ function Quartos() {
     navigate(`/pix/${id_quarto}`);
   }
 
-  async function preencher(){
-    getQuartosDisponiveis(id_quarto).then(data => {
-      console.log(data);
-      setQuarto(data);
-    });
+  async function preencher() {
+    try {
+      setCarregando(true);
+      setErro(false);
+      
+      const data = await getQuartosDisponiveis(id_quarto);
+      console.log("Dados do quarto:", data);
+      
+      if (data) {
+        setQuarto(data);
+      } else {
+        setErro(true);
+      }
+    } catch (error) {
+      console.error("Erro ao carregar dados do quarto:", error);
+      setErro(true);
+    } finally {
+      setCarregando(false);
+    }
   }
 
   async function Criar(e) {
     e.preventDefault();
 
-    if (avaliacao_texto == '' ||  nota == '' || id_quarto == '' || cpf == '') {
+    if (avaliacao_texto === '' || nota === 0 || id_quarto === '' || cpf === '') {
       showError('preencha todos os campos');
       return;
     }
 
-    await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf).then(data => {
-      if (data == 'avaliação adicionada com sucesso'){
-        showError('Avaliação Já Adicionada');
-        return;
+    try {
+      const data = await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf);
+      if (data === 'avaliação adicionada com sucesso') {
+        showError('Avaliação adicionada com sucesso!');
+        // Limpar os campos do formulário
+        setAvaliacao_texto('');
+        setNota(0);
+        setCpf('');
+      } else {
+        showError('Erro ao adicionar avaliação');
       }
-    }).catch(err => console.log(err));
+    } catch (err) {
+      console.error("Erro ao criar avaliação:", err);
+      showError('Erro ao enviar avaliação. Tente novamente.');
+    }
   }
 
   const showError = (message) => {
     const span = document.getElementById('span');
     if (span) {
       span.textContent = message;
+      
+      // Resetar o timer se já existir
+      if (span.timeoutId) {
+        clearTimeout(span.timeoutId);
+      }
+      
+      // Definir novo timer
+      span.timeoutId = setTimeout(() => {
+        if (span.parentNode) {
+          span.textContent = '';
+        }
+      }, 5000);
     } else {
       // Criar um elemento para exibir o erro se não existir
       const errorSpan = document.createElement('span');
@@ -136,25 +213,26 @@ function Quartos() {
       
       // Adicionar ao formulário de reserva
       const formReserva = document.querySelector('.form-reserva');
-      formReserva.appendChild(errorSpan);
-      
-      // Remover após 5 segundos
-      setTimeout(() => {
-        if (errorSpan.parentNode) {
-          errorSpan.parentNode.removeChild(errorSpan);
-        }
-      }, 5000);
+      if (formReserva) {
+        formReserva.appendChild(errorSpan);
+        
+        // Remover após 5 segundos
+        const timeoutId = setTimeout(() => {
+          if (errorSpan.parentNode) {
+            errorSpan.parentNode.removeChild(errorSpan);
+          }
+        }, 5000);
+        
+        // Armazenar o ID do timeout para poder cancelá-lo se necessário
+        errorSpan.timeoutId = timeoutId;
+      }
     }
   }
-
-  const navigate = useNavigate();
-  const imagens = [img, img1, img2, img3, img4, img5];
-  const [imagemAtual, setImagemAtual] = useState(imagens[0]);
 
   const StarRating = ({ totalStars = 5 }) => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
-    
+
     return (
       <div className="star-rating">
         {[...Array(totalStars)].map((_, index) => {
@@ -186,6 +264,32 @@ function Quartos() {
     setImagemAtual(imagem);
   };
 
+  // Renderização condicional para quando os dados estão carregando
+  if (carregando) {
+    return (
+      <div className="fundo_quartos">
+        <NavbarUser />
+        <div className="loading-container">
+          <p>Carregando informações do quarto...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Renderização condicional para quando ocorre um erro
+  if (erro) {
+    return (
+      <div className="fundo_quartos">
+        <NavbarUser />
+        <div className="error-container">
+          <p>Erro ao carregar informações do quarto. Por favor, tente novamente.</p>
+          <button onClick={preencher} className="btn-tentar-novamente">Tentar Novamente</button>
+        </div>
+      </div>
+    );
+  }
+
+  // Renderização normal quando tudo está carregado
   return (
     <>
       <div className="fundo_quartos">
@@ -197,28 +301,48 @@ function Quartos() {
         </div>
         <main className="quarto-container">
           <section className="galeria-principal">
-            <img
-              src={imagemAtual}
-              alt="Imagem do domo"
-              className="imagem-principal"
-            />
+            {imagemAtual ? (
+              <img
+                src={imagemAtual}
+                alt="Imagem do quarto"
+                className="imagem-principal"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = placeholderImg;
+                  e.target.alt = "Imagem indisponível";
+                }}
+              />
+            ) : (
+              <div className="imagem-indisponivel">
+                <p>Imagem indisponível</p>
+              </div>
+            )}
             <div className="miniaturas">
-              {imagens.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`Miniatura ${index + 1}`}
-                  className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
-                  onClick={() => handleImagemClick(img)}
-                />
-              ))}
+              {imagens.length > 0 ? (
+                imagens.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`Miniatura ${index + 1}`}
+                    className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
+                    onClick={() => handleImagemClick(img)}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = placeholderImg;
+                      e.target.alt = "Miniatura indisponível";
+                    }}
+                  />
+                ))
+              ) : (
+                <p className="sem-miniaturas">Sem imagens disponíveis</p>
+              )}
             </div>
           </section>
 
           <section className="detalhes-quarto">
             <div className="preco-container">
               <p>A PARTIR DE</p>
-              <h2>R${quarto.preco},00</h2>
+              <h2>R${quarto?.preco || 0},00</h2>
               <p>POR NOITE</p>
             </div>
 
@@ -268,74 +392,96 @@ function Quartos() {
         </main>
         <div className="tudo_domo">
           <div className="domo_titulo">
-            <p>CONHEÇA {quarto.nome}</p>
+            <p>CONHEÇA {quarto?.nome || "QUARTO"}</p>
           </div>
           <article>
             <div className="aviso">
               <div>
                 <p>
+                  {quarto?.descricao || "Descrição do quarto não disponível."}
+                </p>
+                <p>
                   Os valores exibidos no site estão sujeitos a constantes
                   atualizações. Nos feriados e datas comemorativas o valor da
                   diária também é diferenciado. Para mais detalhes entre em
-                  contato por telefone. O Domo é a grande novidade da pousada.
-                  Uma acomodação totalmente diferenciada construída nos padrões
-                  arquitetônicos dos domos geodésicos modernos.
+                  contato por telefone.
                 </p>
               </div>
             </div>
 
             <div className="informacoes_domo">
               <div className="top">
-                <div className="line">
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/ar-condicionado.png"
-                      alt="ar-condicionado"
-                    />
-                    <p>Ar condicionado</p>
+                {/* Renderização condicional para ar condicionado */}
+                {quarto?.ar_condicionado && (
+                  <div className="line">
+                    <div className="item">
+                      <img
+                        src="/src/assets/quartos/ar-condicionado.png"
+                        alt="ar-condicionado"
+                      />
+                      <p>Ar condicionado</p>
+                    </div>
                   </div>
+                )}
+
+                <div className="line">
+                  {/* Renderização condicional para TV */}
+                  {quarto?.tv && (
+                    <div className="item">
+                      <img
+                        src="/src/assets/quartos/televisao.png"
+                        alt="televisao"
+                      />
+                      <p>TV</p>
+                    </div>
+                  )}
+                  {/* Renderização condicional para WiFi */}
+                  {quarto?.wifi && (
+                    <div className="item">
+                      <img src="/src/assets/quartos/wifi.png" alt="wifi" />
+                      <p>Wifi</p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="line">
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/televisao.png"
-                      alt="televisao"
-                    />
-                    <p>TV</p>
-                  </div>
-                  <div className="item">
-                    <img src="/src/assets/quartos/wifi.png" alt="wifi" />
-                    <p>Wifi</p>
-                  </div>
+                  {/* Renderização condicional para ducha */}
+                  {quarto?.ducha && (
+                    <div className="item">
+                      <img src="/src/assets/quartos/ducha.png" alt="ducha" />
+                      <p>Ducha</p>
+                    </div>
+                  )}
+                  {/* Renderização condicional para frigobar */}
+                  {quarto?.frigobar && (
+                    <div className="item">
+                      <img
+                        src="/src/assets/quartos/frigobar.png"
+                        alt="frigobar"
+                      />
+                      <p>Frigobar</p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="line">
-                  <div className="item">
-                    <img src="/src/assets/quartos/ducha.png" alt="ducha" />
-                    <p>Ducha</p>
-                  </div>
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/frigobar.png"
-                      alt="frigobar"
-                    />
-                    <p>Frigobar</p>
-                  </div>
-                </div>
-
-                <div className="line">
-                  <div className="item">
-                    <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
-                    <p>Toalhas</p>
-                  </div>
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/cozinha_domo.png"
-                      alt="cozinha"
-                    />
-                    <p>Cozinha</p>
-                  </div>
+                  {/* Renderização condicional para toalhas */}
+                  {quarto?.toalhas && (
+                    <div className="item">
+                      <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
+                      <p>Toalhas</p>
+                    </div>
+                  )}
+                  {/* Renderização condicional para cozinha */}
+                  {quarto?.cozinha && (
+                    <div className="item">
+                      <img
+                        src="/src/assets/quartos/cozinha_domo.png"
+                        alt="cozinha"
+                      />
+                      <p>Cozinha</p>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -380,58 +526,87 @@ function Quartos() {
         </div>
         <section className="avaliacoes">
           <div className="testimonials-container">
-            <div className="testimonial-item">
-              <div className="testimonial-img-container">
-                <img
-                  src="/src/assets/quartos/usuario_domo.png"
-                  alt="Usuário"
-                  className="testimonial-img"
-                />
-              </div>
-              <p className="testimonial-text">
-                Quarto super confortável e atendimento excelente
-              </p>
-            </div>
+            {quarto?.avaliacoes_quartos && quarto.avaliacoes_quartos.length > 0 ? (
+              quarto.avaliacoes_quartos.map((avaliacao, index) => (
+                <div key={index} className="testimonial-item">
+                  <div className="testimonial-img-container">
+                    <img
+                      src="/src/assets/quartos/usuario_domo.png"
+                      alt="Usuário"
+                      className="testimonial-img"
+                    />
+                  </div>
+                  <p className="testimonial-text">
+                    {avaliacao.avaliacao_texto}
+                  </p>
+                  <div className="testimonial-rating">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar
+                        key={i}
+                        className="star"
+                        size={15}
+                        color={i < avaliacao.nota ? "#FFD700" : "#ccc"}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <>
+                <div className="testimonial-item">
+                  <div className="testimonial-img-container">
+                    <img
+                      src="/src/assets/quartos/usuario_domo.png"
+                      alt="Usuário"
+                      className="testimonial-img"
+                    />
+                  </div>
+                  <p className="testimonial-text">
+                    Quarto super confortável e atendimento excelente
+                  </p>
+                </div>
 
-            <div className="testimonial-item">
-              <div className="testimonial-img-container">
-                <img
-                  src="/src/assets/quartos/usuario_domo.png"
-                  alt="Usuário"
-                  className="testimonial-img"
-                />
-              </div>
-              <p className="testimonial-text">
-                Excelente acomodação. Voltarei mais vezes
-              </p>
-            </div>
+                <div className="testimonial-item">
+                  <div className="testimonial-img-container">
+                    <img
+                      src="/src/assets/quartos/usuario_domo.png"
+                      alt="Usuário"
+                      className="testimonial-img"
+                    />
+                  </div>
+                  <p className="testimonial-text">
+                    Excelente acomodação. Voltarei mais vezes
+                  </p>
+                </div>
 
-            <div className="testimonial-item">
-              <div className="testimonial-img-container">
-                <img
-                  src="/src/assets/quartos/usuario_domo.png"
-                  alt="Usuário"
-                  className="testimonial-img"
-                />
-              </div>
-              <p className="testimonial-text">Quarto aconchegante. Nota 10!</p>
-            </div>
+                <div className="testimonial-item">
+                  <div className="testimonial-img-container">
+                    <img
+                      src="/src/assets/quartos/usuario_domo.png"
+                      alt="Usuário"
+                      className="testimonial-img"
+                    />
+                  </div>
+                  <p className="testimonial-text">Quarto aconchegante. Nota 10!</p>
+                </div>
 
-            <div className="testimonial-item">
-              <div className="testimonial-img-container">
-                <img
-                  src="/src/assets/quartos/usuario_domo.png"
-                  alt="Usuário"
-                  className="testimonial-img"
-                />
-              </div>
-              <p className="testimonial-text">Ótima acomodação!</p>
-            </div>
+                <div className="testimonial-item">
+                  <div className="testimonial-img-container">
+                    <img
+                      src="/src/assets/quartos/usuario_domo.png"
+                      alt="Usuário"
+                      className="testimonial-img"
+                    />
+                  </div>
+                  <p className="testimonial-text">Ótima acomodação!</p>
+                </div>
+              </>
+            )}
           </div>
 
           <div className="aval_domo">
             <p>
-              Agradecemos por escolher {quarto.nome} para sua estadia. <br />{" "}
+              Agradecemos por escolher {quarto?.nome || "nosso quarto"} para sua estadia. <br />{" "}
               Compartilhe sua experiência conosco logo abaixo!
             </p>
             <StarRating />
@@ -445,13 +620,15 @@ function Quartos() {
                     className="input-nome"
                   />
                   <input
-                    type="email"
-                    placeholder="Insira seu email"
-                    className="input-email"
+                    type="text"
+                    placeholder="CPF"
+                    className="input-cpf"
+                    value={cpf}
+                    onChange={(e) => setCpf(e.target.value)}
                   />
                   <input
                     value={avaliacao_texto} 
-                    onChange={(e) => {setAvaliacao_texto((e.target.value))}}
+                    onChange={(e) => {setAvaliacao_texto(e.target.value)}}
                     type="text"
                     placeholder="Digite sua mensagem"
                     className="input-mensg"
