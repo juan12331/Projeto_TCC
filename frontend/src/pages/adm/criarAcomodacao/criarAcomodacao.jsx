@@ -87,7 +87,7 @@ const CriarAcomodacao = () => {
     // }
 
     return (
-    <div className="criarAcomodacao_page">
+    <div className="criarAcomodacao-page">
         <NavbarAdm />
         <div className="fundo-criarAcomodacao">
             <div className="fundoLeft-criarAcomodacao">

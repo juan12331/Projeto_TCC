@@ -6,11 +6,33 @@ import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
 // import placeholderImg from "/src/assets/quartos/image-placeholder.png"; // Assumo que você terá uma imagem de placeholder
 import { FaStar } from "react-icons/fa";
-import NavbarUser from "../../../assets/components/navbarUser";
+import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, useParams } from "react-router-dom";
 import { createAvaliacoes, getQuartosDisponiveis } from "../../../services/Api_service";
+import "./quartosAdm.css";
 
 function Quartos() {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+    const options = [
+      { id: 1, label: ' TV'},
+      { id: 2, label: ' Wifi' },
+      { id: 3, label: ' Ducha'},
+      { id: 4, label: ' Cozinha'},
+      { id: 5, label: ' Toalhas'},
+      { id: 6, label: ' Frigobar'},
+      { id: 7, label: ' Banheira'},
+      { id: 8, label: ' Ar condicionado'},
+    ];
+
+    const handleCheckboxChange = (optionId) => {
+      if (selectedOptions.includes(optionId)) {
+        setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
+      } else {
+        setSelectedOptions([...selectedOptions, optionId]);
+      }
+    };
+
   const [avaliacao_texto, setAvaliacao_texto] = useState('');
   const [nota, setNota] = useState(0);
   const [cpf, setCpf] = useState('');
@@ -266,8 +288,8 @@ function Quartos() {
   // Renderização condicional para quando os dados estão carregando
   if (carregando) {
     return (
-      <div className="fundo_quartos">
-        <NavbarUser />
+      <div className="fundo_quartosAdm">
+        <NavbarAdm />
         <div className="loading-container">
           <p>Carregando informações do quarto...</p>
         </div>
@@ -278,8 +300,8 @@ function Quartos() {
   // Renderização condicional para quando ocorre um erro
   if (erro) {
     return (
-      <div className="fundo_quartos">
-        <NavbarUser />
+      <div className="fundo_quartosAdm">
+        <NavbarAdm />
         <div className="error-container">
           <p>Erro ao carregar informações do quarto. Por favor, tente novamente.</p>
           <button onClick={preencher} className="btn-tentar-novamente">Tentar Novamente</button>
@@ -290,57 +312,92 @@ function Quartos() {
 
   // Renderização normal quando tudo está carregado
   return (
-    <>
-      <div className="fundo_quartos">
-        <NavbarUser/>
-        <div className="back-quartos">
-          <button onClick={() => navigate("/acomodacoes")} className="backButton-quartos"> ← </button>
-          <h1 className="backLine-quartos">|</h1>
-          <button onClick={() => navigate("/acomodacoes")} className="backText-quartos"> ACOMODAÇÕES </button> 
-        </div>
-        <main className="quarto-container">
-          <section className="galeria-principal">
-            {imagemAtual ? (
-              <img
-                src={imagemAtual}
-                alt="Imagem do quarto"
-                className="imagem-principal"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = placeholderImg;
-                  e.target.alt = "Imagem indisponível";
-                }}
-              />
-            ) : (
-              <div className="imagem-indisponivel">
-                <p>Imagem indisponível</p>
-              </div>
-            )}
-            <div className="miniaturas">
-              {imagens.length > 0 ? (
-                imagens.map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    alt={`Miniatura ${index + 1}`}
-                    className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
-                    onClick={() => handleImagemClick(img)}
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = placeholderImg;
-                      e.target.alt = "Miniatura indisponível";
-                    }}
-                  />
-                ))
+    <div className="quartosAdm-page">
+      <NavbarAdm/>
+      <div className="fundo_quartosAdm">
+        <div className="fundoLeft-quartosAdm">
+          <div className="back-quartosAdm">
+            <button onClick={() => navigate("/acomodacoes")} className="backButton-quartosAdm"> ← </button>
+            <h1 className="backLine-quartosAdm">|</h1>
+            <button onClick={() => navigate("/acomodacoes")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
+          </div>
+          <main className="quarto-container">
+            <section className="galeria-principal">
+              {imagemAtual ? (
+                <img
+                  src={imagemAtual}
+                  alt="Imagem do quarto"
+                  className="imagem-principal"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = placeholderImg;
+                    e.target.alt = "Imagem indisponível";
+                  }}
+                />
               ) : (
-                <p className="sem-miniaturas">Sem imagens disponíveis</p>
+                <div className="imagem-indisponivel">
+                  <p>Imagem indisponível</p>
+                </div>
               )}
+              <div className="miniaturas">
+                {imagens.length > 0 ? (
+                  imagens.map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`Miniatura ${index + 1}`}
+                      className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
+                      onClick={() => handleImagemClick(img)}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = placeholderImg;
+                        e.target.alt = "Miniatura indisponível";
+                      }}
+                    />
+                  ))
+                ) : (
+                  <p className="sem-miniaturas">Sem imagens disponíveis</p>
+                )}
+              </div>
+            </section>
+          </main>
+        </div>
+          <div className="dividerPage-quartosAdm">
+            <div className="right-quartosAdm">
+              <h1 className="tituloInfo-quartosAdm">Insira as informações do quarto:</h1>
+              <form className="itensCenter-quartosAdm">
+                <div className="name-quartosAdm">
+                    <input type="name" className="itensName-quartosAdm" placeholder="Nome"/>
+                </div>
+                <div className="valor-quartosAdm">
+                    <input type="text" className="itensValor-quartosAdm" placeholder="Valor"/>
+                </div>
+                <div className="descricao-quartosAdm">
+                    <input type="text" className="itensDescricao-quartosAdm" placeholder="Descrição"/>
+                </div>
+              </form>
+              <div className="checkbox-quartosAdm">
+                {options.map((option) => (
+                  <div className='formItens-quartosAdm' key={option.id}>
+                    <label className="nameItem-quartosAdm">
+                      <input
+                      type="checkbox"
+                      value={option.id}
+                      checked={selectedOptions.includes(option.id)}
+                      onChange={() => handleCheckboxChange(option.id)}
+                      />
+                      {option.label}
+                    </label> 
+                  </div>
+                ))}
+              </div>
+              <div className="finalPage-quartosAdm">
+                <button type="button" className="button1-quartosAdm">Excluir quarto</button>
+                <button type="button" className="button2-quartosAdm">Editar quarto</button>
+              </div>
             </div>
-          </section>
-
-          
-        </main>
-        <div className="tudo_domo">
+          </div>
+        {/* <div className="tudo_domo">
           <article>
             <div className="aviso">
               <div>
@@ -358,7 +415,7 @@ function Quartos() {
 
             <div className="informacoes_domo">
               <div className="top">
-                {/* Renderização condicional para ar condicionado */}
+              
                 {quarto?.ar_condicionado && (
                   <div className="line">
                     <div className="item">
@@ -372,7 +429,7 @@ function Quartos() {
                 )}
 
                 <div className="line">
-                  {/* Renderização condicional para TV */}
+                  
                   {quarto?.tv && (
                     <div className="item">
                       <img
@@ -382,7 +439,7 @@ function Quartos() {
                       <p>TV</p>
                     </div>
                   )}
-                  {/* Renderização condicional para WiFi */}
+              
                   {quarto?.wifi && (
                     <div className="item">
                       <img src="/src/assets/quartos/wifi.png" alt="wifi" />
@@ -392,14 +449,14 @@ function Quartos() {
                 </div>
 
                 <div className="line">
-                  {/* Renderização condicional para ducha */}
+            
                   {quarto?.ducha && (
                     <div className="item">
                       <img src="/src/assets/quartos/ducha.png" alt="ducha" />
                       <p>Ducha</p>
                     </div>
                   )}
-                  {/* Renderização condicional para frigobar */}
+              
                   {quarto?.frigobar && (
                     <div className="item">
                       <img
@@ -412,14 +469,14 @@ function Quartos() {
                 </div>
 
                 <div className="line">
-                  {/* Renderização condicional para toalhas */}
+              
                   {quarto?.toalhas && (
                     <div className="item">
                       <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
                       <p>Toalhas</p>
                     </div>
                   )}
-                  {/* Renderização condicional para cozinha */}
+              
                   {quarto?.cozinha && (
                     <div className="item">
                       <img
@@ -467,9 +524,9 @@ function Quartos() {
               </div>
             </div>
           </article>
-        </div>
+        </div> */}
       </div>
-    </>
+    </div>
   );
 }
 
