@@ -33,7 +33,7 @@ function MainRoutes() {
       <Route path="/Criar_usuarios" element={<Criar_usuarios />} />
       <Route path="/AvaliacoesAdm" element={<AvaliacoesAdm />} />
       <Route path="/Avaliacao/:id_avaliacao" element={<Avaliacao />} />
-      <Route path="/AvaliacaoQuarto/:id_avaliacao" element={<AvaliacaoQuarto />} />
+      <Route path="/AvaliacaoQuarto/:id_ava" element={<AvaliacaoQuarto />} />
       <Route path="/PerfilAdm/:cpf" element={<PerfilAdm />} />
       <Route path="/AcomodacoesAdm" element={<AcomodacoesAdm />} />
       <Route path="/quartosAdm/:id_quarto" element={<QuartosAdm />} />

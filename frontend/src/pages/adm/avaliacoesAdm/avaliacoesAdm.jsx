@@ -115,7 +115,7 @@ const AvaliacoesAdm = () => {
           )}
             </div>
 
-            <span className="avaliacoesAdm-titulo">avaliacoes de quartos</span>
+            {/* <span className="avaliacoesAdm-titulo">avaliacoes de quartos</span>
             <div className="grid2-avaliacoesAdm ">
             { avaliacoesQuartos.length > 0 ? (
                  avaliacoesQuartos.map((avaliacao, index) => (
@@ -130,7 +130,7 @@ const AvaliacoesAdm = () => {
             ) : (
                 <div className="sem-resultados">Nenhuma avaliação encontrada</div>
             )}
-            </div>
+            </div> */}
         </div>
     </div>
     );
