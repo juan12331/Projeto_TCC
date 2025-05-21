@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.botoes-perfil-alinhar{
+  display: flex;
+  width: 20rem;
+  & button{
+    margin-left: 1rem;
+  }
+}
+
 .div-mae-peril{
   background-image: url("/src/assets/img/imgPerfil2.png");
   background-size: cover;

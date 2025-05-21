@@ -4,7 +4,7 @@ import NavbarAdm from "../../../assets/components/navbarAdm";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getUser } from "../../../services/Api_service";
+import { getUser, GetAllAvaliacoes } from "../../../services/Api_service";
 
 
 const StarRating = ({ totalStars = 5 }) => {

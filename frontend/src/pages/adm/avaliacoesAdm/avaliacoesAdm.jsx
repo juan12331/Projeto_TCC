@@ -2,7 +2,7 @@ import "./avaliacoesAdm.css";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getUser } from "../../../services/Api_service";
+import { getUser, GetAllAvaliacoes } from "../../../services/Api_service";
 
 
 const AvaliacoesAdm = () => {
