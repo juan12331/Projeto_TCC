@@ -114,7 +114,7 @@ const Acomodacoes = () => {
             </div>
           ))
         ) : (
-          <div className="sem-resultados">Nenhum quarto encontrado</div>
+          <div className="sem-resultados">Nenhum quarto encontrax'do</div>
         )
         }
       </div>

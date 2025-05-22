@@ -165,8 +165,32 @@ export async function createQuartos(
     return response.data;
 }
 
-export async function updateQuartos(id_quarto, nome, preco, descricao) {
-    const response = await http.put(`/quartos/${id_quarto}`, {nome: nome, preco: preco, descricao: descricao});
+export async function updateQuartos(
+    id_quarto,
+    nome,
+    preco,
+    descricao,
+    tv,
+    wifi,
+    ducha,
+    cozinha,
+    toalhas,
+    frigobar,
+    banheira,
+    arCondicionado
+) {
+    const response = await http.put(`/quartos/${id_quarto}`, {
+        nome: nome,
+        preco: preco,
+        descricao: descricao,
+        tv: tv,
+        wifi: wifi,
+        ducha:ducha,
+        cozinha: cozinha,
+        toalhas: toalhas,
+        frigobar: frigobar,
+        banheira: banheira,
+        arCondicionado: arCondicionado});
     return response.data;
 }
 
