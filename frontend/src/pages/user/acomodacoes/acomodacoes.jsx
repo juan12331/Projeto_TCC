@@ -99,11 +99,11 @@ const Acomodacoes = () => {
             <div className="cardsFundo-acomodacoesAdm"
               key={quartos.id_quarto}
             >
-               <img
+              <img
                 className="cardsImg-acomodacoesAdm"
-                src={quartos.fotos_quartos[0].imagem}
-                alt=""
-               />     
+                src={quartos.fotos_quartos && quartos.fotos_quartos.length > 0 ? quartos.fotos_quartos[0].imagem : '/src/assets/imgAcomodacoes/placeholder.png'}
+                alt={quartos.nome || 'Quarto'}
+              />
               <div className="cardsConteudo-acomodacoesAdm">
                 <h1 className="cardsTitle-acomodacoesAdm">{quartos.nome} - R$ {quartos.preco}</h1>
                 <h2 className="cardsText-acomodacoesAdm">
