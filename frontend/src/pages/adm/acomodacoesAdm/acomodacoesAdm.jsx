@@ -17,6 +17,9 @@ const AcomodacoesAdm = () => {
   const [checkOut, setCheckOut] = useState(null);
   const [quartos, setQuartos] = useState([]);
 
+  // Imagem placeholder para quando não houver imagem
+  const imagemPlaceholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='16' fill='%23666'%3ESem imagem disponível%3C/text%3E%3C/svg%3E";
+
   async function getQuartos(params) {
     getAllQuartosDisponiveis(params)
       .then((data) => {
@@ -54,6 +57,21 @@ const AcomodacoesAdm = () => {
 
   const handleCheckOutChange = (date) => {
     setCheckOut(date);
+  };
+
+  // Função para obter a imagem do quarto de forma segura
+  const obterImagemQuarto = (quarto) => {
+    // Verifica se existe fotos_quartos e se tem pelo menos um item
+    if (quarto.fotos_quartos && 
+        Array.isArray(quarto.fotos_quartos) && 
+        quarto.fotos_quartos.length > 0 && 
+        quarto.fotos_quartos[0] && 
+        quarto.fotos_quartos[0].imagem) {
+      return quarto.fotos_quartos[0].imagem;
+    }
+    
+    // Retorna imagem placeholder se não houver imagem
+    return imagemPlaceholder;
   };
   
 
@@ -136,9 +154,13 @@ const AcomodacoesAdm = () => {
             <div className="cardsFundo-acomodacoesAdm" key={quartos.id_quarto}>
                <img
                 className="cardsImg-acomodacoesAdm"
-                src={quartos.fotos_quartos[0].imagem }
-                alt=""
-                                                              /> 
+                src={obterImagemQuarto(quartos)}
+                alt={quartos.nome || "Imagem do quarto"}
+                onError={(e) => {
+                  // Fallback adicional caso a imagem falhe ao carregar
+                  e.target.src = imagemPlaceholder;
+                }}
+              /> 
               <div className="cardsConteudo-acomodacoesAdm">
                 <h1 className="cardsTitle-acomodacoesAdm">
                   {quartos.nome} - R$ {quartos.preco}

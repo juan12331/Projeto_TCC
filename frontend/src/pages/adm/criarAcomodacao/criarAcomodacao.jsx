@@ -119,8 +119,8 @@ const CriarAcomodacao = () => {
             }
 
             console.log('Acomodação criada com sucesso!');
-            // Opcional: redirecionar ou limpar o formulário
-            // navigate("/acomodacoesAdm");
+            navigate("/acomodacoesAdm");
+        
 
         } catch (error) {
             console.error('Erro ao criar quarto:', error);

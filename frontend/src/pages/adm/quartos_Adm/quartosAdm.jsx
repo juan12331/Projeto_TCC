@@ -51,6 +51,24 @@ function Quartos() {
       }
     };
 
+    async function AtualizarQuarto() {
+      updateQuartos(
+        id_quarto,
+        nome,
+        valor,
+        descricao,
+        tv,
+        wifi,
+        ducha,
+        cozinha,
+        toalhas,
+        frigobar,
+        banheira,
+        arCondicionado).then(data => console.log(data)).catch(error => console.log(error))
+
+        handleCloseEdit()
+    }
+
   const [avaliacao_texto, setAvaliacao_texto] = useState('');
   const [nota, setNota] = useState(0);
   const [cpf, setCpf] = useState('');
@@ -541,7 +559,7 @@ function Quartos() {
           </div>
           <div className="modal-footer">
             <button className="cancel-button" onClick={handleCloseEdit}>Cancelar</button>
-            <button className="confirm-button edit" onClick={() => {}}>Sim, Editar</button>
+            <button className="confirm-button edit" onClick={AtualizarQuarto}>Sim, Editar</button>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const fotos_quartos = database.define('fotos_quartos', {
         primaryKey: true,
     },
     imagem: {
-        type: Sequelize.TEXT('medium'),
+        type: Sequelize.TEXT('long'),
         AllowNUll: false
     },
     id_quarto: {
