@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../components/navbarAdm.css"; 
 import { logout } from "../../services/Api_service";
+import logo from '../../assets/imgNavbar/logo_navbar.png';
 
 const NavbarAdm = () => {
 
@@ -24,7 +25,7 @@ const NavbarAdm = () => {
         </Link>
 
         <Link to="/usuarios" className="img-navbar">
-          <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
+          <img className="logo_navbar" src={logo} alt="Logo" />
         </Link>
 
         <Link to="/avaliacoesAdm" className={`nav-item ${ location.pathname === "/avaliacoesAdm" || location.pathname === "/Avaliacao"?  "active" : ""}`}>

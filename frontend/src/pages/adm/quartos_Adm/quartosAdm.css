@@ -599,7 +599,7 @@ body {
   margin-top: 40px;
 }
 
-.button1-quartosAdm, .button2-quartosAdm{
+.button1-quartosAdm, .button2-quartosAdm, .edit1-quartosAdm, .edit2-quartosAdm{
   color: #EFE5D1;
   background-color: #712123;
   border: none;
@@ -612,7 +612,7 @@ body {
   font-weight: 600;
 }
 
-.button1-quartosAdm:hover, .button2-quartosAdm:hover{
+.button1-quartosAdm:hover, .button2-quartosAdm:hover, .edit1-quartosAdm:hover, .edit2-quartosAdm:hover{
   background-color: #a01e23;
   transition-duration: 0.3s;
 }
@@ -623,22 +623,4 @@ body {
   align-items: center;
   gap: 15px;
   width: 100%;
-}
-
-.edit1-quartosAdm, .edit2-quartosAdm{
-  color: #EFE5D1;
-  background-color: #712123;
-  border: none;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 170px;
-  height: 50px;
-  font-family: "Kay Pho Du";
-  font-weight: 600;
-}
-
-.edit1-quartosAdm:hover, .edit2-quartosAdm:hover{
-  background-color: #a01e23;
-  transition-duration: 0.3s;
 }
