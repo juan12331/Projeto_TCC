@@ -72,7 +72,7 @@ function Quartos() {
   async function  excluir() {
     try{
     await deleteQuartos(id_quarto)
-    window.alert.href = '/acomodacoesAdm'
+    window.location.href = '/acomodacoesAdm'
     }catch(err){
       window.alert('erro ao excluir quarto')
       console.error('olha o error ao excluir quarto', err)
