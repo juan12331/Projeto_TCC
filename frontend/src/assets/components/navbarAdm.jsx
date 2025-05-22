@@ -23,7 +23,7 @@ const NavbarAdm = () => {
             QUARTOS
         </Link>
 
-        <Link to="/" className="img-navbar">
+        <Link to="/usuarios" className="img-navbar">
           <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
         </Link>
 
