@@ -151,7 +151,7 @@ const AcomodacoesAdm = () => {
                   className="cardsButton-acomodacoesAdm"
                 >
                   {" "}
-                  Reservar{" "}
+                  Editar{" "}
                 </button>
               </div>
             </div>
