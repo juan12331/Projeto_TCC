@@ -13,6 +13,7 @@ const CriarAcomodacao = () => {
     const [nome,  setNome] = useState('')
     const [preco,  setPreco] = useState(0)
     const [descricao,  setDescricao] = useState('')
+    const [id_quarto, setId_quarto] = useState(0)
 
     // Estados para cada opção (0 = não selecionado, 1 = selecionado)
     const [tv, setTv] = useState(0)
@@ -74,11 +75,19 @@ const CriarAcomodacao = () => {
             }
         }
         
-        if (nome == '' || preco == '' || preco <= 0 || descricao == ''){
+        if (nome == '' || preco == '' || preco <= 0 || descricao == '' ){
             window.alert('preencha todos os campos')
-        } else {
-            // Exemplo de console.log com as variáveis das opções
-            console.log({
+            return;
+        }  
+        
+        if (mainImage == null){
+            window.alert('insira pelo menos a imagem principal')
+            return;
+        }
+
+        try {
+            // Criar o quarto primeiro
+            const quartoData = await createQuartos(
                 nome,
                 preco,
                 descricao,
@@ -90,7 +99,31 @@ const CriarAcomodacao = () => {
                 frigobar,
                 banheira,
                 arCondicionado
-            });
+            );
+
+            console.log('Quarto criado:', quartoData.id_quarto);
+            const novoIdQuarto = quartoData.id_quarto;
+            setId_quarto(novoIdQuarto); // Atualizar o estado também
+
+            // Enviar a imagem principal usando o ID correto
+            await createFotos(novoIdQuarto, mainImage)
+                .then(data => console.log('Imagem principal enviada:', data))
+                .catch(error => console.error('Erro ao enviar imagem principal:', error));
+
+            // Enviar as imagens adicionais
+            for (let i = 0; i < additionalImages.length; i++) {
+                if (additionalImages[i] !== null) {
+                    await createFotos(novoIdQuarto, additionalImages[i])
+                        .catch(error => console.log('Erro ao enviar imagem adicional:', error));
+                }
+            }
+
+            console.log('Acomodação criada com sucesso!');
+            // Opcional: redirecionar ou limpar o formulário
+            // navigate("/acomodacoesAdm");
+
+        } catch (error) {
+            console.error('Erro ao criar quarto:', error);
         }
     }
 

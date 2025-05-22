@@ -136,8 +136,32 @@ export async function getQuartosDisponiveis(id_quarto) {
     return response.data;
 }
 
-export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Precisa fazer
+export async function createQuartos( 
+    nome,
+    preco,
+    descricao,
+    tv,
+    wifi,
+    ducha,
+    cozinha,
+    toalhas,
+    frigobar,
+    banheira,
+    arCondicionado
+) {
+    const response = await http.post(`/quartos`, {
+        nome: nome,
+        preco: preco,
+        descricao: descricao,
+        tv: tv,
+        wifi: wifi,
+        ducha:ducha,
+        cozinha: cozinha,
+        toalhas: toalhas,
+        frigobar: frigobar,
+        banheira: banheira,
+        arCondicionado: arCondicionado
+    });
     return response.data;
 }
 
