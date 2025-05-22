@@ -317,9 +317,9 @@ function Quartos() {
       <div className="fundo_quartosAdm">
         <div className="fundoLeft-quartosAdm">
           <div className="back-quartosAdm">
-            <button onClick={() => navigate("/acomodacoes")} className="backButton-quartosAdm"> ← </button>
+            <button onClick={() => navigate("/acomodacoesAdm")} className="backButton-quartosAdm"> ← </button>
             <h1 className="backLine-quartosAdm">|</h1>
-            <button onClick={() => navigate("/acomodacoes")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
+            <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
           </div>
           <main className="quartoAdm-container">
             <section className="galeria-principal">

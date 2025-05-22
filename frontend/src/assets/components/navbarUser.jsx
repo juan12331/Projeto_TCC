@@ -35,7 +35,7 @@ const NavbarUser = () => {
           <img className="logo_navbar" src={logo} alt="Logo" />
         </Link>
 
-        <Link to="/acomodacoes" className={`nav-item ${ location.pathname === "/acomodacoes" || location.pathname === "/quartos" ? "active" : ""}`}>
+        <Link to="/acomodacoes" className={`nav-item ${ location.pathname === "/acomodacoes" || location.pathname.startsWith("/quartos") ? "active" : ""}`}>
           ACOMODAÇÕES
         </Link>
 
