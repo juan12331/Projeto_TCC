@@ -17,21 +17,33 @@ function Quartos() {
   const [valor, setValor] = useState(0)
   const [descricao, setDescricao] = useState('')
 
+  // Estados individuais para cada checkbox
+  const [tv, setTv] = useState(false);
+  const [wifi, setWifi] = useState(false);
+  const [ducha, setDucha] = useState(false);
+  const [cozinha, setCozinha] = useState(false);
+  const [toalhas, setToalhas] = useState(false);
+  const [frigobar, setFrigobar] = useState(false);
+  const [banheira, setBanheira] = useState(false);
+  const [arCondicionado, setArCondicionado] = useState(false);
+
     const options = [
-      { id: 1, label: ' TV'},
-      { id: 2, label: ' Wifi' },
-      { id: 3, label: ' Ducha'},
-      { id: 4, label: ' Cozinha'},
-      { id: 5, label: ' Toalhas'},
-      { id: 6, label: ' Frigobar'},
-      { id: 7, label: ' Banheira'},
-      { id: 8, label: ' Ar condicionado'},
+      { id: 1, label: ' TV', state: tv, setState: setTv, key: 'tv'},
+      { id: 2, label: ' Wifi', state: wifi, setState: setWifi, key: 'wifi' },
+      { id: 3, label: ' Ducha', state: ducha, setState: setDucha, key: 'ducha'},
+      { id: 4, label: ' Cozinha', state: cozinha, setState: setCozinha, key: 'cozinha'},
+      { id: 5, label: ' Toalhas', state: toalhas, setState: setToalhas, key: 'toalhas'},
+      { id: 6, label: ' Frigobar', state: frigobar, setState: setFrigobar, key: 'frigobar'},
+      { id: 7, label: ' Banheira', state: banheira, setState: setBanheira, key: 'banheira'},
+      { id: 8, label: ' Ar condicionado', state: arCondicionado, setState: setArCondicionado, key: 'ar_condicionado'},
     ];
 
-
-  
-
     const handleCheckboxChange = (optionId) => {
+      const option = options.find(opt => opt.id === optionId);
+      if (option) {
+        option.setState(!option.state);
+      }
+      
       if (selectedOptions.includes(optionId)) {
         setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
       } else {
@@ -77,8 +89,6 @@ function Quartos() {
       console.error('olha o error ao excluir quarto', err)
     } 
   }
-
-
 
   useEffect(() => {
     preencher();
@@ -195,13 +205,38 @@ function Quartos() {
       console.log("Dados do quarto:", data);
       
       if (data) {
-        const quartoreal = data
-        setQuarto(quartoreal);
-        console.log('quarto', quarto);
-        setNome(quarto.nome)    
-        setValor(quarto.preco)
-        setDescricao(quarto.descricao)
-        return;
+        // Corrigindo: setQuarto recebe diretamente os dados
+        setQuarto(data);
+        
+        // Preenchendo os campos com os dados do quarto
+        setNome(data.nome || '');    
+        setValor(data.preco || 0);
+        setDescricao(data.descricao || '');
+        
+        // Preenchendo as checkboxes com base nos dados do quarto
+        setTv(data.tv || false);
+        setWifi(data.wifi || false);
+        setDucha(data.ducha || false);
+        setCozinha(data.cozinha || false);
+        setToalhas(data.toalhas || false);
+        setFrigobar(data.frigobar || false);
+        setBanheira(data.banheira || false);
+        setArCondicionado(data.ar_condicionado || false);
+        
+        // Atualizando selectedOptions baseado nos dados
+        const opcoesSelecionadas = [];
+        if (data.tv) opcoesSelecionadas.push(1);
+        if (data.wifi) opcoesSelecionadas.push(2);
+        if (data.ducha) opcoesSelecionadas.push(3);
+        if (data.cozinha) opcoesSelecionadas.push(4);
+        if (data.toalhas) opcoesSelecionadas.push(5);
+        if (data.frigobar) opcoesSelecionadas.push(6);
+        if (data.banheira) opcoesSelecionadas.push(7);
+        if (data.ar_condicionado) opcoesSelecionadas.push(8);
+        
+        setSelectedOptions(opcoesSelecionadas);
+        
+        console.log('Quarto carregado:', data);
       } 
           
     } catch (error) {
@@ -419,7 +454,7 @@ function Quartos() {
                       <input
                       type="checkbox"
                       value={option.id}
-                      checked={selectedOptions.includes(option.id)}
+                      checked={option.state}
                       onChange={() => handleCheckboxChange(option.id)}
                       />
                       {option.label}
@@ -443,7 +478,7 @@ function Quartos() {
           </div>
           <div className="modal-footer">
             <button className="cancel-button" onClick={handleClose}>Cancelar</button>
-            <button className="confirm-button delete" onClick={() => excluir}>Sim, Excluir</button>
+            <button className="confirm-button delete" onClick={excluir}>Sim, Excluir</button>
           </div>
         </div>
       </div>
