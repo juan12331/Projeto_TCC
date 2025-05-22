@@ -28,9 +28,8 @@ function Quartos() {
       { id: 8, label: ' Ar condicionado'},
     ];
 
-    async function  preencher(params) {
-      
-    }
+
+  
 
     const handleCheckboxChange = (optionId) => {
       if (selectedOptions.includes(optionId)) {
@@ -196,10 +195,15 @@ function Quartos() {
       console.log("Dados do quarto:", data);
       
       if (data) {
-        setQuarto(data);
-      } else {
-        setErro(true);
-      }
+        const quartoreal = data
+        setQuarto(quartoreal);
+        console.log('quarto', quarto);
+        setNome(quarto.nome)    
+        setValor(quarto.preco)
+        setDescricao(quarto.descricao)
+        return;
+      } 
+          
     } catch (error) {
       console.error("Erro ao carregar dados do quarto:", error);
       setErro(true);
