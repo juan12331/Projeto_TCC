@@ -8,11 +8,14 @@ import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, useParams } from "react-router-dom";
-import { createAvaliacoes, getQuartosDisponiveis } from "../../../services/Api_service";
+import {  getQuartosDisponiveis, updateQuartos, deleteQuartos } from "../../../services/Api_service";
 import "./quartosAdm.css";
 
 function Quartos() {
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [nome, setNome] = useState('')
+  const [valor, setValor] = useState(0)
+  const [descricao, setDescricao] = useState('')
 
     const options = [
       { id: 1, label: ' TV'},
@@ -24,6 +27,10 @@ function Quartos() {
       { id: 7, label: ' Banheira'},
       { id: 8, label: ' Ar condicionado'},
     ];
+
+    async function  preencher(params) {
+      
+    }
 
     const handleCheckboxChange = (optionId) => {
       if (selectedOptions.includes(optionId)) {
@@ -50,8 +57,29 @@ function Quartos() {
   const [imagens, setImagens] = useState([]);
   const [imagemAtual, setImagemAtual] = useState(null);
 
+  const [showModal, setShowModal] = useState(false);      // Modal de exclusão
+  const [showEditModal, setShowEditModal] = useState(false); // Modal de edição
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
+  const handleCloseEdit = () => setShowEditModal(false);
+  const handleShowEdit = () => setShowEditModal(true);
+
   const { id_quarto } = useParams();
   const navigate = useNavigate();
+
+  async function  excluir() {
+    try{
+    await deleteQuartos(id_quarto)
+    window.alert.href = '/acomodacoesAdm'
+    }catch(err){
+      window.alert('erro ao excluir quarto')
+      console.error('olha o error ao excluir quarto', err)
+    } 
+  }
+
+
 
   useEffect(() => {
     preencher();
@@ -362,7 +390,7 @@ function Quartos() {
             </section>
             <div className="buttonImage-quartosAdm">
               <button type="button" className="edit1-quartosAdm">Excluir Imagem</button>
-              <button type="button" className="edit2-quartosAdm">Editar Imagem</button>
+              <button type="button" className="edit2-quartosAdm">Adicionar Imagem</button>
             </div>
           </main>
         </div>
@@ -371,13 +399,13 @@ function Quartos() {
               <h1 className="tituloInfo-quartosAdm">Insira as informações do quarto:</h1>
               <form className="itensCenter-quartosAdm">
                 <div className="name-quartosAdm">
-                    <input type="name" className="itensName-quartosAdm" placeholder="Nome"/>
+                    <input type="name" className="itensName-quartosAdm" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
                 </div>
                 <div className="valor-quartosAdm">
-                    <input type="text" className="itensValor-quartosAdm" placeholder="Valor"/>
+                    <input type="Number" className="itensValor-quartosAdm" placeholder="Valor" value={valor} onChange={(e) => setValor(e.target.value)} />
                 </div>
                 <div className="descricao-quartosAdm">
-                    <input type="text" className="itensDescricao-quartosAdm" placeholder="Descrição"/>
+                    <input type="text" className="itensDescricao-quartosAdm" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
                 </div>
               </form>
               <div className="checkbox-quartosAdm">
@@ -396,9 +424,42 @@ function Quartos() {
                 ))}
               </div>
               <div className="finalPage-quartosAdm">
-                <button type="button" className="button1-quartosAdm">Excluir quarto</button>
-                <button type="button" className="button2-quartosAdm">Editar quarto</button>
+                <button type="button" className="button1-quartosAdm" onClick={handleShow}>Excluir quarto</button>
+                <button type="button" className="button2-quartosAdm" onClick={handleShowEdit}>Editar quarto</button>
               </div>
+              {/* Modal de Exclusão */}
+      <div className={`modal-container ${showModal ? 'show' : ''}`}>
+        <div className="modal-content modal-delete slide-up">
+          <div className="modal-header">
+            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+            <button className="close-button" onClick={handleClose}>×</button>
+          </div>
+          <div className="modal-body">
+            <p><strong>Tem certeza que deseja excluir esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+          </div>
+          <div className="modal-footer">
+            <button className="cancel-button" onClick={handleClose}>Cancelar</button>
+            <button className="confirm-button delete" onClick={() => excluir}>Sim, Excluir</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal de Edição */}
+      <div className={`modal-container ${showEditModal ? 'show' : ''}`}>
+        <div className="modal-content modal-edit slide-up">
+          <div className="modal-header">
+            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+            <button className="close-button" onClick={handleCloseEdit}>×</button>
+          </div>
+          <div className="modal-body">
+            <p><strong>Tem certeza que deseja editar esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+          </div>
+          <div className="modal-footer">
+            <button className="cancel-button" onClick={handleCloseEdit}>Cancelar</button>
+            <button className="confirm-button edit" onClick={() => {}}>Sim, Editar</button>
+          </div>
+        </div>
+      </div>
             </div>
           </div>
       </div>
