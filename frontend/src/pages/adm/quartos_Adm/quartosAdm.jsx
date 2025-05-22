@@ -321,7 +321,7 @@ function Quartos() {
             <h1 className="backLine-quartosAdm">|</h1>
             <button onClick={() => navigate("/acomodacoes")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
           </div>
-          <main className="quarto-container">
+          <main className="quartoAdm-container">
             <section className="galeria-principal">
               {imagemAtual ? (
                 <img
@@ -360,6 +360,10 @@ function Quartos() {
                 )}
               </div>
             </section>
+            <div className="buttonImage-quartosAdm">
+              <button type="button" className="edit1-quartosAdm">Excluir Imagem</button>
+              <button type="button" className="edit2-quartosAdm">Editar Imagem</button>
+            </div>
           </main>
         </div>
           <div className="dividerPage-quartosAdm">
@@ -397,134 +401,6 @@ function Quartos() {
               </div>
             </div>
           </div>
-        {/* <div className="tudo_domo">
-          <article>
-            <div className="aviso">
-              <div>
-                <p>
-                  {quarto?.descricao || "Descrição do quarto não disponível."}
-                </p>
-                <p>
-                  Os valores exibidos no site estão sujeitos a constantes
-                  atualizações. Nos feriados e datas comemorativas o valor da
-                  diária também é diferenciado. Para mais detalhes entre em
-                  contato por telefone.
-                </p>
-              </div>
-            </div>
-
-            <div className="informacoes_domo">
-              <div className="top">
-              
-                {quarto?.ar_condicionado && (
-                  <div className="line">
-                    <div className="item">
-                      <img
-                        src="/src/assets/quartos/ar-condicionado.png"
-                        alt="ar-condicionado"
-                      />
-                      <p>Ar condicionado</p>
-                    </div>
-                  </div>
-                )}
-
-                <div className="line">
-                  
-                  {quarto?.tv && (
-                    <div className="item">
-                      <img
-                        src="/src/assets/quartos/televisao.png"
-                        alt="televisao"
-                      />
-                      <p>TV</p>
-                    </div>
-                  )}
-              
-                  {quarto?.wifi && (
-                    <div className="item">
-                      <img src="/src/assets/quartos/wifi.png" alt="wifi" />
-                      <p>Wifi</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="line">
-            
-                  {quarto?.ducha && (
-                    <div className="item">
-                      <img src="/src/assets/quartos/ducha.png" alt="ducha" />
-                      <p>Ducha</p>
-                    </div>
-                  )}
-              
-                  {quarto?.frigobar && (
-                    <div className="item">
-                      <img
-                        src="/src/assets/quartos/frigobar.png"
-                        alt="frigobar"
-                      />
-                      <p>Frigobar</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="line">
-              
-                  {quarto?.toalhas && (
-                    <div className="item">
-                      <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
-                      <p>Toalhas</p>
-                    </div>
-                  )}
-              
-                  {quarto?.cozinha && (
-                    <div className="item">
-                      <img
-                        src="/src/assets/quartos/cozinha_domo.png"
-                        alt="cozinha"
-                      />
-                      <p>Cozinha</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="botton">
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Acomoda: </p>
-                    <p className="textsem">3 pessoas</p>
-                  </div>
-                  <div className="item2">
-                    <p className="textcor">Camas: </p>
-                    <p className="textsem">1 cama de casal</p>
-                  </div>
-                </div>
-
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Check-in: </p>
-                    <p className="textsem">14h00</p>
-                  </div>
-                  <div className="item2">
-                    <p className="textcor">Check-out: </p>
-                    <p className="textsem">10h00</p>
-                  </div>
-                </div>
-
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Check-in: </p>
-                    <p className="textsem">14h00</p>
-                  </div>
-                  <a href="https://www.pousadadomirantenoronha.com.br/p/politica-da-pousada">
-                    Leia nossas políticas
-                  </a>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div> */}
       </div>
     </div>
   );
