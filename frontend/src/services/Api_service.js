@@ -136,13 +136,61 @@ export async function getQuartosDisponiveis(id_quarto) {
     return response.data;
 }
 
-export async function createQuartos(nome, preco, descricao) {
-    const response = await http.post(`/quartos`, {nome: nome, preco: preco, descricao: descricao}); // Terminado
+export async function createQuartos( 
+    nome,
+    preco,
+    descricao,
+    tv,
+    wifi,
+    ducha,
+    cozinha,
+    toalhas,
+    frigobar,
+    banheira,
+    arCondicionado
+) {
+    const response = await http.post(`/quartos`, {
+        nome: nome,
+        preco: preco,
+        descricao: descricao,
+        tv: tv,
+        wifi: wifi,
+        ducha:ducha,
+        cozinha: cozinha,
+        toalhas: toalhas,
+        frigobar: frigobar,
+        banheira: banheira,
+        arCondicionado: arCondicionado
+    });
     return response.data;
 }
 
-export async function updateQuartos(id_quarto, nome, preco, descricao) {
-    const response = await http.put(`/quartos/${id_quarto}`, {nome: nome, preco: preco, descricao: descricao});
+export async function updateQuartos(
+    id_quarto,
+    nome,
+    preco,
+    descricao,
+    tv,
+    wifi,
+    ducha,
+    cozinha,
+    toalhas,
+    frigobar,
+    banheira,
+    arCondicionado
+) {
+    const response = await http.put(`/quartos/${id_quarto}`, {
+        nome: nome,
+        preco: preco,
+        descricao: descricao,
+        tv: tv,
+        wifi: wifi,
+        ducha:ducha,
+        cozinha: cozinha,
+        toalhas: toalhas,
+        frigobar: frigobar,
+        banheira: banheira,
+        arCondicionado: arCondicionado});
     return response.data;
 }
 
@@ -185,7 +233,7 @@ export async function createFotos(id_quarto, imagem) {
   }
   
 //   export async function createFotos(id_quarto, imagem) {
-//     const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // ISABELA
+//     const response = await http.post('/fotosquartos', { id_quarto: id_quarto, imagem: imagem}); // Precisa fazer
 //     return response.data;
 // }
 

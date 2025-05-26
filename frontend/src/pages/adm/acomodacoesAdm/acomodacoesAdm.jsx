@@ -9,8 +9,6 @@ import { PlusCircle } from "react-bootstrap-icons";
 import {
   getUser,
   getAllQuartosDisponiveis,
-  createQuartos,
-  createFotos,
 } from "../../../services/Api_service";
 
 const AcomodacoesAdm = () => {
@@ -18,17 +16,9 @@ const AcomodacoesAdm = () => {
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
   const [quartos, setQuartos] = useState([]);
-  const [formularioVisivel, setFormularioVisivel] = useState(false);
-  const formularioRef = useRef(null);
 
-  useEffect(() => {
-
-    verificacao();
-    getQuartos();
-    if (formularioVisivel && formularioRef.current) {
-      formularioRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [formularioVisivel]);
+  // Imagem placeholder para quando não houver imagem
+  const imagemPlaceholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='16' fill='%23666'%3ESem imagem disponível%3C/text%3E%3C/svg%3E";
 
   async function getQuartos(params) {
     getAllQuartosDisponiveis(params)
@@ -38,6 +28,11 @@ const AcomodacoesAdm = () => {
       })
       .catch((error) => console.error(error, "erro no get de quartos"));
   }
+
+  useEffect(() => {
+      verificacao();
+      getQuartos(); // Carrega todos os usuários no início
+    }, []);
 
   async function verificacao() {
     try {
@@ -64,75 +59,21 @@ const AcomodacoesAdm = () => {
     setCheckOut(date);
   };
 
-
-  const abrirFormulario = () => {setFormularioVisivel(true);};
-  const fecharFormulario = () => {setFormularioVisivel(false);};
-  
-  const [nome, setNome] = useState("");
-  const [preco, setPreco] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [id_quarto, setId_quarto] = useState('');
-  const [imagem, setImagem] = useState('');
-
-  const showError = (message) => {
-    const span = document.getElementById("span");
-    if (span) {
-      span.textContent = message;
-    } else {
-      console.error("Elemento 'span' não encontrado:", message);
+  // Função para obter a imagem do quarto de forma segura
+  const obterImagemQuarto = (quarto) => {
+    // Verifica se existe fotos_quartos e se tem pelo menos um item
+    if (quarto.fotos_quartos && 
+        Array.isArray(quarto.fotos_quartos) && 
+        quarto.fotos_quartos.length > 0 && 
+        quarto.fotos_quartos[0] && 
+        quarto.fotos_quartos[0].imagem) {
+      return quarto.fotos_quartos[0].imagem;
     }
+    
+    // Retorna imagem placeholder se não houver imagem
+    return imagemPlaceholder;
   };
-
-
-  async function criarAcomodacao(e) {
-    e.preventDefault();
   
-    if (!nome || !preco || !descricao || !imagem) {
-      showError("Preencha todos os campos");
-      return;
-    }
-  
-    try {
-      // Primeiro cria o quarto
-      const dataQuarto = await createQuartos(nome, preco, descricao);
-  
-      if (dataQuarto === "quarto ja foi cadastrado") {
-        showError("Quarto Já Cadastrado");
-        return;
-      }
-  
-      // Extrai o ID
-      const id = dataQuarto.id || dataQuarto;
-      setId_quarto(id);
-  
-      try {
-        // Tenta adicionar a foto em um bloco try/catch separado
-        const dataFoto = await createFotos(id, imagem);
-        
-        if (dataFoto === "Foto já adicionada") {
-          showError("Quarto criado, mas a foto já existe");
-        } else if (dataFoto === "Sem permissão para adicionar fotos") {
-          showError("Quarto criado, mas você não tem permissão para adicionar fotos");
-        } else {
-          showError("Acomodação adicionada com sucesso");
-          fecharFormulario();
-          setNome("");
-          setPreco("");
-          setDescricao("");
-          setImagem("");
-          setId_quarto("");
-        }
-      } catch (fotoError) {
-        // Se falhar ao adicionar a foto, ainda mantém o quarto criado
-        console.error("Erro ao adicionar foto:", fotoError);
-        showError("Quarto foi criado, mas houve um erro ao adicionar a foto");
-      }
-    } catch (err) {
-      console.error("Erro ao criar quarto:", err);
-      showError("Erro ao adicionar acomodação");
-    }
-  }
-
 
   return (
     <div className="acomodacoes-pageAdm">
@@ -213,9 +154,13 @@ const AcomodacoesAdm = () => {
             <div className="cardsFundo-acomodacoesAdm" key={quartos.id_quarto}>
                <img
                 className="cardsImg-acomodacoesAdm"
-                src={quartos.fotos_quartos[0].imagem }
-                alt=""
-                                                              /> 
+                src={obterImagemQuarto(quartos)}
+                alt={quartos.nome || "Imagem do quarto"}
+                onError={(e) => {
+                  // Fallback adicional caso a imagem falhe ao carregar
+                  e.target.src = imagemPlaceholder;
+                }}
+              /> 
               <div className="cardsConteudo-acomodacoesAdm">
                 <h1 className="cardsTitle-acomodacoesAdm">
                   {quartos.nome} - R$ {quartos.preco}
@@ -228,7 +173,7 @@ const AcomodacoesAdm = () => {
                   className="cardsButton-acomodacoesAdm"
                 >
                   {" "}
-                  Reservar{" "}
+                  Editar{" "}
                 </button>
               </div>
             </div>
@@ -244,7 +189,7 @@ const AcomodacoesAdm = () => {
         <div className="fundoFinal-acomodacoesAdm">
 
           <Link
-            onClick={abrirFormulario}
+            to='/criarAcomodacao'
             className="gridAdicionar-acomodacoesAdm"
           >
             <h1 className="textAdicionar-acomodacoesAdm">
@@ -254,47 +199,6 @@ const AcomodacoesAdm = () => {
             <PlusCircle className="adicionarIcon-acomodacoesAdm" />
           </Link>
         </div>
-        {formularioVisivel && (
-          <div ref={formularioRef} className="forms-acomodacoesAdm">
-            <input
-              type="text"
-              className="itensForms-acomodacoesAdm"
-              placeholder="Nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
-            <input
-              type="text"
-              className="itensForms-acomodacoesAdm"
-              placeholder="Valor"
-              value={preco}
-              onChange={(e) => setPreco(e.target.value)}
-            />
-            <input
-              type="text"
-              className="itensForms-acomodacoesAdm"
-              placeholder="Descrição"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
-            />
-            <input
-              type="text"
-              className="itensForms-acomodacoesAdm"
-              placeholder="URL da Imagem"
-              value={imagem}
-              onChange={(e) => setImagem(e.target.value)}
-            />
-            <button type="submit" onClick={criarAcomodacao} className="buttonForms-acomodacoesAdm">
-              Adicionar
-            </button>
-            <button
-              onClick={fecharFormulario}
-              className="buttonForms-acomodacoesAdm"
-            >
-              Fechar
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

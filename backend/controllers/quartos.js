@@ -12,8 +12,7 @@ exports.createQuarto = async (req, res) => {
         }
 
         const quartoCriado = await Quartos.create(req.body)
-        console.log(quartoCriado)
-        return res.send('quarto cadastrado com sucesso')
+        return res.send(quartoCriado)
     } catch (err) {
         return res.status(403).send('erro')
     }

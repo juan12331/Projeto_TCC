@@ -1,46 +1,366 @@
-import React from "react";
-import "./quartosAdm.css";
-
-import logo from "/src/assets/img/Logo.png";
-import img from "/src/assets/quartos/domo_quartos.png";
+import React, { useState, useEffect } from "react";
 import img1 from "/src/assets/quartos/image 120.png";
 import img2 from "/src/assets/quartos/image 114.png";
 import img3 from "/src/assets/quartos/image 117.png";
 import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
+// import placeholderImg from "/src/assets/quartos/image-placeholder.png"; // Assumo que você terá uma imagem de placeholder
 import { FaStar } from "react-icons/fa";
 import NavbarAdm from "../../../assets/components/navbarAdm";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getUser } from "../../../services/Api_service";
+import { useNavigate, useParams } from "react-router-dom";
+import {  getQuartosDisponiveis, updateQuartos, deleteQuartos } from "../../../services/Api_service";
+import "./quartosAdm.css";
 
-function QuartosAdm() {
+function Quartos() {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [nome, setNome] = useState('')
+  const [valor, setValor] = useState(0)
+  const [descricao, setDescricao] = useState('')
+
+  // Estados individuais para cada checkbox
+  const [tv, setTv] = useState(false);
+  const [wifi, setWifi] = useState(false);
+  const [ducha, setDucha] = useState(false);
+  const [cozinha, setCozinha] = useState(false);
+  const [toalhas, setToalhas] = useState(false);
+  const [frigobar, setFrigobar] = useState(false);
+  const [banheira, setBanheira] = useState(false);
+  const [arCondicionado, setArCondicionado] = useState(false);
+
+    const options = [
+      { id: 1, label: ' TV', state: tv, setState: setTv, key: 'tv'},
+      { id: 2, label: ' Wifi', state: wifi, setState: setWifi, key: 'wifi' },
+      { id: 3, label: ' Ducha', state: ducha, setState: setDucha, key: 'ducha'},
+      { id: 4, label: ' Cozinha', state: cozinha, setState: setCozinha, key: 'cozinha'},
+      { id: 5, label: ' Toalhas', state: toalhas, setState: setToalhas, key: 'toalhas'},
+      { id: 6, label: ' Frigobar', state: frigobar, setState: setFrigobar, key: 'frigobar'},
+      { id: 7, label: ' Banheira', state: banheira, setState: setBanheira, key: 'banheira'},
+      { id: 8, label: ' Ar condicionado', state: arCondicionado, setState: setArCondicionado, key: 'ar_condicionado'},
+    ];
+
+    const handleCheckboxChange = (optionId) => {
+      const option = options.find(opt => opt.id === optionId);
+      if (option) {
+        option.setState(!option.state);
+      }
+      
+      if (selectedOptions.includes(optionId)) {
+        setSelectedOptions(selectedOptions.filter((id) => id !== optionId));
+      } else {
+        setSelectedOptions([...selectedOptions, optionId]);
+      }
+    };
+
+    async function AtualizarQuarto() {
+      updateQuartos(
+        id_quarto,
+        nome,
+        valor,
+        descricao,
+        tv,
+        wifi,
+        ducha,
+        cozinha,
+        toalhas,
+        frigobar,
+        banheira,
+        arCondicionado).then(data => console.log(data)).catch(error => console.log(error))
+
+        handleCloseEdit()
+    }
+
+  const [avaliacao_texto, setAvaliacao_texto] = useState('');
+  const [nota, setNota] = useState(0);
+  const [cpf, setCpf] = useState('');
+  const [quarto, setQuarto] = useState(null);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(false);
+  
+  // Estado para os dados de reserva
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [adultos, setAdultos] = useState('1 Adulto');
+  const [criancas, setCriancas] = useState('0 Crianças');
+
+  // Estado para as imagens
+  const [imagens, setImagens] = useState([]);
+  const [imagemAtual, setImagemAtual] = useState(null);
+
+  const [showModal, setShowModal] = useState(false);      // Modal de exclusão
+  const [showEditModal, setShowEditModal] = useState(false); // Modal de edição
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
+  const handleCloseEdit = () => setShowEditModal(false);
+  const handleShowEdit = () => setShowEditModal(true);
+
+  const { id_quarto } = useParams();
+  const { id_foto } = useParams();
+  const navigate = useNavigate();
+
+  async function  excluir() {
+    try{
+    await deleteQuartos(id_quarto)
+    window.location.href = '/acomodacoesAdm'
+    }catch(err){
+      window.alert('erro ao excluir quarto')
+      console.error('olha o error ao excluir quarto', err)
+    } 
+  }
+
+  const [mostrarBotoesExcluir, setMostrarBotoesExcluir] = useState(false);
+
+  async function excluirFoto() {
+    try {
+      await deleteFotos(id_foto); // você decide o que vai passar
+      window.location.reload(); // ou atualizar o estado das imagens sem reload
+    } catch (err) {
+      window.alert("Erro ao apagar imagem");
+      console.error("Erro ao excluir imagem:", err);
+    }
+  }
+
+  // async function  excluirFoto() {
+  //   try{
+  //   await deleteFotos(id_foto)
+  //   window.location.href = '/acomodacoesAdm'
+  //   }catch(err){
+  //     window.alert('foto apaga')
+  //     console.error('aqui deu erro mn se liga', err)
+  //   } 
+  // }
 
   useEffect(() => {
-    verificacao()
-  }, [])
+    preencher();
+  }, []);
 
-  async function verificacao() {
+  // Efeito para configurar as imagens quando o quarto for carregado
+  useEffect(() => {
+    if (quarto) {
+      // Configura o array de imagens com as imagens do quarto se disponíveis,
+      // caso contrário, usa as imagens estáticas como fallback
+      const imagensDoQuarto = [];
+      
+      // Verifica se o quarto tem fotos e adiciona a primeira como imagem principal
+      if (quarto.fotos_quartos && quarto.fotos_quartos.length > 0) {
+        quarto.fotos_quartos.forEach(foto => {
+          if (foto && foto.imagem) {
+            imagensDoQuarto.push(foto.imagem);
+          }
+        });
+      }
+      
+      // Adiciona as imagens de fallback se necessário
+      if (imagensDoQuarto.length === 0) {
+        // Se não tiver imagens do quarto, usa apenas as imagens estáticas
+        setImagens([img1, img2, img3, img4, img5]);
+      } else {
+        // Combina as imagens do quarto com as estáticas
+        setImagens([...imagensDoQuarto,]);
+      }
+      
+      // Define a imagem atual
+      if (imagensDoQuarto.length > 0) {
+        setImagemAtual(imagensDoQuarto[0]);
+      } else if (img1) {
+        setImagemAtual(img1);
+      } else {
+        setImagemAtual(placeholderImg);
+      }
+    }
+  }, [quarto]);
+
+  function saveReservationData() {
+    // Verificar se as datas foram selecionadas
+    if (!checkIn || !checkOut) {
+      showError('Por favor, selecione as datas de check-in e check-out');
+      return;
+    }
+    
+    // Converter strings para objetos Date
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+    const today = new Date();
+    
+    // Resetar as horas para comparação apenas de datas
+    today.setHours(0, 0, 0, 0);
+    
+    // Verificar se a data de check-in é no passado
+    if (checkInDate < today) {
+      showError('A data de check-in não pode ser no passado');
+      return;
+    }
+    
+    // Verificar se a data de check-out é igual ou anterior à data de check-in
+    if (checkOutDate <= checkInDate) {
+      showError('A data de check-out deve ser posterior à data de check-in');
+      return;
+    }
+    
+    // Formatar as datas para comparação apenas de dia/mês/ano
+    const checkInDateStr = checkInDate.toISOString().split('T')[0];
+    const checkOutDateStr = checkOutDate.toISOString().split('T')[0];
+    
+    // Verificar se o check-in e check-out são no mesmo dia
+    if (checkInDateStr === checkOutDateStr) {
+      showError('O check-out não pode ser no mesmo dia do check-in');
+      return;
+    }
+    
+    // Calcular a diferença de dias
+    const diffTime = Math.abs(checkOutDate - checkInDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Verificar se a estadia é maior que 30 dias
+    if (diffDays > 30) {
+      showError('Não é possível fazer reservas por mais de 30 dias');
+      return;
+    }
+    
+    // Se passou por todas as validações, criar objeto com os dados da reserva
+    const reservationData = {
+      checkIn: checkIn,
+      checkOut: checkOut,
+      adultos: adultos,
+      criancas: criancas,
+      quartoId: id_quarto,
+      quartoNome: quarto?.nome || '',
+      quartoPreco: quarto?.preco || 0,
+      diasEstadia: diffDays
+    };
+    
+    // Salvar no localStorage
+    localStorage.setItem('reservationData', JSON.stringify(reservationData));
+    
+    // Navegar para a página de pagamento
+    navigate(`/pix/${id_quarto}`);
+  }
+
+  async function preencher() {
     try {
-      await getUser().then(data => console.log('log'))
+      setCarregando(true);
+      setErro(false);
+      
+      const data = await getQuartosDisponiveis(id_quarto);
+      console.log("Dados do quarto:", data);
+      
+      if (data) {
+        // Corrigindo: setQuarto recebe diretamente os dados
+        setQuarto(data);
+        
+        // Preenchendo os campos com os dados do quarto
+        setNome(data.nome || '');    
+        setValor(data.preco || 0);
+        setDescricao(data.descricao || '');
+        
+        // Preenchendo as checkboxes com base nos dados do quarto
+        setTv(data.tv || false);
+        setWifi(data.wifi || false);
+        setDucha(data.ducha || false);
+        setCozinha(data.cozinha || false);
+        setToalhas(data.toalhas || false);
+        setFrigobar(data.frigobar || false);
+        setBanheira(data.banheira || false);
+        setArCondicionado(data.ar_condicionado || false);
+        
+        // Atualizando selectedOptions baseado nos dados
+        const opcoesSelecionadas = [];
+        if (data.tv) opcoesSelecionadas.push(1);
+        if (data.wifi) opcoesSelecionadas.push(2);
+        if (data.ducha) opcoesSelecionadas.push(3);
+        if (data.cozinha) opcoesSelecionadas.push(4);
+        if (data.toalhas) opcoesSelecionadas.push(5);
+        if (data.frigobar) opcoesSelecionadas.push(6);
+        if (data.banheira) opcoesSelecionadas.push(7);
+        if (data.ar_condicionado) opcoesSelecionadas.push(8);
+        
+        setSelectedOptions(opcoesSelecionadas);
+        
+        console.log('Quarto carregado:', data);
+      } 
+          
     } catch (error) {
-      console.log(error);
-      if (error.status == 403 || error.status == 401) {
-        window.alert('acesso não autorizado')
-        window.location.href = "/login"
+      console.error("Erro ao carregar dados do quarto:", error);
+      setErro(true);
+    } finally {
+      setCarregando(false);
+    }
+  }
+
+  async function Criar(e) {
+    e.preventDefault();
+
+    if (avaliacao_texto === '' || nota === 0 || id_quarto === '' || cpf === '') {
+      showError('preencha todos os campos');
+      return;
+    }
+
+    try {
+      const data = await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf);
+      if (data === 'avaliação adicionada com sucesso') {
+        showError('Avaliação adicionada com sucesso!');
+        // Limpar os campos do formulário
+        setAvaliacao_texto('');
+        setNota(0);
+        setCpf('');
+      } else {
+        showError('Erro ao adicionar avaliação');
+      }
+    } catch (err) {
+      console.error("Erro ao criar avaliação:", err);
+      showError('Erro ao enviar avaliação. Tente novamente.');
+    }
+  }
+
+  const showError = (message) => {
+    const span = document.getElementById('span');
+    if (span) {
+      span.textContent = message;
+      
+      // Resetar o timer se já existir
+      if (span.timeoutId) {
+        clearTimeout(span.timeoutId);
+      }
+      
+      // Definir novo timer
+      span.timeoutId = setTimeout(() => {
+        if (span.parentNode) {
+          span.textContent = '';
+        }
+      }, 5000);
+    } else {
+      // Criar um elemento para exibir o erro se não existir
+      const errorSpan = document.createElement('span');
+      errorSpan.id = 'span';
+      errorSpan.style.color = 'red';
+      errorSpan.style.display = 'block';
+      errorSpan.style.marginTop = '10px';
+      errorSpan.style.textAlign = 'center';
+      errorSpan.style.fontWeight = 'bold';
+      errorSpan.textContent = message;
+      
+      // Adicionar ao formulário de reserva
+      const formReserva = document.querySelector('.form-reserva');
+      if (formReserva) {
+        formReserva.appendChild(errorSpan);
+        
+        // Remover após 5 segundos
+        const timeoutId = setTimeout(() => {
+          if (errorSpan.parentNode) {
+            errorSpan.parentNode.removeChild(errorSpan);
+          }
+        }, 5000);
+        
+        // Armazenar o ID do timeout para poder cancelá-lo se necessário
+        errorSpan.timeoutId = timeoutId;
       }
     }
   }
 
-
-  const navigate = useNavigate();
-  const imagens = [img, img1, img2, img3, img4, img5];
-  const [imagemAtual, setImagemAtual] = useState(imagens[0]);
-
   const StarRating = ({ totalStars = 5 }) => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
-
 
     return (
       <div className="star-rating">
@@ -52,7 +372,7 @@ function QuartosAdm() {
                 type="radio"
                 name="rating"
                 value={currentRating}
-                onClick={() => setRating(currentRating)}
+                onClick={() => {setRating(currentRating); setNota(currentRating)}}
                 style={{ display: "none" }}
               />
               <FaStar
@@ -73,182 +393,181 @@ function QuartosAdm() {
     setImagemAtual(imagem);
   };
 
-  return (
-    <>
-      <NavbarAdm />
-
-      <div className="fundo_quartos">
-        <div className="back-quartosAdm">
-          <button onClick={() => navigate("/acomodacoesAdm")} className="backButton-quartosAdm"> ← </button>
-          <h1 className="backLine-quartosAdm">|</h1>
-          <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button>
+  // Renderização condicional para quando os dados estão carregando
+  if (carregando) {
+    return (
+      <div className="fundo_quartosAdm">
+        <NavbarAdm />
+        <div className="loading-container">
+          <p>Carregando informações do quarto...</p>
         </div>
-        <main className="quarto-container">
-          <section className="galeria-principal">
-            <img
-              src={imagemAtual}
-              alt="Imagem do domo"
-              className="imagem-principal"
-            />
-            <div className="miniaturas">
-              {imagens.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt={`Miniatura ${index + 1}`}
-                  className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
-                  onClick={() => handleImagemClick(img)}
-                />
-              ))}
-            </div>
-          </section>
+      </div>
+    );
+  }
 
-          <section className="detalhes-quarto">
-            <div className="preco-container">
-              <p>A PARTIR DE</p>
-              <h2>R$590,00</h2>
-              <p>POR NOITE</p>
-            </div>
+  // Renderização condicional para quando ocorre um erro
+  if (erro) {
+    return (
+      <div className="fundo_quartosAdm">
+        <NavbarAdm />
+        <div className="error-container">
+          <p>Erro ao carregar informações do quarto. Por favor, tente novamente.</p>
+          <button onClick={preencher} className="btn-tentar-novamente">Tentar Novamente</button>
+        </div>
+      </div>
+    );
+  }
 
-            <div className="form-reserva">
-              <input type="date" placeholder="Check-in" />
-              <input type="date" placeholder="Check-out" />
-              <select>
-                <option>1 Adulto</option>
-                <option>2 Adultos</option>
-                <option>3 Adultos</option>
-              </select>
-
-              <select>
-                <option>0 Crianças</option>
-                <option>1 Crianças</option>
-                <option>2 Crianças</option>
-                <option>3 Crianças</option>
-              </select>
-              <button onClick={() => navigate("/pix")} className="btn-reservar">Reservar</button>
-            </div>
-          </section>
-        </main>
-        <div className="tudo_domo">
-          <div className="domo_titulo">
-            <p>CONHEÇA O DOMO</p>
+  // Renderização normal quando tudo está carregado
+  return (
+    <div className="quartosAdm-page">
+      <NavbarAdm/>
+      <div className="fundo_quartosAdm">
+        <div className="fundoLeft-quartosAdm">
+          <div className="back-quartosAdm">
+            <button onClick={() => navigate("/acomodacoesAdm")} className="backButton-quartosAdm"> ← </button>
+            <h1 className="backLine-quartosAdm">|</h1>
+            <button onClick={() => navigate("/acomodacoesAdm")} className="backText-quartosAdm"> ACOMODAÇÕES </button> 
           </div>
-          <article>
-            <div className="aviso">
-              <div>
-                <p>
-                  Os valores exibidos no site estão sujeitos a constantes
-                  atualizações. Nos feriados e datas comemorativas o valor da
-                  diária também é diferenciado. Para mais detalhes entre em
-                  contato por telefone. O Domo é a grande novidade da pousada.
-                  Uma acomodação totalmente diferenciada construída nos padrões
-                  arquitetônicos dos domos geodésicos modernos.
-                </p>
+          <main className="quartoAdm-container">
+            <section className="galeria-principal">
+              {imagemAtual ? (
+                <img
+                  src={imagemAtual}
+                  alt="Imagem do quarto"
+                  className="imagem-principal"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = placeholderImg;
+                    e.target.alt = "Imagem indisponível";
+                  }}
+                />
+              ) : (
+                <div className="imagem-indisponivel">
+                  <p>Imagem indisponível</p>
+                </div>
+              )}
+              <div className="miniaturas">
+                {imagens.length > 0 ? (
+                  imagens.map((img, index) => (
+                    <div key={index} className="miniatura-container">
+                      <img
+                        src={img}
+                        alt={`Miniatura ${index + 1}`}
+                        className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
+                        onClick={() => handleImagemClick(img)}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = placeholderImg;
+                          e.target.alt = "Miniatura indisponível";
+                        }}
+                      />
+                      {mostrarBotoesExcluir && imagens.length > 1 && (
+                        <button 
+                          className="btn-excluir-miniatura" 
+                          onClick={() => excluirFoto(img)}
+                        >
+                          ❌
+                        </button>
+                      )}
+                    </div>
+                  ))
+                  // imagens.map((img, index) => (
+                  //   <img
+                  //     key={index}
+                  //     src={img}
+                  //     alt={`Miniatura ${index + 1}`}
+                  //     className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
+                  //     onClick={() => handleImagemClick(img)}
+                  //     onError={(e) => {
+                  //       e.target.onerror = null;
+                  //       e.target.src = placeholderImg;
+                  //       e.target.alt = "Miniatura indisponível";
+                  //     }}
+                  //   />
+                  // ))
+                ) : (
+                  <p className="sem-miniaturas">Sem imagens disponíveis</p>
+                )}
               </div>
+            </section>
+            <div className="buttonImage-quartosAdm">
+              <button type="button" className="edit1-quartosAdm" onClick={() => setMostrarBotoesExcluir(true)}>Excluir Imagem</button>
+              <button type="button" className="edit2-quartosAdm">Adicionar Imagem</button>
             </div>
-
-            <div className="informacoes_domo">
-              <div className="top">
-                <div className="line">
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/ar-condicionado.png"
-                      alt="ar-condicionado"
-                    />
-                    <p>Ar condicionado</p>
-                  </div>
+          </main>
+        </div>
+          <div className="dividerPage-quartosAdm">
+            <div className="right-quartosAdm">
+              <h1 className="tituloInfo-quartosAdm">Insira as informações do quarto:</h1>
+              <form className="itensCenter-quartosAdm">
+                <div className="name-quartosAdm">
+                    <input type="name" className="itensName-quartosAdm" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
                 </div>
-
-                <div className="line">
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/televisao.png"
-                      alt="televisao"
-                    />
-                    <p>TV</p>
-                  </div>
-                  <div className="item">
-                    <img src="/src/assets/quartos/wifi.png" alt="wifi" />
-                    <p>Wifi</p>
-                  </div>
+                <div className="valor-quartosAdm">
+                    <input type="Number" className="itensValor-quartosAdm" placeholder="Valor" value={valor} onChange={(e) => setValor(e.target.value)} />
                 </div>
-
-                <div className="line">
-                  <div className="item">
-                    <img src="/src/assets/quartos/ducha.png" alt="ducha" />
-                    <p>Ducha</p>
-                  </div>
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/frigobar.png"
-                      alt="frigobar"
-                    />
-                    <p>Frigobar</p>
-                  </div>
+                <div className="descricao-quartosAdm">
+                    <input type="text" className="itensDescricao-quartosAdm" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)}/>
                 </div>
-
-                <div className="line">
-                  <div className="item">
-                    <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
-                    <p>Toalhas</p>
+              </form>
+              <div className="checkbox-quartosAdm">
+                {options.map((option) => (
+                  <div className='formItens-quartosAdm' key={option.id}>
+                    <label className="nameItem-quartosAdm">
+                      <input
+                      type="checkbox"
+                      value={option.id}
+                      checked={option.state}
+                      onChange={() => handleCheckboxChange(option.id)}
+                      />
+                      {option.label}
+                    </label> 
                   </div>
-                  <div className="item">
-                    <img
-                      src="/src/assets/quartos/cozinha_domo.png"
-                      alt="cozinha"
-                    />
-                    <p>Cozinha</p>
-                  </div>
-                </div>
+                ))}
               </div>
-
-              <div className="botton">
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Acomoda: </p>
-                    <p className="textsem">3 pessoas</p>
-                  </div>
-                  <div className="item2">
-                    <p className="textcor">Camas: </p>
-                    <p className="textsem">1 cama de casal</p>
-                  </div>
-                </div>
-
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Check-in: </p>
-                    <p className="textsem">14h00</p>
-                  </div>
-                  <div className="item2">
-                    <p className="textcor">Check-out: </p>
-                    <p className="textsem">10h00</p>
-                  </div>
-                </div>
-
-                <div className="line2">
-                  <div className="item2">
-                    <p className="textcor">Mínimo de noites: </p>
-                    <p className="textsem">2 noites</p>
-                  </div>
-                  <a href="https://www.pousadadomirantenoronha.com.br/p/politica-da-pousada">
-                    Leia nossas políticas
-                  </a>
-                </div>
+              <div className="finalPage-quartosAdm">
+                <button type="button" className="button1-quartosAdm" onClick={handleShow}>Excluir quarto</button>
+                <button type="button" className="button2-quartosAdm" onClick={handleShowEdit}>Editar quarto</button>
               </div>
-            </div>
-          </article>
-          <div className="inf-excluir">
-            <div>
-              <button className="inf-adm">EDITAR INFORMAÇÕES</button>
-            </div>
-            <div>
-              <button className="excluir-adm">EXCLUIR INFORMAÇÕES</button>
-            </div>
+              {/* Modal de Exclusão */}
+      <div className={`modal-container ${showModal ? 'show' : ''}`}>
+        <div className="modal-content modal-delete slide-up">
+          <div className="modal-header">
+            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+            <button className="close-button" onClick={handleClose}>×</button>
+          </div>
+          <div className="modal-body">
+            <p><strong>Tem certeza que deseja excluir esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+          </div>
+          <div className="modal-footer">
+            <button className="cancel-button" onClick={handleClose}>Cancelar</button>
+            <button className="confirm-button delete" onClick={excluir}>Sim, Excluir</button>
           </div>
         </div>
       </div>
-    </>
+
+      {/* Modal de Edição */}
+      <div className={`modal-container ${showEditModal ? 'show' : ''}`}>
+        <div className="modal-content modal-edit slide-up">
+          <div className="modal-header">
+            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+            <button className="close-button" onClick={handleCloseEdit}>×</button>
+          </div>
+          <div className="modal-body">
+            <p><strong>Tem certeza que deseja editar esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+          </div>
+          <div className="modal-footer">
+            <button className="cancel-button" onClick={handleCloseEdit}>Cancelar</button>
+            <button className="confirm-button edit" onClick={AtualizarQuarto}>Sim, Editar</button>
+          </div>
+        </div>
+      </div>
+            </div>
+          </div>
+      </div>
+    </div>
   );
 }
 
-export default QuartosAdm;
+export default Quartos;

@@ -89,3 +89,24 @@ VALUES
 ('123.123.123-28', '123.123.123-20', '123.123.123-21@A.com', 'senha_hash5', 2, '(12) 3123-1232'),
 ('123.923.382-12', '123', '123@gmail.com', 'senha_hash6', 2, '(11) 1111-1111'),
 ('138.923.382-13', 'Juan', 'Juan@gmail.com', 'senha_hash7', 2, '(12) 3123-1231'),
+
+
+INSERT INTO quartos (id_quarto, nome, preco, descricao, ar_condicionado, tv, wifi, ducha, frigobar, toalhas, cozinha, createdAt, updatedAt) VALUES
+(1, '3', 599, 'tem busca tranquilidade e contato com a natureza', 1, 0, 1, 1, 0, 1, 0, '2025-05-15 11:37:32', '2025-05-15 11:37:32'),
+(2, 'Chale Familia', 590, 'O Chalé Familia da Quinta do Ypuã é a escolha...', 0, 1, 1, 0, 1, 1, 0, '2025-05-15 11:38:14', '2025-05-15 11:38:14'),
+(3, 'Charrus (Bus)', 490, 'O quarto Charrus (Bus) da Quinta do Ypuã é pe...', 0, 0, 1, 1, 1, 1, 0, '2025-05-15 11:38:35', '2025-05-15 11:38:35'),
+(4, 'Suite com cozinha', 390, 'A Suíte com Cozinha da Quinta do Ypuã é a esc...', 1, 1, 1, 0, 1, 1, 1, '2025-05-15 11:38:58', '2025-05-15 11:38:58'),
+(5, 'Estacionamento para overlanders', 100, 'O estacionamento é privativo, garantindo maior...', 0, 0, 1, 0, 0, 0, 0, '2025-05-15 11:39:39', '2025-05-15 11:39:39'),
+(6, 'Cabana', 490, 'A cabana da Quinta do Ypuã é perfeita para qu...', 1, 1, 1, 1, 1, 1, 0, '2025-05-15 11:39:57', '2025-05-15 11:39:57'),
+(7, 'Quarto teste', 999, 'APAGUE ESSE QUARTO!!!', 1, 0, 1, 0, 1, 1, 1, '2025-05-15 11:40:18', '2025-05-15 11:40:18');
+
+
+INSERT INTO fotos_quartos (id_foto, imagem, id_quarto, createdAt, updatedAt) VALUES
+(1, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 1, '2025-05-21 11:40:33', '2025-05-21 11:40:33'),
+(2, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 2, '2025-05-21 11:40:37', '2025-05-21 11:40:37'),
+(3, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 3, '2025-05-21 11:40:42', '2025-05-21 11:40:42'),
+(4, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 4, '2025-05-21 11:40:44', '2025-05-21 11:40:44'),
+(5, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 5, '2025-05-21 11:40:50', '2025-05-21 11:40:50'),
+(6, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 6, '2025-05-21 11:40:52', '2025-05-21 11:40:52'),
+(7, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 7, '2025-05-21 11:40:55', '2025-05-21 11:40:55');
+>>>>>>> 2cc66c43babad225ea183b3c36595ad74a6a4792

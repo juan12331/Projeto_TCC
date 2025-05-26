@@ -56,7 +56,7 @@ const Login = () => {
         navigate('/')
         return;
       } if (data.usuario.tipoUsuario == '1') {
-        window.location.href = '/Usuarios'
+        window.location.href = '/usuarios'
         return
       }
     }).catch(err => showError('Cpf ou senha incorretos'))

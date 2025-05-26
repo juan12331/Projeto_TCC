@@ -1,6 +1,4 @@
 import "./pagina_inicial.css";
-import logo from "/src/assets/img/Logo.png";
-import fundo from "/src/assets/img/fundo_inicio.png";
 import setapbaixo from "/src/assets/img/seta-para-baixo (1).png";
 import fotodescricao from "/src/assets/img/fotodescricao.png";
 import NavbarUser from "../../../assets/components/navbarUser";
@@ -97,21 +95,25 @@ function Inicio() {
         <div className="imgquartos">
           <div className="textsuitecoz">
             <img
-              className="suitecoz"
+              className="suitecoz domo123"
               src="/src/assets/img/suitecom_cozinha.png"
               alt=""
+              onClick={() => {window.location.href = '/acomodacoes'}}
             />
             <p>Suíte com cozinha</p>
           </div>
           <div className="textdomo">
-            <img className="domo" src="/src/assets/img/domoinicio.png" alt="" />
+          <img className="domo123" src="/src/assets/img/domoinicio.png" alt="" 
+          onClick={() => {window.location.href = '/acomodacoes'}}   
+          />
             <p>Domo</p>
           </div>
           <div className="textchurrua">
             <img
-              className="churrua"
+              className="churrua domo123"
               src="/src/assets/img/churrua_inicio.png"
               alt=""
+              onClick={() => {window.location.href = '/acomodacoes'}}
             />
             <p>Churrua</p>
           </div>
@@ -127,6 +129,7 @@ function Inicio() {
               src={image}
               alt={`Imagem ${index + 1}`}
               className={`fotos${index + 1}`}
+              
             />
           ))}
         </div>

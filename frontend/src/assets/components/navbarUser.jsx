@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../components/navbarUser.css"; 
+import logo from '../../assets/imgNavbar/logo_navbar.png';
 
 const NavbarUser = () => {
   const location = useLocation();
@@ -31,10 +32,10 @@ const NavbarUser = () => {
         </Link>
         
         <Link to="/" className="img-navbar">
-          <img className="logo_navbar" src="./src/assets/imgNavbar/logo_navbar.png" alt="Logo" />
+          <img className="logo_navbar" src={logo} alt="Logo" />
         </Link>
 
-        <Link to="/acomodacoes" className={`nav-item ${ location.pathname === "/acomodacoes" || location.pathname === "/quartos" ? "active" : ""}`}>
+        <Link to="/acomodacoes" className={`nav-item ${ location.pathname === "/acomodacoes" || location.pathname.startsWith("/quartos") ? "active" : ""}`}>
           ACOMODAÇÕES
         </Link>
 

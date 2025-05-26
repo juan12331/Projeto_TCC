@@ -9,7 +9,7 @@ const ReservasControllers = require('../controllers/reservas');
 const TiposUsuariosControllers = require('../controllers/tipos_usuarios');
 const QuartosControllers = require('../controllers/quartos');
 const autenticacao = require('../controllers/authenticate');
-// const authenticate = require('../controllers/authenticate');
+//  const authenticate = require('../controllers/authenticate');
 
 // função dos usuarios
 routes.post('/login', autenticacao.loginJWT); 
@@ -37,8 +37,7 @@ routes.delete('/tiposusuarios/:id_tipo', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), TiposUsuariosControllers.deleteTiposUsuarios);
 
 // rotas Fotos_Quartos
-routes.post('/fotosquartos', autenticacao.autenticarJWT,
-    autenticacao.verificarPapelUsuario([1]), Fotos_quartosControllers.AdicionarFoto);
+routes.post('/fotosquartos', autenticacao.autenticarJWT, Fotos_quartosControllers.AdicionarFoto);
 
 routes.delete('/fotosquartos/:id_foto', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), Fotos_quartosControllers.ApagarFoto);
