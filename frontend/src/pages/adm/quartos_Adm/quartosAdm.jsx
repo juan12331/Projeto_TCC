@@ -96,6 +96,7 @@ function Quartos() {
   const handleShowEdit = () => setShowEditModal(true);
 
   const { id_quarto } = useParams();
+  const { id_foto } = useParams();
   const navigate = useNavigate();
 
   async function  excluir() {
@@ -107,6 +108,28 @@ function Quartos() {
       console.error('olha o error ao excluir quarto', err)
     } 
   }
+
+  const [mostrarBotoesExcluir, setMostrarBotoesExcluir] = useState(false);
+
+  async function excluirFoto() {
+    try {
+      await deleteFotos(id_foto); // você decide o que vai passar
+      window.location.reload(); // ou atualizar o estado das imagens sem reload
+    } catch (err) {
+      window.alert("Erro ao apagar imagem");
+      console.error("Erro ao excluir imagem:", err);
+    }
+  }
+
+  // async function  excluirFoto() {
+  //   try{
+  //   await deleteFotos(id_foto)
+  //   window.location.href = '/acomodacoesAdm'
+  //   }catch(err){
+  //     window.alert('foto apaga')
+  //     console.error('aqui deu erro mn se liga', err)
+  //   } 
+  // }
 
   useEffect(() => {
     preencher();
@@ -427,26 +450,49 @@ function Quartos() {
               <div className="miniaturas">
                 {imagens.length > 0 ? (
                   imagens.map((img, index) => (
-                    <img
-                      key={index}
-                      src={img}
-                      alt={`Miniatura ${index + 1}`}
-                      className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
-                      onClick={() => handleImagemClick(img)}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = placeholderImg;
-                        e.target.alt = "Miniatura indisponível";
-                      }}
-                    />
+                    <div key={index} className="miniatura-container">
+                      <img
+                        src={img}
+                        alt={`Miniatura ${index + 1}`}
+                        className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
+                        onClick={() => handleImagemClick(img)}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = placeholderImg;
+                          e.target.alt = "Miniatura indisponível";
+                        }}
+                      />
+                      {mostrarBotoesExcluir && imagens.length > 1 && (
+                        <button 
+                          className="btn-excluir-miniatura" 
+                          onClick={() => excluirFoto(img)}
+                        >
+                          ❌
+                        </button>
+                      )}
+                    </div>
                   ))
+                  // imagens.map((img, index) => (
+                  //   <img
+                  //     key={index}
+                  //     src={img}
+                  //     alt={`Miniatura ${index + 1}`}
+                  //     className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
+                  //     onClick={() => handleImagemClick(img)}
+                  //     onError={(e) => {
+                  //       e.target.onerror = null;
+                  //       e.target.src = placeholderImg;
+                  //       e.target.alt = "Miniatura indisponível";
+                  //     }}
+                  //   />
+                  // ))
                 ) : (
                   <p className="sem-miniaturas">Sem imagens disponíveis</p>
                 )}
               </div>
             </section>
             <div className="buttonImage-quartosAdm">
-              <button type="button" className="edit1-quartosAdm">Excluir Imagem</button>
+              <button type="button" className="edit1-quartosAdm" onClick={() => setMostrarBotoesExcluir(true)}>Excluir Imagem</button>
               <button type="button" className="edit2-quartosAdm">Adicionar Imagem</button>
             </div>
           </main>

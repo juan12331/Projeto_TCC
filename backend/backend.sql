@@ -89,8 +89,6 @@ VALUES
 ('123.123.123-28', '123.123.123-20', '123.123.123-21@A.com', 'senha_hash5', 2, '(12) 3123-1232'),
 ('123.923.382-12', '123', '123@gmail.com', 'senha_hash6', 2, '(11) 1111-1111'),
 ('138.923.382-13', 'Juan', 'Juan@gmail.com', 'senha_hash7', 2, '(12) 3123-1231'),
-('541.154.468-89', 'Yasmin', 'Yasmin@gmail.com', 'senha_hash8', 2, '(12) 3123-1232');
-
 
 
 INSERT INTO quartos (id_quarto, nome, preco, descricao, ar_condicionado, tv, wifi, ducha, frigobar, toalhas, cozinha, createdAt, updatedAt) VALUES
@@ -111,3 +109,4 @@ INSERT INTO fotos_quartos (id_foto, imagem, id_quarto, createdAt, updatedAt) VAL
 (5, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 5, '2025-05-21 11:40:50', '2025-05-21 11:40:50'),
 (6, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 6, '2025-05-21 11:40:52', '2025-05-21 11:40:52'),
 (7, 'https://static.wixstatic.com/media/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg/v1/fill/w_649,h_408,q_85,usm_0.66_1.00_0.01/b87f83_fd189730414e46d39003c5767b995e9b~mv2.jpg', 7, '2025-05-21 11:40:55', '2025-05-21 11:40:55');
+>>>>>>> 2cc66c43babad225ea183b3c36595ad74a6a4792
