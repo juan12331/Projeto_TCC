@@ -442,7 +442,7 @@ function QuartosAdm() {
               </div>
             </section>
             <div className="buttonImage-quartosAdm">
-            <button 
+              <button 
                 type="button" 
                 className="edit1-quartosAdm"
                 onClick={() => setMostrarBotoesExcluir(prev => !prev)}
