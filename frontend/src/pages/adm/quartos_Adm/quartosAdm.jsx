@@ -8,10 +8,10 @@ import img5 from "/src/assets/quartos/image 121.png";
 import { FaStar } from "react-icons/fa";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, useParams } from "react-router-dom";
-import {  getQuartosDisponiveis, updateQuartos, deleteQuartos } from "../../../services/Api_service";
+import {  getQuartosDisponiveis, updateQuartos, deleteQuartos, deleteFotos } from "../../../services/Api_service";
 import "./quartosAdm.css";
 
-function Quartos() {
+function QuartosAdm() {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [nome, setNome] = useState('')
   const [valor, setValor] = useState(0)
@@ -111,63 +111,27 @@ function Quartos() {
 
   const [mostrarBotoesExcluir, setMostrarBotoesExcluir] = useState(false);
 
-  async function excluirFoto() {
+  async function excluirFoto(id_foto) {
     try {
-      await deleteFotos(id_foto); // você decide o que vai passar
-      window.location.reload(); // ou atualizar o estado das imagens sem reload
+      await deleteFotos(id_foto); // Agora recebe o ID numérico/UUID, não o Base64
+      // Atualiza o estado removendo a foto pelo ID
+      setImagens(prev => prev.filter(foto => foto.id_foto !== id_foto));
     } catch (err) {
-      window.alert("Erro ao apagar imagem");
       console.error("Erro ao excluir imagem:", err);
+      alert("Erro ao excluir imagem. Verifique o console.");
     }
   }
-
-  // async function  excluirFoto() {
-  //   try{
-  //   await deleteFotos(id_foto)
-  //   window.location.href = '/acomodacoesAdm'
-  //   }catch(err){
-  //     window.alert('foto apaga')
-  //     console.error('aqui deu erro mn se liga', err)
-  //   } 
-  // }
 
   useEffect(() => {
     preencher();
   }, []);
 
-  // Efeito para configurar as imagens quando o quarto for carregado
   useEffect(() => {
     if (quarto) {
-      // Configura o array de imagens com as imagens do quarto se disponíveis,
-      // caso contrário, usa as imagens estáticas como fallback
-      const imagensDoQuarto = [];
-      
-      // Verifica se o quarto tem fotos e adiciona a primeira como imagem principal
-      if (quarto.fotos_quartos && quarto.fotos_quartos.length > 0) {
-        quarto.fotos_quartos.forEach(foto => {
-          if (foto && foto.imagem) {
-            imagensDoQuarto.push(foto.imagem);
-          }
-        });
-      }
-      
-      // Adiciona as imagens de fallback se necessário
-      if (imagensDoQuarto.length === 0) {
-        // Se não tiver imagens do quarto, usa apenas as imagens estáticas
-        setImagens([img1, img2, img3, img4, img5]);
-      } else {
-        // Combina as imagens do quarto com as estáticas
-        setImagens([...imagensDoQuarto,]);
-      }
-      
-      // Define a imagem atual
-      if (imagensDoQuarto.length > 0) {
-        setImagemAtual(imagensDoQuarto[0]);
-      } else if (img1) {
-        setImagemAtual(img1);
-      } else {
-        setImagemAtual(placeholderImg);
-      }
+      // Certifique-se de que `fotos_quartos` tem a estrutura { id_foto, imagem }
+      const fotosDoQuarto = quarto.fotos_quartos || [];
+      setImagens(fotosDoQuarto); // Armazena objetos completos, não apenas strings
+      setImagemAtual(fotosDoQuarto[0]?.imagem || img1); // Define a imagem atual
     }
   }, [quarto]);
 
@@ -448,51 +412,43 @@ function Quartos() {
                 </div>
               )}
               <div className="miniaturas">
-                {imagens.length > 0 ? (
-                  imagens.map((img, index) => (
-                    <div key={index} className="miniatura-container">
-                      <img
-                        src={img}
-                        alt={`Miniatura ${index + 1}`}
-                        className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
-                        onClick={() => handleImagemClick(img)}
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = placeholderImg;
-                          e.target.alt = "Miniatura indisponível";
-                        }}
-                      />
-                      {mostrarBotoesExcluir && imagens.length > 1 && (
-                        <button 
-                          className="btn-excluir-miniatura" 
-                          onClick={() => excluirFoto(img)}
-                        >
-                          ❌
-                        </button>
-                      )}
-                    </div>
-                  ))
-                  // imagens.map((img, index) => (
-                  //   <img
-                  //     key={index}
-                  //     src={img}
-                  //     alt={`Miniatura ${index + 1}`}
-                  //     className={`miniatura ${imagemAtual === img ? "ativa" : ""}`}
-                  //     onClick={() => handleImagemClick(img)}
-                  //     onError={(e) => {
-                  //       e.target.onerror = null;
-                  //       e.target.src = placeholderImg;
-                  //       e.target.alt = "Miniatura indisponível";
-                  //     }}
-                  //   />
-                  // ))
+              {imagens.length > 0 ? (
+                imagens.map((foto) => ( 
+                  <div key={foto.id_foto} className="miniatura-container">
+                    <img
+                      src={foto.imagem}
+                      alt={`Miniatura ${foto.id_foto}`}
+                      className={`miniatura ${imagemAtual === foto.imagem ? "ativa" : ""}`}
+                      onClick={() => setImagemAtual(foto.imagem)}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = placeholderImg;
+                        e.target.alt = "Miniatura indisponível";
+                      }}
+                    />
+                    {mostrarBotoesExcluir && (
+                      <button
+                        className="btn-excluir-miniatura"
+                        onClick={() => excluirFoto(foto.id_foto)}
+                      >
+                        ❌
+                      </button>
+                    )}
+                  </div>
+                ))
                 ) : (
                   <p className="sem-miniaturas">Sem imagens disponíveis</p>
                 )}
               </div>
             </section>
             <div className="buttonImage-quartosAdm">
-              <button type="button" className="edit1-quartosAdm" onClick={() => setMostrarBotoesExcluir(true)}>Excluir Imagem</button>
+            <button 
+                type="button" 
+                className="edit1-quartosAdm"
+                onClick={() => setMostrarBotoesExcluir(prev => !prev)}
+              >
+                {mostrarBotoesExcluir ? "Cancelar" : "Excluir Imagem"}
+              </button>
               <button type="button" className="edit2-quartosAdm">Adicionar Imagem</button>
             </div>
           </main>
@@ -570,4 +526,4 @@ function Quartos() {
   );
 }
 
-export default Quartos;
+export default QuartosAdm;
