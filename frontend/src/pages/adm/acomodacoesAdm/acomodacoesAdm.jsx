@@ -80,7 +80,7 @@ const AcomodacoesAdm = () => {
       <NavbarAdm />
       <div className="inicio-acomodacoesAdm">
         <h1 className="acomodacoes-tituloAdm">
-          ACOMODAÇÕES <br /> DISPONÍVEIS
+          ACOMODAÇÕES
         </h1>
         <div className="separador-acomodacoesAdm">
           <div className="circle-acomodacoesAdm"></div>
@@ -89,64 +89,8 @@ const AcomodacoesAdm = () => {
         </div>
       </div>
 
-      <div className="fundo-acomodacoesAdm">
-        <div className="reservation-acomodacoesAdm">
-          <h2 className="checkin-acomodacoesAdm">CHECK-IN</h2>
-          <DatePicker
-            className="data-acomodacoesAdm"
-            selected={checkIn}
-            onChange={handleCheckInChange}
-            locale={ptBR}
-            selectsStart
-            placeholderText="__/__/__"
-            dateFormat="dd/MM/yyyy"
-            minDate={new Date()}
-          />
-        </div>
-
-        <div className="reservation-acomodacoesAdm">
-          <h3 className="checkout-acomodacoesAdm">CHECK-OUT</h3>
-          <DatePicker
-            className="data-acomodacoesAdm"
-            selected={checkOut}
-            onChange={handleCheckOutChange}
-            locale={ptBR}
-            selectsEnd
-            minDate={checkIn || new Date()}
-            placeholderText="__/__/__"
-            dateFormat="dd/MM/yyyy"
-          />
-        </div>
-
-        <div className="reservation-acomodacoesAdm">
-          <h4 className="adultos-acomodacoesAdm">ADULTOS</h4>
-
-          <input
-            type="number"
-            className="clientes-acomodacoesAdm"
-            min="0"
-            required
-            maxLength={100}
-          />
-
-        </div>
-
-        <div className="reservation-acomodacoesAdm">
-          <h4 className="criancas-acomodacoesAdm">CRIANÇAS</h4>
-          <input
-            type="number"
-            className="clientes-acomodacoesAdm"
-            min="0"
-            required
-            maxLength={100}
-          />
-        </div>
-
-        <button onClick={() => navigate("/")} className="buscar-acomodacoesAdm">
-          BUSCAR
-        </button>
-
-      </div>
+     
+      
 
       <div className="layout-acomodacoesAdm">
         {quartos.length > 0 ? (
