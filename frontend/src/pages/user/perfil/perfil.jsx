@@ -160,14 +160,7 @@ function Perfil() {
                 
                 return (
                   <div className="reserva-card">
-                    <div className="domo_perfil_img">
-                      <img
-                        className="domo_perfil" 
-                        src="/src/assets/img/domo_perfil.png"
-                        width="100%"
-                        alt={reserva.quarto.nome}
-                      />
-                    </div>
+                    
                     <div className="text-perfilFinal">
                       <div className="finalText-perfil">
                         <h1 className="finalStyle-perfil">Quarto:</h1>
@@ -187,6 +180,7 @@ function Perfil() {
                         <h1 className="finalStyle-perfil">Total:</h1>
                         <h2 className="finalInfo-perfil">{total}</h2>
                       </div>
+                      <h2 className="finalInfo-perfil">caso queira cancelar entre em contato</h2>
                     </div>
                     
                   </div>
