@@ -640,7 +640,7 @@ function Quartos() {
                     className="input-mensg"
                   />
                   
-                  <button onClick={() => {criar_avaliacao(); console.log('uff')}} className="btn-enviar">Enviar avaliação</button>
+                  <button onClick={() => {criar_avaliacao()}} className="btn-enviar">Enviar avaliação</button>
                 </div>
               </div>
             </div>
