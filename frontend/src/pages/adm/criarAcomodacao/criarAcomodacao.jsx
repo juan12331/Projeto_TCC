@@ -106,11 +106,13 @@ const CriarAcomodacao = () => {
             setId_quarto(novoIdQuarto); // Atualizar o estado também
 
             // Enviar a imagem principal usando o ID correto
+            
             await createFotos(novoIdQuarto, mainImage)
                 .then(data => console.log('Imagem principal enviada:', data))
                 .catch(error => console.error('Erro ao enviar imagem principal:', error));
 
             // Enviar as imagens adicionais
+            
             for (let i = 0; i < additionalImages.length; i++) {
                 if (additionalImages[i] !== null) {
                     await createFotos(novoIdQuarto, additionalImages[i])
