@@ -5,11 +5,11 @@ import img2 from "/src/assets/quartos/image 114.png";
 import img3 from "/src/assets/quartos/image 117.png";
 import img4 from "/src/assets/quartos/image 119.png";
 import img5 from "/src/assets/quartos/image 121.png";
-// import placeholderImg from "/src/assets/quartos/image-placeholder.png"; // Assumo que você terá uma imagem de placeholder
+// import placeholderImg from "/src/assets/quartos/image-placeholder.png";
 import { FaStar } from "react-icons/fa";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { useNavigate, useParams } from "react-router-dom";
-import { createAvaliacoes_quartos, getQuartosDisponiveis } from "../../../services/Api_service";
+import { createAvaliacoes_quartos, getQuartosDisponiveis, getReservasById } from "../../../services/Api_service";
 
 function Quartos() {
   const [avaliacao_texto, setAvaliacao_texto] = useState('');
@@ -18,6 +18,11 @@ function Quartos() {
   const [quarto, setQuarto] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(false);
+  
+  // Estado para as reservas existentes
+  const [reservasExistentes, setReservasExistentes] = useState([]);
+  // Estado para armazenar todas as datas bloqueadas (formato string)
+  const [datasBloqueadas, setDatasBloqueadas] = useState([]);
   
   // Estado para os dados de reserva
   const [checkIn, setCheckIn] = useState('');
@@ -34,7 +39,115 @@ function Quartos() {
 
   useEffect(() => {
     preencher();
+    buscarReservasExistentes();
   }, []);
+
+  // Função para gerar todas as datas entre duas datas (inclusive)
+  function gerarDatasEntre(dataInicio, dataFim) {
+    const datas = [];
+    const inicio = new Date(dataInicio);
+    const fim = new Date(dataFim);
+    
+    // Ajustar para timezone local
+    inicio.setHours(0, 0, 0, 0);
+    fim.setHours(0, 0, 0, 0);
+    
+    const dataAtual = new Date(inicio);
+    
+    while (dataAtual <= fim) {
+      datas.push(dataAtual.toISOString().split('T')[0]);
+      dataAtual.setDate(dataAtual.getDate() + 1);
+    }
+    
+    return datas;
+  }
+
+  // Função para buscar reservas existentes e gerar datas bloqueadas
+  async function buscarReservasExistentes() {
+    try {
+      const reservas = await getReservasById(id_quarto);
+      console.log('Reservas recebidas:', reservas);
+      
+      if (reservas && reservas.length > 0) {
+        setReservasExistentes(reservas);
+        
+        // Gerar todas as datas bloqueadas
+        const todasDatasBloqueadas = [];
+        
+        reservas.forEach(reserva => {
+          const datasReserva = gerarDatasEntre(reserva.data_inicio, reserva.data_final);
+          todasDatasBloqueadas.push(...datasReserva);
+        });
+        
+        // Remover duplicatas e ordenar
+        const datasUnicas = [...new Set(todasDatasBloqueadas)].sort();
+        setDatasBloqueadas(datasUnicas);
+        
+        console.log('Datas bloqueadas:', datasUnicas);
+      } else {
+        setReservasExistentes([]);
+        setDatasBloqueadas([]);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar reservas:", error);
+      setReservasExistentes([]);
+      setDatasBloqueadas([]);
+    }
+  }
+
+  // Função simplificada para verificar se uma data está bloqueada
+  function dataEstaBloqueada(dataString) {
+    if (!dataString) return false;
+    return datasBloqueadas.includes(dataString);
+  }
+
+  // Função para verificar se um período conflita com datas bloqueadas
+  function periodoTemConflito(checkInDate, checkOutDate) {
+    const datasParaVerificar = gerarDatasEntre(checkInDate, checkOutDate);
+    
+    // Verificar se alguma data do período está bloqueada
+    return datasParaVerificar.some(data => datasBloqueadas.includes(data));
+  }
+
+  // Função para obter a próxima data disponível após uma data bloqueada
+  function obterProximaDataDisponivel(dataInicial) {
+    let dataAtual = new Date(dataInicial + 'T00:00:00');
+    
+    while (dataEstaBloqueada(dataAtual.toISOString().split('T')[0])) {
+      dataAtual.setDate(dataAtual.getDate() + 1);
+    }
+    
+    return dataAtual.toISOString().split('T')[0];
+  }
+
+  // Função para obter o atributo max para o input de check-out
+  function getMaxCheckOutDate() {
+    if (!checkIn) return null;
+    
+    const checkInDate = new Date(checkIn + 'T00:00:00');
+    let proximaData = new Date(checkInDate);
+    proximaData.setDate(proximaData.getDate() + 1);
+    
+    // Encontrar a primeira data bloqueada após o check-in
+    while (proximaData) {
+      const dataString = proximaData.toISOString().split('T')[0];
+      
+      if (datasBloqueadas.includes(dataString)) {
+        // Retornar o dia anterior à primeira data bloqueada
+        proximaData.setDate(proximaData.getDate() - 1);
+        return proximaData.toISOString().split('T')[0];
+      }
+      
+      proximaData.setDate(proximaData.getDate() + 1);
+      
+      // Limitar a busca a 365 dias para evitar loop infinito
+      if (proximaData.getTime() - checkInDate.getTime() > 365 * 24 * 60 * 60 * 1000) {
+        break;
+      }
+    }
+    
+    return null; // Sem limite se não há conflitos próximos
+  }
 
   async function criar_avaliacao() {
     console.log('comece a pensar')
@@ -44,11 +157,8 @@ function Quartos() {
   // Efeito para configurar as imagens quando o quarto for carregado
   useEffect(() => {
     if (quarto) {
-      // Configura o array de imagens com as imagens do quarto se disponíveis,
-      // caso contrário, usa as imagens estáticas como fallback
       const imagensDoQuarto = [];
       
-      // Verifica se o quarto tem fotos e adiciona a primeira como imagem principal
       if (quarto.fotos_quartos && quarto.fotos_quartos.length > 0) {
         quarto.fotos_quartos.forEach(foto => {
           if (foto && foto.imagem) {
@@ -57,16 +167,12 @@ function Quartos() {
         });
       }
       
-      // Adiciona as imagens de fallback se necessário
       if (imagensDoQuarto.length === 0) {
-        // Se não tiver imagens do quarto, usa apenas as imagens estáticas
         setImagens([img1, img2, img3, img4, img5]);
       } else {
-        // Combina as imagens do quarto com as estáticas
         setImagens([...imagensDoQuarto,]);
       }
       
-      // Define a imagem atual
       if (imagensDoQuarto.length > 0) {
         setImagemAtual(imagensDoQuarto[0]);
       } else if (img1) {
@@ -84,12 +190,10 @@ function Quartos() {
       return;
     }
     
-    // Converter strings para objetos Date
-    const checkInDate = new Date(checkIn);
-    const checkOutDate = new Date(checkOut);
+    // Converter strings para objetos Date com timezone local
+    const checkInDate = new Date(checkIn + 'T00:00:00');
+    const checkOutDate = new Date(checkOut + 'T00:00:00');
     const today = new Date();
-    
-    // Resetar as horas para comparação apenas de datas
     today.setHours(0, 0, 0, 0);
     
     // Verificar se a data de check-in é no passado
@@ -104,13 +208,9 @@ function Quartos() {
       return;
     }
     
-    // Formatar as datas para comparação apenas de dia/mês/ano
-    const checkInDateStr = checkInDate.toISOString().split('T')[0];
-    const checkOutDateStr = checkOutDate.toISOString().split('T')[0];
-    
-    // Verificar se o check-in e check-out são no mesmo dia
-    if (checkInDateStr === checkOutDateStr) {
-      showError('O check-out não pode ser no mesmo dia do check-in');
+    // Verificar se o período conflita com datas bloqueadas
+    if (periodoTemConflito(checkIn, checkOut)) {
+      showError('As datas selecionadas conflitam com reservas existentes. Por favor, escolha outras datas.');
       return;
     }
     
@@ -168,7 +268,6 @@ function Quartos() {
     e.preventDefault();
 
     if (avaliacao_texto == '' ||  nota == '' || quarto == '' || cpf == '') {
-
       showError('preencha todos os campos');
       return;
     }
@@ -177,7 +276,6 @@ function Quartos() {
       const data = await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf);
       if (data === 'avaliação adicionada com sucesso') {
         showError('Avaliação adicionada com sucesso!');
-        // Limpar os campos do formulário
         setAvaliacao_texto('');
         setNota(0);
         setCpf('');
@@ -195,19 +293,16 @@ function Quartos() {
     if (span) {
       span.textContent = message;
       
-      // Resetar o timer se já existir
       if (span.timeoutId) {
         clearTimeout(span.timeoutId);
       }
       
-      // Definir novo timer
       span.timeoutId = setTimeout(() => {
         if (span.parentNode) {
           span.textContent = '';
         }
       }, 5000);
     } else {
-      // Criar um elemento para exibir o erro se não existir
       const errorSpan = document.createElement('span');
       errorSpan.id = 'span';
       errorSpan.style.color = 'red';
@@ -217,19 +312,16 @@ function Quartos() {
       errorSpan.style.fontWeight = 'bold';
       errorSpan.textContent = message;
       
-      // Adicionar ao formulário de reserva
       const formReserva = document.querySelector('.form-reserva');
       if (formReserva) {
         formReserva.appendChild(errorSpan);
         
-        // Remover após 5 segundos
         const timeoutId = setTimeout(() => {
           if (errorSpan.parentNode) {
             errorSpan.parentNode.removeChild(errorSpan);
           }
         }, 5000);
         
-        // Armazenar o ID do timeout para poder cancelá-lo se necessário
         errorSpan.timeoutId = timeoutId;
       }
     }
@@ -359,10 +451,27 @@ function Quartos() {
                 value={checkIn}
                 min={new Date().toISOString().split('T')[0]}
                 onChange={(e) => {
-                  setCheckIn(e.target.value);
-                  // Se o check-out for no mesmo dia ou antes do novo check-in, limpar o check-out
-                  if (checkOut && new Date(checkOut) <= new Date(e.target.value)) {
-                    setCheckOut('');
+                  const selectedDate = e.target.value;
+                  
+                  console.log('Data de check-in selecionada:', selectedDate);
+                  
+                  // Verificar se a data selecionada está bloqueada
+                  if (dataEstaBloqueada(selectedDate)) {
+                    showError('Esta data não está disponível. Por favor, escolha outra data.');
+                    return;
+                  }
+                  
+                  setCheckIn(selectedDate);
+                  
+                  // Se o check-out existir, verificar se ainda é válido
+                  if (checkOut) {
+                    const checkOutDate = new Date(checkOut + 'T00:00:00');
+                    const checkInDate = new Date(selectedDate + 'T00:00:00');
+                    
+                    // Limpar check-out se for inválido
+                    if (checkOutDate <= checkInDate || periodoTemConflito(selectedDate, checkOut)) {
+                      setCheckOut('');
+                    }
                   }
                 }}
               />
@@ -370,8 +479,21 @@ function Quartos() {
                 type="date" 
                 placeholder="Check-out"
                 value={checkOut}
-                min={checkIn ? new Date(new Date(checkIn).getTime() + 86400000).toISOString().split('T')[0] : new Date(Date.now() + 86400000).toISOString().split('T')[0]}
-                onChange={(e) => setCheckOut(e.target.value)}
+                min={checkIn ? new Date(new Date(checkIn + 'T00:00:00').getTime() + 86400000).toISOString().split('T')[0] : new Date(Date.now() + 86400000).toISOString().split('T')[0]}
+                max={getMaxCheckOutDate()}
+                onChange={(e) => {
+                  const selectedDate = e.target.value;
+                  
+                  console.log('Data de check-out selecionada:', selectedDate);
+                  
+                  // Verificar se há conflito no período
+                  if (periodoTemConflito(checkIn, selectedDate)) {
+                    showError('Esta data não está disponível ou conflita com reservas existentes. Por favor, escolha outra data.');
+                    return;
+                  }
+                  
+                  setCheckOut(selectedDate);
+                }}
                 disabled={!checkIn}
               />
               <select
@@ -417,7 +539,6 @@ function Quartos() {
 
             <div className="informacoes_domo">
               <div className="top">
-                {/* Renderização condicional para ar condicionado */}
                 {quarto?.ar_condicionado && (
                   <div className="line">
                     <div className="item">
@@ -431,7 +552,6 @@ function Quartos() {
                 )}
 
                 <div className="line">
-                  {/* Renderização condicional para TV */}
                   {quarto?.tv && (
                     <div className="item">
                       <img
@@ -441,7 +561,6 @@ function Quartos() {
                       <p>TV</p>
                     </div>
                   )}
-                  {/* Renderização condicional para WiFi */}
                   {quarto?.wifi && (
                     <div className="item">
                       <img src="/src/assets/quartos/wifi.png" alt="wifi" />
@@ -451,14 +570,12 @@ function Quartos() {
                 </div>
 
                 <div className="line">
-                  {/* Renderização condicional para ducha */}
                   {quarto?.ducha && (
                     <div className="item">
                       <img src="/src/assets/quartos/ducha.png" alt="ducha" />
                       <p>Ducha</p>
                     </div>
                   )}
-                  {/* Renderização condicional para frigobar */}
                   {quarto?.frigobar && (
                     <div className="item">
                       <img
@@ -471,14 +588,12 @@ function Quartos() {
                 </div>
 
                 <div className="line">
-                  {/* Renderização condicional para toalhas */}
                   {quarto?.toalhas && (
                     <div className="item">
                       <img src="/src/assets/quartos/toalhas.png" alt="toalhas" />
                       <p>Toalhas</p>
                     </div>
                   )}
-                  {/* Renderização condicional para cozinha */}
                   {quarto?.cozinha && (
                     <div className="item">
                       <img
