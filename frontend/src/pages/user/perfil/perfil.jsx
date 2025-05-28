@@ -2,7 +2,7 @@ import "./perfil.css";
 import { useState, useEffect } from "react";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { Pencil } from "react-bootstrap-icons";
-import { logout, getUsersByCpf, updateUser } from "../../../services/Api_service";
+import { logout, getUsersByCpf, updateUser, getReservasByCpf } from "../../../services/Api_service";
 
 
 
@@ -15,6 +15,9 @@ function Perfil() {
 
   const [showEditModal, setShowEditModal] = useState(false); // Modal de edição
 
+  async function pegarReservas() {
+    const reservas = await getReservasByCpf(cpf)
+  }
 
   async function deslogar() {
             logout()

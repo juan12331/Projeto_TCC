@@ -93,7 +93,7 @@ export async function getReservasById(id) {
 }
 
 export async function getReservasByCpf(cpf) {
-    const response = await http.get(`/reservas/${cpf}`);
+    const response = await http.get(`/reservas/user/${cpf}`);
     return response.data;
 }
 

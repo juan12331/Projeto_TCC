@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./pagina_inicial.css";
 import setapbaixo from "/src/assets/img/seta-para-baixo (1).png";
 import fotodescricao from "/src/assets/img/fotodescricao.png";
@@ -15,6 +17,53 @@ const images = Object.entries(
   .map(([, module]) => module.default);
 
 function Inicio() {
+  const navigate = useNavigate();
+  
+  // Estados para os campos de busca
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
+  const [adultos, setAdultos] = useState(1);
+  const [criancas, setCriancas] = useState(0);
+
+  // Função para lidar com a busca
+  const handleBuscar = () => {
+    if (!checkIn || !checkOut) {
+      alert("Por favor, selecione as datas de check-in e check-out");
+      return;
+    }
+
+    // Verificar se a data de check-out é posterior ao check-in
+    if (new Date(checkOut) <= new Date(checkIn)) {
+      alert("A data de check-out deve ser posterior à data de check-in");
+      return;
+    }
+
+    // Criar parâmetros de busca para passar via URL
+    const searchParams = new URLSearchParams({
+      checkIn: checkIn,
+      checkOut: checkOut,
+      adultos: adultos.toString(),
+      criancas: criancas.toString()
+    });
+
+    // Redirecionar para a página de acomodações com os parâmetros
+    navigate(`/acomodacoes?${searchParams.toString()}`);
+  };
+
+  // Função para definir data mínima (hoje)
+  const getMinDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  };
+
+  // Função para definir data mínima do checkout (dia após checkin)
+  const getMinCheckOutDate = () => {
+    if (!checkIn) return getMinDate();
+    const checkInDate = new Date(checkIn);
+    checkInDate.setDate(checkInDate.getDate() + 1);
+    return checkInDate.toISOString().split('T')[0];
+  };
+
   return (
     <>
      <NavbarUser />
@@ -24,23 +73,58 @@ function Inicio() {
           <div className="reserva">
             <div className="campo">
               <label htmlFor="checkin">CHECK-IN</label>
-              <input id="checkin" type="date" name="checkin" />
+              <input 
+                id="checkin" 
+                type="date" 
+                name="checkin" 
+                value={checkIn}
+                onChange={(e) => {
+                  setCheckIn(e.target.value);
+                  // Limpar checkout se for anterior ao novo checkin
+                  if (checkOut && new Date(checkOut) <= new Date(e.target.value)) {
+                    setCheckOut('');
+                  }
+                }}
+                min={getMinDate()}
+              />
             </div>
 
             <div className="campo">
               <label htmlFor="checkout">CHECK-OUT</label>
-              <input id="checkout" type="date" name="checkout" />
+              <input 
+                id="checkout" 
+                type="date" 
+                name="checkout" 
+                value={checkOut}
+                onChange={(e) => setCheckOut(e.target.value)}
+                min={getMinCheckOutDate()}
+                disabled={!checkIn}
+              />
             </div>
 
             <div className="campo">
               <label htmlFor="adulto">ADULTOS</label>
-              <input type="number" id="adulto" name="adulto" />
+              <input 
+                type="number" 
+                id="adulto" 
+                name="adulto" 
+                value={adultos}
+                onChange={(e) => setAdultos(parseInt(e.target.value) || 1)}
+                min="1"
+              />
             </div>
             <div className="campo">
               <label htmlFor="crianca">CRIANÇAS</label>
-              <input type="number" id="crianca" name="crianca" />
+              <input 
+                type="number" 
+                id="crianca" 
+                name="crianca" 
+                value={criancas}
+                onChange={(e) => setCriancas(parseInt(e.target.value) || 0)}
+                min="0"
+              />
             </div>
-            <button className="buscar-btn">BUSCAR</button>
+            <button className="buscar-btn" onClick={handleBuscar}>BUSCAR</button>
           </div>
         </div>
       </div>

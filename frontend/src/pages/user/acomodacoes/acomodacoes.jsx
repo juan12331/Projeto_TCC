@@ -1,25 +1,44 @@
 import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale";
 import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./acomodacoes.css";
 import NavbarUser from "../../../assets/components/navbarUser";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getAllQuartosDisponiveis, getReservasByTwoDate } from "../../../services/Api_service"
 
 const Acomodacoes = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  
   const [checkIn, setCheckIn] = useState(null);
   const [quartos, setQuartos] = useState([])
-  const [quartosReservados, setQuartosReservados] = useState([]) // Novos estados
+  const [quartosReservados, setQuartosReservados] = useState([])
   const [checkOut, setCheckOut] = useState(null);
-  const [adultos, setAdultos] = useState(1); // Estado para adultos
-  const [criancas, setCriancas] = useState(0); // Estado para crianças
+  const [adultos, setAdultos] = useState(1);
+  const [criancas, setCriancas] = useState(0);
   
   useEffect(() => {
     getQuartos()
-  }, [])
+    
+    // Processar parâmetros da URL vindos da página inicial
+    const searchParams = new URLSearchParams(location.search);
+    const checkInParam = searchParams.get('checkIn');
+    const checkOutParam = searchParams.get('checkOut');
+
+    if (checkInParam && checkOutParam) {
+      const checkInDate = new Date(checkInParam);
+      const checkOutDate = new Date(checkOutParam);
+      
+      setCheckIn(checkInDate);
+      setCheckOut(checkOutDate);
+      
+      // Automaticamente verificar disponibilidade quando vem da página inicial
+      verificarDisponibilidadeComDatas(checkInDate, checkOutDate);
+    }
+  }, [location.search])
 
   async function getQuartos(params) {
     getAllQuartosDisponiveis(params).then(data => {
@@ -29,15 +48,10 @@ const Acomodacoes = () => {
     }).catch(error => console.error(error, "erro no get de quartos"))
   }
 
-  // Nova função para verificar quartos reservados
-  async function verificarDisponibilidade() {
-    if (!checkIn || !checkOut) {
-      alert("Por favor, selecione as datas de check-in e check-out");
-      return;
-    }
-
+  // Nova função para verificar quartos reservados com datas específicas
+  async function verificarDisponibilidadeComDatas(dataCheckIn, dataCheckOut) {
     try {
-      const reservas = await getReservasByTwoDate(checkIn, checkOut);
+      const reservas = await getReservasByTwoDate(dataCheckIn, dataCheckOut);
       console.log("Reservas encontradas:", reservas);
       
       // Extrair IDs dos quartos reservados
@@ -49,6 +63,16 @@ const Acomodacoes = () => {
       console.error("Erro ao verificar disponibilidade:", error);
       setQuartosReservados([]);
     }
+  }
+
+  // Função original para verificar quartos reservados
+  async function verificarDisponibilidade() {
+    if (!checkIn || !checkOut) {
+      alert("Por favor, selecione as datas de check-in e check-out");
+      return;
+    }
+
+    await verificarDisponibilidadeComDatas(checkIn, checkOut);
   }
 
   // Função para verificar se um quarto está reservado
@@ -142,6 +166,27 @@ const Acomodacoes = () => {
 
         <button onClick={verificarDisponibilidade} className="buscar-acomodacoes">BUSCAR</button>
       </div>
+
+      {/* Mostrar informações da busca atual */}
+      {checkIn && checkOut && quartosReservados.length >= 0 && (
+        <div className="info-busca" style={{
+          textAlign: 'center',
+          padding: '20px',
+          backgroundColor: '#f5f5f5',
+          margin: '20px',
+          borderRadius: '8px'
+        }}>
+          <h3 style={{ color: '#333', marginBottom: '10px' }}>
+            Resultados para: {checkIn.toLocaleDateString('pt-BR')} - {checkOut.toLocaleDateString('pt-BR')}
+          </h3>
+          
+          {quartosReservados.length > 0 && (
+            <p style={{ color: '#f44336', fontWeight: 'bold' }}>
+              {quartosReservados.length} quarto{quartosReservados.length > 1 ? 's' : ''} indisponível{quartosReservados.length > 1 ? 'eis' : ''} para este período
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="layout-acomodacoes">
         {quartos.length > 0 ? (
