@@ -1181,3 +1181,50 @@
   padding-right: 40%;
 }
 }
+
+/* Adicione essas regras ao seu arquivo acomodacoes.css */
+
+.quarto-indisponivel {
+  position: relative;
+  overflow: hidden;
+}
+
+.quarto-indisponivel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(244, 67, 54, 0.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.quarto-indisponivel .cardsImg-acomodacoesAdm {
+  filter: grayscale(50%) brightness(0.8);
+}
+
+.quarto-indisponivel .cardsButton-acomodacoesAdm:disabled {
+  background-color: #ccc !important;
+  color: #666 !important;
+  cursor: not-allowed !important;
+  border: 1px solid #999;
+}
+
+.quarto-indisponivel .cardsButton-acomodacoesAdm:disabled:hover {
+  background-color: #ccc !important;
+  transform: none;
+}
+
+/* Animação suave para transições */
+.cardsFundo-acomodacoesAdm {
+  transition: all 0.3s ease;
+}
+
+/* Indicador visual adicional para quartos indisponíveis */
+.quarto-indisponivel .cardsTitle-acomodacoesAdm::after {
+  content: '🚫';
+  margin-left: 10px;
+  font-size: 16px;
+}

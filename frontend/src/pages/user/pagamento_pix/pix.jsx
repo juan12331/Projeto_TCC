@@ -3,7 +3,7 @@ import "./pix.css";
 import Pixbox from "../../../assets/components/boxpix";
 import Cartaobox from "../../../assets/components/boxcartao";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
-import { getUsersByCpf, getQuartosDisponiveis } from "../../../services/Api_service";
+import { getUsersByCpf, getQuartosDisponiveis, createReserva } from "../../../services/Api_service";
 
 function Pix() {
   const [selectedPayment, setSelectedPayment] = useState("");
@@ -22,7 +22,18 @@ function Pix() {
   const cpf = localStorage.getItem('cpf')
   const { id_quarto } = useParams()
 
+  async function fazerReserva() {
+    try{
+      await createReserva(cpf, id_quarto, reservationData.checkIn, reservationData.checkOut)
+      localStorage.removeItem('reservationData')
+      navigate('/Acomodacoes')
 
+    } catch (error) {
+      window.alert('erro ao finalizar a reserva')
+      console.log(error)
+    }
+    
+  }
 
   function formatarData(dateString) {
     // Verificar se a string tem o formato esperado
@@ -76,28 +87,29 @@ function Pix() {
   // Usaremos o useEffect para calcular esses valores
 
   useEffect(() => {
-    pegarUsuario(cpf)
-    pegarQuarto(id_quarto)
+    const resData = JSON.parse(localStorage.getItem('reservationData'));
+  
+    pegarUsuario(cpf);
+    pegarQuarto(id_quarto);
     
-    if (reservationData) {
-      setCheckIn(formatarData(reservationData.checkIn))
-      setCheckOut(formatarData(reservationData.checkOut))
-      
-      // Calcular número de dias
-      const dias = calcularDiferencaEmDias(reservationData.checkIn, reservationData.checkOut)
-      setNumerosDias(dias)
+    if (resData) {
+      setCheckIn(formatarData(resData.checkIn));
+      setCheckOut(formatarData(resData.checkOut));
+  
+      const dias = calcularDiferencaEmDias(resData.checkIn, resData.checkOut);
+      setNumerosDias(dias);
     }
-    
+  
     const unlisten = () => {
       setTimeout(() => {
         if (location.key !== window.history.state?.key) {
-          localStorage.removeItem('reservationData')
+          localStorage.removeItem('reservationData');
         }
       }, 0);
     };
-
+  
     return unlisten;
-  }, [location, cpf, id_quarto, reservationData]);
+  }, [location, cpf, id_quarto]);
 
   // useEffect separado para calcular valores após quarto e numerodias estarem disponíveis
   useEffect(() => {
@@ -208,12 +220,12 @@ function Pix() {
       <div className="container-pagamento2">
         <h2 className="resumo-pix">RESUMO DA RESERVA</h2>
         <img src="/src/assets/img/linha2.png" className="linha2-pix" width="80%" />
-        <img src="/src/assets/img/domo_perfil.png" className="domo-pix" />
+        <img src={quarto.fotos_quartos && quarto.fotos_quartos.length > 0 ? quarto.fotos_quartos[0].imagem : '/src/assets/imgAcomodacoes/placeholder.png'} className="domo-pix" />
         <div className="box-detalhes-total">
           {/* começo do input*/}
           <div className="box-color-pix">
             <div className="box-detalhes">
-              <h4 className="info-pix">Tipo de acomodação:</h4>
+              <h4 className="info-pix">Nome da acomodação:</h4>
             </div>
             <div className="box-detalhes-resultado">
               <p className="domo-text">{quarto.nome}</p>
@@ -299,7 +311,7 @@ function Pix() {
         <img src="/src/assets/img/bolinha.png" className="bolinha-pix" width="80%" />
         <h2 className="finalizar">Deseja finalizar a reserva?</h2>
         <div className="container-botao-finalizar">
-          <button className="botao-finalizar">Finalizar Reserva</button>
+          <button className="botao-finalizar" onClick={() => fazerReserva()}>Finalizar Reserva</button>
           <button className="botao-cancelar" onClick={() => setopenPopUp(!openPopUp)}>Cancelar Reserva</button>
           </div>
       </div>

@@ -6,13 +6,17 @@ import { Envelope, Telephone, Instagram, Facebook, Whatsapp } from "react-bootst
 import "./acomodacoes.css";
 import NavbarUser from "../../../assets/components/navbarUser";
 import { Link, useNavigate } from "react-router-dom";
-import { getAllQuartosDisponiveis } from "../../../services/Api_service"
+import { getAllQuartosDisponiveis, getReservasByTwoDate } from "../../../services/Api_service"
 
 const Acomodacoes = () => {
   const navigate = useNavigate();
   const [checkIn, setCheckIn] = useState(null);
   const [quartos, setQuartos] = useState([])
+  const [quartosReservados, setQuartosReservados] = useState([]) // Novos estados
   const [checkOut, setCheckOut] = useState(null);
+  const [adultos, setAdultos] = useState(1); // Estado para adultos
+  const [criancas, setCriancas] = useState(0); // Estado para crianças
+  
   useEffect(() => {
     getQuartos()
   }, [])
@@ -21,21 +25,54 @@ const Acomodacoes = () => {
     getAllQuartosDisponiveis(params).then(data => {
       console.log(data);
       setQuartos(data)
-      console.log(quartos[0].fotos_quartos[0].imagem)
+      console.log(quartos[0]?.fotos_quartos[0]?.imagem)
     }).catch(error => console.error(error, "erro no get de quartos"))
   }
 
+  // Nova função para verificar quartos reservados
+  async function verificarDisponibilidade() {
+    if (!checkIn || !checkOut) {
+      alert("Por favor, selecione as datas de check-in e check-out");
+      return;
+    }
+
+    try {
+      const reservas = await getReservasByTwoDate(checkIn, checkOut);
+      console.log("Reservas encontradas:", reservas);
+      
+      // Extrair IDs dos quartos reservados
+      const idsQuartosReservados = reservas.map(reserva => reserva.id_quarto);
+      setQuartosReservados(idsQuartosReservados);
+      
+      console.log("IDs dos quartos reservados:", idsQuartosReservados);
+    } catch (error) {
+      console.error("Erro ao verificar disponibilidade:", error);
+      setQuartosReservados([]);
+    }
+  }
+
+  // Função para verificar se um quarto está reservado
+  const isQuartoReservado = (idQuarto) => {
+    return quartosReservados.includes(idQuarto);
+  }
+
   function view(id) {
+    if (isQuartoReservado(id)) {
+      alert("Este quarto não está disponível para as datas selecionadas");
+      return;
+    }
     window.location.href = `/quartos/${id}`
   }
 
   const handleCheckInChange = (date) => {
     setCheckIn(date);
     setCheckOut(null);
+    setQuartosReservados([]); // Limpar quartos reservados ao mudar data
   };
 
   const handleCheckOutChange = (date) => {
     setCheckOut(date);
+    setQuartosReservados([]); // Limpar quartos reservados ao mudar data
   };
 
   return (
@@ -81,40 +118,76 @@ const Acomodacoes = () => {
 
         <div className="reservation-acomodacoes">
           <h4 className="adultos-acomodacoes">ADULTOS</h4>
-          <input type="number" className="clientes-acomodacoes" min="0" required />
+          <input 
+            type="number" 
+            className="clientes-acomodacoes" 
+            min="1" 
+            value={adultos}
+            onChange={(e) => setAdultos(parseInt(e.target.value) || 1)}
+            required 
+          />
         </div>
 
         <div className="reservation-acomodacoes">
           <h4 className="criancas-acomodacoes">CRIANÇAS</h4>
-          <input type="number" className="clientes-acomodacoes" min="0" required />
+          <input 
+            type="number" 
+            className="clientes-acomodacoes" 
+            min="0" 
+            value={criancas}
+            onChange={(e) => setCriancas(parseInt(e.target.value) || 0)}
+            required 
+          />
         </div>
 
-        <button onClick={() => navigate("/")} className="buscar-acomodacoes">BUSCAR</button>
+        <button onClick={verificarDisponibilidade} className="buscar-acomodacoes">BUSCAR</button>
       </div>
 
       <div className="layout-acomodacoes">
         {quartos.length > 0 ? (
-          quartos.map((quartos, index) => (
-
-            <div className="cardsFundo-acomodacoesAdm"
-              key={quartos.id_quarto}
+          quartos.map((quarto, index) => (
+            <div 
+              className={`cardsFundo-acomodacoesAdm ${isQuartoReservado(quarto.id_quarto) ? 'quarto-indisponivel' : ''}`}
+              key={quarto.id_quarto}
+              style={{
+                backgroundColor: isQuartoReservado(quarto.id_quarto) ? '#ffebee' : '',
+                border: isQuartoReservado(quarto.id_quarto) ? '2px solid #f44336' : '',
+                opacity: isQuartoReservado(quarto.id_quarto) ? 0.7 : 1
+              }}
             >
               <img
                 className="cardsImg-acomodacoesAdm"
-                src={quartos.fotos_quartos && quartos.fotos_quartos.length > 0 ? quartos.fotos_quartos[0].imagem : '/src/assets/imgAcomodacoes/placeholder.png'}
-                alt={quartos.nome || 'Quarto'}
+                src={quarto.fotos_quartos && quarto.fotos_quartos.length > 0 ? quarto.fotos_quartos[0].imagem : '/src/assets/imgAcomodacoes/placeholder.png'}
+                alt={quarto.nome || 'Quarto'}
               />
               <div className="cardsConteudo-acomodacoesAdm">
-                <h1 className="cardsTitle-acomodacoesAdm">{quartos.nome} - R$ {quartos.preco}</h1>
+                <h1 className="cardsTitle-acomodacoesAdm">
+                  {quarto.nome} - R$ {quarto.preco}
+                  {isQuartoReservado(quarto.id_quarto) && (
+                    <span style={{ color: '#f44336', fontSize: '14px', display: 'block' }}>
+                      Indisponível para as datas selecionadas
+                    </span>
+                  )}
+                </h1>
                 <h2 className="cardsText-acomodacoesAdm">
-                  {quartos.descricao}
+                  {quarto.descricao}
                 </h2>
-                <button onClick={() => view(quartos.id_quarto)} className="cardsButton-acomodacoesAdm"> Reservar </button>
+                <button 
+                  onClick={() => view(quarto.id_quarto)} 
+                  className="cardsButton-acomodacoesAdm"
+                  disabled={isQuartoReservado(quarto.id_quarto)}
+                  style={{
+                    backgroundColor: isQuartoReservado(quarto.id_quarto) ? '#ccc' : '',
+                    cursor: isQuartoReservado(quarto.id_quarto) ? 'not-allowed' : 'pointer'
+                  }}
+                > 
+                  {isQuartoReservado(quarto.id_quarto) ? 'Indisponível' : 'Reservar'}
+                </button>
               </div>
             </div>
           ))
         ) : (
-          <div className="sem-resultados">Nenhum quarto encontrax'do</div>
+          <div className="sem-resultados">Nenhum quarto encontrado</div>
         )
         }
       </div>
