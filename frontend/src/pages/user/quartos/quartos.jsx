@@ -150,8 +150,8 @@ function Quartos() {
   }
 
   async function criar_avaliacao() {
-    console.log('comece a pensar')
-    await createAvaliacoes_quartos(avaliacao_texto, nota, id_quarto, cpf).then(data => console.log(data)).catch(error => console.log(error))
+    window.alert('função momentanemente indisponivel')
+    // await createAvaliacoes_quartos(avaliacao_texto, nota, id_quarto, cpf).then(data => console.log(data)).catch(error => console.log(error))
   }
 
   // Efeito para configurar as imagens quando o quarto for carregado
