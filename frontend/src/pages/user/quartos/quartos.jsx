@@ -649,28 +649,78 @@ function Quartos() {
           <div className="testimonials-container">
             {quarto?.avaliacoes_quartos && quarto.avaliacoes_quartos.length > 0 ? (
               quarto.avaliacoes_quartos.map((avaliacao, index) => (
-                <div key={index} className="testimonial-item">
-                  <div className="testimonial-img-container">
-                    <img
-                      src="/src/assets/quartos/usuario_domo.png"
-                      alt="Usuário"
-                      className="testimonial-img"
-                    />
-                  </div>
-                  <p className="testimonial-text">
-                    {avaliacao.avaliacao_texto}
-                  </p>
-                  <div className="testimonial-rating">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar
-                        key={i}
-                        className="star"
-                        size={15}
-                        color={i < avaliacao.nota ? "#FFD700" : "#ccc"}
-                      />
-                    ))}
-                  </div>
-                </div>
+                // <div key={index} className="testimonial-item">
+                //   <div className="testimonial-img-container">
+                //     <img
+                //       src="/src/assets/quartos/usuario_domo.png"
+                //       alt="Usuário"
+                //       className="testimonial-img"
+                //     />
+                //   </div>
+                //   <p className="testimonial-text">
+                //     {avaliacao.avaliacao_texto}
+                //   </p>
+                //   <div className="testimonial-rating">
+                //     {[...Array(5)].map((_, i) => (
+                //       <FaStar
+                //         key={i}
+                //         className="star"
+                //         size={15}
+                //         color={i < avaliacao.nota ? "#FFD700" : "#ccc"}
+                //       />
+                //     ))}
+                //   </div>
+                // </div>
+
+<>
+<div className="testimonial-item">
+  <div className="testimonial-img-container">
+    <img
+      src="/src/assets/quartos/usuario_domo.png"
+      alt="Usuário"
+      className="testimonial-img"
+    />
+  </div>
+  <p className="testimonial-text">
+    Quarto super confortável e atendimento excelente
+  </p>
+</div>
+
+<div className="testimonial-item">
+  <div className="testimonial-img-container">
+    <img
+      src="/src/assets/quartos/usuario_domo.png"
+      alt="Usuário"
+      className="testimonial-img"
+    />
+  </div>
+  <p className="testimonial-text">
+    Excelente acomodação. Voltarei mais vezes
+  </p>
+</div>
+
+<div className="testimonial-item">
+  <div className="testimonial-img-container">
+    <img
+      src="/src/assets/quartos/usuario_domo.png"
+      alt="Usuário"
+      className="testimonial-img"
+    />
+  </div>
+  <p className="testimonial-text">Quarto aconchegante. Nota 10!</p>
+</div>
+
+<div className="testimonial-item">
+  <div className="testimonial-img-container">
+    <img
+      src="/src/assets/quartos/usuario_domo.png"
+      alt="Usuário"
+      className="testimonial-img"
+    />
+  </div>
+  <p className="testimonial-text">Ótima acomodação!</p>
+</div>
+</>
               ))
             ) : (
               <>
