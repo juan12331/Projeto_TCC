@@ -77,9 +77,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
 ## 📂 Estrutura de Arquivos: 
 
-```diff + Pasta Backend: ```
-
-<pre> ```diff + Texto em verde - Texto em vermelho ! Texto em laranja (nem sempre funciona) # Texto cinza (às vezes) ``` </pre>
+# Pasta Backend:
   
 Arquivos Raiz 
 
