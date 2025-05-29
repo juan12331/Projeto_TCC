@@ -1,10 +1,10 @@
-## 📝 Descrição do Projeto: 
+# 📝 Descrição do Projeto: 
 
 O projeto tem como objetivo o desenvolvimento de um site institucional para o hotel Quinta do Ypuã, visando otimizar o processo de agendamento de quartos, aprimorar a comunicação entre os administradores e os clientes, além de oferecer uma interface visualmente agradável e de fácil navegação. Trata-se de um projeto prático com foco em desenvolvimento web, no qual foram aplicadas técnicas de design responsivo, usabilidade e integração de funcionalidades específicas para o setor hoteleiro. O sistema proposto permite uma melhor organização interna, proporciona ao cliente uma experiência mais eficiente ao realizar reservas, além de centralizar informações relevantes sobre o hotel e seus serviços.  
 
 ---
 
-## ✅ Requisitos: 
+# ✅ Requisitos: 
 
 - "@emailjs/browser": "^4.4.1", 
 - "axios": "^1.8.3", 
@@ -28,7 +28,7 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para o ho
 
 ---
 
-## 🚀 Instruções Gerais de Execução: 
+# 🚀 Instruções Gerais de Execução: 
 
 1. Clone este repositório: git clone https://github.com/juan12331/Projeto_TCC.git 
 
@@ -46,7 +46,7 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para o ho
 
 ---
 
-## 🖥️ Instruções de Execução Backend: 
+# 🖥️ Instruções de Execução Backend: 
 
  Configurar arquivo .env: 
 
@@ -62,7 +62,7 @@ SQL_HOST=[escreva o host que esta utilizando aqui ex: localhost]
 
 ---
 
-## 💻 Instruções de Execução Frontend: 
+# 💻 Instruções de Execução Frontend: 
 
  Configurar arquivo .env: 
 
@@ -75,11 +75,11 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
 ---
 
-## 📂 Estrutura de Arquivos: 
+# 📂 Estrutura de Arquivos: 
 
-### Pasta Backend:
+⚙️ Pasta Backend:
   
-Arquivos Raiz 
+### Arquivos Raiz 
 
 - backend.sql: Script SQL utilizado para a definição ou manipulação do banco de dados. 
 
@@ -90,7 +90,7 @@ Arquivos Raiz
 - server.js: Ponto de entrada principal do servidor backend, onde o aplicativo Express é iniciado.
 
   
-Diretórios 
+### Diretórios 
 
 
 - config 
@@ -141,9 +141,9 @@ Diretórios
 
  
 
-+ Pasta Frontend:
+🔧 Pasta Frontend:
   
-Arquivos Raiz 
+### Arquivos Raiz 
 
 - index.html: Arquivo principal que serve como ponto de entrada para a aplicação React. 
 
@@ -154,7 +154,7 @@ Arquivos Raiz
 - vite.config.js: Arquivo de configuração do Vite.
 
   
-Diretórios 
+### Diretórios 
 
 
 - public 
