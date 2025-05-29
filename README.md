@@ -46,6 +46,9 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para a po
 
 # 🚀 Instruções Gerais de Execução: 
 
+
+🟥 Talvez seja necessário usar dois terminais ao mesmo tempo 
+
 1. Clone este repositório: git clone https://github.com/juan12331/Projeto_TCC.git 
 
 2. Navegue para o Diretório do Projeto: cd Projeto_TCC 
@@ -59,8 +62,6 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para a po
 6. Rodar código na pasta Frontend: npm run dev 
 
 7. Rodar código na pasta Backend: noder server.js
-   
-🟥 Talvez seja necessário usar dois terminais ao mesmo tempo 
 
 ---
 
