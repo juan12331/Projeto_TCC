@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import img1 from "/src/assets/quartos/image 120.png";
-import img2 from "/src/assets/quartos/image 114.png";
-import img3 from "/src/assets/quartos/image 117.png";
-import img4 from "/src/assets/quartos/image 119.png";
-import img5 from "/src/assets/quartos/image 121.png";
 // import placeholderImg from "/src/assets/quartos/image-placeholder.png"; // Assumo que você terá uma imagem de placeholder
 import { FaStar } from "react-icons/fa";
 import NavbarAdm from "../../../assets/components/navbarAdm";
 import { useNavigate, useParams } from "react-router-dom";
-import {  getQuartosDisponiveis, updateQuartos, deleteQuartos, deleteFotos } from "../../../services/Api_service";
+import {  getQuartosDisponiveis, updateQuartos, deleteQuartos, deleteFotos, createFotos } from "../../../services/Api_service";
 import "./quartosAdm.css";
 
 function QuartosAdm() {
@@ -26,6 +22,13 @@ function QuartosAdm() {
   const [frigobar, setFrigobar] = useState(false);
   const [banheira, setBanheira] = useState(false);
   const [arCondicionado, setArCondicionado] = useState(false);
+
+  // Estados para adicionar nova imagem
+  const [newImage, setNewImage] = useState(null);
+  const [dragOver, setDragOver] = useState(false);
+
+  // Tamanho máximo permitido: 16MB em bytes
+  const MAX_FILE_SIZE = 16 * 1024 * 1024; // 16MB
 
     const options = [
       { id: 1, label: ' TV', state: tv, setState: setTv, key: 'tv'},
@@ -50,6 +53,7 @@ function QuartosAdm() {
         setSelectedOptions([...selectedOptions, optionId]);
       }
     };
+
 
     async function AtualizarQuarto() {
       updateQuartos(
@@ -88,6 +92,7 @@ function QuartosAdm() {
 
   const [showModal, setShowModal] = useState(false);      // Modal de exclusão
   const [showEditModal, setShowEditModal] = useState(false); // Modal de edição
+  const [showAddImageModal, setShowAddImageModal] = useState(false); // Modal para adicionar imagem
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
@@ -95,9 +100,130 @@ function QuartosAdm() {
   const handleCloseEdit = () => setShowEditModal(false);
   const handleShowEdit = () => setShowEditModal(true);
 
+  const handleCloseAddImage = () => {
+    setShowAddImageModal(false);
+    setNewImage(null);
+    setDragOver(false);
+  };
+  const handleShowAddImage = () => setShowAddImageModal(true);
+
   const { id_quarto } = useParams();
   const { id_foto } = useParams();
   const navigate = useNavigate();
+
+  // Função para validar o tamanho do arquivo
+  const validateFileSize = (file) => {
+    if (file.size > MAX_FILE_SIZE) {
+      alert(`O arquivo "${file.name}" excede o tamanho máximo permitido de 16MB. Tamanho atual: ${(file.size / (1024 * 1024)).toFixed(2)}MB`);
+      return false;
+    }
+    return true;
+  };
+
+  const checkImageSize = (dataUrl) => {
+    if (!dataUrl) return false;
+    
+    // Remover o prefixo data:image/...;base64,
+    const base64String = dataUrl.split(',')[1];
+    
+    // Calcular o tamanho aproximado do arquivo original
+    // Base64 adiciona ~33% de overhead, então dividimos por 1.33
+    const sizeInBytes = (base64String.length * 0.75);
+    
+    return sizeInBytes > MAX_FILE_SIZE;
+  };
+
+  // Função para converter arquivo em URL
+  const fileToUrl = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  // Handlers para drag & drop da nova imagem
+  const handleNewImageDragOver = (e) => {
+    e.preventDefault();
+    setDragOver(true);
+  };
+
+  const handleNewImageDragLeave = (e) => {
+    e.preventDefault();
+    setDragOver(false);
+  };
+
+  const handleNewImageDrop = async (e) => {
+    e.preventDefault();
+    setDragOver(false);
+    
+    const files = Array.from(e.dataTransfer.files);
+    const imageFile = files.find(file => file.type.startsWith('image/'));
+    
+    if (imageFile) {
+      // Validar tamanho do arquivo
+      if (!validateFileSize(imageFile)) {
+        return;
+      }
+      
+      const imageUrl = await fileToUrl(imageFile);
+      setNewImage(imageUrl);
+    }
+  };
+
+  const handleNewImageClick = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = async (e) => {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        // Validar tamanho do arquivo
+        if (!validateFileSize(file)) {
+          return;
+        }
+        
+        const imageUrl = await fileToUrl(file);
+        setNewImage(imageUrl);
+      }
+    };
+    input.click();
+  };
+
+  const removeNewImage = () => {
+    setNewImage(null);
+  };
+
+  // Função para adicionar nova imagem
+  async function adicionarImagem() {
+    if (!newImage) {
+      alert('Por favor, selecione uma imagem primeiro');
+      return;
+    }
+
+    // Verificar se a imagem excede o tamanho limite
+    if (checkImageSize(newImage)) {
+      alert('Arquivo grande demais');
+      return;
+    }
+
+    try {
+      console.log('chegamo aqui')
+      // Enviar a nova imagem usando o ID do quarto
+      await createFotos(id_quarto, newImage)
+        .then(data => {
+          console.log('Nova imagem enviada:', data);
+          // Recarregar as imagens do quarto
+          preencher();
+          handleCloseAddImage();
+        })
+        .catch(error => console.error('Erro ao enviar nova imagem:', error));
+
+    } catch (error) {
+      console.error('Erro ao adicionar imagem:', error);
+      alert('Erro ao adicionar imagem. Tente novamente.');
+    }
+  }
 
   async function  excluir() {
     try{
@@ -249,31 +375,6 @@ function QuartosAdm() {
       setErro(true);
     } finally {
       setCarregando(false);
-    }
-  }
-
-  async function Criar(e) {
-    e.preventDefault();
-
-    if (avaliacao_texto === '' || nota === 0 || id_quarto === '' || cpf === '') {
-      showError('preencha todos os campos');
-      return;
-    }
-
-    try {
-      const data = await createAvaliacoes(avaliacao_texto, nota, id_quarto, cpf);
-      if (data === 'avaliação adicionada com sucesso') {
-        showError('Avaliação adicionada com sucesso!');
-        // Limpar os campos do formulário
-        setAvaliacao_texto('');
-        setNota(0);
-        setCpf('');
-      } else {
-        showError('Erro ao adicionar avaliação');
-      }
-    } catch (err) {
-      console.error("Erro ao criar avaliação:", err);
-      showError('Erro ao enviar avaliação. Tente novamente.');
     }
   }
 
@@ -449,7 +550,9 @@ function QuartosAdm() {
               >
                 {mostrarBotoesExcluir ? "Cancelar" : "Excluir Imagem"}
               </button>
-              <button type="button" className="edit2-quartosAdm">Adicionar Imagem</button>
+              <button type="button" className="edit2-quartosAdm" onClick={handleShowAddImage}>
+                Adicionar Imagem
+              </button>
             </div>
           </main>
         </div>
@@ -486,39 +589,122 @@ function QuartosAdm() {
                 <button type="button" className="button1-quartosAdm" onClick={handleShow}>Excluir quarto</button>
                 <button type="button" className="button2-quartosAdm" onClick={handleShowEdit}>Editar quarto</button>
               </div>
+              
               {/* Modal de Exclusão */}
-      <div className={`modal-container ${showModal ? 'show' : ''}`}>
-        <div className="modal-content modal-delete slide-up">
-          <div className="modal-header">
-            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
-            <button className="close-button" onClick={handleClose}>×</button>
-          </div>
-          <div className="modal-body">
-            <p><strong>Tem certeza que deseja excluir esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
-          </div>
-          <div className="modal-footer">
-            <button className="cancel-button" onClick={handleClose}>Cancelar</button>
-            <button className="confirm-button delete" onClick={excluir}>Sim, Excluir</button>
-          </div>
-        </div>
-      </div>
+              <div className={`modal-container ${showModal ? 'show' : ''}`}>
+                <div className="modal-content modal-delete slide-up">
+                  <div className="modal-header">
+                    <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+                    <button className="close-button" onClick={handleClose}>×</button>
+                  </div>
+                  <div className="modal-body">
+                    <p><strong>Tem certeza que deseja excluir esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+                  </div>
+                  <div className="modal-footer">
+                    <button className="cancel-button" onClick={handleClose}>Cancelar</button>
+                    <button className="confirm-button delete" onClick={excluir}>Sim, Excluir</button>
+                  </div>
+                </div>
+              </div>
 
-      {/* Modal de Edição */}
-      <div className={`modal-container ${showEditModal ? 'show' : ''}`}>
-        <div className="modal-content modal-edit slide-up">
-          <div className="modal-header">
-            <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
-            <button className="close-button" onClick={handleCloseEdit}>×</button>
-          </div>
-          <div className="modal-body">
-            <p><strong>Tem certeza que deseja editar esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
-          </div>
-          <div className="modal-footer">
-            <button className="cancel-button" onClick={handleCloseEdit}>Cancelar</button>
-            <button className="confirm-button edit" onClick={AtualizarQuarto}>Sim, Editar</button>
-          </div>
-        </div>
-      </div>
+              {/* Modal de Edição */}
+              <div className={`modal-container ${showEditModal ? 'show' : ''}`}>
+                <div className="modal-content modal-edit slide-up">
+                  <div className="modal-header">
+                    <h2>⚠️⚠️Confirmação⚠️⚠️</h2>
+                    <button className="close-button" onClick={handleCloseEdit}>×</button>
+                  </div>
+                  <div className="modal-body">
+                    <p><strong>Tem certeza que deseja editar esse perfil? </strong> <br /> (essa alteração não pode ser desfeita)</p>
+                  </div>
+                  <div className="modal-footer">
+                    <button className="cancel-button" onClick={handleCloseEdit}>Cancelar</button>
+                    <button className="confirm-button edit" onClick={AtualizarQuarto}>Sim, Editar</button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal para Adicionar Imagem */}
+              <div className={`modal-container ${showAddImageModal ? 'show' : ''}`}>
+                <div className="modal-content modal-add-image slide-up">
+                  <div className="modal-header">
+                    <h2>📷 Adicionar Nova Imagem</h2>
+                    <button className="close-button" onClick={handleCloseAddImage}>×</button>
+                  </div>
+                  <div className="modal-body">
+                    <p style={{fontSize: '12px', color: '#666', marginBottom: '10px', textAlign: 'center'}}>
+                      Tamanho máximo por imagem: 16MB
+                    </p>
+                    <div 
+                      className={`image-upload-area ${dragOver ? 'drag-over' : ''} ${newImage ? 'has-image' : ''}`}
+                      onDragOver={handleNewImageDragOver}
+                      onDragLeave={handleNewImageDragLeave}
+                      onDrop={handleNewImageDrop}
+                      onClick={handleNewImageClick}
+                      style={{
+                        border: dragOver ? '2px dashed #007bff' : '2px dashed #ccc',
+                        backgroundColor: dragOver ? '#f8f9fa' : newImage ? 'transparent' : '#fafafa',
+                        borderRadius: '8px',
+                        padding: '20px',
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        minHeight: '200px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'relative',
+                        backgroundImage: newImage ? `url(${newImage})` : 'none',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        marginBottom: '20px'
+                      }}
+                    >
+                      {!newImage ? (
+                        <div>
+                          <p>Arraste uma imagem aqui ou clique para selecionar</p>
+                          <p style={{fontSize: '12px', color: '#666'}}>Nova imagem do quarto</p>
+                        </div>
+                      ) : (
+                        <button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeNewImage();
+                          }}
+                          style={{
+                            position: 'absolute',
+                            top: '10px',
+                            right: '10px',
+                            background: 'rgba(255, 0, 0, 0.7)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '50%',
+                            width: '25px',
+                            height: '25px',
+                            cursor: 'pointer',
+                            fontSize: '14px'
+                          }}
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                  <div className="modal-footer">
+                    <button className="cancel-button" onClick={handleCloseAddImage}>Cancelar</button>
+                    <button 
+                      className="confirm-button add-image" 
+                      onClick={adicionarImagem}
+                      disabled={!newImage}
+                      style={{
+                        opacity: newImage ? 1 : 0.5,
+                        cursor: newImage ? 'pointer' : 'not-allowed'
+                      }}
+                    >
+                      Adicionar Imagem
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
       </div>
