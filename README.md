@@ -186,12 +186,18 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
     
     - navbarUser.jsx / navbarUser.css: Componente e estilos para a barra de navegação do usuário. 
 
-   ⬛ img: Contém diversas imagens utilizadas no frontend. 
-   ⬛ imgAcomodacoes: Imagens utilizadas na tela de acomodações. 
-   ⬛ imgCriarUser_Adm: Imagens utilizadas na tela de criar_usuarios do Adm. 
-   ⬛ imgLogin: Imagens utilizadas na tela de login. 
-   ⬛ imgNavbar: Imagens utilizadas utilizadas na tela de navegação. 
-   ⬛ imgUsuarios_Adm: Imagens utilizadas na tela de usuarios do Adm. 
+   ⬛ img: Contém diversas imagens utilizadas no frontend.
+  
+   ⬛ imgAcomodacoes: Imagens utilizadas na tela de acomodações.
+  
+   ⬛ imgCriarUser_Adm: Imagens utilizadas na tela de criar_usuarios do Adm.
+  
+   ⬛ imgLogin: Imagens utilizadas na tela de login.
+  
+   ⬛ imgNavbar: Imagens utilizadas utilizadas na tela de navegação.
+  
+   ⬛ imgUsuarios_Adm: Imagens utilizadas na tela de usuarios do Adm.
+  
    ⬛ quartos: Imagens utilizadas na tela de quartos.
   
  - pages
