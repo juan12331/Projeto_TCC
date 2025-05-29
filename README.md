@@ -77,7 +77,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
 ## 📂 Estrutura de Arquivos: 
 
-+ Pasta Backend:
+<pre><code>```diff + Pasta Backend: ```</code></pre>
   
 Arquivos Raiz 
 
