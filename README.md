@@ -78,6 +78,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 # 📂 Estrutura de Arquivos: 
 
 ### Pasta Backend:
+
   
 ⚙️ Arquivos Raiz 
 
@@ -142,6 +143,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
  
 
 ### Pasta Frontend:
+
   
 ⚙️ Arquivos Raiz 
 
@@ -176,7 +178,8 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
   - assets
     
-   ⬛ colagem: Contém imagens utilizadas para compor colagens na interface do usuário. 
+   ⬛ colagem: Contém imagens utilizadas para compor colagens na interface do usuário.
+  
    ⬛ components: Contém componentes reutilizáveis da interface: 
     - boxcartao.jsx / boxcartao.css: Componente e estilos para o cartão de informações. 
     
@@ -230,6 +233,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
  - Services
    
   ⬛ Api_service.js: Serviço responsável pela comunicação com a API backend. 
+  
   ⬛ http.js: Configurações e instâncias do cliente HTTP utilizado nas requisições. 
 
 ---
