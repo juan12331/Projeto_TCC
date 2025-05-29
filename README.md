@@ -60,7 +60,7 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para a po
 
 7. Rodar código na pasta Backend: noder server.js
 
-  🟥 Obs: talvez seja necessário usar dois terminais ao mesmo tempo 
+      🟥 Obs: talvez seja necessário usar dois terminais ao mesmo tempo 
 
 ---
 
