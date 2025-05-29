@@ -1,6 +1,6 @@
 # 📝 Descrição do Projeto: 
 
-O projeto tem como objetivo o desenvolvimento de um site institucional para o hotel Quinta do Ypuã, visando otimizar o processo de agendamento de quartos, aprimorar a comunicação entre os administradores e os clientes, além de oferecer uma interface visualmente agradável e de fácil navegação. Trata-se de um projeto prático com foco em desenvolvimento web, no qual foram aplicadas técnicas de design responsivo, usabilidade e integração de funcionalidades específicas para o setor hoteleiro. O sistema proposto permite uma melhor organização interna, proporciona ao cliente uma experiência mais eficiente ao realizar reservas, além de centralizar informações relevantes sobre o hotel e seus serviços.  
+O projeto tem como objetivo o desenvolvimento de um site institucional para a pousada Quinta do Ypuã, visando otimizar o processo de agendamento de quartos, aprimorar a comunicação entre os administradores e os clientes, além de oferecer uma interface visualmente agradável e de fácil navegação. Trata-se de um projeto prático com foco em desenvolvimento web, no qual foram aplicadas técnicas de design responsivo, usabilidade e integração de funcionalidades específicas para o setor hoteleiro. O sistema proposto permite uma melhor organização interna, proporciona ao cliente uma experiência mais eficiente ao realizar reservas, além de centralizar informações relevantes sobre o hotel e seus serviços.  
 
 ---
 
@@ -60,7 +60,7 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para o ho
 
 7. Rodar código na pasta Backend: noder server.js
 
-   Obs: talvez seja necessário usar dois terminais ao mesmo tempo
+  🟥 Obs: talvez seja necessário usar dois terminais ao mesmo tempo 
 
 ---
 
