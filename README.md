@@ -59,8 +59,8 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para a po
 6. Rodar código na pasta Frontend: npm run dev 
 
 7. Rodar código na pasta Backend: noder server.js
-
-    🟥 Talvez seja necessário usar dois terminais ao mesmo tempo 
+   
+🟥 Talvez seja necessário usar dois terminais ao mesmo tempo 
 
 ---
 
