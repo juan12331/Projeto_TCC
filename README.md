@@ -77,9 +77,9 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
 # 📂 Estrutura de Arquivos: 
 
-⚙️ Pasta Backend:
+### Pasta Backend:
   
-### Arquivos Raiz 
+⚙️ Arquivos Raiz 
 
 - backend.sql: Script SQL utilizado para a definição ou manipulação do banco de dados. 
 
@@ -90,7 +90,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 - server.js: Ponto de entrada principal do servidor backend, onde o aplicativo Express é iniciado.
 
   
-### Diretórios 
+📦 Diretórios 
 
 
 - config 
@@ -141,9 +141,9 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
  
 
-🔧 Pasta Frontend:
+### Pasta Frontend:
   
-### Arquivos Raiz 
+⚙️ Arquivos Raiz 
 
 - index.html: Arquivo principal que serve como ponto de entrada para a aplicação React. 
 
@@ -154,7 +154,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 - vite.config.js: Arquivo de configuração do Vite.
 
   
-### Diretórios 
+📦 Diretórios 
 
 
 - public 
