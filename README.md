@@ -178,63 +178,63 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
   - assets
     
-   ⬛ colagem: Contém imagens utilizadas para compor colagens na interface do usuário.
-  
-   ⬛ components: Contém componentes reutilizáveis da interface: 
-    - boxcartao.jsx / boxcartao.css: Componente e estilos para o cartão de informações. 
-    
-    - boxpix.jsx / boxpix.css: Componente e estilos para a opção de pagamento via Pix. 
-    
-    - navbarAdm.jsx / navbarAdm.css: Componente e estilos para a barra de navegação do administrador. 
-    
-    - navbarUser.jsx / navbarUser.css: Componente e estilos para a barra de navegação do usuário. 
-
-   ⬛ img: Contém diversas imagens utilizadas no frontend.
-  
-   ⬛ imgAcomodacoes: Imagens utilizadas na tela de acomodações.
-  
-   ⬛ imgCriarUser_Adm: Imagens utilizadas na tela de criar_usuarios do Adm.
-  
-   ⬛ imgLogin: Imagens utilizadas na tela de login.
-  
-   ⬛ imgNavbar: Imagens utilizadas utilizadas na tela de navegação.
-  
-   ⬛ imgUsuarios_Adm: Imagens utilizadas na tela de usuarios do Adm.
-  
-   ⬛ quartos: Imagens utilizadas na tela de quartos.
+    ⬛ colagem: Contém imagens utilizadas para compor colagens na interface do usuário.
+   
+    ⬛ components: Contém componentes reutilizáveis da interface: 
+      - boxcartao.jsx / boxcartao.css: Componente e estilos para o cartão de informações. 
+      
+      - boxpix.jsx / boxpix.css: Componente e estilos para a opção de pagamento via Pix. 
+      
+      - navbarAdm.jsx / navbarAdm.css: Componente e estilos para a barra de navegação do administrador. 
+      
+      - navbarUser.jsx / navbarUser.css: Componente e estilos para a barra de navegação do usuário. 
+ 
+    ⬛ img: Contém diversas imagens utilizadas no frontend.
+   
+    ⬛ imgAcomodacoes: Imagens utilizadas na tela de acomodações.
+   
+    ⬛ imgCriarUser_Adm: Imagens utilizadas na tela de criar_usuarios do Adm.
+   
+    ⬛ imgLogin: Imagens utilizadas na tela de login.
+   
+    ⬛ imgNavbar: Imagens utilizadas utilizadas na tela de navegação.
+   
+    ⬛ imgUsuarios_Adm: Imagens utilizadas na tela de usuarios do Adm.
+   
+    ⬛ quartos: Imagens utilizadas na tela de quartos.
   
  - pages
    
-   ⬛ adm
-
-     - acomodacoesAdm: Pasta com página e estilos para a gestão de acomodações do Adm. 
-     - ava_adm: Pasta com página e estilos para a gestão de avaliação do usuário do Adm. 
-     - ava_adm_quarto: Pasta com página para a gestão de avaliações de quartos do Adm. 
-     - avaliacoesAdm Pasta com página e estilos para a visualização de avaliações gerais do Adm. 
-     - criar_usuarios: Pasta com página e estilos para a criação de novos usuários do Adm. 
-     - criarAcomodacao: Pasta com página e estilos para a criação de novas acomodações do Adm. 
-     - perfil_adm: Pasta com página e estilos para o perfil de usuários do Adm. 
-     - quartos_Adm: Pasta com página e estilos para a gestão de quartos do Adm. 
-     - usuarios: Pasta com página e estilos para a gestão de usuários do Adm. 
-
-   ⬛ user 
-
-    - acomodacoes: Pasta com página e estilos para a visualização de acomodações disponíveis. 
-    - cadastro: Pasta com página e estilos para o cadastro de novos usuários. 
-    - contato: Pasta com página e estilos para o contato com a administração. 
-    - esqueceu_senha: Pasta com página para recuperação de senha. 
-    - login: Pasta com página e estilos para o login de usuários. 
-    - pagamento_pix: Pasta com página e estilos para o pagamento via Pix. 
-    - pagina_inical: Pasta com página e estilos para a página inicial da aplicação. 
-    - perfil: Pasta com página e estilos para o perfil do usuário. 
-    - quartos: Pasta com página e estilos para a visualização de quartos disponíveis. 
-    - redefinir_senha: Pasta com página para redefinição de senha. 
+    ⬛ adm
+ 
+      - acomodacoesAdm: Pasta com página e estilos para a gestão de acomodações do Adm. 
+      - ava_adm: Pasta com página e estilos para a gestão de avaliação do usuário do Adm. 
+      - ava_adm_quarto: Pasta com página para a gestão de avaliações de quartos do Adm. 
+      - avaliacoesAdm Pasta com página e estilos para a visualização de avaliações gerais do Adm. 
+      - criar_usuarios: Pasta com página e estilos para a criação de novos usuários do Adm. 
+      - criarAcomodacao: Pasta com página e estilos para a criação de novas acomodações do Adm. 
+      - perfil_adm: Pasta com página e estilos para o perfil de usuários do Adm. 
+      - quartos_Adm: Pasta com página e estilos para a gestão de quartos do Adm. 
+      - usuarios: Pasta com página e estilos para a gestão de usuários do Adm. 
+ 
+    ⬛ user 
+ 
+     - acomodacoes: Pasta com página e estilos para a visualização de acomodações disponíveis. 
+     - cadastro: Pasta com página e estilos para o cadastro de novos usuários. 
+     - contato: Pasta com página e estilos para o contato com a administração. 
+     - esqueceu_senha: Pasta com página para recuperação de senha. 
+     - login: Pasta com página e estilos para o login de usuários. 
+     - pagamento_pix: Pasta com página e estilos para o pagamento via Pix. 
+     - pagina_inical: Pasta com página e estilos para a página inicial da aplicação. 
+     - perfil: Pasta com página e estilos para o perfil do usuário. 
+     - quartos: Pasta com página e estilos para a visualização de quartos disponíveis. 
+     - redefinir_senha: Pasta com página para redefinição de senha. 
 
  - Services
    
-  ⬛ Api_service.js: Serviço responsável pela comunicação com a API backend. 
-  
-  ⬛ http.js: Configurações e instâncias do cliente HTTP utilizado nas requisições. 
+   ⬛ Api_service.js: Serviço responsável pela comunicação com a API backend. 
+   
+   ⬛ http.js: Configurações e instâncias do cliente HTTP utilizado nas requisições. 
 
 ---
 
