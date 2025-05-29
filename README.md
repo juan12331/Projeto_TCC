@@ -4,27 +4,43 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para o ho
 
 ---
 
-# ✅ Requisitos: 
+# ✅ Dependências: 
 
-- "@emailjs/browser": "^4.4.1", 
-- "axios": "^1.8.3", 
-- "bcrypt": "^6.0.0", 
-- "bcryptjs": "^3.0.2", 
-- "bootstrap": "^5.3.3", 
-- "date-fns": "^4.1.0", 
-- "dotenv": "^16.5.0", 
-- "framer-motion": "^12.3.1", 
-- "react": "^18.3.1", 
-- "react-bootstrap": "^2.10.9", 
-- "react-bootstrap-icons": "^1.11.5", 
-- "react-datepicker": "^8.0.0", 
-- "react-dom": "^18.3.1", 
-- "react-google-recaptcha": "^3.1.0", 
-- "react-icons": "^5.5.0", 
-- "react-rating-stars-component": "^2.2.0", 
-- "react-router-dom": "^7.5.0", 
-- "react-select": "^5.10.1", 
-- "react-slick": "^0.30.3"
+  ### Frontend
+  
+  - "@emailjs/browser": "^4.4.1", 
+  - "axios": "^1.8.3", 
+  - "bcrypt": "^6.0.0", 
+  - "bcryptjs": "^3.0.2", 
+  - "bootstrap": "^5.3.3", 
+  - "date-fns": "^4.1.0", 
+  - "dotenv": "^16.5.0", 
+  - "framer-motion": "^12.3.1", 
+  - "react": "^18.3.1", 
+  - "react-bootstrap": "^2.10.9", 
+  - "react-bootstrap-icons": "^1.11.5", 
+  - "react-datepicker": "^8.0.0", 
+  - "react-dom": "^18.3.1", 
+  - "react-google-recaptcha": "^3.1.0", 
+  - "react-icons": "^5.5.0", 
+  - "react-rating-stars-component": "^2.2.0", 
+  - "react-router-dom": "^7.5.0", 
+  - "react-select": "^5.10.1", 
+  - "react-slick": "^0.30.3"
+  
+    ### Backend
+    
+  - "bcrypt": "^5.1.1",
+  - "cookie-parser": "^1.4.7",
+  - "cors": "^2.8.5",
+  - "dotenv": "^16.5.0",
+  - "express": "^4.21.2",
+  - "jsonwebtoken": "^9.0.2",
+  - "mercadopago": "^2.5.0",
+  - "mysql2": "^3.12.0",
+  - "nodemon": "^3.1.9",
+  - "sequelize": "^6.37.5"
+  
 
 ---
 
@@ -43,6 +59,8 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para o ho
 6. Rodar código na pasta Frontend: npm run dev 
 
 7. Rodar código na pasta Backend: noder server.js
+
+   Obs: talvez seja necessário usar dois terminais ao mesmo tempo
 
 ---
 
