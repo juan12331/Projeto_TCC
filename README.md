@@ -62,7 +62,7 @@ SQL_HOST=[escreva o host que esta utilizando aqui ex: localhost]
 
 ---
 
-️## 💻 Instruções de Execução Frontend: 
+## 💻 Instruções de Execução Frontend: 
 
  Configurar arquivo .env: 
 
