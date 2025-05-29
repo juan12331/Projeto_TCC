@@ -176,8 +176,8 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
   - assets
     
-   [ ] colagem: Contém imagens utilizadas para compor colagens na interface do usuário. 
-   [ ] components: Contém componentes reutilizáveis da interface: 
+   ⬛ colagem: Contém imagens utilizadas para compor colagens na interface do usuário. 
+   ⬛ components: Contém componentes reutilizáveis da interface: 
     - boxcartao.jsx / boxcartao.css: Componente e estilos para o cartão de informações. 
     
     - boxpix.jsx / boxpix.css: Componente e estilos para a opção de pagamento via Pix. 
@@ -186,17 +186,17 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
     
     - navbarUser.jsx / navbarUser.css: Componente e estilos para a barra de navegação do usuário. 
 
-   [ ] img: Contém diversas imagens utilizadas no frontend. 
-   [ ] imgAcomodacoes: Imagens utilizadas na tela de acomodações. 
-   [ ] imgCriarUser_Adm: Imagens utilizadas na tela de criar_usuarios do Adm. 
-   [ ] imgLogin: Imagens utilizadas na tela de login. 
-   [ ] imgNavbar: Imagens utilizadas utilizadas na tela de navegação. 
-   [ ] imgUsuarios_Adm: Imagens utilizadas na tela de usuarios do Adm. 
-   [ ] quartos: Imagens utilizadas na tela de quartos.
+   ⬛ img: Contém diversas imagens utilizadas no frontend. 
+   ⬛ imgAcomodacoes: Imagens utilizadas na tela de acomodações. 
+   ⬛ imgCriarUser_Adm: Imagens utilizadas na tela de criar_usuarios do Adm. 
+   ⬛ imgLogin: Imagens utilizadas na tela de login. 
+   ⬛ imgNavbar: Imagens utilizadas utilizadas na tela de navegação. 
+   ⬛ imgUsuarios_Adm: Imagens utilizadas na tela de usuarios do Adm. 
+   ⬛ quartos: Imagens utilizadas na tela de quartos.
   
  - pages
    
-   [ ] adm
+   ⬛ adm
 
      - acomodacoesAdm: Pasta com página e estilos para a gestão de acomodações do Adm. 
      - ava_adm: Pasta com página e estilos para a gestão de avaliação do usuário do Adm. 
@@ -208,7 +208,7 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
      - quartos_Adm: Pasta com página e estilos para a gestão de quartos do Adm. 
      - usuarios: Pasta com página e estilos para a gestão de usuários do Adm. 
 
-   [ ] user 
+   ⬛ user 
 
     - acomodacoes: Pasta com página e estilos para a visualização de acomodações disponíveis. 
     - cadastro: Pasta com página e estilos para o cadastro de novos usuários. 
@@ -223,8 +223,8 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
 
  - Services
    
-  [ ] Api_service.js: Serviço responsável pela comunicação com a API backend. 
-  [ ] http.js: Configurações e instâncias do cliente HTTP utilizado nas requisições. 
+  ⬛ Api_service.js: Serviço responsável pela comunicação com a API backend. 
+  ⬛ http.js: Configurações e instâncias do cliente HTTP utilizado nas requisições. 
 
 ---
 
