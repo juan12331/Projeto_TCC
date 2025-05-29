@@ -28,7 +28,7 @@ O projeto tem como objetivo o desenvolvimento de um site institucional para o ho
   - "react-select": "^5.10.1", 
   - "react-slick": "^0.30.3"
   
-    ### Backend
+  ### Backend
     
   - "bcrypt": "^5.1.1",
   - "cookie-parser": "^1.4.7",
