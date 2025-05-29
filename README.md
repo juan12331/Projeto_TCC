@@ -180,14 +180,15 @@ VITE_RECAPTCHA_KEY=[token recaptcha do site (consegue depois de criar uma conta 
     
     ⬛ colagem: Contém imagens utilizadas para compor colagens na interface do usuário.
    
-    ⬛ components: Contém componentes reutilizáveis da interface: 
-      - boxcartao.jsx / boxcartao.css: Componente e estilos para o cartão de informações. 
-      
-      - boxpix.jsx / boxpix.css: Componente e estilos para a opção de pagamento via Pix. 
-      
-      - navbarAdm.jsx / navbarAdm.css: Componente e estilos para a barra de navegação do administrador. 
-      
-      - navbarUser.jsx / navbarUser.css: Componente e estilos para a barra de navegação do usuário. 
+    ⬛ components: Contém componentes reutilizáveis da interface:
+    
+       - boxcartao.jsx / boxcartao.css: Componente e estilos para o cartão de informações. 
+       
+       - boxpix.jsx / boxpix.css: Componente e estilos para a opção de pagamento via Pix. 
+       
+       - navbarAdm.jsx / navbarAdm.css: Componente e estilos para a barra de navegação do administrador. 
+       
+       - navbarUser.jsx / navbarUser.css: Componente e estilos para a barra de navegação do usuário. 
  
     ⬛ img: Contém diversas imagens utilizadas no frontend.
    
