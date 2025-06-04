@@ -57,10 +57,8 @@ const Criar_usuarios = () => {
         } if (!rageCaracter.test(senha)) {
             showError('senha precisa no minimo de 8 caracteres')
             return
-        } if (regexMaisDe14Caracteres.test(cpf)) {
-            showError('Cpf incorreto')
-            return
-        } if (regexMaisDe20Caracteres.test(tel)) {
+        }
+         if (regexMaisDe20Caracteres.test(tel)) {
             showError('telefone não suportado/incorreto')
             return
         } if (validateCPF(cpf) !== true) {
@@ -79,8 +77,10 @@ const Criar_usuarios = () => {
             const papelValue = papel;
             
             // Chamada da API passando o valor selecionado
+            console.log('paisjda')
             const data = await createUser(cpf, nome, email, senha, tel, Number(papel)
         );
+        console.log('paisjda')
             
             if (data === 'usuario ja foi cadastrado') {
                 showError('Usuário Já Cadastrado')
