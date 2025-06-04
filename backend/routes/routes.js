@@ -56,7 +56,6 @@ routes.get('/quartos/:id_quarto', QuartosControllers.getQuartosById);
 
 routes.put('/quartos/:id_quarto', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), QuartosControllers.updateQuartos);
-
 // rotas avaliacoes
 routes.post('/avaliacoes', autenticacao.autenticarJWT, AvaliacoesControllers.createAvaliacoes);
 
@@ -69,18 +68,14 @@ routes.put('/avaliacoes/:id_avaliacao', autenticacao.autenticarJWT, AvaliacoesCo
 
 routes.delete('/avaliacoes/:id_avaliacao', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), AvaliacoesControllers.deleteAvaliacoes);
-
 // rotas avaliacoes_quartos
 routes.post('/avaliacoesQuartos', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.createAvaliacoes);
-
 routes.get('/avaliacoesQuartos', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAllAvaliacoes);
 routes.get('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesById);
 routes.get('/avaliacoesQuartos/user/:cpf', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesByCpf);
-routes.get('/avaliacoesQuartos/quarto/:id_quarto', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesByQuarto);
-
+routes.get('/avaliacoesQuartos/quarto/:id_quarto', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.getAvaliacoesByQuarto)
 routes.delete('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT,
     autenticacao.verificarPapelUsuario([1]), Avaliacoes_quartosControllers.deleteAvaliacoes);
-
 routes.put('/avaliacoesQuartos/:id_reclamacao', autenticacao.autenticarJWT, Avaliacoes_quartosControllers.updateAvalicoes);
 
 // rotas reservas

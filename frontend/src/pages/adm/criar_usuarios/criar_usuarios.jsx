@@ -165,7 +165,7 @@ const Criar_usuarios = () => {
 
                             <form className="itensRight-criarUser">
                                 <div className="sobrenome-criarUser">
-                                    <input type="password" className="itensSobrenome-criarUser" placeholder="senha" value={senha} onChange={(e) => setSenha(e.target.value)} maxLength={100} />
+                                    <input type="password" className="itensSobrenome-criarUser" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} maxLength={100} />
                                 </div>
                                 <div className="phone-criarUser">
                                     <input type="tel" className="itensPhone-criarUser" placeholder="Telefone" value={tel} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} maxLength={100} />
